@@ -626,6 +626,23 @@
     font-family:'Fraunces', serif; font-style:italic; font-weight:300;
     font-size:12px; opacity:0.6; margin-left:6px;
   }
+  .at-info-btn{
+    display:flex; align-items:center; justify-content:center;
+    width:20px; height:20px;
+    border-radius:50%;
+    border:1px solid var(--line-dark);
+    background:none;
+    color:inherit;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:12px;
+    line-height:1;
+    cursor:pointer;
+    flex-shrink:0;
+    transition:all 0.3s var(--ease);
+  }
+  .at-info-btn:hover{background:var(--bronze); border-color:var(--bronze); color:var(--ivory);}
+  .at-chip.selected .at-info-btn{border-color:rgba(244,241,230,0.4);}
 
   .at-summary{
     display:flex;
@@ -644,6 +661,109 @@
 
   @media (max-width:640px){
     .at-chip{padding:12px 18px;}
+  }
+
+  /* ---------- AT DETAIL MODAL ---------- */
+  .at-modal-overlay{
+    position:fixed; inset:0;
+    background:rgba(29,30,21,0.55);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    z-index:200;
+    display:flex;
+    align-items:flex-start;
+    justify-content:center;
+    padding:80px 20px 40px;
+    opacity:0;
+    visibility:hidden;
+    transition:opacity 0.4s var(--ease), visibility 0.4s var(--ease);
+    overflow-y:auto;
+  }
+  .at-modal-overlay.open{opacity:1; visibility:visible;}
+  .at-modal{
+    position:relative;
+    width:100%;
+    max-width:600px;
+    background:var(--ivory);
+    border-radius:20px;
+    padding:48px 44px 44px;
+    transform:translateY(24px);
+    transition:transform 0.4s var(--ease);
+    box-shadow:0 30px 80px rgba(29,30,21,0.28);
+  }
+  .at-modal-overlay.open .at-modal{transform:translateY(0);}
+  .at-modal-close{
+    position:absolute; top:20px; right:20px;
+    width:34px; height:34px;
+    border-radius:50%;
+    border:1px solid var(--line-dark);
+    background:none;
+    font-size:18px;
+    color:var(--charcoal);
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    transition:all 0.3s var(--ease);
+  }
+  .at-modal-close:hover{background:var(--charcoal); color:var(--ivory); border-color:var(--charcoal);}
+  .at-modal-icon{
+    width:46px; height:46px;
+    border-radius:50%;
+    background:var(--ivory-soft);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--bronze);
+    margin-bottom:20px;
+  }
+  .at-modal-icon svg{width:22px; height:22px; stroke:currentColor;}
+  .at-modal-tag{
+    font-family:'Jost', sans-serif;
+    font-size:11px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--bronze);
+    margin-bottom:10px;
+  }
+  .at-modal-title{font-size:clamp(26px, 4vw, 32px); margin-bottom:26px;}
+  .at-modal-section{margin-bottom:22px;}
+  .at-modal-label{
+    font-family:'Jost', sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--sage);
+    margin-bottom:8px;
+  }
+  .at-modal-section p{font-size:14.5px; color:#40412f; line-height:1.7;}
+  .at-modal-pairs{display:flex; flex-wrap:wrap; gap:8px;}
+  .at-modal-pair{
+    display:flex; align-items:center; gap:7px;
+    border:1px solid var(--line-dark);
+    border-radius:999px;
+    padding:8px 14px;
+    background:#fbfaf4;
+    font-size:12.5px;
+    cursor:pointer;
+    transition:all 0.3s var(--ease);
+  }
+  .at-modal-pair:hover{border-color:var(--bronze-soft); transform:translateY(-1px);}
+  .at-modal-pair svg{width:14px; height:14px; stroke:currentColor; flex-shrink:0;}
+  .at-modal-quote{
+    border-top:1px solid var(--line-dark);
+    padding-top:24px;
+    margin-top:28px;
+  }
+  .at-modal-quote p{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--olive-deep);
+    line-height:1.6;
+  }
+  .at-modal-actions{display:flex; gap:14px; flex-wrap:wrap; margin-top:32px;}
+  .btn-outline-dark.selected{background:var(--charcoal); color:var(--ivory); border-color:var(--charcoal);}
+
+  @media (max-width:640px){
+    .at-modal{padding:36px 26px 32px;}
+    .at-modal-overlay{padding:50px 14px 30px;}
   }
 
   /* ---------- OPTIONS ---------- */
@@ -1106,58 +1226,72 @@
       <div class="at-chip" data-value="swelling">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5C12 3.5 6.5 10.8 6.5 14.8a5.5 5.5 0 0 0 11 0c0-4-5.5-11.3-5.5-11.3z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">붓기 관리</span><span class="at-label lang-en">Swelling Care</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="cafe">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="meal">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 11.5h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 11.5V5.8"/><path d="M9.3 4c0 1 1 1 1 2s-1 1-1 2M15 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">회복 식사</span><span class="at-label lang-en">Recovery Meal</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="walk">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
         <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="sauna">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="chefdining">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="artexhibition">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="museum">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="tealounge">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="headspa">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M7 12c0-3.3 2.2-6 5-6s5 2.7 5 6c0 2-.8 3.4-1.6 4.6-.4.6-.6 1-.6 1.9v.5a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-.5c0-.9-.2-1.3-.6-1.9C7.8 15.4 7 14 7 12z" stroke-linejoin="round"/><path d="M9.5 9.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">헤드 스파</span><span class="at-label lang-en">Head Spa</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="shopping">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">쇼핑</span><span class="at-label lang-en">Shopping</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="beauty">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">뷰티</span><span class="at-label lang-en">Beauty</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="therapy">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 20s-7-4.4-7-9.6C5 7.4 7.1 5.5 9.5 5.5c1.1 0 2 .5 2.5 1.3.5-.8 1.4-1.3 2.5-1.3 2.4 0 4.5 1.9 4.5 4.9C19 15.6 12 20 12 20z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">테라피</span><span class="at-label lang-en">Therapy</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
       <div class="at-chip" data-value="hanriver">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
     </div>
 
@@ -1172,6 +1306,60 @@
     </div>
   </div>
 </section>
+
+<div class="at-modal-overlay" id="atModalOverlay">
+  <div class="at-modal" role="dialog" aria-modal="true" aria-labelledby="atModalTitleKr">
+    <button type="button" class="at-modal-close" id="atModalClose" aria-label="Close">&times;</button>
+    <div class="at-modal-icon" id="atModalIcon"></div>
+    <div class="at-modal-tag lang-kr">애프터 트리트먼트</div>
+    <div class="at-modal-tag lang-en">AFTER TREATMENT</div>
+    <h3 class="at-modal-title lang-kr" id="atModalTitleKr"></h3>
+    <h3 class="at-modal-title lang-en" id="atModalTitleEn"></h3>
+
+    <div class="at-modal-section">
+      <div class="at-modal-label lang-kr">어떤 경험인가요?</div>
+      <div class="at-modal-label lang-en">What's the Experience?</div>
+      <p class="lang-kr" id="atModalExpKr"></p>
+      <p class="lang-en" id="atModalExpEn"></p>
+    </div>
+
+    <div class="at-modal-section">
+      <div class="at-modal-label lang-kr">왜 추천하나요?</div>
+      <div class="at-modal-label lang-en">Why We Recommend It</div>
+      <p class="lang-kr" id="atModalWhyKr"></p>
+      <p class="lang-en" id="atModalWhyEn"></p>
+    </div>
+
+    <div class="at-modal-section">
+      <div class="at-modal-label lang-kr">이런 분께 추천합니다</div>
+      <div class="at-modal-label lang-en">Recommended For</div>
+      <p class="lang-kr" id="atModalForKr"></p>
+      <p class="lang-en" id="atModalForEn"></p>
+    </div>
+
+    <div class="at-modal-section">
+      <div class="at-modal-label lang-kr">함께 추천하는 경험</div>
+      <div class="at-modal-label lang-en">Pairs Well With</div>
+      <div class="at-modal-pairs" id="atModalPairs"></div>
+    </div>
+
+    <div class="at-modal-quote">
+      <div class="at-modal-label lang-kr">이 곳을 선택한 이유</div>
+      <div class="at-modal-label lang-en">Why We Chose This Place</div>
+      <p class="lang-kr" id="atModalReasonKr"></p>
+      <p class="lang-en" id="atModalReasonEn"></p>
+    </div>
+
+    <div class="at-modal-actions">
+      <button type="button" class="btn btn-outline-dark" id="atModalSelect">
+        <span class="lang-kr">이 경험 선택하기</span><span class="lang-en">Add to My Journey</span>
+      </button>
+      <a href="#contact" class="btn btn-primary">
+        <span class="lang-kr">문의하기</span><span class="lang-en">Enquire</span>
+      </a>
+    </div>
+  </div>
+</div>
 <!-- ===== OPTIONS ===== -->
 <section class="options section" id="options">
   <div class="container">
@@ -1406,13 +1594,267 @@
   if(atGrid){
     const atCountKr = document.getElementById('atCountKr');
     const atCountEn = document.getElementById('atCountEn');
+
+    function updateAtCount(){
+      const n = atGrid.querySelectorAll('.at-chip.selected').length;
+      atCountKr.textContent = n;
+      atCountEn.textContent = n;
+    }
+
+    function toggleChipSelect(chip){
+      chip.classList.toggle('selected');
+      updateAtCount();
+    }
+
     atGrid.querySelectorAll('.at-chip').forEach(chip => {
-      chip.addEventListener('click', () => {
-        chip.classList.toggle('selected');
-        const n = atGrid.querySelectorAll('.at-chip.selected').length;
-        atCountKr.textContent = n;
-        atCountEn.textContent = n;
+      chip.addEventListener('click', () => toggleChipSelect(chip));
+    });
+
+    // ---------- after treatment detail modal ----------
+    const atDetails = {
+      swelling:{
+        expKr:'시술 직후 붓기를 가라앉히는 데 집중한 짧은 케어 세션입니다. 냉찜질, 림프 마사지, 압박 케어 등 병원에서 권장하는 방식으로만 진행됩니다.',
+        expEn:'A short, focused session to bring swelling down right after your procedure — cold compress, lymphatic massage, and compression, all in the way your clinic actually recommends.',
+        whyKr:'회복 속도를 결정짓는 건 첫 48시간입니다. 이 시간을 제대로 보내면 이후 일정이 훨씬 편해집니다.',
+        whyEn:'The first 48 hours decide how the rest of your recovery goes. Get this part right, and everything after feels easier.',
+        forKr:'얼굴 시술 직후 붓기가 신경 쓰이는 분, 다음 일정까지 컨디션을 최대한 회복하고 싶은 분.',
+        forEn:'Anyone who just had a facial procedure and wants to feel their best before the next appointment.',
+        reasonKr:'붓기 관리는 결과의 마무리와 같아서, 직접 방문해 관리 방식과 위생, 응대까지 확인한 곳만 연결합니다.',
+        reasonEn:'Swelling care is the finishing touch on your results, so we only work with places visited in person — checked for hygiene and care quality ourselves.',
+        pairs:['meal','walk']
+      },
+      cafe:{
+        expKr:'시술 후 무리하지 않고 잠시 앉아 쉴 수 있는 조용한 카페입니다. 자극적이지 않은 음료와 편안한 좌석 위주로 골랐습니다.',
+        expEn:"A quiet café to sit and rest without pushing yourself, right after your procedure — gentle drinks, comfortable seating, nothing overstimulating.",
+        whyKr:'병원과 숙소 사이, 완전히 쉴 수 있는 중간 지점이 필요합니다. 조용하고 붐비지 않는 곳으로만 골랐습니다.',
+        whyEn:'Between the clinic and where you’re staying, you need a real place to pause — quiet, uncrowded, easy on the senses.',
+        forKr:'다음 일정까지 시간이 붕 뜨는 분, 잠시 앉아서 숨 돌리고 싶은 분.',
+        forEn:'Anyone with a gap before their next appointment who just wants to sit down and breathe for a moment.',
+        reasonKr:'직접 여러 번 가보고, 조명과 소음, 좌석 간격까지 확인한 곳만 추천합니다.',
+        reasonEn:'I’ve been there myself, more than once — checking the lighting, the noise level, even how far apart the seats are.',
+        pairs:['meal','tealounge','walk']
+      },
+      meal:{
+        expKr:'시술 후 몸에 부담 없는 식단으로 구성한 회복식입니다. 자극적이지 않고 소화가 편한 메뉴로만 짜여 있습니다.',
+        expEn:'A recovery-friendly meal built around what your body can actually handle right now — gentle, easy to digest, nothing harsh.',
+        whyKr:'잘 먹는 것이 회복의 절반입니다. 시술 부위나 컨디션에 따라 피해야 할 음식이 다르기 때문에 미리 확인된 곳으로만 연결합니다.',
+        whyEn:'Eating well is half of recovery. What to avoid changes depending on your procedure, so we only connect you with places we’ve already checked.',
+        forKr:'회복 기간 동안 먹는 것까지 신경 쓰고 싶은 분.',
+        forEn:'Anyone who wants their meals looked after too, not just their treatment.',
+        reasonKr:'메뉴 구성부터 재료까지 직접 확인하고, 시술 후 먹기에 무리 없는 곳만 골랐습니다.',
+        reasonEn:'I’ve checked the menu and the ingredients myself — only chosen what’s genuinely fine to eat after a procedure.',
+        pairs:['swelling','cafe','tealounge']
+      },
+      walk:{
+        expKr:'무리되지 않는 속도로 걸을 수 있는 조용한 산책로입니다. 일정 사이 잠깐의 여백을 채웁니다.',
+        expEn:'A quiet route to walk at your own pace, nothing strenuous, just enough to fill the gap between appointments.',
+        whyKr:'가벼운 걸음은 회복에 오히려 도움이 됩니다. 인적이 드물고 그늘이 있는 길로만 골랐습니다.',
+        whyEn:'Light movement actually helps recovery. We only picked routes that are quiet and shaded.',
+        forKr:'하루 종일 실내에만 있기 답답한 분, 가볍게 몸을 움직이고 싶은 분.',
+        forEn:'Anyone who doesn’t want to be stuck indoors all day and wants a little gentle movement.',
+        reasonKr:'직접 걸어보고 그늘, 벤치 위치, 화장실 접근성까지 확인한 길만 안내합니다.',
+        reasonEn:'I’ve walked these routes myself — checked the shade, the benches, even how close the restrooms are.',
+        pairs:['hanriver','cafe','swelling']
+      },
+      sauna:{
+        expKr:'근육의 긴장을 풀고 몸을 이완시키는 프라이빗 사우나입니다. 시술 부위에 영향이 없는 방식으로만 진행됩니다.',
+        expEn:'A private sauna session to release tension and let your body properly unwind — always adjusted so it won’t affect your treated area.',
+        whyKr:'시술에 따라 열 노출 가능 시점이 다르기 때문에, 코디네이터가 컨디션을 먼저 확인한 뒤에만 연결합니다.',
+        whyEn:'Heat exposure timing varies by procedure, so our coordinator always checks your condition first before booking this.',
+        forKr:'근육 피로와 긴장이 쌓인 분, 몸을 완전히 이완시키고 싶은 분.',
+        forEn:'Anyone carrying tension and fatigue who wants their body to genuinely let go.',
+        reasonKr:'온도, 환기, 프라이빗 정도까지 직접 확인하고, 시술 후 방문에도 무리 없는 곳만 골랐습니다.',
+        reasonEn:'I’ve checked the temperature, the ventilation, the level of privacy — only chosen places genuinely fine to visit post-procedure.',
+        pairs:['therapy','headspa','tealounge']
+      },
+      chefdining:{
+        expKr:'서울의 유명 셰프가 운영하는 다이닝에서 즐기는 특별한 한 끼입니다. 회복 컨디션에 맞춰 메뉴를 조율할 수 있습니다.',
+        expEn:'A memorable meal at a dining spot run by one of Seoul’s well-known chefs — the menu can be adjusted to fit your recovery condition.',
+        whyKr:'회복 여정에도 특별한 순간이 있어야 한다고 생각합니다. 시술 후에도 부담 없이 즐길 수 있도록 미리 조율합니다.',
+        whyEn:'Even a recovery trip deserves a few real moments. We coordinate ahead so you can enjoy this without any strain on your recovery.',
+        forKr:'여정 중 특별한 순간을 원하는 분, 미식 경험도 놓치고 싶지 않은 분.',
+        forEn:'Anyone who wants a genuinely special moment during their trip and doesn’t want to miss out on Seoul’s food scene.',
+        reasonKr:'직접 방문해서 맛과 서비스, 그리고 회복 중인 손님에 대한 배려까지 확인한 곳만 연결합니다.',
+        reasonEn:'I’ve dined there myself — checked the food, the service, and how thoughtfully they handle guests who are recovering.',
+        pairs:['tealounge','artexhibition','shopping']
+      },
+      artexhibition:{
+        expKr:'일정 사이 여유롭게 둘러볼 수 있는 전시 관람입니다. 무리되지 않는 동선으로 안내합니다.',
+        expEn:'An unhurried visit to an exhibition between appointments, guided along a route that won’t tire you out.',
+        whyKr:'회복 중에도 서울의 지금을 느낄 수 있는 시간이 필요합니다. 걷는 양이 적고 조용한 전시 위주로 골랐습니다.',
+        whyEn:'Even mid-recovery, you deserve a taste of Seoul right now. We chose exhibitions with light walking and a quiet atmosphere.',
+        forKr:'조용히 시간을 보내고 싶은 분, 여행의 감성도 놓치고 싶지 않은 분.',
+        forEn:'Anyone who wants a quiet moment to themselves without giving up the feeling of actually being on a trip.',
+        reasonKr:'직접 관람하고, 동선과 좌석, 조명까지 회복 중에도 편안한지 확인한 전시만 안내합니다.',
+        reasonEn:'I’ve seen it myself — checked the walking route, seating, and lighting to make sure it’s comfortable mid-recovery.',
+        pairs:['museum','tealounge','cafe']
+      },
+      museum:{
+        expKr:'서울의 역사와 문화를 천천히 둘러보는 박물관 투어입니다. 앉아서 쉴 수 있는 공간이 있는 곳으로만 골랐습니다.',
+        expEn:'A slow-paced museum tour through Seoul’s history and culture, chosen for having real places to sit and rest along the way.',
+        whyKr:'회복 중에도 무언가 배우고 느끼는 시간이 필요합니다. 동선이 길지 않고 휴식 공간이 있는 곳으로만 추천합니다.',
+        whyEn:'Recovery doesn’t mean giving up learning and feeling something new. We only recommend places with short routes and real rest spots.',
+        forKr:'서울의 역사와 문화에 관심 있는 분, 차분하게 시간을 보내고 싶은 분.',
+        forEn:'Anyone curious about Seoul’s history and culture who wants to spend the time calmly.',
+        reasonKr:'직접 둘러보고, 동선 길이와 휴게 공간, 화장실 위치까지 확인한 곳만 안내합니다.',
+        reasonEn:'I’ve walked through it myself — checked the route length, rest areas, even where the restrooms are.',
+        pairs:['artexhibition','tealounge','hanriver']
+      },
+      tealounge:{
+        expKr:'조용히 차 한잔과 함께 쉬어갈 수 있는 라운지입니다. 편안한 좌석과 차분한 분위기 위주로 골랐습니다.',
+        expEn:'A calm lounge to slow down over a pot of tea — comfortable seating, quiet atmosphere, nothing rushed.',
+        whyKr:'일정 사이, 완전히 아무것도 하지 않아도 되는 시간이 있어야 합니다.',
+        whyEn:'Somewhere between appointments, you need a moment where you’re allowed to do absolutely nothing.',
+        forKr:'차분히 쉬면서 대화를 나누고 싶은 분, 조용한 시간이 필요한 분.',
+        forEn:'Anyone who wants a quiet moment, maybe a conversation, without any noise or rush.',
+        reasonKr:'직접 차를 마셔보고, 좌석과 조명, 소음까지 확인한 곳만 골랐습니다.',
+        reasonEn:'I’ve had tea there myself — checked the seating, lighting, and noise level before recommending it.',
+        pairs:['cafe','artexhibition','museum']
+      },
+      headspa:{
+        expKr:'두피와 목, 어깨까지 이어지는 집중 케어입니다. 시술 부위를 피해서 안전하게 진행됩니다.',
+        expEn:'A focused treatment covering scalp, neck, and shoulders — always done carefully around your treated area.',
+        whyKr:'얼굴 시술 후에는 두피 마사지 하나로도 몸 전체의 긴장이 풀립니다. 시술 부위를 정확히 피할 수 있는 테라피스트로만 연결합니다.',
+        whyEn:'After a facial procedure, a scalp massage alone can release tension through your whole body. We only connect you with therapists who know exactly how to work around it.',
+        forKr:'두통이나 긴장이 심한 분, 완전히 이완하고 싶은 분.',
+        forEn:'Anyone dealing with headaches or tension who wants to properly let go.',
+        reasonKr:'직접 받아보고, 시술 부위를 얼마나 세심하게 피해서 케어하는지 확인한 곳만 연결합니다.',
+        reasonEn:'I’ve had it done myself — checked exactly how carefully they work around a treated area before recommending it.',
+        pairs:['therapy','sauna','tealounge']
+      },
+      shopping:{
+        expKr:'컨디션에 맞춰 무리 없이 둘러볼 수 있는 쇼핑 동선입니다. 걷는 양과 휴식 지점을 미리 계획합니다.',
+        expEn:'A shopping route paced to your condition, with walking distance and rest stops planned in advance.',
+        whyKr:'회복 중이라고 해서 서울의 쇼핑을 놓칠 필요는 없습니다. 다만 무리하지 않도록 동선을 미리 짭니다.',
+        whyEn:'Recovering doesn’t mean missing out on Seoul’s shopping. We just plan the route so you don’t overdo it.',
+        forKr:'쇼핑도 여정의 일부로 챙기고 싶은 분.',
+        forEn:'Anyone who wants shopping to be part of the trip too, not something they have to skip.',
+        reasonKr:'직접 걸어보고 동선과 휴식 공간을 확인한 뒤에만 일정에 포함시킵니다.',
+        reasonEn:'I’ve walked the route myself and checked the rest points before ever including it in an itinerary.',
+        pairs:['chefdining','cafe','beauty']
+      },
+      beauty:{
+        expKr:'시술과 겹치지 않는 안전한 범위 내에서 받는 뷰티 케어입니다. 헤어, 네일 등 컨디션에 맞춰 조율합니다.',
+        expEn:'Beauty care kept safely within what won’t interfere with your procedure — hair, nails, adjusted to your condition.',
+        whyKr:'회복 중에도 스스로를 챙기는 기분은 중요합니다. 시술과 겹치지 않는 범위를 코디네이터가 먼저 확인합니다.',
+        whyEn:'Feeling taken care of matters, even mid-recovery. Our coordinator always checks what’s safe before booking anything.',
+        forKr:'회복 중에도 스스로를 가꾸고 싶은 분.',
+        forEn:'Anyone who wants to feel put-together, even while recovering.',
+        reasonKr:'직접 받아보고, 시술 부위와 겹치지 않는지 꼼꼼히 확인한 곳만 연결합니다.',
+        reasonEn:'I’ve had it done myself — carefully checked it won’t overlap with a treated area before recommending it.',
+        pairs:['headspa','shopping','tealounge']
+      },
+      therapy:{
+        expKr:'몸과 마음의 긴장을 함께 풀어주는 테라피 세션입니다. 시술 부위를 피해 안전하게 진행됩니다.',
+        expEn:'A therapy session to release tension in both body and mind, always done carefully around your treated area.',
+        whyKr:'낯선 도시에서 혼자 받는 시술은 몸만큼 마음도 긴장하게 만듭니다. 이완할 수 있는 시간을 꼭 넣습니다.',
+        whyEn:'Getting a procedure alone in an unfamiliar city tenses up your mind as much as your body. We always build in time to actually unwind.',
+        forKr:'몸과 마음 모두 편안해지고 싶은 분.',
+        forEn:'Anyone who wants both their body and mind to genuinely relax.',
+        reasonKr:'직접 받아보고, 시술 부위를 세심하게 피하는 테라피스트인지 확인한 곳만 연결합니다.',
+        reasonEn:'I’ve experienced it myself — checked how carefully the therapist works around a treated area before recommending it.',
+        pairs:['headspa','sauna','tealounge']
+      },
+      hanriver:{
+        expKr:'한강을 따라 천천히 걷거나 앉아서 시간을 보내는 여유입니다. 컨디션에 맞춰 걷기와 휴식을 조절합니다.',
+        expEn:'Time along the Han River, whether that’s a slow walk or just sitting still — paced entirely to your condition.',
+        whyKr:'서울에 왔다면 한강 하나쯤은 느껴보시면 좋겠습니다. 붐비지 않는 시간대와 장소로만 안내합니다.',
+        whyEn:'If you’ve come to Seoul, you should get to feel the Han River at least once. We only guide you to quiet times and spots.',
+        forKr:'서울다운 순간을 느끼고 싶은 분, 야외에서 여유를 즐기고 싶은 분.',
+        forEn:'Anyone who wants a genuine Seoul moment and a bit of outdoor time to unwind.',
+        reasonKr:'직접 가보고, 사람이 적은 시간대와 앉을 곳까지 확인한 장소만 안내합니다.',
+        reasonEn:'I’ve been there myself — checked the quiet hours and the best spots to sit before recommending it.',
+        pairs:['walk','cafe','artexhibition']
+      }
+    };
+
+    const atModalOverlay = document.getElementById('atModalOverlay');
+    const atModalClose = document.getElementById('atModalClose');
+    const atModalIcon = document.getElementById('atModalIcon');
+    const atModalTitleKr = document.getElementById('atModalTitleKr');
+    const atModalTitleEn = document.getElementById('atModalTitleEn');
+    const atModalExpKr = document.getElementById('atModalExpKr');
+    const atModalExpEn = document.getElementById('atModalExpEn');
+    const atModalWhyKr = document.getElementById('atModalWhyKr');
+    const atModalWhyEn = document.getElementById('atModalWhyEn');
+    const atModalForKr = document.getElementById('atModalForKr');
+    const atModalForEn = document.getElementById('atModalForEn');
+    const atModalReasonKr = document.getElementById('atModalReasonKr');
+    const atModalReasonEn = document.getElementById('atModalReasonEn');
+    const atModalPairs = document.getElementById('atModalPairs');
+    const atModalSelect = document.getElementById('atModalSelect');
+    let atModalCurrentValue = null;
+
+    function updateAtModalSelectState(){
+      const chip = atGrid.querySelector(`.at-chip[data-value="${atModalCurrentValue}"]`);
+      if(!chip) return;
+      const isSelected = chip.classList.contains('selected');
+      atModalSelect.classList.toggle('selected', isSelected);
+      atModalSelect.querySelector('.lang-kr').textContent = isSelected ? '선택됨 · 해제하기' : '이 경험 선택하기';
+      atModalSelect.querySelector('.lang-en').textContent = isSelected ? 'Added · Remove' : 'Add to My Journey';
+    }
+
+    function openAtModal(value){
+      const chip = atGrid.querySelector(`.at-chip[data-value="${value}"]`);
+      const data = atDetails[value];
+      if(!chip || !data) return;
+      atModalCurrentValue = value;
+
+      atModalIcon.innerHTML = chip.querySelector('.at-icon').innerHTML;
+      atModalTitleKr.textContent = chip.querySelector('.at-label.lang-kr').textContent;
+      atModalTitleEn.textContent = chip.querySelector('.at-label.lang-en').textContent;
+      atModalExpKr.textContent = data.expKr;
+      atModalExpEn.textContent = data.expEn;
+      atModalWhyKr.textContent = data.whyKr;
+      atModalWhyEn.textContent = data.whyEn;
+      atModalForKr.textContent = data.forKr;
+      atModalForEn.textContent = data.forEn;
+      atModalReasonKr.textContent = data.reasonKr;
+      atModalReasonEn.textContent = data.reasonEn;
+
+      atModalPairs.innerHTML = '';
+      data.pairs.forEach(pv => {
+        const pChip = atGrid.querySelector(`.at-chip[data-value="${pv}"]`);
+        if(!pChip) return;
+        const tag = document.createElement('button');
+        tag.type = 'button';
+        tag.className = 'at-modal-pair';
+        tag.innerHTML = pChip.querySelector('.at-icon').innerHTML
+          + `<span class="lang-kr">${pChip.querySelector('.at-label.lang-kr').textContent}</span>`
+          + `<span class="lang-en">${pChip.querySelector('.at-label.lang-en').textContent}</span>`;
+        tag.addEventListener('click', () => openAtModal(pv));
+        atModalPairs.appendChild(tag);
       });
+
+      updateAtModalSelectState();
+      atModalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeAtModal(){
+      atModalOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    atGrid.querySelectorAll('.at-info-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openAtModal(btn.closest('.at-chip').dataset.value);
+      });
+    });
+
+    atModalClose.addEventListener('click', closeAtModal);
+    atModalOverlay.addEventListener('click', (e) => {
+      if(e.target === atModalOverlay) closeAtModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && atModalOverlay.classList.contains('open')) closeAtModal();
+    });
+    atModalSelect.addEventListener('click', () => {
+      const chip = atGrid.querySelector(`.at-chip[data-value="${atModalCurrentValue}"]`);
+      if(!chip) return;
+      toggleChipSelect(chip);
+      updateAtModalSelectState();
     });
   }
 

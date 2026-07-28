@@ -939,6 +939,36 @@
   }
   .option-fit-clear:hover{color:var(--charcoal);}
 
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials{background:var(--olive-deep); color:var(--ivory);}
+  .testimonials .section-header{
+    max-width:640px;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+  .testimonials .section-header .eyebrow{justify-content:center;}
+  .testimonial-placeholder{
+    max-width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+  .tp-mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:64px;
+    color:var(--bronze-soft);
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .testimonial-placeholder p{
+    font-size:16px;
+    line-height:1.75;
+    color:rgba(244,241,230,0.78);
+    margin-bottom:34px;
+  }
+  .testimonial-placeholder .btn-ghost{margin:0 auto;}
+
   /* ---------- GUIDE (lead magnet) ---------- */
   .guide{
     background:
@@ -1219,6 +1249,7 @@
       <a href="#after-treatment" onclick="closeMenu()"><span class="lang-kr">애프터</span><span class="lang-en">After</span></a>
       <a href="#options" onclick="closeMenu()"><span class="lang-kr">옵션</span><span class="lang-en">Options</span></a>
       <a href="#story" onclick="closeMenu()"><span class="lang-kr">소개</span><span class="lang-en">About</span></a>
+      <a href="#testimonials" onclick="closeMenu()"><span class="lang-kr">후기</span><span class="lang-en">Stories</span></a>
       <a href="#guide" onclick="closeMenu()"><span class="lang-kr">가이드</span><span class="lang-en">Guide</span></a>
       <a href="#contact" onclick="closeMenu()"><span class="lang-kr">문의</span><span class="lang-en">Contact</span></a>
     </nav>
@@ -1569,6 +1600,24 @@
           <div class="lang-en">I only recommend places I'd send my own family.<br>Only routes I've walked myself. Only places I'd trust.<span class="sig-role">DESIGNED BY SUN</span></div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials section light-on-dark" id="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow"><span class="lang-kr">고객 후기</span><span class="lang-en">GUEST STORIES</span></div>
+      <h2 class="lang-kr">첫 게스트님의 이야기를<br>기다리고 있어요</h2>
+      <h2 class="lang-en">Waiting for Our<br>First Guest's Story</h2>
+    </div>
+    <div class="testimonial-placeholder reveal">
+      <div class="tp-mark">&ldquo;</div>
+      <p class="lang-kr">실제로 다녀가신 분들의 후기를 이곳에 정직하게 모아갈 예정입니다. 아직은 비어있지만, 그만큼 지금 함께하는 한 분 한 분의 여정에 더 마음을 다하고 있어요.</p>
+      <p class="lang-en">We're keeping this space honest — real stories from real guests, added as they come. It's empty for now, which just means we're pouring even more care into every journey so far.</p>
+      <a href="#contact" class="btn btn-ghost">
+        <span class="lang-kr">첫 게스트가 되어주세요</span><span class="lang-en">Be Our First Guest</span>
+      </a>
     </div>
   </div>
 </section>

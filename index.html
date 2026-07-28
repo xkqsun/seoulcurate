@@ -774,6 +774,7 @@
     gap:24px;
   }
   .option-card{
+    position:relative;
     border:1px solid var(--line-dark);
     border-radius:2px;
     padding:44px 34px;
@@ -847,6 +848,73 @@
   .option-card .btn:hover{background:var(--charcoal); color:var(--ivory);}
   .option-card.featured .btn{border-color:var(--bronze-soft); color:var(--ivory);}
   .option-card.featured .btn:hover{background:var(--bronze); border-color:var(--bronze);}
+
+  .option-recommended{
+    display:none;
+    position:absolute;
+    top:-13px; right:24px;
+    align-items:center;
+    background:var(--bronze);
+    color:var(--ivory);
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border-radius:999px;
+    box-shadow:0 6px 16px rgba(178,138,86,0.35);
+    white-space:nowrap;
+  }
+  .option-card.recommended{border-color:var(--bronze);}
+  .option-card.recommended .option-recommended{display:inline-flex;}
+  .option-card.featured.recommended .option-recommended{background:var(--bronze-soft); color:var(--olive-deep);}
+
+  .option-fit-summary{
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:18px;
+    background:var(--ivory-soft);
+    border:1px solid var(--line-dark);
+    border-radius:14px;
+    padding:22px 26px;
+    margin-bottom:36px;
+  }
+  .option-fit-summary.visible{display:flex;}
+  .option-fit-summary-head{display:flex; flex-direction:column; gap:12px; flex:1; min-width:240px;}
+  .option-fit-summary-label{
+    font-family:'Jost', sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--sage);
+  }
+  .option-fit-tags{display:flex; flex-wrap:wrap; gap:8px;}
+  .option-fit-tag{
+    display:flex; align-items:center; gap:6px;
+    border:1px solid var(--line-dark);
+    border-radius:999px;
+    padding:7px 13px;
+    background:#fbfaf4;
+    font-size:12.5px;
+    color:var(--charcoal);
+  }
+  .option-fit-tag svg{width:14px; height:14px; stroke:currentColor; flex-shrink:0;}
+  .option-fit-clear{
+    font-family:'Jost', sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--sage);
+    background:none;
+    border:none;
+    text-decoration:underline;
+    text-underline-offset:3px;
+    cursor:pointer;
+    white-space:nowrap;
+    transition:color 0.3s var(--ease);
+  }
+  .option-fit-clear:hover{color:var(--charcoal);}
 
   /* ---------- GUIDE (lead magnet) ---------- */
   .guide{
@@ -1374,8 +1442,22 @@
       <h2 class="lang-en">Choose the Journey<br>That Fits You</h2>
     </div>
 
+    <div class="option-fit-summary" id="optionFitSummary">
+      <div class="option-fit-summary-head">
+        <div class="option-fit-summary-label">
+          <span class="lang-kr">회원님이 선택한 애프터 트리트먼트</span>
+          <span class="lang-en">Your Selected After-Treatment Picks</span>
+        </div>
+        <div class="option-fit-tags" id="optionFitTags"></div>
+      </div>
+      <button type="button" class="option-fit-clear" id="optionFitClear">
+        <span class="lang-kr">모두 지우기</span><span class="lang-en">Clear All</span>
+      </button>
+    </div>
+
     <div class="option-grid reveal">
-      <div class="option-card">
+      <div class="option-card" data-fit-min="0" data-fit-max="3">
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">반나절 · 하루</span><span class="lang-en">HALF · FULL DAY</span></div>
         <h3 class="option-title lang-kr">웰니스 데이 저니</h3>
         <h3 class="option-title lang-en">Wellness Day Journey</h3>
@@ -1390,7 +1472,8 @@
         <a href="#contact" class="btn"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
       </div>
 
-      <div class="option-card featured">
+      <div class="option-card featured" data-fit-min="4" data-fit-max="7">
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">2박 3일</span><span class="lang-en">3 DAYS · 2 NIGHTS</span></div>
         <h3 class="option-title lang-kr">회복 저니</h3>
         <h3 class="option-title lang-en">3-Day Recovery Journey</h3>
@@ -1406,7 +1489,8 @@
         <a href="#contact" class="btn"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
       </div>
 
-      <div class="option-card">
+      <div class="option-card" data-fit-min="8" data-fit-max="999">
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">완전 맞춤</span><span class="lang-en">FULLY BESPOKE</span></div>
         <h3 class="option-title lang-kr">풀 베스포크 저니</h3>
         <h3 class="option-title lang-en">Full Bespoke Journey</h3>
@@ -1604,6 +1688,7 @@
       const n = atGrid.querySelectorAll('.at-chip.selected').length;
       atCountKr.textContent = n;
       atCountEn.textContent = n;
+      updateOptionsRecommendation();
     }
 
     function toggleChipSelect(chip){
@@ -1614,6 +1699,45 @@
     atGrid.querySelectorAll('.at-chip').forEach(chip => {
       chip.addEventListener('click', () => toggleChipSelect(chip));
     });
+
+    // ---------- options recommendation from selection ----------
+    const optionFitSummary = document.getElementById('optionFitSummary');
+    const optionFitTags = document.getElementById('optionFitTags');
+    const optionFitClear = document.getElementById('optionFitClear');
+    const optionCards = document.querySelectorAll('.option-card');
+
+    function updateOptionsRecommendation(){
+      const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
+      const n = selectedChips.length;
+
+      if(optionFitTags){
+        optionFitTags.innerHTML = '';
+        selectedChips.forEach(chip => {
+          const tag = document.createElement('span');
+          tag.className = 'option-fit-tag';
+          tag.innerHTML = chip.querySelector('.at-icon').innerHTML
+            + `<span class="lang-kr">${chip.querySelector('.at-label.lang-kr').textContent}</span>`
+            + `<span class="lang-en">${chip.querySelector('.at-label.lang-en').textContent}</span>`;
+          optionFitTags.appendChild(tag);
+        });
+      }
+
+      if(optionFitSummary) optionFitSummary.classList.toggle('visible', n > 0);
+
+      optionCards.forEach(card => {
+        const min = Number(card.dataset.fitMin);
+        const max = Number(card.dataset.fitMax);
+        const fits = n > 0 && n >= min && n <= max;
+        card.classList.toggle('recommended', fits);
+      });
+    }
+
+    if(optionFitClear){
+      optionFitClear.addEventListener('click', () => {
+        atGrid.querySelectorAll('.at-chip.selected').forEach(chip => chip.classList.remove('selected'));
+        updateAtCount();
+      });
+    }
 
     // ---------- after treatment detail modal ----------
     const atDetails = {

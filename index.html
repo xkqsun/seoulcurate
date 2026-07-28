@@ -542,6 +542,30 @@
     color:#3f4130;
     max-width:520px;
   }
+  .story-stats{
+    display:flex;
+    gap:44px;
+    max-width:520px;
+    margin-bottom:36px;
+    padding:26px 0;
+    border-top:1px solid var(--line-dark);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .story-stat-num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:38px;
+    color:var(--bronze);
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .story-stat-label{
+    font-size:12px;
+    letter-spacing:0.03em;
+    color:var(--sage);
+    line-height:1.4;
+  }
   .story-signature{
     margin-top:50px;
     padding-top:34px;
@@ -1591,6 +1615,19 @@
 
         <p class="lang-kr">직접 걸어보고, 직접 경험한 것만 추천하는 신뢰 기반의 큐레이션. 메디컬 경험 후 웰니스, 공간 경험, 서울 컬처 모먼트까지, 한 번에 하나의 흐름으로.</p>
         <p class="lang-en">Trust-based curation: recommending only what I've walked and experienced myself. From your medical experience to wellness, space, and Seoul culture moments, all at once, in a single flow.</p>
+
+        <div class="story-stats">
+          <div class="story-stat">
+            <div class="story-stat-num">20</div>
+            <div class="story-stat-label lang-kr">직접 방문한 클리닉</div>
+            <div class="story-stat-label lang-en">Clinics Personally Visited</div>
+          </div>
+          <div class="story-stat">
+            <div class="story-stat-num">15</div>
+            <div class="story-stat-label lang-kr">직접 확인한 회복 공간</div>
+            <div class="story-stat-label lang-en">Recovery Spaces Vetted</div>
+          </div>
+        </div>
 
         <p class="lang-kr">당신은 그저 도착해서, 회복에만 집중하면 됩니다.</p>
         <p class="lang-en">You simply arrive, and focus only on recovery.</p>

@@ -1078,10 +1078,15 @@
       font-size:16px;
       color:var(--ivory);
       transform:translateY(-100%);
-      transition:transform 0.5s var(--ease);
+      visibility:hidden;
+      transition:transform 0.5s var(--ease), visibility 0s linear 0.5s;
       z-index:105;
     }
-    nav.links.open{transform:translateY(0);}
+    nav.links.open{
+      transform:translateY(0);
+      visibility:visible;
+      transition:transform 0.5s var(--ease), visibility 0s linear 0s;
+    }
     .menu-toggle{display:flex;}
     .nav-cta{display:none;}
     .hero-top{margin-bottom:80px; flex-direction:column; gap:6px;}

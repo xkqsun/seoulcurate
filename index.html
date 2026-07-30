@@ -1086,6 +1086,7 @@
     display:none;
   }
   .form-msg.show{display:block;}
+  .form-msg.error{color:#b5493f;}
 
   /* ---------- CONTACT ---------- */
   .contact{background:var(--charcoal); color:var(--ivory);}
@@ -1736,11 +1737,41 @@
   }, { threshold: 0.15 });
   revealEls.forEach(el => io.observe(el));
 
-  // guide form (UI only)
-  document.getElementById('guideForm').addEventListener('submit', function(e){
+  // guide form
+  document.getElementById('guideForm').addEventListener('submit', async function(e){
     e.preventDefault();
-    document.getElementById('guideMsg').classList.add('show');
-    this.reset();
+    const isEn = document.documentElement.classList.contains('lang-en');
+    const form = this;
+    const emailInput = document.getElementById('guideEmail');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const msgEl = document.getElementById('guideMsg');
+
+    const originalBtnHTML = submitBtn.innerHTML;
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = isEn ? 'Sending…' : '보내는 중…';
+    msgEl.classList.remove('show', 'error');
+
+    try {
+      const resp = await fetch('/api/send-guide', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value.trim() }),
+      });
+
+      if (!resp.ok) throw new Error('send failed');
+
+      msgEl.querySelector('.lang-kr').textContent = '감사합니다. 가이드를 이메일로 보내드릴게요.';
+      msgEl.querySelector('.lang-en').textContent = 'Thank you. Check your inbox shortly.';
+      msgEl.classList.add('show');
+      form.reset();
+    } catch (err) {
+      msgEl.querySelector('.lang-kr').textContent = '전송에 실패했어요. 잠시 후 다시 시도해주세요.';
+      msgEl.querySelector('.lang-en').textContent = "Something went wrong. Please try again shortly.";
+      msgEl.classList.add('show', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalBtnHTML;
+    }
   });
 
   // contact form (UI only)

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="lang-en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Story · Seoul Curate</title>
+<meta name="description" content="Share your Seoul Curate journey — your story may be featured on our site.">
+<link rel="canonical" href="https://seoulcurate.com/write-review.html">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --olive-deep:#3a3d2b;
+    --olive-mid:#565a3f;
+    --sage:#7b8264;
+    --ivory:#f4f1e6;
+    --ivory-soft:#ece7d6;
+    --bronze:#b28a56;
+    --bronze-soft:#c9a877;
+    --charcoal:#1d1e15;
+    --line-dark: rgba(29,30,21,0.12);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html.lang-en .lang-kr{display:none !important;}
+  html:not(.lang-en) .lang-en{display:none !important;}
+  body{
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    background:var(--ivory);
+    color:var(--charcoal);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{font-family:'Fraunces', serif; font-weight:400;}
+  a{color:inherit;}
+  .container{max-width:640px; margin:0 auto; padding:0 24px;}
+
+  header{
+    padding:22px 0;
+    border-bottom:1px solid var(--line-dark);
+  }
+  .header-inner{
+    max-width:640px; margin:0 auto; padding:0 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:'Fraunces', serif; font-style:italic; font-weight:500;
+    font-size:20px; color:var(--charcoal); text-decoration:none;
+  }
+  .lang-switch{display:flex; align-items:center; gap:0;}
+  .lang-switch button{
+    background:none; border:none; color:rgba(29,30,21,0.4);
+    font-family:'Jost', sans-serif; font-size:11px; letter-spacing:0.14em;
+    text-transform:uppercase; padding:6px 10px; cursor:pointer;
+    transition:color 0.3s var(--ease);
+  }
+  .lang-switch button.active{color:var(--bronze);}
+  .lang-switch .divider{color:rgba(29,30,21,0.2); font-size:11px;}
+
+  main{padding:70px 0 100px;}
+  .eyebrow{
+    font-size:11px; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--bronze); display:flex; align-items:center; gap:12px;
+    margin-bottom:20px;
+  }
+  .eyebrow::before{content:""; width:24px; height:1px; background:currentColor; opacity:0.6;}
+  h1{font-size:clamp(28px,4vw,40px); line-height:1.25; margin-bottom:18px;}
+  .lead{font-size:15px; color:#4c4e3a; max-width:480px; margin-bottom:48px;}
+
+  form{display:flex; flex-direction:column; gap:22px;}
+  .field label{
+    display:block; font-size:11.5px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--sage); margin-bottom:9px;
+  }
+  .field .hint{
+    font-size:12px; color:#8a8d75; margin-top:6px; font-style:italic;
+  }
+  input[type=text], input[type=email], textarea, select{
+    width:100%; font-family:'Jost', sans-serif; font-size:15px; font-weight:300;
+    color:var(--charcoal); background:#fbfaf4; border:1px solid var(--line-dark);
+    border-radius:8px; padding:14px 16px; transition:border-color 0.3s var(--ease);
+  }
+  input:focus, textarea:focus, select:focus{outline:none; border-color:var(--bronze-soft);}
+  textarea{resize:vertical; min-height:140px; line-height:1.6;}
+
+  .stars{display:flex; gap:6px;}
+  .stars button{
+    background:none; border:none; cursor:pointer; padding:2px;
+    font-size:26px; color:var(--line-dark); transition:color 0.2s var(--ease);
+    line-height:1;
+  }
+  .stars button.on{color:var(--bronze);}
+
+  .consent{display:flex; align-items:flex-start; gap:10px; font-size:13px; color:#4c4e3a;}
+  .consent input{width:auto; margin-top:3px;}
+
+  .btn{
+    font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    padding:16px 30px; border-radius:999px; display:inline-flex;
+    align-items:center; justify-content:center; gap:8px;
+    cursor:pointer; border:1px solid transparent; transition:all 0.4s var(--ease);
+    background:var(--bronze); color:var(--ivory); width:100%;
+  }
+  .btn:hover{background:var(--bronze-soft);}
+  .btn:disabled{opacity:0.6; cursor:default;}
+
+  .form-msg{
+    font-size:13px; margin-top:6px; padding:16px 18px; border-radius:8px;
+    display:none; background:var(--ivory-soft); color:var(--olive-deep);
+  }
+  .form-msg.show{display:block;}
+  .form-msg.error{background:#f6e6e3; color:#8a3327;}
+
+  .back-link{
+    display:inline-flex; align-items:center; gap:8px; font-size:12px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--sage);
+    text-decoration:none; margin-bottom:40px;
+  }
+  .back-link:hover{color:var(--charcoal);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Seoul Curate</a>
+    <div class="lang-switch">
+      <button type="button" data-lang="kr" id="btnKr">KOR</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="en" id="btnEn" class="active">ENG</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <a href="/#testimonials" class="back-link">
+      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span>
+    </a>
+
+    <div class="eyebrow"><span class="lang-kr">고객 후기 남기기</span><span class="lang-en">SHARE YOUR STORY</span></div>
+    <h1 class="lang-kr">당신의 여정을<br>들려주세요</h1>
+    <h1 class="lang-en">Tell Us About<br>Your Journey</h1>
+    <p class="lead lang-kr">Seoul Curate와 함께한 시간이 어떠셨나요? 남겨주신 이야기는 검토 후 웹사이트에 소개될 수 있습니다.</p>
+    <p class="lead lang-en">How was your time with Seoul Curate? Your story will be reviewed and may be featured on our site.</p>
+
+    <form id="reviewForm">
+      <div class="field">
+        <label><span class="lang-kr">이름 (닉네임 가능)</span><span class="lang-en">Name (nickname is fine)</span></label>
+        <input type="text" id="rvName" required maxlength="60">
+        <div class="hint"><span class="lang-kr">공개될 수 있는 이름이에요. 실명 대신 닉네임을 쓰셔도 좋아요.</span><span class="lang-en">This may be shown publicly — feel free to use a nickname instead of your real name.</span></div>
+      </div>
+
+      <div class="field">
+        <label><span class="lang-kr">국가 / 도시 (선택)</span><span class="lang-en">Country / City (optional)</span></label>
+        <input type="text" id="rvLocation" maxlength="60" placeholder="e.g. Toronto, Canada">
+      </div>
+
+      <div class="field">
+        <label><span class="lang-kr">받으신 경험 (선택)</span><span class="lang-en">Experience Received (optional)</span></label>
+        <input type="text" id="rvExperience" maxlength="120" placeholder="e.g. 3-Day Recovery Journey, Head Spa">
+      </div>
+
+      <div class="field">
+        <label><span class="lang-kr">평점 (선택)</span><span class="lang-en">Rating (optional)</span></label>
+        <div class="stars" id="rvStars">
+          <button type="button" data-star="1">★</button>
+          <button type="button" data-star="2">★</button>
+          <button type="button" data-star="3">★</button>
+          <button type="button" data-star="4">★</button>
+          <button type="button" data-star="5">★</button>
+        </div>
+        <input type="hidden" id="rvRating" value="0">
+      </div>
+
+      <div class="field">
+        <label><span class="lang-kr">후기 내용</span><span class="lang-en">Your Story</span></label>
+        <textarea id="rvMessage" required maxlength="2000"></textarea>
+      </div>
+
+      <div class="field">
+        <label><span class="lang-kr">이메일</span><span class="lang-en">Email</span></label>
+        <input type="email" id="rvEmail" required>
+        <div class="hint"><span class="lang-kr">공개되지 않으며, 확인을 위해서만 사용됩니다.</span><span class="lang-en">Not published — used only for verification.</span></div>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="rvConsent" required>
+        <span class="lang-kr">제 후기가 Seoul Curate 웹사이트에 게시되는 것에 동의합니다.</span>
+        <span class="lang-en">I agree that my story may be published on the Seoul Curate website.</span>
+      </label>
+
+      <button type="submit" class="btn">
+        <span class="lang-kr">후기 보내기</span><span class="lang-en">Submit Story</span>
+      </button>
+
+      <div class="form-msg" id="rvMsg"></div>
+    </form>
+  </div>
+</main>
+
+<script>
+  const langButtons = document.querySelectorAll('.lang-switch button');
+  function setLang(lang){
+    const isEn = lang === 'en';
+    document.documentElement.classList.toggle('lang-en', isEn);
+    langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  }
+  langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  setLang('en');
+
+  const starButtons = document.querySelectorAll('#rvStars button');
+  const ratingInput = document.getElementById('rvRating');
+  starButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const val = Number(btn.dataset.star);
+      ratingInput.value = val;
+      starButtons.forEach(b => b.classList.toggle('on', Number(b.dataset.star) <= val));
+    });
+  });
+
+  document.getElementById('reviewForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const isEn = document.documentElement.classList.contains('lang-en');
+    const form = this;
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const msgEl = document.getElementById('rvMsg');
+    const originalHTML = submitBtn.innerHTML;
+
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = isEn ? 'Sending…' : '보내는 중…';
+    msgEl.classList.remove('show', 'error');
+
+    const payload = {
+      name: document.getElementById('rvName').value.trim(),
+      location: document.getElementById('rvLocation').value.trim(),
+      experience: document.getElementById('rvExperience').value.trim(),
+      rating: ratingInput.value,
+      message: document.getElementById('rvMessage').value.trim(),
+      email: document.getElementById('rvEmail').value.trim(),
+      consent: document.getElementById('rvConsent').checked,
+    };
+
+    try {
+      const resp = await fetch('/api/submit-review', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      if (!resp.ok) throw new Error('failed');
+
+      msgEl.textContent = isEn
+        ? "Thank you for sharing. We'll review your story shortly."
+        : '소중한 이야기 감사합니다. 검토 후 반영할게요.';
+      msgEl.classList.add('show');
+      form.reset();
+      starButtons.forEach(b => b.classList.remove('on'));
+      ratingInput.value = 0;
+    } catch (err) {
+      msgEl.textContent = isEn
+        ? 'Something went wrong. Please try again shortly.'
+        : '전송에 실패했어요. 잠시 후 다시 시도해주세요.';
+      msgEl.classList.add('show', 'error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = originalHTML;
+    }
+  });
+</script>
+</body>
+</html>

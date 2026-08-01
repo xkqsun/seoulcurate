@@ -948,26 +948,91 @@
     text-align:center;
   }
   .testimonials .section-header .eyebrow{justify-content:center;}
-  .testimonial-placeholder{
-    max-width:600px;
-    margin:0 auto;
+  .testimonials-lead{
+    max-width:560px;
+    margin:0 auto 56px;
     text-align:center;
-  }
-  .tp-mark{
-    font-family:'Fraunces', serif;
-    font-style:italic;
-    font-size:64px;
-    color:var(--bronze-soft);
-    line-height:1;
-    margin-bottom:8px;
-  }
-  .testimonial-placeholder p{
-    font-size:16px;
+    font-size:15px;
     line-height:1.75;
     color:rgba(244,241,230,0.78);
-    margin-bottom:34px;
   }
-  .testimonial-placeholder .btn-ghost{margin:0 auto;}
+  .testimonial-preview-note{
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--bronze-soft);
+    margin-bottom:24px;
+  }
+  .testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+    margin-bottom:48px;
+  }
+  .testimonial-card{
+    position:relative;
+    background:var(--ivory);
+    border-radius:4px;
+    border:1px dashed rgba(244,241,230,0.3);
+    padding:28px 26px 30px;
+    display:flex;
+    flex-direction:column;
+    color:var(--charcoal);
+  }
+  .tc-sample-badge{
+    position:absolute;
+    top:-12px; right:20px;
+    background:var(--charcoal);
+    color:var(--bronze-soft);
+    font-size:10px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:999px;
+  }
+  .tc-photo{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:4px;
+    background:var(--ivory-soft);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--sage);
+    margin-bottom:20px;
+  }
+  .tc-photo svg{width:34px; height:34px; stroke:currentColor; stroke-width:1.2; fill:none;}
+  .tc-stars{
+    color:var(--bronze);
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:14px;
+  }
+  .tc-quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-size:15.5px;
+    line-height:1.65;
+    color:#3f4130;
+    margin-bottom:22px;
+    flex-grow:1;
+  }
+  .tc-name{
+    font-size:13px;
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .tc-tag{
+    display:inline-block;
+    font-size:10.5px;
+    letter-spacing:0.06em;
+    color:var(--sage);
+    border-top:1px solid var(--line-dark);
+    padding-top:10px;
+  }
+  .testimonial-cta{text-align:center;}
+  .testimonial-cta .btn-ghost{margin:0 auto;}
 
   /* ---------- GUIDE (lead magnet) ---------- */
   .guide{
@@ -1194,6 +1259,7 @@
     .story-visual{position:relative; top:0; aspect-ratio:16/10;}
     .service-grid{grid-template-columns:repeat(2,1fr);}
     .option-grid{grid-template-columns:1fr; max-width:440px; margin:0 auto;}
+    .testimonial-grid{grid-template-columns:1fr; max-width:440px; margin:0 auto 48px;}
     .ge-img{max-width:100%;}
     .ge-corner-label{display:none;}
     .contact-form{grid-template-columns:1fr;}
@@ -1652,10 +1718,56 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       <h2 class="lang-kr">첫 게스트님의 이야기를<br>기다리고 있어요</h2>
       <h2 class="lang-en">Waiting for Our<br>First Guest's Story</h2>
     </div>
-    <div class="testimonial-placeholder reveal">
-      <div class="tp-mark">&ldquo;</div>
-      <p class="lang-kr">실제로 다녀가신 분들의 후기를 이곳에 정직하게 모아갈 예정입니다. 아직은 비어있지만, 그만큼 지금 함께하는 한 분 한 분의 여정에 더 마음을 다하고 있어요.</p>
-      <p class="lang-en">We're keeping this space honest — real stories from real guests, added as they come. It's empty for now, which just means we're pouring even more care into every journey so far.</p>
+    <p class="testimonials-lead lang-kr">실제로 다녀가신 분들의 후기를 이곳에 정직하게 모아갈 예정입니다. 아직은 비어있지만, 그만큼 지금 함께하는 한 분 한 분의 여정에 더 마음을 다하고 있어요.</p>
+    <p class="testimonials-lead lang-en">We're keeping this space honest — real stories from real guests, added as they come. It's empty for now, which just means we're pouring even more care into every journey so far.</p>
+
+    <div class="testimonial-preview-note">
+      <span class="lang-kr">이런 형태로 소개될 예정이에요 (샘플)</span>
+      <span class="lang-en">A preview of how stories will appear (sample)</span>
+    </div>
+
+    <div class="testimonial-grid reveal">
+      <div class="testimonial-card">
+        <div class="tc-sample-badge"><span class="lang-kr">샘플</span><span class="lang-en">SAMPLE</span></div>
+        <div class="tc-photo">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"게스트님의 실제 후기가 이 자리에 들어갈 예정입니다."</p>
+        <p class="tc-quote lang-en">"A real guest's story will appear right here."</p>
+        <div class="tc-name">A.K. · Canada</div>
+        <div class="tc-tag lang-kr">2박 3일 회복 저니</div>
+        <div class="tc-tag lang-en">3-Day Recovery Journey</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tc-sample-badge"><span class="lang-kr">샘플</span><span class="lang-en">SAMPLE</span></div>
+        <div class="tc-photo">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"게스트님의 실제 후기가 이 자리에 들어갈 예정입니다."</p>
+        <p class="tc-quote lang-en">"A real guest's story will appear right here."</p>
+        <div class="tc-name">S.M. · Australia</div>
+        <div class="tc-tag lang-kr">헤드 스파 & 회복 케어</div>
+        <div class="tc-tag lang-en">Head Spa & Recovery Care</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="tc-sample-badge"><span class="lang-kr">샘플</span><span class="lang-en">SAMPLE</span></div>
+        <div class="tc-photo">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c1.5-4 4-6 7.5-6s6 2 7.5 6" stroke-linecap="round"/></svg>
+        </div>
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"게스트님의 실제 후기가 이 자리에 들어갈 예정입니다."</p>
+        <p class="tc-quote lang-en">"A real guest's story will appear right here."</p>
+        <div class="tc-name">J.L. · Singapore</div>
+        <div class="tc-tag lang-kr">풀 베스포크 저니</div>
+        <div class="tc-tag lang-en">Full Bespoke Journey</div>
+      </div>
+    </div>
+
+    <div class="testimonial-cta reveal">
       <a href="/write-review.html" class="btn btn-ghost">
         <span class="lang-kr">첫 게스트가 되어주세요</span><span class="lang-en">Be Our First Guest</span>
       </a>

@@ -685,6 +685,32 @@
   @media (max-width:640px){
     .at-chip{padding:12px 18px;}
   }
+  .at-groups{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    margin-bottom:36px;
+  }
+  .at-group-card{
+    flex:1 1 320px;
+    border:1px solid var(--line-dark);
+    border-radius:18px;
+    padding:26px 24px 6px;
+  }
+  .at-group-card .at-grid{margin-bottom:26px;}
+  .at-group-recovery{background:rgba(58,61,43,0.05);}
+  .at-group-culture{background:rgba(178,138,86,0.07);}
+  .at-group-title{
+    font-size:12.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--bronze-soft);
+    font-weight:600;
+    margin-bottom:16px;
+  }
+  @media (max-width:640px){
+    .at-group-card{padding:22px 18px 4px;}
+  }
 
   /* ---------- AT DETAIL MODAL ---------- */
   .at-modal-overlay{
@@ -1460,76 +1486,86 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <p class="at-lead reveal lang-kr">회복 여정에 더하고 싶은 순간들을 자유롭게 선택해보세요. 원하는 만큼 고르셔도 좋아요.</p>
     <p class="at-lead reveal lang-en">Choose whatever moments you'd like to add to your recovery journey. Pick as many as you like.</p>
 
-    <div class="at-grid reveal" id="atGrid">
-      <div class="at-chip" data-value="swelling">
+        <div class="at-groups reveal" id="atGrid">
+      <div class="at-group-card at-group-recovery">
+        <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span></div>
+        <div class="at-grid">
+<div class="at-chip" data-value="swelling">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5C12 3.5 6.5 10.8 6.5 14.8a5.5 5.5 0 0 0 11 0c0-4-5.5-11.3-5.5-11.3z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">붓기 관리</span><span class="at-label lang-en">Swelling Care</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-      <div class="at-chip" data-value="cafe">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="meal">
+<div class="at-chip" data-value="meal">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 11.5h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 11.5V5.8"/><path d="M9.3 4c0 1 1 1 1 2s-1 1-1 2M15 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">회복 식사</span><span class="at-label lang-en">Recovery Meal</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-      <div class="at-chip" data-value="walk">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="sauna">
+<div class="at-chip" data-value="sauna">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-      <div class="at-chip" data-value="chefdining">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="artexhibition">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="museum">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="tealounge">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="headspa">
+<div class="at-chip" data-value="headspa">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M7 12c0-3.3 2.2-6 5-6s5 2.7 5 6c0 2-.8 3.4-1.6 4.6-.4.6-.6 1-.6 1.9v.5a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-.5c0-.9-.2-1.3-.6-1.9C7.8 15.4 7 14 7 12z" stroke-linejoin="round"/><path d="M9.5 9.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">헤드 스파</span><span class="at-label lang-en">Head Spa</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-      <div class="at-chip" data-value="shopping">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">쇼핑</span><span class="at-label lang-en">Shopping</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="beauty">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">뷰티</span><span class="at-label lang-en">Beauty</span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-      <div class="at-chip" data-value="therapy">
+<div class="at-chip" data-value="therapy">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 20s-7-4.4-7-9.6C5 7.4 7.1 5.5 9.5 5.5c1.1 0 2 .5 2.5 1.3.5-.8 1.4-1.3 2.5-1.3 2.4 0 4.5 1.9 4.5 4.9C19 15.6 12 20 12 20z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">테라피</span><span class="at-label lang-en">Therapy</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-      <div class="at-chip" data-value="hanriver">
+<div class="at-chip" data-value="beauty">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">뷰티</span><span class="at-label lang-en">Beauty</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+        </div>
+      </div>
+      <div class="at-group-card at-group-culture">
+        <div class="at-group-title"><span class="lang-kr">서울 문화체험 옵션</span><span class="lang-en">Seoul Culture Experience</span></div>
+        <div class="at-grid">
+<div class="at-chip" data-value="cafe">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="walk">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="chefdining">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
+        <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="artexhibition">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="museum">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="tealounge">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="shopping">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">쇼핑</span><span class="at-label lang-en">Shopping</span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="hanriver">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+        </div>
       </div>
     </div>
 

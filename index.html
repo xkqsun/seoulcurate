@@ -965,6 +965,63 @@
   }
   .option-fit-clear:hover{color:var(--charcoal);}
 
+  /* ---------- PRICE CALCULATOR ---------- */
+  .at-chip-price{font-size:11px; opacity:0.55; margin-left:2px; white-space:nowrap;}
+  .at-chip.selected .at-chip-price{opacity:0.8;}
+  .at-chip .at-included-badge{display:none;}
+  .at-chip.included{cursor:not-allowed;}
+  .at-chip.included .at-chip-price{display:none;}
+  .at-chip.included .at-included-badge{
+    display:inline-flex; align-items:center;
+    font-size:10px; letter-spacing:0.05em; text-transform:uppercase;
+    background:var(--bronze); color:var(--ivory);
+    padding:2px 9px; border-radius:999px; margin-left:2px; white-space:nowrap;
+  }
+
+  .option-select-btn{
+    width:100%;
+    font-family:'Jost', sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    padding:13px;
+    border:1px solid var(--charcoal);
+    background:transparent;
+    color:var(--charcoal);
+    cursor:pointer;
+    border-radius:2px;
+    margin-bottom:12px;
+    transition:all 0.3s var(--ease);
+  }
+  .option-select-btn:hover{background:var(--charcoal); color:var(--ivory);}
+  .option-select-btn.active{background:var(--olive-deep); border-color:var(--olive-deep); color:var(--ivory);}
+  .option-card.featured .option-select-btn{border-color:var(--bronze-soft); color:var(--ivory);}
+  .option-card.featured .option-select-btn:hover{background:var(--bronze-soft); color:var(--charcoal);}
+  .option-card.featured .option-select-btn.active{background:var(--bronze); border-color:var(--bronze); color:var(--ivory);}
+  .option-card.pkg-selected{border-color:var(--olive-deep); box-shadow:0 0 0 2px var(--olive-deep);}
+  .option-card.featured.pkg-selected{box-shadow:0 0 0 2px var(--bronze-soft);}
+
+  .cost-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:150;
+    background:var(--charcoal); color:var(--ivory);
+    transform:translateY(110%);
+    transition:transform 0.4s var(--ease);
+    box-shadow:0 -12px 30px rgba(0,0,0,0.28);
+  }
+  .cost-bar.visible{transform:translateY(0);}
+  .cost-bar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:20px; flex-wrap:wrap; padding:16px 24px;
+  }
+  .cost-bar-info{display:flex; flex-direction:column; gap:4px;}
+  .cost-bar-pkg{font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--bronze-soft);}
+  .cost-bar-total{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px;}
+  @media (max-width:640px){
+    .cost-bar-inner{padding:14px 18px;}
+    .cost-bar-total{font-size:18px;}
+    .cost-bar .btn{padding:12px 18px; font-size:11px;}
+  }
+
   /* ---------- TESTIMONIALS ---------- */
   .testimonials{background:var(--olive-deep); color:var(--ivory);}
   .testimonials .section-header{
@@ -1511,34 +1568,46 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       <div class="at-group-card at-group-recovery">
         <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span></div>
         <div class="at-grid">
-<div class="at-chip" data-value="swelling">
+<div class="at-chip" data-value="swelling" data-price="80000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5C12 3.5 6.5 10.8 6.5 14.8a5.5 5.5 0 0 0 11 0c0-4-5.5-11.3-5.5-11.3z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">붓기 관리</span><span class="at-label lang-en">Swelling Care</span>
+        <span class="at-chip-price">+₩80,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="meal">
+<div class="at-chip" data-value="meal" data-price="60000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 11.5h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 11.5V5.8"/><path d="M9.3 4c0 1 1 1 1 2s-1 1-1 2M15 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">회복 식사</span><span class="at-label lang-en">Recovery Meal</span>
+        <span class="at-chip-price">+₩60,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="sauna">
+<div class="at-chip" data-value="sauna" data-price="70000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span>
+        <span class="at-chip-price">+₩70,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="headspa">
+<div class="at-chip" data-value="headspa" data-price="90000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M7 12c0-3.3 2.2-6 5-6s5 2.7 5 6c0 2-.8 3.4-1.6 4.6-.4.6-.6 1-.6 1.9v.5a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-.5c0-.9-.2-1.3-.6-1.9C7.8 15.4 7 14 7 12z" stroke-linejoin="round"/><path d="M9.5 9.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">헤드 스파</span><span class="at-label lang-en">Head Spa</span>
+        <span class="at-chip-price">+₩90,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="therapy">
+<div class="at-chip" data-value="therapy" data-price="120000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 20s-7-4.4-7-9.6C5 7.4 7.1 5.5 9.5 5.5c1.1 0 2 .5 2.5 1.3.5-.8 1.4-1.3 2.5-1.3 2.4 0 4.5 1.9 4.5 4.9C19 15.6 12 20 12 20z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">테라피</span><span class="at-label lang-en">Therapy</span>
+        <span class="at-chip-price">+₩120,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="beauty">
+<div class="at-chip" data-value="beauty" data-price="100000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">뷰티</span><span class="at-label lang-en">Beauty</span>
+        <span class="at-chip-price">+₩100,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
         </div>
@@ -1546,44 +1615,60 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       <div class="at-group-card at-group-culture">
         <div class="at-group-title"><span class="lang-kr">서울 문화체험 옵션</span><span class="lang-en">Seoul Culture Experience</span></div>
         <div class="at-grid">
-<div class="at-chip" data-value="cafe">
+<div class="at-chip" data-value="cafe" data-price="30000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span>
+        <span class="at-chip-price">+₩30,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="walk">
+<div class="at-chip" data-value="walk" data-price="20000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
         <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span>
+        <span class="at-chip-price">+₩20,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="chefdining">
+<div class="at-chip" data-value="chefdining" data-price="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span>
+        <span class="at-chip-price">+₩150,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="artexhibition">
+<div class="at-chip" data-value="artexhibition" data-price="40000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span>
+        <span class="at-chip-price">+₩40,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="museum">
+<div class="at-chip" data-value="museum" data-price="35000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span>
+        <span class="at-chip-price">+₩35,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="tealounge">
+<div class="at-chip" data-value="tealounge" data-price="45000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span>
+        <span class="at-chip-price">+₩45,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="shopping">
+<div class="at-chip" data-value="shopping" data-price="50000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">쇼핑</span><span class="at-label lang-en">Shopping</span>
+        <span class="at-chip-price">+₩50,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="hanriver">
+<div class="at-chip" data-value="hanriver" data-price="25000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span>
+        <span class="at-chip-price">+₩25,000</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
         </div>
@@ -1656,6 +1741,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   </div>
 </div>
 <!-- ===== OPTIONS ===== -->
+
 <section class="options section" id="options">
   <div class="container">
     <div class="section-header reveal">
@@ -1678,7 +1764,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     </div>
 
     <div class="option-grid reveal">
-      <div class="option-card" data-fit-min="0" data-fit-max="3">
+      <div class="option-card" data-fit-min="0" data-fit-max="3" data-package="wellness" data-base-price="450000" data-included="meal">
         <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">반나절 · 하루</span><span class="lang-en">HALF · FULL DAY</span></div>
         <h3 class="option-title lang-kr">웰니스 데이 저니</h3>
@@ -1691,10 +1777,11 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
           <li><span class="lang-kr">시술 후 회복 다이닝 예약</span><span class="lang-en">Post-treatment recovery dining</span></li>
           <li><span class="lang-kr">전 일정 이동 동선 설계</span><span class="lang-en">Full itinerary & transit planning</span></li>
         </ul>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
         <a href="#contact" class="btn"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
       </div>
 
-      <div class="option-card featured" data-fit-min="4" data-fit-max="7">
+      <div class="option-card featured" data-fit-min="4" data-fit-max="7" data-package="recovery3d" data-base-price="1200000" data-included="sauna,therapy">
         <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">2박 3일</span><span class="lang-en">3 DAYS · 2 NIGHTS</span></div>
         <h3 class="option-title lang-kr">회복 저니</h3>
@@ -1708,10 +1795,11 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
           <li><span class="lang-kr">부티크 호텔 & 다이닝 큐레이션</span><span class="lang-en">Boutique hotel & dining curation</span></li>
           <li><span class="lang-kr">전 일정 이동 · 타임라인 관리</span><span class="lang-en">Full itinerary & timeline management</span></li>
         </ul>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
         <a href="#contact" class="btn"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
       </div>
 
-      <div class="option-card" data-fit-min="8" data-fit-max="999">
+      <div class="option-card" data-fit-min="8" data-fit-max="999" data-package="bespoke" data-base-price="" data-included="">
         <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
         <div class="option-tag"><span class="lang-kr">완전 맞춤</span><span class="lang-en">FULLY BESPOKE</span></div>
         <h3 class="option-title lang-kr">풀 베스포크 저니</h3>
@@ -1724,12 +1812,14 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
           <li><span class="lang-kr">공간 · 문화 · 다이닝 전체 큐레이션</span><span class="lang-en">Full space, culture & dining curation</span></li>
           <li><span class="lang-kr">전담 코디네이터 상시 응대</span><span class="lang-en">Dedicated coordinator on call</span></li>
         </ul>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
         <a href="#contact" class="btn"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
       </div>
     </div>
   </div>
 </section>
 <!-- ===== STORY ===== -->
+
 <section class="story section" id="story">
   <div class="container">
     <div class="section-header reveal">
@@ -1896,7 +1986,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       </div>
       <div class="field full">
         <label><span class="lang-kr">문의 내용</span><span class="lang-en">Message</span></label>
-        <textarea></textarea>
+        <textarea id="contactMessage"></textarea>
       </div>
       <button type="submit" class="btn btn-primary"><span class="lang-kr">문의 보내기</span><span class="lang-en">Send Enquiry</span></button>
     </form>
@@ -1911,6 +2001,18 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <span class="lang-en">© 2026 Seoul Wellness Curation</span>
   </div>
 </footer>
+<div class="cost-bar" id="costBar">
+  <div class="container cost-bar-inner">
+    <div class="cost-bar-info">
+      <span class="cost-bar-pkg"><span class="lang-kr" id="costBarPkgKr">패키지 미선택</span><span class="lang-en" id="costBarPkgEn">No package selected</span></span>
+      <span class="cost-bar-total"><span class="lang-kr" id="costBarTotalKr">옵션을 선택해보세요</span><span class="lang-en" id="costBarTotalEn">Start selecting options</span></span>
+    </div>
+    <button type="button" class="btn btn-primary" id="costBarCTA">
+      <span class="lang-kr">이 예상 견적으로 문의하기</span><span class="lang-en">Inquire With This Estimate</span>
+    </button>
+  </div>
+</div>
+
 
 <script>
   // header scroll state
@@ -1997,9 +2099,11 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       atCountKr.textContent = n;
       atCountEn.textContent = n;
       updateOptionsRecommendation();
+      updateCostBar();
     }
 
     function toggleChipSelect(chip){
+      if(chip.classList.contains('included')) return;
       chip.classList.toggle('selected');
       updateAtCount();
     }
@@ -2293,6 +2397,129 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       toggleChipSelect(chip);
       updateAtModalSelectState();
     });
+
+    // ---------- price calculator ----------
+    let selectedPackage = null;
+    const optionSelectBtns = document.querySelectorAll('.option-select-btn');
+    const costBar = document.getElementById('costBar');
+    const costBarPkgKr = document.getElementById('costBarPkgKr');
+    const costBarPkgEn = document.getElementById('costBarPkgEn');
+    const costBarTotalKr = document.getElementById('costBarTotalKr');
+    const costBarTotalEn = document.getElementById('costBarTotalEn');
+    const costBarCTA = document.getElementById('costBarCTA');
+
+    function fmtWon(n){ return '₩' + Math.round(n).toLocaleString('en-US'); }
+
+    function clearAutoIncluded(){
+      atGrid.querySelectorAll('.at-chip[data-auto="1"]').forEach(chip => {
+        chip.classList.remove('selected', 'included');
+        chip.removeAttribute('data-auto');
+      });
+    }
+
+    function applyPackageSelection(){
+      clearAutoIncluded();
+      optionSelectBtns.forEach(btn => {
+        const card = btn.closest('.option-card');
+        const active = card.dataset.package === selectedPackage;
+        btn.classList.toggle('active', active);
+        card.classList.toggle('pkg-selected', active);
+      });
+      if(selectedPackage && selectedPackage !== 'bespoke'){
+        const card = document.querySelector('.option-card[data-package="' + selectedPackage + '"]');
+        const includedList = (card.dataset.included || '').split(',').filter(Boolean);
+        includedList.forEach(val => {
+          const chip = atGrid.querySelector('.at-chip[data-value="' + val + '"]');
+          if(chip){
+            chip.classList.add('selected', 'included');
+            chip.setAttribute('data-auto', '1');
+          }
+        });
+      }
+      updateAtCount();
+    }
+
+    optionSelectBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.option-card');
+        const pkg = card.dataset.package;
+        selectedPackage = (selectedPackage === pkg) ? null : pkg;
+        applyPackageSelection();
+      });
+    });
+
+    function getPackageLabel(pkg, lang){
+      const card = document.querySelector('.option-card[data-package="' + pkg + '"]');
+      const el = card.querySelector('.option-title.lang-' + lang);
+      return el ? el.textContent : '';
+    }
+
+    function updateCostBar(){
+      if(!costBar) return;
+      const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
+      const extraChips = selectedChips.filter(c => !c.classList.contains('included'));
+      const extraSum = extraChips.reduce((sum, c) => sum + (Number(c.dataset.price) || 0), 0);
+
+      if(!selectedPackage && selectedChips.length === 0){
+        costBar.classList.remove('visible');
+        return;
+      }
+      costBar.classList.add('visible');
+
+      if(selectedPackage){
+        costBarPkgKr.textContent = getPackageLabel(selectedPackage, 'kr');
+        costBarPkgEn.textContent = getPackageLabel(selectedPackage, 'en');
+      } else {
+        costBarPkgKr.textContent = '패키지 미선택 · 옵션만 선택됨';
+        costBarPkgEn.textContent = 'No package · options only';
+      }
+
+      if(selectedPackage === 'bespoke'){
+        costBarTotalKr.textContent = '맞춤 견적으로 안내드려요';
+        costBarTotalEn.textContent = "We'll send a custom quote";
+      } else if(selectedPackage){
+        const base = Number(document.querySelector('.option-card[data-package="' + selectedPackage + '"]').dataset.basePrice) || 0;
+        const total = base + extraSum;
+        costBarTotalKr.textContent = fmtWon(total) + '~ / 1인';
+        costBarTotalEn.textContent = fmtWon(total) + '~ / person';
+      } else {
+        costBarTotalKr.textContent = fmtWon(extraSum) + ' (옵션 금액만)';
+        costBarTotalEn.textContent = fmtWon(extraSum) + ' (options only)';
+      }
+    }
+
+    if(costBarCTA){
+      costBarCTA.addEventListener('click', () => {
+        const isEn = document.documentElement.classList.contains('lang-en');
+        const lang = isEn ? 'en' : 'kr';
+        const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
+        const extraChips = selectedChips.filter(c => !c.classList.contains('included'));
+        const includedChips = selectedChips.filter(c => c.classList.contains('included'));
+
+        const lines = [];
+        lines.push((isEn ? 'Package: ' : '선택 패키지: ') + (selectedPackage ? getPackageLabel(selectedPackage, lang) : (isEn ? 'Not selected' : '미선택')));
+
+        if(includedChips.length){
+          lines.push((isEn ? 'Included: ' : '포함 항목: ') + includedChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent).join(', '));
+        }
+        if(extraChips.length){
+          lines.push((isEn ? 'Added options: ' : '추가 옵션: ') + extraChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent + ' (' + fmtWon(Number(c.dataset.price) || 0) + ')').join(', '));
+        }
+        if(selectedPackage === 'bespoke'){
+          lines.push((isEn ? 'Estimated total: Custom quote' : '예상 총액: 맞춤 견적'));
+        } else if(selectedPackage){
+          const base = Number(document.querySelector('.option-card[data-package="' + selectedPackage + '"]').dataset.basePrice) || 0;
+          const extraSum2 = extraChips.reduce((sum, c) => sum + (Number(c.dataset.price) || 0), 0);
+          lines.push((isEn ? 'Estimated total: ' : '예상 총액: ') + fmtWon(base + extraSum2) + '~');
+        }
+
+        const msgField = document.getElementById('contactMessage');
+        if(msgField) msgField.value = lines.join('\n');
+
+        const contactSection = document.getElementById('contact');
+        if(contactSection) contactSection.scrollIntoView({behavior: 'smooth', block: 'start'});
+      });
+    }
   }
 
   // ---------- my journey quiz ----------

@@ -1011,7 +1011,7 @@
   }
   .cost-bar-info{display:flex; flex-direction:column; gap:4px;}
   .cost-bar-pkg{font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--bronze-soft);}
-  .cost-bar-total{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px;}
+  .cost-bar-total{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px;display:none;}
   @media (max-width:640px){
     .cost-bar-inner{padding:14px 18px;}
     .cost-bar-total{font-size:18px;}
@@ -2431,17 +2431,6 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         btn.classList.toggle('active', active);
         card.classList.toggle('pkg-selected', active);
       });
-      if(selectedPackage && selectedPackage !== 'bespoke'){
-        const card = document.querySelector('.option-card[data-package="' + selectedPackage + '"]');
-        const includedList = (card.dataset.included || '').split(',').filter(Boolean);
-        includedList.forEach(val => {
-          const chip = atGrid.querySelector('.at-chip[data-value="' + val + '"]');
-          if(chip){
-            chip.classList.add('selected', 'included');
-            chip.setAttribute('data-auto', '1');
-          }
-        });
-      }
       updateAtCount();
     }
 

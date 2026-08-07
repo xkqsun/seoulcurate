@@ -1011,7 +1011,7 @@
   }
   .cost-bar-info{display:flex; flex-direction:column; gap:4px;}
   .cost-bar-pkg{font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--bronze-soft);}
-  .cost-bar-total{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px;display:none;}
+.cost-bar-total{font-family:'Fraunces', serif; font-style:italic; font-weight:400; font-size:21px;}
   @media (max-width:640px){
     .cost-bar-inner{padding:14px 18px;}
     .cost-bar-total{font-size:18px;}
@@ -2092,6 +2092,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       atCountEn.textContent = n;
       updateOptionsRecommendation();
       updateCostBar();
+      refreshInquiryMessage();
     }
 
     function toggleChipSelect(chip){
@@ -2400,7 +2401,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       updateAtModalSelectState();
     });
 
-        // ---------- price calculator ----------
+            // ---------- price calculator ----------
     let selectedPackage = null;
     const optionSelectBtns = document.querySelectorAll('.option-select-btn');
     const costBar = document.getElementById('costBar');
@@ -2456,7 +2457,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       const extraMin = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMin) || 0), 0);
       const extraMax = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMax) || 0), 0);
 
-      if(!selectedPackage && selectedChips.length === 0){
+      if(selectedChips.length === 0){
         costBar.classList.remove('visible');
         return;
       }
@@ -2483,43 +2484,70 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       }
     }
 
+    function buildInquiryLines(lang){
+      const isEn = lang === 'en';
+      const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
+      const extraChips = selectedChips.filter(c => !c.classList.contains('included'));
+      const includedChips = selectedChips.filter(c => c.classList.contains('included'));
+
+      const lines = [];
+      lines.push((isEn ? 'Package: ' : '패키지: ') + (selectedPackage ? getPackageLabel(selectedPackage, lang) : (isEn ? 'Not selected' : '미선택')));
+
+      if(includedChips.length){
+        lines.push((isEn ? 'Included: ' : '포함 항목: ') + includedChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent).join(', '));
+      }
+      if(extraChips.length){
+        lines.push((isEn ? 'Added options: ' : '추가 옵션: ') + extraChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent + ' (' + fmtRange(Number(c.dataset.priceMin) || 0, Number(c.dataset.priceMax) || 0) + ')').join(', '));
+      }
+      if(selectedPackage === 'bespoke'){
+        lines.push((isEn ? 'Estimated total: Custom quote' : '예상 총액: 맞춤 견적'));
+      } else if(selectedPackage){
+        const base = Number(document.querySelector('.option-card[data-package="' + selectedPackage + '"]').dataset.basePrice) || 0;
+        const extraMin2 = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMin) || 0), 0);
+        const extraMax2 = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMax) || 0), 0);
+        lines.push((isEn ? 'Estimated total: ' : '예상 총액: ') + fmtRange(base + extraMin2, base + extraMax2, '~'));
+      }
+      return lines;
+    }
+
+    let lastAutoMessage = '';
+    let inquiryPopulated = false;
+
+    function refreshInquiryMessage(){
+      if(!inquiryPopulated) return;
+      const msgField = document.getElementById('contactMessage');
+      if(!msgField) return;
+      if(msgField.value !== lastAutoMessage) return;
+      const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
+      if(selectedChips.length === 0){
+        inquiryPopulated = false;
+        lastAutoMessage = '';
+        msgField.value = '';
+        return;
+      }
+      const isEn = document.documentElement.classList.contains('lang-en');
+      const lang = isEn ? 'en' : 'kr';
+      lastAutoMessage = buildInquiryLines(lang).join('\n');
+      msgField.value = lastAutoMessage;
+    }
+
     if(costBarCTA){
       costBarCTA.addEventListener('click', () => {
         const isEn = document.documentElement.classList.contains('lang-en');
         const lang = isEn ? 'en' : 'kr';
-        const selectedChips = Array.from(atGrid.querySelectorAll('.at-chip.selected'));
-        const extraChips = selectedChips.filter(c => !c.classList.contains('included'));
-        const includedChips = selectedChips.filter(c => c.classList.contains('included'));
-
-        const lines = [];
-        lines.push((isEn ? 'Package: ' : '패키지: ') + (selectedPackage ? getPackageLabel(selectedPackage, lang) : (isEn ? 'Not selected' : '미선택')));
-
-        if(includedChips.length){
-          lines.push((isEn ? 'Included: ' : '포함 항목: ') + includedChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent).join(', '));
-        }
-        if(extraChips.length){
-          lines.push((isEn ? 'Added options: ' : '추가 옵션: ') + extraChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent + ' (' + fmtRange(Number(c.dataset.priceMin) || 0, Number(c.dataset.priceMax) || 0) + ')').join(', '));
-        }
-        if(selectedPackage === 'bespoke'){
-          lines.push((isEn ? 'Estimated total: Custom quote' : '예상 총액: 맞춤 견적'));
-        } else if(selectedPackage){
-          const base = Number(document.querySelector('.option-card[data-package="' + selectedPackage + '"]').dataset.basePrice) || 0;
-          const extraMin2 = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMin) || 0), 0);
-          const extraMax2 = extraChips.reduce((sum, c) => sum + (Number(c.dataset.priceMax) || 0), 0);
-          lines.push((isEn ? 'Estimated total: ' : '예상 총액: ') + fmtRange(base + extraMin2, base + extraMax2, '~'));
-        }
+        lastAutoMessage = buildInquiryLines(lang).join('\n');
+        inquiryPopulated = true;
 
         const msgField = document.getElementById('contactMessage');
-        if(msgField) msgField.value = lines.join('\n');
+        if(msgField) msgField.value = lastAutoMessage;
 
         const contactSection = document.getElementById('contact');
         if(contactSection) contactSection.scrollIntoView({behavior: 'smooth', block: 'start'});
       });
     }
   }
-
   // ---------- my journey quiz ----------
-  const mjIntro = document.getElementById('introSection');
+    const mjIntro = document.getElementById('introSection');
   const mjQuiz = document.getElementById('quizSection');
   const mjResult = document.getElementById('resultSection');
   const mjProgressFill = document.getElementById('progressFill');

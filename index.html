@@ -1264,6 +1264,38 @@
     transition:border-color 0.3s var(--ease);
   }
   .contact-links a:hover{border-color:var(--bronze-soft);}
+  .privacy-note{
+    font-size:12px;
+    color:rgba(244,241,230,0.45);
+    line-height:1.6;
+    margin-top:18px;
+    max-width:340px;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{
+    max-width:760px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+  }
+  .faq-item{
+    border-bottom:1px solid rgba(60,58,50,0.12);
+    padding-bottom:24px;
+  }
+  .faq-q{
+    font-family:'Fraunces', serif;
+    font-size:17px;
+    font-weight:500;
+    color:var(--charcoal);
+    margin-bottom:10px;
+  }
+  .faq-a{
+    font-size:14.5px;
+    line-height:1.6;
+    color:#4c4e3a;
+  }
 
   .contact-form{
     display:grid;
@@ -1458,6 +1490,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       <a href="#story" onclick="closeMenu()"><span class="lang-kr">소개</span><span class="lang-en">About</span></a>
       <a href="#testimonials" onclick="closeMenu()"><span class="lang-kr">후기</span><span class="lang-en">Stories</span></a>
       <a href="/recovery-plan.html" onclick="closeMenu()"><span class="lang-kr">가이드</span><span class="lang-en">Guide</span></a>
+      <a href="#faq" onclick="closeMenu()"><span class="lang-kr">FAQ</span><span class="lang-en">FAQ</span></a>
       <a href="#contact" onclick="closeMenu()"><span class="lang-kr">문의</span><span class="lang-en">Contact</span></a>
     </nav>
     <a href="#contact" class="nav-cta"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span></a>
@@ -1947,6 +1980,55 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
   </div>
 </section>
+<!-- ===== FAQ ===== -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="eyebrow"><span class="lang-kr">자주 묻는 질문</span><span class="lang-en">FAQ</span></div>
+      <h2 class="lang-kr">궁금한 점, 미리 확인하세요</h2>
+      <h2 class="lang-en">Answers Before You Ask</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q lang-kr">클리닉이나 시술 예약도 도와주시나요?</div>
+        <div class="faq-q lang-en">Do you also help book the clinic or procedure itself?</div>
+        <div class="faq-a lang-kr">아니요, 저희는 시술 이후의 회복과 웰니스 여정만 큐레이션합니다. 클리닉과 시술 예약은 직접 진행해주세요.</div>
+        <div class="faq-a lang-en">No, we curate your recovery and wellness journey after your treatment. Clinic or procedure bookings should be arranged directly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q lang-kr">결제는 언제, 어떻게 하나요?</div>
+        <div class="faq-q lang-en">When and how do I pay?</div>
+        <div class="faq-a lang-kr">문의 후 맞춤 견적을 확인하시면, 결제 방법을 안내드립니다.</div>
+        <div class="faq-a lang-en">After we confirm your tailored quote, we'll guide you through the payment process.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q lang-kr">일정 변경이나 취소가 가능한가요?</div>
+        <div class="faq-q lang-en">Can I reschedule or cancel?</div>
+        <div class="faq-a lang-kr">이용일 기준 3일 전까지는 일정 변경이 무료입니다. 취소는 7일 이전 전액 환불, 3~6일 전 50% 환불(이미 확정된 호텔·다이닝 예약 제외), 3일 이내는 환불이 어렵습니다.</div>
+        <div class="faq-a lang-en">Rescheduling is free up to 3 days before your visit. Cancellations made 7+ days before receive a full refund, 3–6 days before receive a 50% refund (excluding already-confirmed hotel or dining reservations), and cancellations within 3 days are non-refundable.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q lang-kr">한국어를 못해도 괜찮은가요?</div>
+        <div class="faq-q lang-en">Do I need to speak Korean?</div>
+        <div class="faq-a lang-kr">아니요, 전 과정 영어로 편안하게 안내드립니다.</div>
+        <div class="faq-a lang-en">Not at all -- the entire journey is guided comfortably in English.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q lang-kr">혼자 방문해도 괜찮은가요?</div>
+        <div class="faq-q lang-en">Can I visit alone?</div>
+        <div class="faq-a lang-kr">네, 혼자 방문하시는 분들도 많습니다. 편안한 1인 여정으로 설계해드립니다.</div>
+        <div class="faq-a lang-en">Yes, many guests visit solo, and we're happy to design a comfortable journey just for one.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q lang-kr">맞춤 제안은 얼마나 걸리나요?</div>
+        <div class="faq-q lang-en">How long until I get a proposal?</div>
+        <div class="faq-a lang-kr">문의 접수 후 48시간 내에 맞춤 제안을 보내드립니다.</div>
+        <div class="faq-a lang-en">We'll send your tailored proposal within 48 hours of your inquiry.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===== CONTACT ===== -->
 <section class="contact section" id="contact">
   <div class="container contact-grid">
@@ -1960,6 +2042,8 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         <a href="mailto:seoulcurate@gmail.com">seoulcurate@gmail.com</a>
         <a href="https://instagram.com/seoulcurate" target="_blank" rel="noopener">@seoulcurate</a>
       </div>
+      <p class="privacy-note lang-kr">모든 상담과 회복 여정 정보는 철저히 비공개로 관리됩니다. 예약자의 시술 내용과 개인정보는 어떤 경우에도 제3자와 공유되지 않습니다.</p>
+      <p class="privacy-note lang-en">Every consultation and recovery journey is treated with complete discretion. Your treatment details and personal information are never shared with any third party.</p>
     </div>
 
     <form class="contact-form reveal" id="contactForm">

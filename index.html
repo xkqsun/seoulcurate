@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="lang-en">
+<html lang="en" class="lang-en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,8 +51,10 @@
   html{scroll-behavior:smooth;}
 
   /* ---------- LANGUAGE TOGGLE ---------- */
-  html.lang-en .lang-kr{display:none !important;}
-  html:not(.lang-en) .lang-en{display:none !important;}
+  html:not([data-lang="kr"]) .lang-kr{display:none !important;}
+  html:not([data-lang="en"]) .lang-en{display:none !important;}
+  html:not([data-lang="zh"]) .lang-zh{display:none !important;}
+  html:not([data-lang="ru"]) .lang-ru{display:none !important;}
 
   body{
     font-family:'Jost', sans-serif;
@@ -1587,6 +1589,10 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       <button type="button" data-lang="kr" id="btnKr">KOR</button>
       <span class="divider">/</span>
       <button type="button" data-lang="en" id="btnEn">ENG</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="zh" id="btnZh">中文</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="ru" id="btnRu">RU</button>
     </div>
   </div>
 </div>
@@ -1596,16 +1602,16 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   <div class="container nav-inner">
     <a href="#top" class="logo">Seoul Curate</a>
     <nav class="links" id="navLinks">
-      <a href="#services" onclick="closeMenu()"><span class="lang-kr">서비스</span><span class="lang-en">Services</span></a>
-      <a href="#after-treatment" onclick="closeMenu()"><span class="lang-kr">애프터</span><span class="lang-en">After</span></a>
-      <a href="#options" onclick="closeMenu()"><span class="lang-kr">옵션</span><span class="lang-en">Options</span></a>
-      <a href="#story" onclick="closeMenu()"><span class="lang-kr">소개</span><span class="lang-en">About</span></a>
-      <a href="#testimonials" onclick="closeMenu()"><span class="lang-kr">후기</span><span class="lang-en">Stories</span></a>
-      <a href="/recovery-plan.html" onclick="closeMenu()"><span class="lang-kr">가이드</span><span class="lang-en">Guide</span></a>
-      <a href="/faq.html" onclick="closeMenu()"><span class="lang-kr">FAQ</span><span class="lang-en">FAQ</span></a>
-      <a href="#contact" onclick="closeMenu()"><span class="lang-kr">문의</span><span class="lang-en">Contact</span></a>
+      <a href="#services" onclick="closeMenu()"><span class="lang-kr">서비스</span><span class="lang-en">Services</span><span class="lang-zh">服务</span><span class="lang-ru">Услуги</span></a>
+      <a href="#after-treatment" onclick="closeMenu()"><span class="lang-kr">애프터</span><span class="lang-en">After</span><span class="lang-zh">术后</span><span class="lang-ru">После</span></a>
+      <a href="#options" onclick="closeMenu()"><span class="lang-kr">옵션</span><span class="lang-en">Options</span><span class="lang-zh">方案</span><span class="lang-ru">Варианты</span></a>
+      <a href="#story" onclick="closeMenu()"><span class="lang-kr">소개</span><span class="lang-en">About</span><span class="lang-zh">关于</span><span class="lang-ru">О нас</span></a>
+      <a href="#testimonials" onclick="closeMenu()"><span class="lang-kr">후기</span><span class="lang-en">Stories</span><span class="lang-zh">评价</span><span class="lang-ru">Отзывы</span></a>
+      <a href="/recovery-plan.html" onclick="closeMenu()"><span class="lang-kr">가이드</span><span class="lang-en">Guide</span><span class="lang-zh">指南</span><span class="lang-ru">Гид</span></a>
+      <a href="/faq.html" onclick="closeMenu()"><span class="lang-kr">FAQ</span><span class="lang-en">FAQ</span><span class="lang-zh">常见问题</span><span class="lang-ru">Вопросы</span></a>
+      <a href="#contact" onclick="closeMenu()"><span class="lang-kr">문의</span><span class="lang-en">Contact</span><span class="lang-zh">联系</span><span class="lang-ru">Контакты</span></a>
     </nav>
-    <a href="#contact" class="nav-cta"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span></a>
+    <a href="#contact" class="nav-cta"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span><span class="lang-zh">联系咨询</span><span class="lang-ru">Связаться</span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기 Open menu">
       <span></span><span></span><span></span>
     </button>
@@ -1626,26 +1632,26 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
   <div class="container hero-inner">
     <div class="hero-top">
-      <span><span class="lang-kr">[ 글로벌 메디컬 웰니스 저니 ]</span><span class="lang-en">[ GLOBAL MEDICAL WELLNESS JOURNEY ]</span></span>
+      <span><span class="lang-kr">[ 글로벌 메디컬 웰니스 저니 ]</span><span class="lang-en">[ GLOBAL MEDICAL WELLNESS JOURNEY ]</span><span class="lang-zh">[ 全球医疗健康之旅 ]</span><span class="lang-ru">[ ГЛОБАЛЬНОЕ МЕДИЦИНСКОЕ ВЕЛНЕС-ПУТЕШЕСТВИЕ ]</span></span>
     </div>
 
     <h1 class="lang-kr"><span class="hero-lead-small">너무 많은 클리닉. 너무 많은 선택지.</span><em>당신에게 맞는 서울의<br>회복 여정을 큐레이션합니다.</em></h1>
-    <h1 class="lang-en"><span class="hero-lead-small">Too many clinics. Too many choices.</span><em>I curate the right recovery journey for you in Seoul.</em></h1>
+    <h1 class="lang-en"><span class="hero-lead-small">Too many clinics. Too many choices.</span><em>I curate the right recovery journey for you in Seoul.</em></h1><h1  class="lang-zh"><span class="hero-lead-small">诊所太多，选择太多。</span><em>我为您量身定制专属首尔的<br>康复之旅。</em></h1><h1  class="lang-ru"><span class="hero-lead-small">Слишком много клиник. Слишком много вариантов.</span><em>Я подбираю для вас идеальное<br>путешествие восстановления в Сеуле.</em></h1>
 
     <span class="hero-tagline lang-kr">직접 경험하고, 신중하게 선택한 공간만 연결합니다.</span>
-    <span class="hero-tagline lang-en">I connect only the spaces I've personally experienced and carefully chosen.</span>
+    <span class="hero-tagline lang-en">I connect only the spaces I've personally experienced and carefully chosen.</span><span class="hero-tagline lang-zh">我只呈现亲自体验、精心甄选的空间。</span><span class="hero-tagline lang-ru">Я подбираю только те места, которые лично испытала и тщательно выбрала.</span>
 
     <p class="hero-sub lang-kr">시술, 회복, 웰니스, 그리고 서울의 라이프스타일까지 하나의 여정으로 디자인합니다.</p>
-    <p class="hero-sub lang-en">From treatment to recovery, wellness, and Seoul's lifestyle, all designed as one seamless journey.</p>
+    <p class="hero-sub lang-en">From treatment to recovery, wellness, and Seoul's lifestyle, all designed as one seamless journey.</p><p  class="hero-sub lang-zh">从诊疗到恢复、健康管理，再到首尔的生活方式，一切都被设计成一场完整的旅程。</p><p  class="hero-sub lang-ru">От процедуры до восстановления, велнеса и стиля жизни Сеула — всё продумано как единое путешествие.</p>
 
     <div class="hero-ctas">
-      <a href="#contact" class="btn btn-primary"><span class="lang-kr">여정 시작하기</span><span class="lang-en">Start Your Journey</span></a>
-      <a href="#guide" class="btn btn-ghost"><span class="lang-kr">무료 가이드 받기</span><span class="lang-en">Get the Free Guide</span></a>
+      <a href="#contact" class="btn btn-primary"><span class="lang-kr">여정 시작하기</span><span class="lang-en">Start Your Journey</span><span class="lang-zh">开启您的旅程</span><span class="lang-ru">Начать путешествие</span></a>
+      <a href="#guide" class="btn btn-ghost"><span class="lang-kr">무료 가이드 받기</span><span class="lang-en">Get the Free Guide</span><span class="lang-zh">获取免费指南</span><span class="lang-ru">Получить бесплатный гид</span></a>
     </div>
   </div>
 
   <div class="scroll-cue">
-    <span><span class="lang-kr">스크롤</span><span class="lang-en">Scroll</span></span>
+    <span><span class="lang-kr">스크롤</span><span class="lang-en">Scroll</span><span class="lang-zh">下滑</span><span class="lang-ru">Прокрутить</span></span>
     <div class="scroll-line"></div>
   </div>
 </section>
@@ -1653,43 +1659,43 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="services section light-on-dark" id="services">
   <div class="container">
     <div class="section-header reveal">
-      <div class="eyebrow"><span class="lang-kr">서비스</span><span class="lang-en">SERVICES</span></div>
+      <div class="eyebrow"><span class="lang-kr">서비스</span><span class="lang-en">SERVICES</span><span class="lang-zh">服务</span><span class="lang-ru">УСЛУГИ</span></div>
       <h2 class="lang-kr">당신의 컨디션에 맞춘<br>여정 설계</h2>
-      <h2 class="lang-en">A Journey Designed<br>Around You</h2>
+      <h2 class="lang-en">A Journey Designed<br>Around You</h2><h2  class="lang-zh">专属于您的<br>旅程设计</h2><h2  class="lang-ru">Путешествие,<br>созданное для вас</h2>
     </div>
     <p class="services-lead reveal lang-kr">시술이 끝난 순간부터가 진짜 시작입니다. 회복, 머무는 공간, 그리고 서울에서만 느낄 수 있는 순간까지, 목적과 컨디션에 맞게 끝까지 책임지고 설계합니다.</p>
-    <p class="services-lead reveal lang-en">The moment your treatment ends is where we truly begin. From recovery to stay to a taste of Seoul, every step after your procedure is designed and looked after, start to finish.</p>
+    <p class="services-lead reveal lang-en">The moment your treatment ends is where we truly begin. From recovery to stay to a taste of Seoul, every step after your procedure is designed and looked after, start to finish.</p><p  class="services-lead reveal lang-zh">疗程结束的那一刻，才是真正的开始。从恢复护理、住宿安排，到感受首尔的独特魅力，术后的每一步都被精心设计与悉心照料。</p><p  class="services-lead reveal lang-ru">Момент окончания процедуры — это только начало. От восстановления и проживания до атмосферы Сеула — каждый шаг после процедуры продуман и сопровождается от начала до конца.</p>
 
     <div class="service-grid reveal">
       <div class="service-card">
         <div class="service-num">01</div>
         <h3 class="lang-kr">나를 알아가기</h3>
-        <h3 class="lang-en">Know Yourself</h3>
+        <h3 class="lang-en">Know Yourself</h3><h3  class="lang-zh">了解自己</h3><h3  class="lang-ru">Узнать себя</h3>
         <span class="card-tagline lang-kr">무엇이 필요한가요?</span>
-        <span class="card-tagline lang-en">What do you need?</span>
+        <span class="card-tagline lang-en">What do you need?</span><span class="card-tagline lang-zh">您需要什么？</span><span class="card-tagline lang-ru">Что вам нужно?</span>
         <p class="lang-kr">모든 설계는 당신을 아는 것에서 시작됩니다. 짧은 질문을 통해 컨디션과 목적, 우선순위를 먼저 파악합니다.</p>
-        <p class="lang-en">Every plan begins with knowing you. A few short questions help us understand your condition, purpose, and priorities first.</p>
+        <p class="lang-en">Every plan begins with knowing you. A few short questions help us understand your condition, purpose, and priorities first.</p><p  class="lang-zh">每一份方案都从了解您开始。通过几个简短的问题，我们先了解您的身体状况、目的与优先需求。</p><p  class="lang-ru">Каждый план начинается со знакомства с вами. Несколько коротких вопросов помогают понять ваше состояние, цель и приоритеты.</p>
       </div>
       <div class="service-card">
         <div class="service-num">02</div>
         <h3 class="lang-kr">회복 디자인</h3>
-        <h3 class="lang-en">Recovery Design</h3>
+        <h3 class="lang-en">Recovery Design</h3><h3  class="lang-zh">恢复设计</h3><h3  class="lang-ru">Дизайн восстановления</h3>
         <p class="lang-kr">시술 후 몸이 받아들일 수 있는 순서와 간격으로. 스파, 한방, 휴식을 촘촘히 배치합니다.</p>
-        <p class="lang-en">Spa, Korean medicine, and rest, sequenced around what your body can actually absorb.</p>
+        <p class="lang-en">Spa, Korean medicine, and rest, sequenced around what your body can actually absorb.</p><p  class="lang-zh">按照身体能够承受的节奏，合理安排水疗、韩方调理与休息。</p><p  class="lang-ru">Спа, корейская медицина и отдых — выстроены в темпе, который действительно подходит вашему телу.</p>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
         <h3 class="lang-kr">공간 큐레이션</h3>
-        <h3 class="lang-en">Space Curation</h3>
+        <h3 class="lang-en">Space Curation</h3><h3  class="lang-zh">空间策划</h3><h3  class="lang-ru">Подбор пространства</h3>
         <p class="lang-kr">직접 머물러 본 호텔과 다이닝만 추천합니다. 조용히 쉴 수 있는 곳으로만 골랐습니다.</p>
-        <p class="lang-en">Hotels and dining chosen from personal experience: only the quiet, restorative kind.</p>
+        <p class="lang-en">Hotels and dining chosen from personal experience: only the quiet, restorative kind.</p><p  class="lang-zh">酒店与餐饮均来自亲身体验之选，只挑选安静、能真正放松的地方。</p><p  class="lang-ru">Отели и рестораны, проверенные лично: только тихие места для настоящего восстановления.</p>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
         <h3 class="lang-kr">컬처 모먼트</h3>
-        <h3 class="lang-en">Cultural Moments</h3>
+        <h3 class="lang-en">Cultural Moments</h3><h3  class="lang-zh">文化时刻</h3><h3  class="lang-ru">Культурные моменты</h3>
         <p class="lang-kr">일정 사이, 서울의 지금을 느낄 수 있는 전시와 산책. 여백을 채우는 작은 순간들.</p>
-        <p class="lang-en">Small moments between appointments: an exhibition, a walk, a taste of Seoul right now.</p>
+        <p class="lang-en">Small moments between appointments: an exhibition, a walk, a taste of Seoul right now.</p><p  class="lang-zh">在行程间隙，加入展览、散步，感受此刻的首尔，填满每一段空白时光。</p><p  class="lang-ru">Маленькие моменты между визитами: выставка, прогулка, ощущение Сеула здесь и сейчас.</p>
       </div>
     </div>
   </div>
@@ -1698,180 +1704,180 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="after-treatment section" id="after-treatment">
   <div class="container">
     <div class="section-header reveal" style="margin-bottom:0;">
-      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">애프터 트리트먼트</span><span class="lang-en">AFTER TREATMENT</span></div>
+      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">애프터 트리트먼트</span><span class="lang-en">AFTER TREATMENT</span><span class="lang-zh">术后护理</span><span class="lang-ru">ПОСЛЕ ПРОЦЕДУРЫ</span></div>
       <h2 class="lang-kr">시술 후, 회복의 시간을<br>당신만의 웰니스 여정으로 채워보세요</h2>
-      <h2 class="lang-en">Fill Your Recovery Time<br>With Your Own Wellness Journey</h2>
+      <h2 class="lang-en">Fill Your Recovery Time<br>With Your Own Wellness Journey</h2><h2  class="lang-zh">用专属健康之旅<br>填满您的恢复时光</h2><h2  class="lang-ru">Наполните время восстановления<br>своим велнес-путешествием</h2>
     </div>
     <p class="at-lead reveal lang-kr">회복 여정에 더하고 싶은 순간들을 자유롭게 선택해보세요. 원하는 만큼 고르셔도 좋아요.</p>
-    <p class="at-lead reveal lang-en">Choose whatever moments you'd like to add to your recovery journey. Pick as many as you like.</p>
+    <p class="at-lead reveal lang-en">Choose whatever moments you'd like to add to your recovery journey. Pick as many as you like.</p><p  class="at-lead reveal lang-zh">请自由选择您想加入恢复旅程的项目，数量不限。</p><p  class="at-lead reveal lang-ru">Свободно выбирайте моменты, которые хотите добавить в своё путешествие восстановления. Можно выбрать сколько угодно.</p>
 
     <div class="intensity-grid reveal" id="intensityGrid">
       <div class="intensity-card">
         <div class="intensity-badge lang-kr">가벼운 회복</div>
-        <div class="intensity-badge lang-en">Low Downtime</div>
+        <div class="intensity-badge lang-en">Low Downtime</div><div  class="intensity-badge lang-zh">轻度恢复</div><div  class="intensity-badge lang-ru">Минимальный простой</div>
         <div class="intensity-examples lang-kr">레이저 토닝 · 보톡스 등</div>
-        <div class="intensity-examples lang-en">Laser Toning · Botox, and similar</div>
+        <div class="intensity-examples lang-en">Laser Toning · Botox, and similar</div><div  class="intensity-examples lang-zh">激光调理 · 肉毒素等</div><div  class="intensity-examples lang-ru">Лазерный тонинг · Ботокс и подобные процедуры</div>
         <div class="intensity-timeline">
-          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
-          <span class="it-step"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
-          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span><span class="lang-zh">当天</span><span class="lang-ru">В тот же день</span></span>
+          <span class="it-step"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span><span class="lang-zh">第1–2天</span><span class="lang-ru">День 1–2</span></span>
+          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span><span class="lang-zh">第3天以上</span><span class="lang-ru">День 3+</span></span>
         </div>
         <p class="intensity-note lang-kr">시술 당일부터 가벼운 외출과 일정이 가능해요.</p>
-        <p class="intensity-note lang-en">Light outings and plans are possible from the day of treatment.</p>
+        <p class="intensity-note lang-en">Light outings and plans are possible from the day of treatment.</p><p  class="intensity-note lang-zh">术后当天即可轻松外出、安排行程。</p><p  class="intensity-note lang-ru">Лёгкие прогулки и дела возможны уже в день процедуры.</p>
         <button type="button" class="intensity-cta-btn" data-target-package="wellness">
-          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span><span class="lang-zh">查看匹配方案</span><span class="lang-ru">Смотреть подходящий пакет</span>
         </button>
       </div>
       <div class="intensity-card">
         <div class="intensity-badge lang-kr">균형 잡힌 회복</div>
-        <div class="intensity-badge lang-en">Balanced Recovery</div>
+        <div class="intensity-badge lang-en">Balanced Recovery</div><div  class="intensity-badge lang-zh">均衡恢复</div><div  class="intensity-badge lang-ru">Сбалансированное восстановление</div>
         <div class="intensity-examples lang-kr">필러 · 중간 강도 리프팅 등</div>
-        <div class="intensity-examples lang-en">Filler · Mid-Intensity Lifting</div>
+        <div class="intensity-examples lang-en">Filler · Mid-Intensity Lifting</div><div  class="intensity-examples lang-zh">玻尿酸填充 · 中强度提升等</div><div  class="intensity-examples lang-ru">Филлеры · Лифтинг средней интенсивности</div>
         <div class="intensity-timeline">
-          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
-          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
-          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span><span class="lang-zh">当天</span><span class="lang-ru">В тот же день</span></span>
+          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span><span class="lang-zh">第1–2天</span><span class="lang-ru">День 1–2</span></span>
+          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span><span class="lang-zh">第3天以上</span><span class="lang-ru">День 3+</span></span>
         </div>
         <p class="intensity-note lang-kr">2~4일 정도의 회복 기간을 갖는 것이 좋아요.</p>
-        <p class="intensity-note lang-en">A recovery window of about 2–4 days is recommended.</p>
+        <p class="intensity-note lang-en">A recovery window of about 2–4 days is recommended.</p><p  class="intensity-note lang-zh">建议预留约2-4天的恢复时间。</p><p  class="intensity-note lang-ru">Рекомендуется период восстановления около 2–4 дней.</p>
         <button type="button" class="intensity-cta-btn" data-target-package="recovery3d">
-          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span><span class="lang-zh">查看匹配方案</span><span class="lang-ru">Смотреть подходящий пакет</span>
         </button>
       </div>
       <div class="intensity-card">
         <div class="intensity-badge lang-kr">완전한 리셋</div>
-        <div class="intensity-badge lang-en">Full Reset</div>
+        <div class="intensity-badge lang-en">Full Reset</div><div  class="intensity-badge lang-zh">完全重启</div><div  class="intensity-badge lang-ru">Полная перезагрузка</div>
         <div class="intensity-examples lang-kr">복합 리프팅 · 다운타임이 긴 시술</div>
-        <div class="intensity-examples lang-en">Combined Lifting · Longer-Downtime Procedures</div>
+        <div class="intensity-examples lang-en">Combined Lifting · Longer-Downtime Procedures</div><div  class="intensity-examples lang-zh">复合提升 · 恢复期较长的项目</div><div  class="intensity-examples lang-ru">Комбинированный лифтинг · Процедуры с долгим восстановлением</div>
         <div class="intensity-timeline">
-          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
-          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
-          <span class="it-step active"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span><span class="lang-zh">当天</span><span class="lang-ru">В тот же день</span></span>
+          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span><span class="lang-zh">第1–2天</span><span class="lang-ru">День 1–2</span></span>
+          <span class="it-step active"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span><span class="lang-zh">第3天以上</span><span class="lang-ru">День 3+</span></span>
         </div>
         <p class="intensity-note lang-kr">1주일 이상 충분한 휴식과 케어가 필요해요.</p>
-        <p class="intensity-note lang-en">A full week or more of rest and care is recommended.</p>
+        <p class="intensity-note lang-en">A full week or more of rest and care is recommended.</p><p  class="intensity-note lang-zh">建议预留一周以上的充分休息与护理时间。</p><p  class="intensity-note lang-ru">Рекомендуется полноценный отдых и уход в течение недели или дольше.</p>
         <button type="button" class="intensity-cta-btn" data-target-package="bespoke">
-          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span><span class="lang-zh">查看匹配方案</span><span class="lang-ru">Смотреть подходящий пакет</span>
         </button>
       </div>
     </div>
 
         <div class="at-groups reveal" id="atGrid">
       <div class="at-group-card at-group-recovery">
-        <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span></div>
+        <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span><span class="lang-zh">术后恢复选项</span><span class="lang-ru">Варианты восстановления</span></div>
         <div class="at-grid">
 <div class="at-chip" data-value="meal" data-price-min="30000" data-price-max="50000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 11.5h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 11.5V5.8"/><path d="M9.3 4c0 1 1 1 1 2s-1 1-1 2M15 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">회복 식사</span><span class="at-label lang-en">Recovery Meal</span>
+        <span class="at-label lang-kr">회복 식사</span><span class="at-label lang-en">Recovery Meal</span><span class="at-label lang-zh">恢复餐</span><span class="at-label lang-ru">Восстановительное питание</span>
         <span class="at-chip-price">+₩30,000~50,000 (~$20-35)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="sauna" data-price-min="40000" data-price-max="200000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span>
+        <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span><span class="at-label lang-zh">桑拿</span><span class="at-label lang-ru">Сауна</span>
         <span class="at-chip-price">+₩40,000~200,000 (~$30-145)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="headspa" data-price-min="100000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M7 12c0-3.3 2.2-6 5-6s5 2.7 5 6c0 2-.8 3.4-1.6 4.6-.4.6-.6 1-.6 1.9v.5a1 1 0 0 1-1 1h-3.6a1 1 0 0 1-1-1v-.5c0-.9-.2-1.3-.6-1.9C7.8 15.4 7 14 7 12z" stroke-linejoin="round"/><path d="M9.5 9.5c.5-1 1.5-1.5 2.5-1.5s2 .5 2.5 1.5" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">헤드 스파</span><span class="at-label lang-en">Head Spa</span> <span class="at-chip-price">+₩100,000~150,000 (~$70-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-label lang-kr">헤드 스파</span><span class="at-label lang-en">Head Spa</span><span class="at-label lang-zh">头部SPA</span><span class="at-label lang-ru">СПА для головы</span> <span class="at-chip-price">+₩100,000~150,000 (~$70-105)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="therapy" data-price-min="80000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><circle cx="8" cy="16" r="2.3"/><circle cx="14" cy="9" r="3.3"/><circle cx="18.5" cy="16.5" r="1.6"/></svg></span>
-        <span class="at-label lang-kr">산소 테라피</span><span class="at-label lang-en">Oxygen Therapy</span>
+        <span class="at-label lang-kr">산소 테라피</span><span class="at-label lang-en">Oxygen Therapy</span><span class="at-label lang-zh">氧气理疗</span><span class="at-label lang-ru">Кислородная терапия</span>
         <span class="at-chip-price">+₩80,000~150,000 (~$55-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="lymphatic" data-price-min="80000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3c4 5 6 8 6 11a6 6 0 11-12 0c0-3 2-6 6-11z"/></svg></span>
-        <span class="at-label lang-kr">림프 마사지</span><span class="at-label lang-en">Lymphatic Massage</span>
+        <span class="at-label lang-kr">림프 마사지</span><span class="at-label lang-en">Lymphatic Massage</span><span class="at-label lang-zh">淋巴按摩</span><span class="at-label lang-ru">Лимфодренажный массаж</span>
         <span class="at-chip-price">+₩80,000~150,000 (~$55-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="coldpack" data-price-min="30000" data-price-max="60000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">냉찜질</span><span class="at-label lang-en">Cold Compress</span>
+        <span class="at-label lang-kr">냉찜질</span><span class="at-label lang-en">Cold Compress</span><span class="at-label lang-zh">冷敷</span><span class="at-label lang-ru">Холодный компресс</span>
         <span class="at-chip-price">+₩30,000~60,000 (~$20-45)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="compression" data-price-min="50000" data-price-max="100000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="5" y="9" width="14" height="6" rx="3"/><path d="M8 9v6M12 9v6M16 9v6" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">압박 케어</span><span class="at-label lang-en">Compression Care</span>
+        <span class="at-label lang-kr">압박 케어</span><span class="at-label lang-en">Compression Care</span><span class="at-label lang-zh">压力护理</span><span class="at-label lang-ru">Компрессионный уход</span>
         <span class="at-chip-price">+₩50,000~100,000 (~$35-70)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
         </div>
       </div>
       <div class="at-group-card at-group-culture">
-        <div class="at-group-title"><span class="lang-kr">서울 문화체험 옵션</span><span class="lang-en">Seoul Culture Experience</span></div>
+        <div class="at-group-title"><span class="lang-kr">서울 문화체험 옵션</span><span class="lang-en">Seoul Culture Experience</span><span class="lang-zh">首尔文化体验</span><span class="lang-ru">Культурный опыт Сеула</span></div>
         <div class="at-grid">
 <div class="at-chip" data-value="cafe" data-price-min="20000" data-price-max="40000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span> <span class="at-chip-price">+₩20,000~40,000 (~$15-30)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span><span class="at-label lang-zh">咖啡厅</span><span class="at-label lang-ru">Кафе</span> <span class="at-chip-price">+₩20,000~40,000 (~$15-30)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="walk" data-price-min="10000" data-price-max="20000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span>
+        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span><span class="at-label lang-zh">散步</span><span class="at-label lang-ru">Прогулка</span>
         <span class="at-chip-price">+₩10,000~20,000 (~$5-15)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="chefdining" data-price-min="200000" data-price-max="400000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span> <span class="at-chip-price">+₩200,000~400,000 (~$145-285)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span><span class="at-label lang-zh">名厨餐饮</span><span class="at-label lang-ru">Ужин от именитого шеф-повара</span> <span class="at-chip-price">+₩200,000~400,000 (~$145-285)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="artexhibition" data-price-min="15000" data-price-max="30000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span>
+        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span><span class="at-label lang-zh">艺术展览</span><span class="at-label lang-ru">Художественная выставка</span>
         <span class="at-chip-price">+₩15,000~30,000 (~$10-20)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="museum" data-price-min="5000" data-price-max="15000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span>
+        <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span><span class="at-label lang-zh">博物馆</span><span class="at-label lang-ru">Музей</span>
         <span class="at-chip-price">+₩5,000~15,000 (~$5-10)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="tealounge" data-price-min="20000" data-price-max="35000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span>
+        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span><span class="at-label lang-zh">茶室</span><span class="at-label lang-ru">Чайная гостиная</span>
         <span class="at-chip-price">+₩20,000~35,000 (~$15-25)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="shopping" data-price-min="50000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">뷰티 쇼핑</span><span class="at-label lang-en">Beauty Shopping</span>
+        <span class="at-label lang-kr">뷰티 쇼핑</span><span class="at-label lang-en">Beauty Shopping</span><span class="at-label lang-zh">美妆购物</span><span class="at-label lang-ru">Шопинг красоты</span>
         <span class="at-chip-price">+₩50,000~150,000 (~$35-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="hanriver" data-price-min="0" data-price-max="20000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span>
+        <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span><span class="at-label lang-zh">汉江</span><span class="at-label lang-ru">Река Хан</span>
         <span class="at-chip-price">+₩0~20,000 (~$0-15)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
         <div class="at-chip" data-value="beauty" data-price-min="70000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">메이크업</span><span class="at-label lang-en">Makeup</span>
+        <span class="at-label lang-kr">메이크업</span><span class="at-label lang-en">Makeup</span><span class="at-label lang-zh">化妆</span><span class="at-label lang-ru">Макияж</span>
         <span class="at-chip-price">+₩70,000~150,000 (~$50-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span></span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 </div>
@@ -1881,10 +1887,10 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <div class="at-summary reveal">
       <div class="at-count">
         <span class="lang-kr"><strong id="atCountKr">0</strong>개 선택됨</span>
-        <span class="lang-en"><strong id="atCountEn">0</strong> selected</span>
+        <span class="lang-en"><strong id="atCountEn">0</strong> selected</span><span class="lang-zh"><strong id="atCountZh">0</strong> 项已选</span><span class="lang-ru"><strong id="atCountRu">0</strong> выбрано</span>
       </div>
       <a href="#options" class="btn btn-outline-dark">
-        <span class="lang-kr">이 구성으로 옵션 보기</span><span class="lang-en">See Options With This</span>
+        <span class="lang-kr">이 구성으로 옵션 보기</span><span class="lang-en">See Options With This</span><span class="lang-zh">查看该组合的方案</span><span class="lang-ru">Смотреть варианты с этим набором</span>
       </a>
     </div>
   </div>
@@ -1895,51 +1901,61 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <button type="button" class="at-modal-close" id="atModalClose" aria-label="Close">&times;</button>
     <div class="at-modal-icon" id="atModalIcon"></div>
     <div class="at-modal-tag lang-kr">애프터 트리트먼트</div>
-    <div class="at-modal-tag lang-en">AFTER TREATMENT</div>
+    <div class="at-modal-tag lang-en">AFTER TREATMENT</div><div  class="at-modal-tag lang-zh">术后护理</div><div  class="at-modal-tag lang-ru">ПОСЛЕ ПРОЦЕДУРЫ</div>
     <h3 class="at-modal-title lang-kr" id="atModalTitleKr"></h3>
     <h3 class="at-modal-title lang-en" id="atModalTitleEn"></h3>
+    <h3 class="at-modal-title lang-zh" id="atModalTitleZh"></h3>
+    <h3 class="at-modal-title lang-ru" id="atModalTitleRu"></h3>
     <div class="at-modal-price" id="atModalPrice"></div>
 
     <div class="at-modal-section">
       <div class="at-modal-label lang-kr">어떤 경험인가요?</div>
-      <div class="at-modal-label lang-en">What's the Experience?</div>
+      <div class="at-modal-label lang-en">What's the Experience?</div><div  class="at-modal-label lang-zh">这是怎样的体验？</div><div  class="at-modal-label lang-ru">Что это за опыт?</div>
       <p class="lang-kr" id="atModalExpKr"></p>
       <p class="lang-en" id="atModalExpEn"></p>
+      <p class="lang-zh" id="atModalExpZh"></p>
+      <p class="lang-ru" id="atModalExpRu"></p>
     </div>
 
     <div class="at-modal-section">
       <div class="at-modal-label lang-kr">왜 추천하나요?</div>
-      <div class="at-modal-label lang-en">Why We Recommend It</div>
+      <div class="at-modal-label lang-en">Why We Recommend It</div><div  class="at-modal-label lang-zh">推荐理由</div><div  class="at-modal-label lang-ru">Почему мы это рекомендуем</div>
       <p class="lang-kr" id="atModalWhyKr"></p>
       <p class="lang-en" id="atModalWhyEn"></p>
+      <p class="lang-zh" id="atModalWhyZh"></p>
+      <p class="lang-ru" id="atModalWhyRu"></p>
     </div>
 
     <div class="at-modal-section">
       <div class="at-modal-label lang-kr">이런 분께 추천합니다</div>
-      <div class="at-modal-label lang-en">Recommended For</div>
+      <div class="at-modal-label lang-en">Recommended For</div><div  class="at-modal-label lang-zh">适合人群</div><div  class="at-modal-label lang-ru">Кому подойдёт</div>
       <p class="lang-kr" id="atModalForKr"></p>
       <p class="lang-en" id="atModalForEn"></p>
+      <p class="lang-zh" id="atModalForZh"></p>
+      <p class="lang-ru" id="atModalForRu"></p>
     </div>
 
     <div class="at-modal-section">
       <div class="at-modal-label lang-kr">함께 추천하는 경험</div>
-      <div class="at-modal-label lang-en">Pairs Well With</div>
+      <div class="at-modal-label lang-en">Pairs Well With</div><div  class="at-modal-label lang-zh">搭配推荐</div><div  class="at-modal-label lang-ru">Хорошо сочетается с</div>
       <div class="at-modal-pairs" id="atModalPairs"></div>
     </div>
 
     <div class="at-modal-quote">
       <div class="at-modal-label lang-kr">이 곳을 선택한 이유</div>
-      <div class="at-modal-label lang-en">Why We Chose This Place</div>
+      <div class="at-modal-label lang-en">Why We Chose This Place</div><div  class="at-modal-label lang-zh">选择这里的理由</div><div  class="at-modal-label lang-ru">Почему мы выбрали это место</div>
       <p class="lang-kr" id="atModalReasonKr"></p>
       <p class="lang-en" id="atModalReasonEn"></p>
+      <p class="lang-zh" id="atModalReasonZh"></p>
+      <p class="lang-ru" id="atModalReasonRu"></p>
     </div>
 
     <div class="at-modal-actions">
       <button type="button" class="btn btn-outline-dark" id="atModalSelect">
-        <span class="lang-kr">이 경험 선택하기</span><span class="lang-en">Add to My Journey</span>
+        <span class="lang-kr">이 경험 선택하기</span><span class="lang-en">Add to My Journey</span><span class="lang-zh">加入我的行程</span><span class="lang-ru">Добавить в путешествие</span>
       </button>
       <a href="#contact" class="btn btn-primary">
-        <span class="lang-kr">문의하기</span><span class="lang-en">Enquire</span>
+        <span class="lang-kr">문의하기</span><span class="lang-en">Enquire</span><span class="lang-zh">咨询</span><span class="lang-ru">Узнать</span>
       </a>
     </div>
   </div>
@@ -1949,71 +1965,71 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="options section" id="options">
   <div class="container">
     <div class="section-header reveal">
-      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">여정 옵션</span><span class="lang-en">OPTIONS</span></div>
+      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">여정 옵션</span><span class="lang-en">OPTIONS</span><span class="lang-zh">方案选择</span><span class="lang-ru">ВАРИАНТЫ</span></div>
       <h2 class="lang-kr">나에게 맞는 여정을<br>선택하세요</h2>
-      <h2 class="lang-en">Choose the Journey<br>That Fits You</h2>
+      <h2 class="lang-en">Choose the Journey<br>That Fits You</h2><h2  class="lang-zh">选择<br>适合您的旅程</h2><h2  class="lang-ru">Выберите путешествие,<br>которое вам подходит</h2>
     </div>
 
     <div class="option-fit-summary" id="optionFitSummary">
       <div class="option-fit-summary-head">
         <div class="option-fit-summary-label">
           <span class="lang-kr">회원님이 선택한 애프터 트리트먼트</span>
-          <span class="lang-en">Your Selected After-Treatment Picks</span>
+          <span class="lang-en">Your Selected After-Treatment Picks</span><span class="lang-zh">您已选择的术后护理项目</span><span class="lang-ru">Ваш выбор процедур после лечения</span>
         </div>
         <div class="option-fit-tags" id="optionFitTags"></div>
       </div>
       <button type="button" class="option-fit-clear" id="optionFitClear">
-        <span class="lang-kr">모두 지우기</span><span class="lang-en">Clear All</span>
+        <span class="lang-kr">모두 지우기</span><span class="lang-en">Clear All</span><span class="lang-zh">全部清除</span><span class="lang-ru">Очистить всё</span>
       </button>
     </div>
 
     <div class="option-grid reveal">
       <div class="option-card" data-fit-min="0" data-fit-max="3" data-package="wellness" data-base-price="450000" data-included="meal">
-        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
-        <div class="option-tag"><span class="lang-kr">반나절 · 하루</span><span class="lang-en">HALF · FULL DAY</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">가벼운 회복</span><span class="option-intensity-name lang-en">Low Downtime</span><span class="option-intensity-examples lang-kr">레이저 토닝 · 보톡스 등</span><span class="option-intensity-examples lang-en">Laser Toning · Botox, and similar</span></div>
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span><span class="lang-zh">匹配您的选择</span><span class="lang-ru">Подходит под ваш выбор</span></div>
+        <div class="option-tag"><span class="lang-kr">반나절 · 하루</span><span class="lang-en">HALF · FULL DAY</span><span class="lang-zh">半天 · 全天</span><span class="lang-ru">ПОЛДНЯ · ПОЛНЫЙ ДЕНЬ</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">가벼운 회복</span><span class="option-intensity-name lang-en">Low Downtime</span><span class="option-intensity-name lang-zh">轻度恢复</span><span class="option-intensity-name lang-ru">Минимальный простой</span><span class="option-intensity-examples lang-kr">레이저 토닝 · 보톡스 등</span><span class="option-intensity-examples lang-en">Laser Toning · Botox, and similar</span><span class="option-intensity-examples lang-zh">激光调理 · 肉毒素等</span><span class="option-intensity-examples lang-ru">Лазерный тонинг · Ботокс и подобные процедуры</span></div>
         <h3 class="option-title lang-kr">웰니스 데이 저니</h3>
-        <h3 class="option-title lang-en">Wellness Day Journey</h3>
+        <h3 class="option-title lang-en">Wellness Day Journey</h3><h3  class="option-title lang-zh">健康日间之旅</h3><h3  class="option-title lang-ru">Дневное велнес-путешествие</h3>
         <p class="option-desc lang-kr">클리닉과 회복, 다이닝을 잇는 반나절~하루 루트. 짧은 일정에도 충분히 회복할 수 있도록.</p>
-        <p class="option-desc lang-en">A half-day to full-day route connecting clinic, recovery, and dining, enough to recover fully even on a short visit.</p>
+        <p class="option-desc lang-en">A half-day to full-day route connecting clinic, recovery, and dining, enough to recover fully even on a short visit.</p><p  class="option-desc lang-zh">连接诊所、恢复护理与餐饮的半天至全天行程，即使短暂停留也能充分恢复。</p><p  class="option-desc lang-ru">Маршрут на полдня или полный день, объединяющий клинику, восстановление и питание — достаточно, чтобы полностью восстановиться даже за короткий визит.</p>
         <ul class="option-list">
-          <li><span class="lang-kr">회복일정 코디네이션</span><span class="lang-en">Recovery Schedule Coordination</span></li>
-          <li><span class="lang-kr">전 일정 이동 동선 설계</span><span class="lang-en">Full itinerary & transit planning</span></li>
+          <li><span class="lang-kr">회복일정 코디네이션</span><span class="lang-en">Recovery Schedule Coordination</span><span class="lang-zh">恢复日程协调</span><span class="lang-ru">Координация графика восстановления</span></li>
+          <li><span class="lang-kr">전 일정 이동 동선 설계</span><span class="lang-en">Full itinerary & transit planning</span><span class="lang-zh">全程行程与交通规划</span><span class="lang-ru">Полное планирование маршрута и трансфера</span></li>
         </ul>
-        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span><span class="lang-zh">选择该方案计算</span><span class="lang-ru">Использовать этот пакет</span></button>
       </div>
 
       <div class="option-card featured" data-fit-min="4" data-fit-max="7" data-package="recovery3d" data-base-price="1200000" data-included="sauna,therapy">
-        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
-        <div class="option-tag"><span class="lang-kr">2박 3일</span><span class="lang-en">3 DAYS · 2 NIGHTS</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">균형 잡힌 회복</span><span class="option-intensity-name lang-en">Balanced Recovery</span><span class="option-intensity-examples lang-kr">필러 · 중간 강도 리프팅 등</span><span class="option-intensity-examples lang-en">Filler · Mid-Intensity Lifting</span></div>
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span><span class="lang-zh">匹配您的选择</span><span class="lang-ru">Подходит под ваш выбор</span></div>
+        <div class="option-tag"><span class="lang-kr">2박 3일</span><span class="lang-en">3 DAYS · 2 NIGHTS</span><span class="lang-zh">2晚3天</span><span class="lang-ru">3 ДНЯ · 2 НОЧИ</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">균형 잡힌 회복</span><span class="option-intensity-name lang-en">Balanced Recovery</span><span class="option-intensity-name lang-zh">均衡恢复</span><span class="option-intensity-name lang-ru">Сбалансированное восстановление</span><span class="option-intensity-examples lang-kr">필러 · 중간 강도 리프팅 등</span><span class="option-intensity-examples lang-en">Filler · Mid-Intensity Lifting</span><span class="option-intensity-examples lang-zh">玻尿酸填充 · 中强度提升等</span><span class="option-intensity-examples lang-ru">Филлеры · Лифтинг средней интенсивности</span></div>
         <h3 class="option-title lang-kr">회복 저니</h3>
-        <h3 class="option-title lang-en">3-Day Recovery Journey</h3>
+        <h3 class="option-title lang-en">3-Day Recovery Journey</h3><h3  class="option-title lang-zh">三日恢复之旅</h3><h3  class="option-title lang-ru">3-дневное путешествие восстановления</h3>
         <p class="option-desc lang-kr">가장 많이 선택하는 구성. 클리닉, 회복, 머무는 공간까지 하나의 흐름으로 짜인 2박 3일.</p>
-        <p class="option-desc lang-en">Our most-booked journey. Clinic, recovery, and stay woven into one seamless 3-day, 2-night flow.</p>
+        <p class="option-desc lang-en">Our most-booked journey. Clinic, recovery, and stay woven into one seamless 3-day, 2-night flow.</p><p  class="option-desc lang-zh">最受欢迎的行程。将诊所、恢复护理与住宿完美融合于2晚3天的无缝旅程中。</p><p  class="option-desc lang-ru">Наше самое популярное путешествие. Клиника, восстановление и проживание объединены в единый маршрут на 3 дня и 2 ночи.</p>
         <ul class="option-list">
-          <li><span class="lang-kr">회복일정 코디네이션</span><span class="lang-en">Recovery Schedule Coordination</span></li>
-          <li><span class="lang-kr">부티크 호텔 & 다이닝 큐레이션</span><span class="lang-en">Boutique hotel & dining curation</span></li>
-          <li><span class="lang-kr">전 일정 이동 · 타임라인 관리</span><span class="lang-en">Full itinerary & timeline management</span></li>
+          <li><span class="lang-kr">회복일정 코디네이션</span><span class="lang-en">Recovery Schedule Coordination</span><span class="lang-zh">恢复日程协调</span><span class="lang-ru">Координация графика восстановления</span></li>
+          <li><span class="lang-kr">부티크 호텔 & 다이닝 큐레이션</span><span class="lang-en">Boutique hotel & dining curation</span><span class="lang-zh">精品酒店与餐饮策划</span><span class="lang-ru">Подбор бутик-отеля и ресторанов</span></li>
+          <li><span class="lang-kr">전 일정 이동 · 타임라인 관리</span><span class="lang-en">Full itinerary & timeline management</span><span class="lang-zh">全程行程与时间管理</span><span class="lang-ru">Полное управление маршрутом и расписанием</span></li>
         </ul>
-        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span><span class="lang-zh">选择该方案计算</span><span class="lang-ru">Использовать этот пакет</span></button>
       </div>
 
       <div class="option-card" data-fit-min="8" data-fit-max="999" data-package="bespoke" data-base-price="" data-included="">
-        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span></div>
-        <div class="option-tag"><span class="lang-kr">완전 맞춤</span><span class="lang-en">FULLY BESPOKE</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">완전한 리셋</span><span class="option-intensity-name lang-en">Full Reset</span><span class="option-intensity-examples lang-kr">복합 리프팅 · 다운타임이 긴 시술</span><span class="option-intensity-examples lang-en">Combined Lifting · Longer-Downtime Procedures</span></div>
+        <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span><span class="lang-zh">匹配您的选择</span><span class="lang-ru">Подходит под ваш выбор</span></div>
+        <div class="option-tag"><span class="lang-kr">완전 맞춤</span><span class="lang-en">FULLY BESPOKE</span><span class="lang-zh">完全定制</span><span class="lang-ru">ПОЛНОСТЬЮ ИНДИВИДУАЛЬНО</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">완전한 리셋</span><span class="option-intensity-name lang-en">Full Reset</span><span class="option-intensity-name lang-zh">完全重启</span><span class="option-intensity-name lang-ru">Полная перезагрузка</span><span class="option-intensity-examples lang-kr">복합 리프팅 · 다운타임이 긴 시술</span><span class="option-intensity-examples lang-en">Combined Lifting · Longer-Downtime Procedures</span><span class="option-intensity-examples lang-zh">复合提升 · 恢复期较长的项目</span><span class="option-intensity-examples lang-ru">Комбинированный лифтинг · Процедуры с долгим восстановлением</span></div>
         <h3 class="option-title lang-kr">풀 베스포크 저니</h3>
-        <h3 class="option-title lang-en">Full Bespoke Journey</h3>
+        <h3 class="option-title lang-en">Full Bespoke Journey</h3><h3  class="option-title lang-zh">全程定制之旅</h3><h3  class="option-title lang-ru">Полностью индивидуальное путешествие</h3>
         <p class="option-desc lang-kr">4박 이상, 완전히 개인화된 여정. 동행자, 목적, 예산에 맞춰 처음부터 설계합니다.</p>
-        <p class="option-desc lang-en">4+ nights, fully personalized. Designed from scratch around your companions, purpose, and budget.</p>
+        <p class="option-desc lang-en">4+ nights, fully personalized. Designed from scratch around your companions, purpose, and budget.</p><p  class="option-desc lang-zh">4晚以上，完全个性化定制。根据您的同行人数、目的与预算从零开始设计。</p><p  class="option-desc lang-ru">4+ ночей, полностью персонализировано. Разработано с нуля с учётом ваших спутников, цели и бюджета.</p>
         <ul class="option-list">
-          <li><span class="lang-kr">맞춤 회복 플랜</span><span class="lang-en">Custom Recovery Plan</span></li>
-          <li><span class="lang-kr">공간 · 문화 · 다이닝 전체 큐레이션</span><span class="lang-en">Full space, culture & dining curation</span></li>
-          <li><span class="lang-kr">전담 코디네이터 상시 응대</span><span class="lang-en">Dedicated coordinator on call</span></li>
+          <li><span class="lang-kr">맞춤 회복 플랜</span><span class="lang-en">Custom Recovery Plan</span><span class="lang-zh">定制恢复计划</span><span class="lang-ru">Индивидуальный план восстановления</span></li>
+          <li><span class="lang-kr">공간 · 문화 · 다이닝 전체 큐레이션</span><span class="lang-en">Full space, culture & dining curation</span><span class="lang-zh">空间、文化与餐饮全程策划</span><span class="lang-ru">Полный подбор пространства, культуры и гастрономии</span></li>
+          <li><span class="lang-kr">전담 코디네이터 상시 응대</span><span class="lang-en">Dedicated coordinator on call</span><span class="lang-zh">专属协调员随时待命</span><span class="lang-ru">Персональный координатор на связи</span></li>
         </ul>
-        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span></button>
+        <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span><span class="lang-zh">选择该方案计算</span><span class="lang-ru">Использовать этот пакет</span></button>
       </div>
     </div>
           <div class="option-inquire-wrap">
-        <a href="#contact" class="btn btn-primary"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span></a>
+        <a href="#contact" class="btn btn-primary"><span class="lang-kr">이 옵션으로 문의하기</span><span class="lang-en">Enquire About This Option</span><span class="lang-zh">咨询此方案</span><span class="lang-ru">Узнать об этом варианте</span></a>
       </div>
   </div>
 </section>
@@ -2022,35 +2038,35 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="story section" id="story">
   <div class="container">
     <div class="section-header reveal">
-      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">브랜드 이야기</span><span class="lang-en">OUR STORY</span></div>
+      <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">브랜드 이야기</span><span class="lang-en">OUR STORY</span><span class="lang-zh">品牌故事</span><span class="lang-ru">НАША ИСТОРИЯ</span></div>
       <h2 class="lang-kr">왜 Seoul Curate을 시작했을까요</h2>
-      <h2 class="lang-en">Why I Started Seoul Curate</h2>
+      <h2 class="lang-en">Why I Started Seoul Curate</h2><h2  class="lang-zh">我为何创立 Seoul Curate</h2><h2  class="lang-ru">Почему я создала Seoul Curate</h2>
     </div>
 
     <div class="story-grid">
       <div class="story-visual reveal">
         <div class="story-quote">
           <span class="lang-kr">"내가 다른 도시를 여행할 때, 나의 취향을 이미 아는 누군가가 모든 걸 미리 준비해줬으면 좋겠다고 생각했어요."</span>
-          <span class="lang-en">"When I travel to another city, I've always wished someone who already knew my taste would prepare everything for me in advance."</span>
+          <span class="lang-en">"When I travel to another city, I've always wished someone who already knew my taste would prepare everything for me in advance."</span><span class="lang-zh">“每次去到陌生的城市旅行时，我总希望有一个了解我喜好的人，能提前为我准备好一切。”</span><span class="lang-ru">«Когда я путешествую в другой город, мне всегда хотелось, чтобы кто-то, кто уже знает мои вкусы, заранее всё подготовил для меня».</span>
         </div>
       </div>
 
       <div class="story-body reveal">
         <p class="lang-kr">오랫동안, 전 세계에서 한국 피부과와 메디컬 시술을 찾아 낯선 도시 서울을 찾아오는 분들을 봐왔습니다.</p>
-        <p class="lang-en">For a long time, I've watched people travel from all over the world to the unfamiliar city of Seoul, in search of Korean dermatology and medical treatments.</p>
+        <p class="lang-en">For a long time, I've watched people travel from all over the world to the unfamiliar city of Seoul, in search of Korean dermatology and medical treatments.</p><p  class="lang-zh">很长一段时间里，我看到来自世界各地的人们为了寻求韩国皮肤科与医疗诊疗，来到陌生的城市首尔。</p><p  class="lang-ru">Долгое время я наблюдала, как люди со всего мира приезжают в незнакомый им Сеул в поисках корейской дерматологии и медицинских процедур.</p>
 
         <p class="lang-kr">시술을 받으러 왔지만, 서울이라는 도시도 경험하고 싶고, 좋은 공간에서 쉬고도 싶고, 나만을 위한 하루를 보내고도 싶은 마음. 그 마음을 누군가 대신 설계해줬으면 했던 경험이 저에게도 있었습니다.</p>
-        <p class="lang-en">They came for a procedure, but they also wanted to experience the city of Seoul, to rest in a beautiful space, to spend a day designed just for them. I've had that same wish myself, and wanted someone to design it for me.</p>
+        <p class="lang-en">They came for a procedure, but they also wanted to experience the city of Seoul, to rest in a beautiful space, to spend a day designed just for them. I've had that same wish myself, and wanted someone to design it for me.</p><p  class="lang-zh">他们是为了接受诊疗而来，但同时也想体验首尔这座城市，想在美好的空间中休憩，想拥有专属于自己的一天。我自己也曾有过同样的心愿，希望有人能为我设计这一切。</p><p  class="lang-ru">Они приезжали ради процедуры, но также хотели узнать Сеул, отдохнуть в красивом месте, провести день, созданный именно для них. У меня было такое же желание, и мне хотелось, чтобы кто-то создал это для меня.</p>
 
         <p class="lang-kr">직접 걸어보고, 직접 경험한 것만 추천하는 신뢰 기반의 큐레이션. 메디컬 경험 후 웰니스, 공간 경험, 서울 컬처 모먼트까지, 한 번에 하나의 흐름으로.</p>
-        <p class="lang-en">Trust-based curation: recommending only what I've walked and experienced myself. From your medical experience to wellness, space, and Seoul culture moments, all at once, in a single flow.</p>
+        <p class="lang-en">Trust-based curation: recommending only what I've walked and experienced myself. From your medical experience to wellness, space, and Seoul culture moments, all at once, in a single flow.</p><p  class="lang-zh">基于信任的策划：只推荐我亲自走过、亲自体验过的一切。从医疗诊疗体验到健康管理、空间体验，再到首尔文化时刻，一气呵成。</p><p  class="lang-ru">Кураторство, основанное на доверии: я рекомендую только то, что прошла и испытала сама. От медицинского опыта до велнеса, пространства и культурных моментов Сеула — всё в едином потоке.</p>
 
         <p class="lang-kr">당신은 그저 도착해서, 회복에만 집중하면 됩니다.</p>
-        <p class="lang-en">You simply arrive, and focus only on recovery.</p>
+        <p class="lang-en">You simply arrive, and focus only on recovery.</p><p  class="lang-zh">您只需抵达，专心恢复即可。</p><p  class="lang-ru">Вам нужно лишь приехать и сосредоточиться на восстановлении.</p>
 
         <div class="story-signature">
           <div class="lang-kr">저는 제 가족에게 보낼 수 있는 곳만 추천합니다.<br>제가 직접 걸어본 길만, 제가 신뢰할 수 있는 곳만.<span class="sig-role">Designed & curated by Sun</span></div>
-          <div class="lang-en">I only recommend places I'd send my own family.<br>Only routes I've walked myself. Only places I'd trust.<span class="sig-role">Designed & curated by Sun</span></div>
+          <div class="lang-en">I only recommend places I'd send my own family.<br>Only routes I've walked myself. Only places I'd trust.<span class="sig-role">Designed & curated by Sun</span></div><div  class="lang-zh">我只推荐愿意介绍给自己家人的地方。<br>只走我亲自走过的路线，只信赖我真正信任的地方。<span class="sig-role">由 Sun 设计与策划</span></div><div  class="lang-ru">Я рекомендую только те места, куда отправила бы свою семью.<br>Только маршруты, которые прошла сама. Только места, которым доверяю.<span class="sig-role">Разработано и курировано Sun</span></div>
         </div>
       </div>
     </div>
@@ -2060,74 +2076,74 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="testimonials section light-on-dark" id="testimonials">
   <div class="container">
     <div class="section-header reveal">
-      <div class="eyebrow"><span class="lang-kr">고객 후기</span><span class="lang-en">GUEST STORIES</span></div>
+      <div class="eyebrow"><span class="lang-kr">고객 후기</span><span class="lang-en">GUEST STORIES</span><span class="lang-zh">客户故事</span><span class="lang-ru">ИСТОРИИ ГОСТЕЙ</span></div>
       <h2 class="lang-kr">특별한 여정을 함께합니다</h2>
-      <h2 class="lang-en">A Special Journey, Together</h2>
+      <h2 class="lang-en">A Special Journey, Together</h2><h2  class="lang-zh">与您共赴一场特别的旅程</h2><h2  class="lang-ru">Особое путешествие вместе</h2>
     </div>
     <p class="testimonials-lead lang-kr">다녀가신 분들이 솔직하게 남겨주신 여정 이야기입니다.</p>
-    <p class="testimonials-lead lang-en">Honest journey stories shared by the guests who have visited us.</p>
+    <p class="testimonials-lead lang-en">Honest journey stories shared by the guests who have visited us.</p><p  class="testimonials-lead lang-zh">以下是来访贵宾们真实分享的旅程故事。</p><p  class="testimonials-lead lang-ru">Честные истории путешествий от гостей, которые уже побывали у нас.</p>
 
     <div class="testimonial-filters reveal" id="testimonialFilters">
-      <button type="button" class="tf-btn active" data-filter="all"><span class="lang-kr">전체</span><span class="lang-en">All</span></button>
-      <button type="button" class="tf-btn" data-filter="wellness"><span class="lang-kr">반나절</span><span class="lang-en">Half-Day</span></button>
-      <button type="button" class="tf-btn" data-filter="recovery3d"><span class="lang-kr">2박 3일</span><span class="lang-en">3-Day</span></button>
-      <button type="button" class="tf-btn" data-filter="bespoke"><span class="lang-kr">완전 맞춤</span><span class="lang-en">Bespoke</span></button>
+      <button type="button" class="tf-btn active" data-filter="all"><span class="lang-kr">전체</span><span class="lang-en">All</span><span class="lang-zh">全部</span><span class="lang-ru">Все</span></button>
+      <button type="button" class="tf-btn" data-filter="wellness"><span class="lang-kr">반나절</span><span class="lang-en">Half-Day</span><span class="lang-zh">半天</span><span class="lang-ru">Полдня</span></button>
+      <button type="button" class="tf-btn" data-filter="recovery3d"><span class="lang-kr">2박 3일</span><span class="lang-en">3-Day</span><span class="lang-zh">三天</span><span class="lang-ru">3 дня</span></button>
+      <button type="button" class="tf-btn" data-filter="bespoke"><span class="lang-kr">완전 맞춤</span><span class="lang-en">Bespoke</span><span class="lang-zh">定制</span><span class="lang-ru">Индивидуально</span></button>
     </div>
     <div class="testimonial-grid reveal">
       <div class="testimonial-card" data-package="recovery3d">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"강남에서 리투오 시술을 받고 1박 2일 회복 저니를 함께했어요. 회복 케어는 물론 뷰티, 쇼핑, 클래식 공연까지 알차게 챙길 수 있어서 혼자 왔는데도 전혀 심심하지 않았습니다."</p>
-        <p class="tc-quote lang-en">"After my Rituo treatment in Gangnam, I spent a 2-day recovery journey that included beauty care, shopping, and even a classical concert. I came alone but never once felt bored."</p>
-        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Cathrin · Canada</div><div class="tc-date lang-kr">2026년 3월 방문</div><div class="tc-date lang-en">Visited March 2026</div></div></div>
+        <p class="tc-quote lang-en">"After my Rituo treatment in Gangnam, I spent a 2-day recovery journey that included beauty care, shopping, and even a classical concert. I came alone but never once felt bored."</p><p  class="tc-quote lang-zh">“在江南接受丽妥（Rituo）疗程后，我度过了1泊2日的恢复之旅，涵盖美容护理、购物，甚至还欣赏了一场古典音乐会。虽然一个人前来，却完全不觉得无聊。”</p><p  class="tc-quote lang-ru">«После процедуры Rituo в Каннаме я провела 2-дневное путешествие восстановления, которое включало уход за красотой, шопинг и даже классический концерт. Я приехала одна, но ни разу не заскучала».</p>
+        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Cathrin · Canada</div><div class="tc-date lang-kr">2026년 3월 방문</div><div class="tc-date lang-en">Visited March 2026</div><div  class="tc-date lang-zh">2026年3月到访</div><div  class="tc-date lang-ru">Визит в марте 2026</div></div></div>
         <div class="tc-tag lang-kr">1박 2일 회복 저니 · 뷰티 · 쇼핑 · 클래식 공연</div>
-        <div class="tc-tag lang-en">2-Day Recovery Journey · Beauty · Shopping · Classical Concert</div>
+        <div class="tc-tag lang-en">2-Day Recovery Journey · Beauty · Shopping · Classical Concert</div><div  class="tc-tag lang-zh">1泊2日恢复之旅 · 美容 · 购物 · 古典音乐会</div><div  class="tc-tag lang-ru">2-дневное восстановление · Красота · Шопинг · Классический концерт</div>
       </div>
       <div class="testimonial-card" data-package="wellness">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"청담에서 스킨보톡스와 리쥬란을 받은 뒤 반나절 회복 저니로 회복식사, 헤드 스파, 산책까지 이어졌어요. 몸도 마음도 같이 회복되는 느낌이라 짧은 일정에도 정말 만족스러웠습니다."</p>
-        <p class="tc-quote lang-en">"After skin botox and Rejuran in Cheongdam, my half-day recovery journey flowed from a recovery meal into a head spa and a quiet walk. It felt like my body and mind recovered together, even in just half a day."</p>
-        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Chloe · Singapore</div><div class="tc-date lang-kr">2026년 4월 방문</div><div class="tc-date lang-en">Visited April 2026</div></div></div>
+        <p class="tc-quote lang-en">"After skin botox and Rejuran in Cheongdam, my half-day recovery journey flowed from a recovery meal into a head spa and a quiet walk. It felt like my body and mind recovered together, even in just half a day."</p><p  class="tc-quote lang-zh">“在清潭接受皮肤肉毒素与丽珠兰（Rejuran）疗程后，我的半天恢复之旅从恢复餐开始，接着体验了头部SPA与静心散步。即使只有半天，也感觉身心同时得到了恢复。”</p><p  class="tc-quote lang-ru">«После скин-ботокса и Rejuran в Чхондаме моё полудневное восстановление началось с восстановительного питания, продолжилось СПА для головы и спокойной прогулкой. Казалось, что тело и разум восстанавливались вместе, даже всего за полдня».</p>
+        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Chloe · Singapore</div><div class="tc-date lang-kr">2026년 4월 방문</div><div class="tc-date lang-en">Visited April 2026</div><div  class="tc-date lang-zh">2026年4月到访</div><div  class="tc-date lang-ru">Визит в апреле 2026</div></div></div>
         <div class="tc-tag lang-kr">반나절 회복 저니 · 회복식사 · 헤드 스파 · 산책</div>
-        <div class="tc-tag lang-en">Half-Day Recovery Journey · Recovery Meal · Head Spa · Walk</div>
+        <div class="tc-tag lang-en">Half-Day Recovery Journey · Recovery Meal · Head Spa · Walk</div><div  class="tc-tag lang-zh">半天恢复之旅 · 恢复餐 · 头部SPA · 散步</div><div  class="tc-tag lang-ru">Полудневное восстановление · Питание · СПА для головы · Прогулка</div>
       </div>
       <div class="testimonial-card" data-package="bespoke">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"부모님과 함께 건강검진을 받은 뒤 풀 비스포크 저니로 티 라운지에서 여유를 즐기고, 유명 셰프의 다이닝과 사우나까지 이어졌어요. 온 가족이 편하게 쉴 수 있었던 시간이었습니다."</p>
-        <p class="tc-quote lang-en">"After a health check-up with my parents, our full bespoke journey continued with a calm tea lounge, dinner from a celebrated chef, and a sauna. It gave our whole family a relaxed, worry-free time together."</p>
-        <div class="tc-meta"><div class="tc-avatar">M</div><div><div class="tc-name">M.B · Germany</div><div class="tc-date lang-kr">2026년 2월 방문</div><div class="tc-date lang-en">Visited February 2026</div></div></div>
+        <p class="tc-quote lang-en">"After a health check-up with my parents, our full bespoke journey continued with a calm tea lounge, dinner from a celebrated chef, and a sauna. It gave our whole family a relaxed, worry-free time together."</p><p  class="tc-quote lang-zh">“与父母一同接受健康检查后，我们的全程定制之旅还安排了宁静的茶室时光、名厨料理晚宴以及桑拿体验，让全家人都度过了一段放松无忧的时光。”</p><p  class="tc-quote lang-ru">«После медицинского осмотра с родителями наше полностью индивидуальное путешествие продолжилось спокойной чайной гостиной, ужином от именитого шеф-повара и сауной. Это подарило всей нашей семье время для отдыха без забот».</p>
+        <div class="tc-meta"><div class="tc-avatar">M</div><div><div class="tc-name">M.B · Germany</div><div class="tc-date lang-kr">2026년 2월 방문</div><div class="tc-date lang-en">Visited February 2026</div><div  class="tc-date lang-zh">2026年2月到访</div><div  class="tc-date lang-ru">Визит в феврале 2026</div></div></div>
         <div class="tc-tag lang-kr">풀 비스포크 저니 · 건강검진 · 티 라운지 · 유명 셰프 다이닝 · 사우나</div>
-        <div class="tc-tag lang-en">Full Bespoke Journey · Health Check-up · Tea Lounge · Celebrity Chef Dining · Sauna</div>
+        <div class="tc-tag lang-en">Full Bespoke Journey · Health Check-up · Tea Lounge · Celebrity Chef Dining · Sauna</div><div  class="tc-tag lang-zh">全程定制之旅 · 健康检查 · 茶室 · 名厨餐饮 · 桑拿</div><div  class="tc-tag lang-ru">Индивидуальное путешествие · Медосмотр · Чайная гостиная · Ужин от шеф-повара · Сауна</div>
       </div>
 
       <div class="testimonial-card" data-package="wellness">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"청담에서 반나절 회복 저니로 스킨 케어와 조용한 티타임을 즐겼어요. 짧은 일정이었지만 온전히 쉴 수 있어서 좋았습니다."</p>
-        <p class="tc-quote lang-en">"I spent a half-day recovery journey in Cheongdam with gentle skin care and a quiet tea break. It was a short visit, but I felt completely at ease."</p>
-        <div class="tc-meta"><div class="tc-avatar">A</div><div><div class="tc-name">Aiko · Japan</div><div class="tc-date lang-kr">2026년 5월 방문</div><div class="tc-date lang-en">Visited May 2026</div></div></div>
+        <p class="tc-quote lang-en">"I spent a half-day recovery journey in Cheongdam with gentle skin care and a quiet tea break. It was a short visit, but I felt completely at ease."</p><p  class="tc-quote lang-zh">“在清潭度过了半天恢复之旅，接受了温和的皮肤护理，还享受了一段静谧的茶歇时光。虽然停留时间不长，却让我感到十分安心自在。”</p><p  class="tc-quote lang-ru">«Я провела полудневное восстановление в Чхондаме с бережным уходом за кожей и спокойным чайным перерывом. Визит был коротким, но я чувствовала себя абсолютно спокойно».</p>
+        <div class="tc-meta"><div class="tc-avatar">A</div><div><div class="tc-name">Aiko · Japan</div><div class="tc-date lang-kr">2026년 5월 방문</div><div class="tc-date lang-en">Visited May 2026</div><div  class="tc-date lang-zh">2026年5月到访</div><div  class="tc-date lang-ru">Визит в мае 2026</div></div></div>
         <div class="tc-tag lang-kr">반나절 회복 저니 · 스킨 케어 · 티타임</div>
-        <div class="tc-tag lang-en">Half-Day Recovery Journey · Skin Care · Tea Time</div>
+        <div class="tc-tag lang-en">Half-Day Recovery Journey · Skin Care · Tea Time</div><div  class="tc-tag lang-zh">半天恢复之旅 · 皮肤护理 · 茶歇时光</div><div  class="tc-tag lang-ru">Полудневное восстановление · Уход за кожей · Чайное время</div>
       </div>
       <div class="testimonial-card" data-package="recovery3d">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"2박 3일 회복 저니 동안 링거 케어와 한강 피크닉까지 챙길 수 있어서 여행처럼 느껴졌어요. 회복도, 힐링도 함께한 시간이었습니다."</p>
-        <p class="tc-quote lang-en">"During my 3-day recovery journey, I had IV care and even a picnic by the Han River — it felt like a trip, not just recovery. I healed and relaxed at the same time."</p>
-        <div class="tc-meta"><div class="tc-avatar">S</div><div><div class="tc-name">Sophie · Australia</div><div class="tc-date lang-kr">2026년 6월 방문</div><div class="tc-date lang-en">Visited June 2026</div></div></div>
+        <p class="tc-quote lang-en">"During my 3-day recovery journey, I had IV care and even a picnic by the Han River — it felt like a trip, not just recovery. I healed and relaxed at the same time."</p><p  class="tc-quote lang-zh">“在2晚3天的恢复之旅中，我接受了点滴护理，还在汉江边享受了一场野餐——感觉像是一次旅行，而不仅仅是恢复。身心同时得到了疗愈与放松。”</p><p  class="tc-quote lang-ru">«Во время моего 3-дневного путешествия восстановления у меня была капельница и даже пикник у реки Хан — это было похоже на путешествие, а не просто восстановление. Я выздоравливала и отдыхала одновременно».</p>
+        <div class="tc-meta"><div class="tc-avatar">S</div><div><div class="tc-name">Sophie · Australia</div><div class="tc-date lang-kr">2026년 6월 방문</div><div class="tc-date lang-en">Visited June 2026</div><div  class="tc-date lang-zh">2026年6月到访</div><div  class="tc-date lang-ru">Визит в июне 2026</div></div></div>
         <div class="tc-tag lang-kr">2박 3일 회복 저니 · 링거 케어 · 한강 피크닉</div>
-        <div class="tc-tag lang-en">3-Day Recovery Journey · IV Care · Han River Picnic</div>
+        <div class="tc-tag lang-en">3-Day Recovery Journey · IV Care · Han River Picnic</div><div  class="tc-tag lang-zh">2晚3天恢复之旅 · 点滴护理 · 汉江野餐</div><div  class="tc-tag lang-ru">3-дневное восстановление · Капельница · Пикник у реки Хан</div>
       </div>
       <div class="testimonial-card" data-package="bespoke">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"출장 겸 방문이라 일정이 빡빡했는데, 풀 비스포크 저니로 통역, 이동, 회복 케어까지 한 번에 정리할 수 있어서 정말 편했습니다."</p>
-        <p class="tc-quote lang-en">"I visited during a busy business trip, and the full bespoke journey handled interpretation, transportation, and recovery care all at once. It made everything so much easier."</p>
-        <div class="tc-meta"><div class="tc-avatar">D</div><div><div class="tc-name">Daniel · USA</div><div class="tc-date lang-kr">2026년 7월 방문</div><div class="tc-date lang-en">Visited July 2026</div></div></div>
+        <p class="tc-quote lang-en">"I visited during a busy business trip, and the full bespoke journey handled interpretation, transportation, and recovery care all at once. It made everything so much easier."</p><p  class="tc-quote lang-zh">“出差期间行程十分紧凑，全程定制之旅一次性帮我安排好了翻译、交通与恢复护理，让一切都变得轻松了许多。”</p><p  class="tc-quote lang-ru">«Я приехала во время напряжённой деловой поездки, и полностью индивидуальное путешествие сразу решило вопросы перевода, транспорта и восстановления. Это значительно всё упростило».</p>
+        <div class="tc-meta"><div class="tc-avatar">D</div><div><div class="tc-name">Daniel · USA</div><div class="tc-date lang-kr">2026년 7월 방문</div><div class="tc-date lang-en">Visited July 2026</div><div  class="tc-date lang-zh">2026年7月到访</div><div  class="tc-date lang-ru">Визит в июле 2026</div></div></div>
         <div class="tc-tag lang-kr">풀 비스포크 저니 · 통역 지원 · 이동 지원</div>
-        <div class="tc-tag lang-en">Full Bespoke Journey · Interpretation · Transportation Support</div>
+        <div class="tc-tag lang-en">Full Bespoke Journey · Interpretation · Transportation Support</div><div  class="tc-tag lang-zh">全程定制之旅 · 翻译支持 · 交通支持</div><div  class="tc-tag lang-ru">Индивидуальное путешествие · Перевод · Транспортная поддержка</div>
       </div>
 
 
     <div class="testimonial-cta reveal">
       <a href="/write-review.html" class="btn btn-ghost">
-                <span class="lang-kr">당신의 여정을 남겨주세요</span><span class="lang-en">Share Your Journey</span>
+                <span class="lang-kr">당신의 여정을 남겨주세요</span><span class="lang-en">Share Your Journey</span><span class="lang-zh">分享您的旅程</span><span class="lang-ru">Поделитесь своим путешествием</span>
       </a>
     </div>
   </div>
@@ -2143,34 +2159,34 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <div class="ge-brandmark">
       <div class="ge-wordmark">Seoul Curate</div>
       <div class="ge-tagline lang-kr">무료 가이드</div>
-      <div class="ge-tagline lang-en">FREE GUIDE</div>
+      <div class="ge-tagline lang-en">FREE GUIDE</div><div  class="ge-tagline lang-zh">免费指南</div><div  class="ge-tagline lang-ru">БЕСПЛАТНЫЙ ГИД</div>
     </div>
 
     <div class="ge-body">
       <p class="lang-kr">예약 전과 시술 후, 후회 없는 선택을 돕는 정보 중 꼭 알아야 할 것들만 담았습니다. 제가 직접 다녀온 클리닉 & 시술 후기부터 회복 스케줄 짜는 법까지.</p>
-      <p class="lang-en">Everything worth knowing before you book, and after your treatment — the essentials that help you choose without regret. From clinics and treatments I've personally visited to how to pace your recovery.</p>
+      <p class="lang-en">Everything worth knowing before you book, and after your treatment — the essentials that help you choose without regret. From clinics and treatments I've personally visited to how to pace your recovery.</p><p  class="lang-zh">从预约前到疗程后，涵盖您需要了解的一切核心信息，帮助您做出无悔的选择——从我亲自考察过的诊所与疗程，到如何合理安排恢复节奏。</p><p  class="lang-ru">Всё, что стоит знать перед бронированием и после процедуры — необходимое для выбора без сожалений. От клиник и процедур, которые я лично посетила, до того, как выстроить темп восстановления.</p>
 
       <ul class="ge-perks">
-        <li><span class="lang-kr">경험한 클리닉 & 시술 후기</span><span class="lang-en">Clinics & treatments I've experienced</span></li>
-        <li><span class="lang-kr">회복 컨디션별 추천 스케줄</span><span class="lang-en">Recovery schedules by condition</span></li>
+        <li><span class="lang-kr">경험한 클리닉 & 시술 후기</span><span class="lang-en">Clinics & treatments I've experienced</span><span class="lang-zh">我亲身体验过的诊所与疗程</span><span class="lang-ru">Клиники и процедуры, которые я испытала</span></li>
+        <li><span class="lang-kr">회복 컨디션별 추천 스케줄</span><span class="lang-en">Recovery schedules by condition</span><span class="lang-zh">按恢复状况定制的日程安排</span><span class="lang-ru">Графики восстановления по состоянию</span></li>
       </ul>
 
       <form class="guide-form" id="guideForm">
-        <input type="email" id="guideEmail" placeholder="이메일 주소를 입력하세요" data-ph-kr="이메일 주소를 입력하세요" data-ph-en="Enter your email address" required>
-        <button type="submit"><span class="lang-kr">가이드 받기 →</span><span class="lang-en">Get the Guide →</span></button>
+        <input type="email" id="guideEmail" placeholder="이메일 주소를 입력하세요" data-ph-kr="이메일 주소를 입력하세요" data-ph-en="Enter your email address" data-ph-zh="请输入您的邮箱地址" data-ph-ru="Введите ваш email" required>
+        <button type="submit"><span class="lang-kr">가이드 받기 →</span><span class="lang-en">Get the Guide →</span><span class="lang-zh">获取指南 →</span><span class="lang-ru">Получить гид →</span></button>
       </form>
       <div class="form-msg" id="guideMsg">
         <span class="lang-kr">감사합니다. 가이드를 이메일로 보내드릴게요.</span>
-        <span class="lang-en">Thank you. Check your inbox shortly.</span>
+        <span class="lang-en">Thank you. Check your inbox shortly.</span><span class="lang-zh">谢谢您。请稍后查收邮箱。</span><span class="lang-ru">Спасибо. Проверьте почту в ближайшее время.</span>
       </div>
       <div class="guide-note lang-kr">스팸 없이, 진짜 도움이 되는 정보만 보내드릴게요.</div>
-      <div class="guide-note lang-en">No spam, ever. Just what's genuinely useful.</div>
-      <a href="/recovery-plan.html" class="btn btn-outline-dark" style="margin-top:20px;"><span class="lang-kr">샘플보기</span><span class="lang-en">View Sample</span></a>
+      <div class="guide-note lang-en">No spam, ever. Just what's genuinely useful.</div><div  class="guide-note lang-zh">绝不发送垃圾邮件，只提供真正有用的信息。</div><div  class="guide-note lang-ru">Никакого спама — только действительно полезная информация.</div>
+      <a href="/recovery-plan.html" class="btn btn-outline-dark" style="margin-top:20px;"><span class="lang-kr">샘플보기</span><span class="lang-en">View Sample</span><span class="lang-zh">查看样本</span><span class="lang-ru">Посмотреть пример</span></a>
     </div>
 
     <div class="ge-corner-label">
       <span class="lang-kr">SEOUL CURATE · 무료 가이드</span>
-      <span class="lang-en">SEOUL CURATE · FREE GUIDE</span>
+      <span class="lang-en">SEOUL CURATE · FREE GUIDE</span><span class="lang-zh">SEOUL CURATE · 免费指南</span><span class="lang-ru">SEOUL CURATE · БЕСПЛАТНЫЙ ГИД</span>
     </div>
 
   </div>
@@ -2179,36 +2195,36 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <section class="contact section" id="contact">
   <div class="container contact-grid">
     <div class="contact-info reveal">
-      <div class="eyebrow" style="color:var(--bronze-soft); margin-bottom:22px;"><span class="lang-kr">문의</span><span class="lang-en">CONTACT</span></div>
+      <div class="eyebrow" style="color:var(--bronze-soft); margin-bottom:22px;"><span class="lang-kr">문의</span><span class="lang-en">CONTACT</span><span class="lang-zh">联系我们</span><span class="lang-ru">КОНТАКТЫ</span></div>
       <h2 class="lang-kr">여정을 시작할<br>준비가 되셨나요?</h2>
-      <h2 class="lang-en">Ready to Start<br>Your Journey?</h2>
+      <h2 class="lang-en">Ready to Start<br>Your Journey?</h2><h2  class="lang-zh">准备好<br>开启您的旅程了吗？</h2><h2  class="lang-ru">Готовы начать<br>своё путешествие?</h2>
       <p class="lang-kr">여행 일정, 목적, 인원수를 간단히 알려주시면 맞춤 제안서를 보내드립니다.</p>
-      <p class="lang-en">Share your dates, purpose, and group size. I'll send a tailored proposal within 48 hours.</p>
+      <p class="lang-en">Share your dates, purpose, and group size. I'll send a tailored proposal within 48 hours.</p><p  class="lang-zh">请告知您的行程日期、目的与人数，我将在48小时内为您发送专属方案。</p><p  class="lang-ru">Сообщите даты, цель поездки и количество человек. Я пришлю индивидуальное предложение в течение 48 часов.</p>
       <div class="contact-links">
         <a href="mailto:seoulcurate@gmail.com">seoulcurate@gmail.com</a>
         <a href="https://instagram.com/seoulcurate" target="_blank" rel="noopener">@seoulcurate</a>
       </div>
       <p class="privacy-note lang-kr">모든 상담과 회복 여정 정보는 철저히 비공개로 관리됩니다. 예약자의 시술 내용과 개인정보는 어떤 경우에도 제3자와 공유되지 않습니다.</p>
-      <p class="privacy-note lang-en">Every consultation and recovery journey is treated with complete discretion. Your treatment details and personal information are never shared with any third party.</p>
+      <p class="privacy-note lang-en">Every consultation and recovery journey is treated with complete discretion. Your treatment details and personal information are never shared with any third party.</p><p  class="privacy-note lang-zh">每一次咨询与恢复旅程都将被严格保密。您的疗程信息与个人隐私绝不会与任何第三方共享。</p><p  class="privacy-note lang-ru">Каждая консультация и путешествие восстановления обрабатываются с полной конфиденциальностью. Данные о вашем лечении и личная информация никогда не передаются третьим лицам.</p>
     </div>
 
     <form class="contact-form reveal" id="contactForm">
       <div class="field">
-        <label><span class="lang-kr">이름</span><span class="lang-en">Name</span></label>
+        <label><span class="lang-kr">이름</span><span class="lang-en">Name</span><span class="lang-zh">姓名</span><span class="lang-ru">Имя</span></label>
         <input type="text" required>
       </div>
       <div class="field">
-        <label><span class="lang-kr">이메일</span><span class="lang-en">Email</span></label>
+        <label><span class="lang-kr">이메일</span><span class="lang-en">Email</span><span class="lang-zh">邮箱</span><span class="lang-ru">Эл. почта</span></label>
         <input type="email" required>
       </div>
       <div class="field">
-        <label><span class="lang-kr">방문 예정일</span><span class="lang-en">Visit Date</span></label>
-        <div class="date-wrap">          <input type="date" id="visitDateField">          <div class="date-display" id="visitDateDisplay">            <span class="date-placeholder"><span class="lang-kr">연도. 월. 일.</span><span class="lang-en">yyyy-mm-dd</span></span>            <span class="date-value" id="visitDateValue"></span>          </div>        </div>
+        <label><span class="lang-kr">방문 예정일</span><span class="lang-en">Visit Date</span><span class="lang-zh">到访日期</span><span class="lang-ru">Дата визита</span></label>
+        <div class="date-wrap">          <input type="date" id="visitDateField">          <div class="date-display" id="visitDateDisplay">            <span class="date-placeholder"><span class="lang-kr">연도. 월. 일.</span><span class="lang-en">yyyy-mm-dd</span><span class="lang-zh">年-月-日</span><span class="lang-ru">гггг-мм-дд</span></span>            <span class="date-value" id="visitDateValue"></span>          </div>        </div>
       </div>
       <div class="field">
-        <label><span class="lang-kr">인원수</span><span class="lang-en">Group Size</span></label>
+        <label><span class="lang-kr">인원수</span><span class="lang-en">Group Size</span><span class="lang-zh">人数</span><span class="lang-ru">Количество человек</span></label>
         <select id="groupSizeField">
-          <option value="" id="groupSizePlaceholder" data-kr="선택해주세요" data-en="Select" selected disabled>Select</option>
+          <option value="" id="groupSizePlaceholder" data-kr="선택해주세요" data-en="Select" data-zh="请选择" data-ru="Выбрать" selected disabled>Select</option>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -2218,10 +2234,10 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         </select>
       </div>
       <div class="field full">
-        <label><span class="lang-kr">문의 내용</span><span class="lang-en">Message</span></label>
+        <label><span class="lang-kr">문의 내용</span><span class="lang-en">Message</span><span class="lang-zh">留言内容</span><span class="lang-ru">Сообщение</span></label>
         <textarea id="contactMessage"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary"><span class="lang-kr">문의 보내기</span><span class="lang-en">Send Enquiry</span></button>
+      <button type="submit" class="btn btn-primary"><span class="lang-kr">문의 보내기</span><span class="lang-en">Send Enquiry</span><span class="lang-zh">发送咨询</span><span class="lang-ru">Отправить запрос</span></button>
     </form>
   </div>
 </section>
@@ -2229,19 +2245,19 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <footer>
   <div class="container footer-inner">
     <span class="lang-kr">Seoul Curate · 글로벌 메디컬 웰니스 저니</span>
-    <span class="lang-en">Seoul Curate · Global Medical Wellness Journey</span>
+    <span class="lang-en">Seoul Curate · Global Medical Wellness Journey</span><span class="lang-zh">Seoul Curate · 全球医疗健康之旅</span><span class="lang-ru">Seoul Curate · Глобальное медицинское велнес-путешествие</span>
     <span class="lang-kr">© 2026 서울 웰니스 큐레이션</span>
-    <span class="lang-en">© 2026 Seoul Wellness Curation</span>
+    <span class="lang-en">© 2026 Seoul Wellness Curation</span><span class="lang-zh">© 2026 Seoul Wellness Curation</span><span class="lang-ru">© 2026 Seoul Wellness Curation</span>
   </div>
 </footer>
 <div class="cost-bar" id="costBar">
   <div class="container cost-bar-inner">
     <div class="cost-bar-info">
-      <span class="cost-bar-pkg"><span class="lang-kr" id="costBarPkgKr">패키지 미선택</span><span class="lang-en" id="costBarPkgEn">No package selected</span></span>
-      <span class="cost-bar-total"><span class="lang-kr" id="costBarTotalKr">옵션을 선택해보세요</span><span class="lang-en" id="costBarTotalEn">Start selecting options</span></span>
+      <span class="cost-bar-pkg"><span class="lang-kr" id="costBarPkgKr">패키지 미선택</span><span class="lang-en" id="costBarPkgEn">No package selected</span><span class="lang-zh" id="costBarPkgZh">未选择方案</span><span class="lang-ru" id="costBarPkgRu">Пакет не выбран</span></span>
+      <span class="cost-bar-total"><span class="lang-kr" id="costBarTotalKr">옵션을 선택해보세요</span><span class="lang-en" id="costBarTotalEn">Start selecting options</span><span class="lang-zh" id="costBarTotalZh">开始选择项目</span><span class="lang-ru" id="costBarTotalRu">Начните выбор опций</span></span>
     </div>
     <button type="button" class="btn btn-primary" id="costBarCTA">
-      <span class="lang-kr">이 예상 견적으로 문의하기</span><span class="lang-en">Inquire With This Estimate</span>
+      <span class="lang-kr">이 예상 견적으로 문의하기</span><span class="lang-en">Inquire With This Estimate</span><span class="lang-zh">以此预估价咨询</span><span class="lang-ru">Отправить запрос с этой оценкой</span>
     </button>
   </div>
 </div>
@@ -2277,7 +2293,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   // guide form
   document.getElementById('guideForm').addEventListener('submit', async function(e){
     e.preventDefault();
-    const isEn = document.documentElement.classList.contains('lang-en');
+    const isEn = document.documentElement.getAttribute('data-lang') === 'en';
     const form = this;
     const emailInput = document.getElementById('guideEmail');
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -2285,7 +2301,8 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
     const originalBtnHTML = submitBtn.innerHTML;
     submitBtn.disabled = true;
-    submitBtn.innerHTML = isEn ? 'Sending…' : '보내는 중…';
+    const __sendingMap = {kr:'보내는 중…', en:'Sending…', zh:'发送中…', ru:'Отправка…'};
+    submitBtn.innerHTML = __sendingMap[document.documentElement.getAttribute('data-lang')] || __sendingMap.kr;
     msgEl.classList.remove('show', 'error');
 
     try {
@@ -2299,11 +2316,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
       msgEl.querySelector('.lang-kr').textContent = '감사합니다. 가이드를 이메일로 보내드릴게요.';
       msgEl.querySelector('.lang-en').textContent = 'Thank you. Check your inbox shortly.';
+      if(msgEl.querySelector('.lang-zh')) msgEl.querySelector('.lang-zh').textContent = '谢谢您。请稍后查收邮箱。';
+      if(msgEl.querySelector('.lang-ru')) msgEl.querySelector('.lang-ru').textContent = 'Спасибо. Проверьте почту в ближайшее время.';
       msgEl.classList.add('show');
       form.reset();
     } catch (err) {
       msgEl.querySelector('.lang-kr').textContent = '전송에 실패했어요. 잠시 후 다시 시도해주세요.';
       msgEl.querySelector('.lang-en').textContent = "Something went wrong. Please try again shortly.";
+      if(msgEl.querySelector('.lang-zh')) msgEl.querySelector('.lang-zh').textContent = '发生错误，请稍后重试。';
+      if(msgEl.querySelector('.lang-ru')) msgEl.querySelector('.lang-ru').textContent = 'Что-то пошло не так. Пожалуйста, попробуйте снова позже.';
       msgEl.classList.add('show', 'error');
     } finally {
       submitBtn.disabled = false;
@@ -2314,23 +2335,31 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   // contact form (UI only)
   document.getElementById('contactForm').addEventListener('submit', function(e){
     e.preventDefault();
-    const isEn = document.documentElement.classList.contains('lang-en');
-    alert(isEn
-      ? "Your enquiry has been received. I'll reply within 48 hours."
-      : '문의가 접수되었습니다. 48시간 내로 답변드릴게요.');
+    const isEn = document.documentElement.getAttribute('data-lang') === 'en';
+    const __enquiryMap = {
+      kr: '문의가 접수되었습니다. 48시간 내로 답변드릴게요.',
+      en: "Your enquiry has been received. I'll reply within 48 hours.",
+      zh: '您的咨询已收到，我们将在48小时内回复。',
+      ru: 'Ваш запрос получен. Я отвечу в течение 48 часов.'
+    };
+    alert(__enquiryMap[document.documentElement.getAttribute('data-lang')] || __enquiryMap.kr);
     this.reset();
   });
 
-  /* ---------- visit date locale display ---------- */  (function(){    const visitDateField = document.getElementById('visitDateField');    const visitDateDisplay = document.getElementById('visitDateDisplay');    const visitDateValue = document.getElementById('visitDateValue');    if(visitDateField && visitDateDisplay && visitDateValue){      if(!visitDateField.value){ const _td=new Date(); const _yyyy=_td.getFullYear(); const _mm=String(_td.getMonth()+1).padStart(2,'0'); const _dd=String(_td.getDate()).padStart(2,'0'); visitDateField.value=_yyyy+'-'+_mm+'-'+_dd; }      window.updateVisitDateDisplay = function(){        const isEn = document.documentElement.classList.contains('lang-en');        if(!visitDateField.value){          visitDateDisplay.classList.remove('has-value');          visitDateValue.textContent = '';          return;        }        const d = new Date(visitDateField.value + 'T00:00:00');        const formatted = isEn          ? d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})          : d.toLocaleDateString('ko-KR', {year:'numeric', month:'long', day:'numeric'});        visitDateValue.textContent = formatted;        visitDateDisplay.classList.add('has-value');      };      visitDateField.addEventListener('input', window.updateVisitDateDisplay);      visitDateField.addEventListener('change', window.updateVisitDateDisplay);      window.updateVisitDateDisplay();    }  })();  // ---------- after treatment chips ----------
+  /* ---------- visit date locale display ---------- */  (function(){    const visitDateField = document.getElementById('visitDateField');    const visitDateDisplay = document.getElementById('visitDateDisplay');    const visitDateValue = document.getElementById('visitDateValue');    if(visitDateField && visitDateDisplay && visitDateValue){      if(!visitDateField.value){ const _td=new Date(); const _yyyy=_td.getFullYear(); const _mm=String(_td.getMonth()+1).padStart(2,'0'); const _dd=String(_td.getDate()).padStart(2,'0'); visitDateField.value=_yyyy+'-'+_mm+'-'+_dd; }      window.updateVisitDateDisplay = function(){        const isEn = document.documentElement.getAttribute('data-lang') === 'en';        if(!visitDateField.value){          visitDateDisplay.classList.remove('has-value');          visitDateValue.textContent = '';          return;        }        const d = new Date(visitDateField.value + 'T00:00:00');        const formatted = isEn          ? d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})          : d.toLocaleDateString('ko-KR', {year:'numeric', month:'long', day:'numeric'});        visitDateValue.textContent = formatted;        visitDateDisplay.classList.add('has-value');      };      visitDateField.addEventListener('input', window.updateVisitDateDisplay);      visitDateField.addEventListener('change', window.updateVisitDateDisplay);      window.updateVisitDateDisplay();    }  })();  // ---------- after treatment chips ----------
   const atGrid = document.getElementById('atGrid');
   if(atGrid){
     const atCountKr = document.getElementById('atCountKr');
     const atCountEn = document.getElementById('atCountEn');
+    const atCountZh = document.getElementById('atCountZh');
+    const atCountRu = document.getElementById('atCountRu');
 
     function updateAtCount(){
       const n = atGrid.querySelectorAll('.at-chip.selected').length;
       atCountKr.textContent = n;
       atCountEn.textContent = n;
+      if(atCountZh) atCountZh.textContent = n;
+      if(atCountRu) atCountRu.textContent = n;
       updateOptionsRecommendation();
       updateCostBar();
       refreshInquiryMessage();
@@ -2363,7 +2392,9 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
           tag.className = 'option-fit-tag';
           tag.innerHTML = chip.querySelector('.at-icon').innerHTML
             + `<span class="lang-kr">${chip.querySelector('.at-label.lang-kr').textContent}</span>`
-            + `<span class="lang-en">${chip.querySelector('.at-label.lang-en').textContent}</span>`;
+            + `<span class="lang-en">${chip.querySelector('.at-label.lang-en').textContent}</span>`
+            + `<span class="lang-zh">${chip.querySelector('.at-label.lang-zh').textContent}</span>`
+            + `<span class="lang-ru">${chip.querySelector('.at-label.lang-ru').textContent}</span>`;
           optionFitTags.appendChild(tag);
         });
       }
@@ -2396,7 +2427,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone with a gap before their next appointment who just wants to sit down and breathe for a moment.',
         reasonKr:'직접 여러 번 가보고, 조명과 소음, 좌석 간격까지 확인한 곳만 추천합니다.',
         reasonEn:'I’ve been there myself, more than once — checking the lighting, the noise level, even how far apart the seats are.',
-        pairs:['meal','tealounge','walk']
+expZh:'疗程结束后可以静坐休息、无需勉强自己的安静咖啡厅——温和的饮品、舒适的座位，绝无刺激性元素。',
+        expRu:'Тихое кафе, где можно посидеть и отдохнуть без напряжения сразу после процедуры — мягкие напитки, удобные места, никакой излишней стимуляции.',
+        whyZh:'在诊所与住宿之间，您需要一个真正能够停下来喘息的地方——安静、不拥挤、让感官得以放松。',
+        whyRu:'Между клиникой и местом проживания вам нужно настоящее место для паузы — тихое, немноголюдное, комфортное для органов чувств.',
+        forZh:'适合在下一场预约前有空档、只想坐下来喘口气的人。',
+        forRu:'Для тех, у кого есть перерыв перед следующим визитом и кто просто хочет присесть и немного отдохнуть.',
+        reasonZh:'我亲自去过不止一次——确认过灯光、噪音水平，甚至座位间的间隔。',
+        reasonRu:'Я сама была там не раз — проверяла освещение, уровень шума и даже расстояние между столиками.',
+                pairs:['meal','tealounge','walk']
       },
       meal:{
         expKr:'시술 후 몸에 부담 없는 식단으로 구성한 회복식입니다. 자극적이지 않고 소화가 편한 메뉴로만 짜여 있습니다.',
@@ -2407,7 +2446,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants their meals looked after too, not just their treatment.',
         reasonKr:'메뉴 구성부터 재료까지 직접 확인하고, 시술 후 먹기에 무리 없는 곳만 골랐습니다.',
         reasonEn:'I’ve checked the menu and the ingredients myself — only chosen what’s genuinely fine to eat after a procedure.',
-        pairs:['coldpack','cafe','tealounge']
+expZh:'根据您身体当下能够承受的状态量身打造的恢复餐——温和、易消化，绝无刺激性食材。',
+        expRu:'Питание для восстановления, подобранное с учётом того, что ваше тело способно принять прямо сейчас — мягкое, легко усваиваемое, без резких компонентов.',
+        whyZh:'吃得好，恢复就成功了一半。需要避免的食物会因疗程不同而变化，因此我们只为您推荐已经亲自确认过的餐厅。',
+        whyRu:'Правильное питание — это половина восстановления. То, что нужно исключить, зависит от процедуры, поэтому мы предлагаем только проверенные нами места.',
+        forZh:'适合不仅关心疗程本身，也希望饮食得到妥善安排的人。',
+        forRu:'Для тех, кто хочет, чтобы позаботились не только о процедуре, но и о питании.',
+        reasonZh:'我亲自确认过菜单与食材——只选择疗程后真正适合食用的餐点。',
+        reasonRu:'Я сама проверила меню и ингредиенты — выбрала только то, что действительно можно есть после процедуры.',
+                pairs:['coldpack','cafe','tealounge']
       },
       walk:{
         expKr:'무리되지 않는 속도로 걸을 수 있는 조용한 산책로입니다. 일정 사이 잠깐의 여백을 채웁니다.',
@@ -2418,7 +2465,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who doesn’t want to be stuck indoors all day and wants a little gentle movement.',
         reasonKr:'직접 걸어보고 그늘, 벤치 위치, 화장실 접근성까지 확인한 길만 안내합니다.',
         reasonEn:'I’ve walked these routes myself — checked the shade, the benches, even how close the restrooms are.',
-        pairs:['hanriver','cafe','coldpack']
+expZh:'一条可以按照自己的步调悠闲行走的安静路线，不费力，正好填补预约之间的空档时间。',
+        expRu:'Тихий маршрут для прогулки в своём темпе — необременительно, ровно чтобы заполнить паузу между визитами.',
+        whyZh:'适度的活动其实有助于恢复。我们只挑选安静且有遮荫的路线。',
+        whyRu:'Лёгкое движение действительно помогает восстановлению. Мы выбрали только тихие маршруты с тенью.',
+        forZh:'适合不想整天待在室内、希望进行一点温和活动的人。',
+        forRu:'Для тех, кто не хочет весь день сидеть в помещении и хочет немного мягкого движения.',
+        reasonZh:'我亲自走过这些路线——确认过遮荫、长椅，甚至洗手间的距离。',
+        reasonRu:'Я сама прошла эти маршруты — проверила тень, скамейки и даже расположение туалетов.',
+                pairs:['hanriver','cafe','coldpack']
       },
       sauna:{
         expKr:'근육의 긴장을 풀고 몸을 이완시키는 프라이빗 사우나입니다. 시술 부위에 영향이 없는 방식으로만 진행됩니다.',
@@ -2429,7 +2484,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone carrying tension and fatigue who wants their body to genuinely let go.',
         reasonKr:'온도, 환기, 프라이빗 정도까지 직접 확인하고, 시술 후 방문에도 무리 없는 곳만 골랐습니다.',
         reasonEn:'I’ve checked the temperature, the ventilation, the level of privacy — only chosen places genuinely fine to visit post-procedure.',
-        pairs:['therapy','headspa','tealounge']
+expZh:'私人桑拿时段，释放紧张情绪，让身体真正得到放松——始终会调整方式以避免影响疗程部位。',
+        expRu:'Приватная сауна для снятия напряжения и настоящего расслабления тела — всегда адаптируется, чтобы не повлиять на зону процедуры.',
+        whyZh:'不同疗程对热敷环境的适宜时机各不相同，因此我们的协调员会先确认您的状态后再安排预约。',
+        whyRu:'Время, подходящее для тепловых процедур, зависит от типа процедуры, поэтому наш координатор всегда сначала проверяет ваше состояние.',
+        forZh:'适合身心紧张疲惫、希望身体真正得到释放的人。',
+        forRu:'Для тех, кто чувствует напряжение и усталость и хочет по-настоящему расслабить тело.',
+        reasonZh:'我亲自确认过温度、通风与私密程度——只选择疗程后真正适合前往的场所。',
+        reasonRu:'Я сама проверила температуру, вентиляцию и уровень приватности — выбрала только места, действительно подходящие после процедуры.',
+                pairs:['therapy','headspa','tealounge']
       },
       chefdining:{
         expKr:'서울의 유명 셰프가 운영하는 다이닝에서 즐기는 특별한 한 끼입니다. 회복 컨디션에 맞춰 메뉴를 조율할 수 있습니다.',
@@ -2440,7 +2503,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants a genuinely special moment during their trip and doesn’t want to miss out on Seoul’s food scene.',
         reasonKr:'직접 방문해서 맛과 서비스, 그리고 회복 중인 손님에 대한 배려까지 확인한 곳만 연결합니다.',
         reasonEn:'I’ve dined there myself — checked the food, the service, and how thoughtfully they handle guests who are recovering.',
-        pairs:['tealounge','artexhibition','shopping']
+expZh:'在首尔知名主厨掌管的餐厅享用一场难忘的用餐体验——菜单可根据您的恢复状况进行调整。',
+        expRu:'Незабываемый ужин в ресторане одного из известных шеф-поваров Сеула — меню можно адаптировать под ваше состояние восстановления.',
+        whyZh:'即便是恢复之旅，也值得拥有几个真正美好的时刻。我们会提前协调安排，让您在不影响恢复的前提下尽情享受。',
+        whyRu:'Даже поездка для восстановления заслуживает по-настоящему ярких моментов. Мы заранее всё координируем, чтобы вы могли насладиться этим без вреда для восстановления.',
+        forZh:'适合希望在旅途中拥有真正特别时刻、又不想错过首尔美食文化的人。',
+        forRu:'Для тех, кто хочет по-настоящему особенный момент в поездке и не хочет упустить гастрономическую сцену Сеула.',
+        reasonZh:'我亲自在那里用过餐——确认过菜品、服务，以及他们对待恢复期客人的细致程度。',
+        reasonRu:'Я сама там ужинала — проверила еду, сервис и то, насколько внимательно там относятся к гостям в период восстановления.',
+                pairs:['tealounge','artexhibition','shopping']
       },
       artexhibition:{
         expKr:'일정 사이 여유롭게 둘러볼 수 있는 전시 관람입니다. 무리되지 않는 동선으로 안내합니다.',
@@ -2451,7 +2522,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants a quiet moment to themselves without giving up the feeling of actually being on a trip.',
         reasonKr:'직접 관람하고, 동선과 좌석, 조명까지 회복 중에도 편안한지 확인한 전시만 안내합니다.',
         reasonEn:'I’ve seen it myself — checked the walking route, seating, and lighting to make sure it’s comfortable mid-recovery.',
-        pairs:['museum','tealounge','cafe']
+expZh:'在预约之间从容参观展览，沿着不会让您感到疲惫的路线漫步。',
+        expRu:'Неспешное посещение выставки между визитами по маршруту, который вас не утомит.',
+        whyZh:'即便在恢复期，您也值得感受此刻的首尔。我们挑选了步行量小、氛围安静的展览。',
+        whyRu:'Даже в процессе восстановления вы заслуживаете почувствовать Сеул прямо сейчас. Мы выбрали выставки с минимальной ходьбой и спокойной атмосферой.',
+        forZh:'适合想要独处片刻，同时又不愿放弃旅行体验感的人。',
+        forRu:'Для тех, кто хочет немного побыть в тишине, не теряя ощущения настоящего путешествия.',
+        reasonZh:'我亲自去看过——确认过步行路线、座位与灯光，确保在恢复期也能舒适参观。',
+        reasonRu:'Я сама там была — проверила маршрут, места для отдыха и освещение, чтобы удостовериться в комфорте во время восстановления.',
+                pairs:['museum','tealounge','cafe']
       },
       museum:{
         expKr:'서울의 역사와 문화를 천천히 둘러보는 박물관 투어입니다. 앉아서 쉴 수 있는 공간이 있는 곳으로만 골랐습니다.',
@@ -2462,7 +2541,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone curious about Seoul’s history and culture who wants to spend the time calmly.',
         reasonKr:'직접 둘러보고, 동선 길이와 휴게 공간, 화장실 위치까지 확인한 곳만 안내합니다.',
         reasonEn:'I’ve walked through it myself — checked the route length, rest areas, even where the restrooms are.',
-        pairs:['artexhibition','tealounge','hanriver']
+expZh:'一场节奏舒缓的博物馆之旅，带您了解首尔的历史与文化，途中设有真正可供休息的座位。',
+        expRu:'Неспешная экскурсия по музею, посвящённая истории и культуре Сеула, с реальными местами для отдыха по пути.',
+        whyZh:'恢复期并不意味着要放弃学习与感受新事物的机会。我们只推荐路线短、且设有真正休息区的场所。',
+        whyRu:'Восстановление не означает отказ от новых впечатлений и знаний. Мы рекомендуем только места с короткими маршрутами и настоящими зонами отдыха.',
+        forZh:'适合对首尔历史文化感兴趣、希望从容度过这段时光的人。',
+        forRu:'Для тех, кто интересуется историей и культурой Сеула и хочет провести время спокойно.',
+        reasonZh:'我亲自走过一遍——确认过路线长度、休息区，甚至洗手间的位置。',
+        reasonRu:'Я сама прошла этот маршрут — проверила его длину, зоны отдыха и даже расположение туалетов.',
+                pairs:['artexhibition','tealounge','hanriver']
       },
       tealounge:{
         expKr:'조용히 차 한잔과 함께 쉬어갈 수 있는 라운지입니다. 편안한 좌석과 차분한 분위기 위주로 골랐습니다.',
@@ -2473,7 +2560,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants a quiet moment, maybe a conversation, without any noise or rush.',
         reasonKr:'직접 차를 마셔보고, 좌석과 조명, 소음까지 확인한 곳만 골랐습니다.',
         reasonEn:'I’ve had tea there myself — checked the seating, lighting, and noise level before recommending it.',
-        pairs:['cafe','artexhibition','museum']
+expZh:'一处宁静的茶室，伴着一壶茶慢下来——舒适的座位、安静的氛围，无需匆忙。',
+        expRu:'Спокойная гостиная, где можно замедлиться за чашкой чая — удобные места, тихая атмосфера, никакой спешки.',
+        whyZh:'在预约之间，您需要一段真正什么都不做的时光，或许只是安静地聊聊天，远离喧嚣与匆忙。',
+        whyRu:'Между визитами вам нужен момент, когда можно вообще ничего не делать — возможно, просто поговорить, без шума и спешки.',
+        forZh:'适合想要安静片刻，或许聊聊天，远离喧嚣与匆忙的人。',
+        forRu:'Для тех, кто хочет тихий момент, возможно, разговор, без шума и спешки.',
+        reasonZh:'我亲自在那里喝过茶——确认过座位、灯光与噪音水平后才推荐。',
+        reasonRu:'Я сама пила там чай — проверила места, освещение и уровень шума перед тем, как рекомендовать.',
+                pairs:['cafe','artexhibition','museum']
       },
       headspa:{
         expKr:'두피와 목, 어깨까지 이어지는 집중 케어입니다. 시술 부위를 피해서 안전하게 진행됩니다.',
@@ -2484,7 +2579,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone dealing with headaches or tension who wants to properly let go.',
         reasonKr:'직접 받아보고, 시술 부위를 얼마나 세심하게 피해서 케어하는지 확인한 곳만 연결합니다.',
         reasonEn:'I’ve had it done myself — checked exactly how carefully they work around a treated area before recommending it.',
-        pairs:['therapy','sauna','tealounge']
+expZh:'专注于头皮、颈部与肩部的护理疗程——始终小心避开您的疗程部位。',
+        expRu:'Целенаправленный уход за кожей головы, шеей и плечами — всегда аккуратно, с учётом зоны процедуры.',
+        whyZh:'面部疗程后，仅仅是头皮按摩就能释放全身的紧张感。我们只安排懂得如何避开该部位的治疗师。',
+        whyRu:'После процедуры на лице даже массаж головы способен снять напряжение во всём теле. Мы связываем вас только с специалистами, которые точно знают, как работать рядом с зоной процедуры.',
+        forZh:'适合有头痛或紧张感、希望真正得到放松的人。',
+        forRu:'Для тех, кто страдает от головной боли или напряжения и хочет по-настоящему расслабиться.',
+        reasonZh:'我亲自体验过——在推荐前确认过他们对疗程部位的处理是否足够细心。',
+        reasonRu:'Я сама это испытала — проверила, насколько аккуратно там работают рядом с зоной процедуры, прежде чем рекомендовать.',
+                pairs:['therapy','sauna','tealounge']
       },
       shopping:{
         expKr:'K-뷰티 제품과 화장품을 둘러보는 쇼핑 시간입니다. 원하는 매장 위주로 동선을 짜서 효율적으로 다녀올 수 있습니다.',
@@ -2495,7 +2598,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants to make the most of their K-beauty and cosmetics shopping.',
         reasonKr:'직접 매장을 다녀보고, 제품 구성과 응대가 좋은 곳만 안내합니다.',
         reasonEn:'I’ve visited the stores myself and only recommend ones with good product range and service.',
-        pairs:['chefdining','cafe','beauty']
+expZh:'专注于K-beauty与美妆产品的购物之旅，路线围绕您真正想去的店铺规划。',
+        expRu:'Шопинг-тур с акцентом на K-beauty и косметику, маршрут построен вокруг магазинов, которые вам действительно интересны.',
+        whyZh:'K-beauty往往是来首尔的必去清单之首。我们会规划好您想去的品牌与店铺，避免浪费时间。',
+        whyRu:'K-beauty часто стоит на первом месте в списке желаний в Сеуле. Мы составляем маршрут по нужным брендам и магазинам, чтобы вы не теряли время.',
+        forZh:'适合希望充分体验K-beauty与美妆购物的人。',
+        forRu:'Для тех, кто хочет максимально использовать время для шопинга K-beauty и косметики.',
+        reasonZh:'我亲自去过这些店铺——只推荐产品种类齐全、服务良好的店家。',
+        reasonRu:'Я сама посещала эти магазины — рекомендую только те, где хороший ассортимент и сервис.',
+                pairs:['chefdining','cafe','beauty']
       },
       beauty:{
         expKr:'서울 스타일 메이크업을 받아보는 시간입니다. 전문 아티스트가 얼굴 상태에 맞춰 자연스럽게 완성합니다.',
@@ -2506,7 +2617,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone getting ready for photos or a special occasion during their stay.',
         reasonKr:'직접 받아보고, 손이 꼼꼼하고 자연스러운 결과를 내는 아티스트만 연결합니다.',
         reasonEn:'I’ve had it done myself — only recommend artists whose work is meticulous and looks natural.',
-        pairs:['headspa','shopping','tealounge']
+expZh:'由专业化妆师打造精致的首尔风造型，根据您的五官与肌肤特点量身定制。',
+        expRu:'Сессия с профессиональным визажистом для безупречного образа в сеульском стиле, адаптированного под ваши черты и кожу.',
+        whyZh:'希望在旅途中的特别时刻展现最佳状态的人，常在拍照或聚会前选择这项服务。',
+        whyRu:'Для тех, кто хочет выглядеть безупречно в особый момент поездки — особенно популярно перед фотосессиями или встречами.',
+        forZh:'适合旅途中准备拍照或参加特别场合的人。',
+        forRu:'Для тех, кто готовится к фотосессии или особому событию во время поездки.',
+        reasonZh:'我亲自体验过——只推荐妆容细致自然的化妆师。',
+        reasonRu:'Я сама это испытала — рекомендую только визажистов, чья работа аккуратна и выглядит естественно.',
+                pairs:['headspa','shopping','tealounge']
       },
       therapy:{
         expKr:'산소를 활용해 피부와 몸에 활력을 더하는 세션입니다. 시술 부위를 피해 안전하게 진행됩니다.',
@@ -2517,7 +2636,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants a boost to both skin condition and energy.',
         reasonKr:'직접 받아보고, 시술 부위를 세심하게 피하며 진행하는 곳만 연결합니다.',
         reasonEn:'I’ve experienced it myself — only recommend places that carefully work around a treated area.',
-        pairs:['headspa','sauna','tealounge']
+expZh:'利用氧气促进皮肤与身体恢复的疗程，始终安全地避开疗程部位进行。',
+        expRu:'Сессия с использованием кислорода для ускорения восстановления кожи и организма — всегда безопасно, с учётом зоны процедуры.',
+        whyZh:'氧气疗法作为促进皮肤与整体状态恢复的方式，正日益受到欢迎。',
+        whyRu:'Кислородная терапия становится всё более популярным способом ускорить восстановление кожи и общего состояния.',
+        forZh:'适合希望同时提升肌肤状态与精力的人。',
+        forRu:'Для тех, кто хочет улучшить состояние кожи и повысить уровень энергии.',
+        reasonZh:'我亲自体验过——只推荐会小心避开疗程部位的场所。',
+        reasonRu:'Я сама это испытала — рекомендую только места, которые аккуратно работают рядом с зоной процедуры.',
+                pairs:['headspa','sauna','tealounge']
       },
             lymphatic:{
         expKr:'붓기와 순환 개선을 돕는 전문 림프 마사지입니다. 시술 부위를 피해 안전한 압으로 진행됩니다.',
@@ -2528,7 +2655,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants focused care for swelling and circulation.',
         reasonKr:'직접 받아보고, 시술 부위를 세심하게 피하며 압을 조절하는 테라피스트만 연결합니다.',
         reasonEn:'I’ve had it done myself — only recommend therapists who carefully adjust pressure around a treated area.',
-        pairs:['coldpack','sauna','headspa']
+expZh:'专业淋巴引流按摩，缓解肿胀并促进血液循环，安全地避开疗程部位进行。',
+        expRu:'Профессиональный лимфодренажный массаж для снятия отёков и улучшения кровообращения — безопасно, с учётом зоны процедуры.',
+        whyZh:'对术后肿胀尤为有效，是最受欢迎的恢复护理之一，力度会经过细致调整。',
+        whyRu:'Особенно эффективен при послепроцедурных отёках — один из самых востребованных видов восстановительного уходов с тщательно подобранным давлением.',
+        forZh:'适合希望针对肿胀与血液循环进行专门护理的人。',
+        forRu:'Для тех, кто хочет уделить особое внимание отёкам и кровообращению.',
+        reasonZh:'我亲自体验过——只推荐会细致调整力度以避开疗程部位的治疗师。',
+        reasonRu:'Я сама это испытала — рекомендую только специалистов, которые тщательно регулируют давление рядом с зоной процедуры.',
+                pairs:['coldpack','sauna','headspa']
       },
       coldpack:{
         expKr:'시술 부위의 열감과 붓기를 가라앉히는 냉찜질 케어입니다. 짧고 간단하지만 초기 회복에 효과적입니다.',
@@ -2539,7 +2674,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants to calm heat and swelling right after their procedure.',
         reasonKr:'위생과 온도 관리가 확실한 곳만, 직접 확인 후 연결합니다.',
         reasonEn:'We only connect you with places we’ve checked ourselves for hygiene and proper temperature control.',
-        pairs:['compression','meal','lymphatic']
+expZh:'在疗程部位进行冷敷，缓解发热与肿胀——简单迅速，却对术后早期恢复十分有效。',
+        expRu:'Холодный компресс на зону процедуры для снятия жара и отёка — коротко и просто, но эффективно на раннем этапе восстановления.',
+        whyZh:'疗程后的前几个小时是消除肿胀的黄金时期——冷敷护理能帮您充分把握这段时间。',
+        whyRu:'Первые несколько часов после процедуры — золотое время для уменьшения отёка, и холодный компресс помогает использовать его максимально эффективно.',
+        forZh:'适合希望在疗程后立即缓解发热与肿胀的人。',
+        forRu:'Для тех, кто хочет сразу после процедуры снять жар и отёк.',
+        reasonZh:'我们只推荐经过亲自确认、卫生条件与温度控制得当的场所。',
+        reasonRu:'Мы рекомендуем только места, которые сами проверили на гигиену и правильный температурный контроль.',
+                pairs:['compression','meal','lymphatic']
       },
       compression:{
         expKr:'붓기와 처짐을 줄이기 위한 압박 밴드·의류 케어입니다. 회복 초기 라인을 잡는 데 도움을 줍니다.',
@@ -2550,7 +2693,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants both shaping support and swelling reduction after their procedure.',
         reasonKr:'압박 강도와 착용법을 정확히 안내하는 곳만 직접 확인 후 연결합니다.',
         reasonEn:'We only recommend places we’ve personally verified for correct compression strength and application.',
-        pairs:['coldpack','sauna','headspa']
+expZh:'压力绷带或塑形衣护理，减少肿胀与松垂——有助于在恢复初期塑造理想效果。',
+        expRu:'Уход с компрессионными бинтами или бельём для уменьшения отёков и обвисания — помогает формировать результат на раннем этапе восстановления.',
+        whyZh:'压力护理不仅能减少肿胀，还能在恢复过程中帮助固定效果。',
+        whyRu:'Компрессионный уход не только уменьшает отёк, но и помогает удерживать результат на месте во время заживления.',
+        forZh:'适合希望同时获得塑形支持与消肿效果的人。',
+        forRu:'Для тех, кто хочет одновременно поддержать форму и уменьшить отёк после процедуры.',
+        reasonZh:'我们只推荐经过亲自确认、压力强度与穿戴方式正确的场所。',
+        reasonRu:'Мы рекомендуем только места, которые сами проверили на правильную силу и способ компрессии.',
+                pairs:['coldpack','sauna','headspa']
       },
       hanriver:{
         expKr:'한강을 따라 천천히 걷거나 앉아서 시간을 보내는 여유입니다. 컨디션에 맞춰 걷기와 휴식을 조절합니다.',
@@ -2561,7 +2712,15 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         forEn:'Anyone who wants a genuine Seoul moment and a bit of outdoor time to unwind.',
         reasonKr:'직접 가보고, 사람이 적은 시간대와 앉을 곳까지 확인한 장소만 안내합니다.',
         reasonEn:'I’ve been there myself — checked the quiet hours and the best spots to sit before recommending it.',
-        pairs:['walk','cafe','artexhibition']
+expZh:'在汉江边度过一段悠闲时光，无论是漫步还是静坐，节奏完全依您的状态而定。',
+        expRu:'Время у реки Хан — будь то спокойная прогулка или просто отдых сидя — полностью в темпе, подходящем вашему состоянию.',
+        whyZh:'既然来到首尔，至少应该感受一次汉江的魅力。我们只会引导您前往安静的时段与地点。',
+        whyRu:'Если вы приехали в Сеул, стоит хотя бы раз почувствовать атмосферу реки Хан. Мы подскажем только тихие часы и места.',
+        forZh:'适合希望获得真正的首尔体验、并稍作户外放松的人。',
+        forRu:'Для тех, кто хочет по-настоящему прочувствовать Сеул и немного отдохнуть на свежем воздухе.',
+        reasonZh:'我亲自去过——在推荐前确认过安静的时段与最佳的休憩地点。',
+        reasonRu:'Я сама там была — проверила тихие часы и лучшие места для отдыха, прежде чем рекомендовать.',
+                pairs:['walk','cafe','artexhibition']
       }
     };
 
@@ -2570,14 +2729,24 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     const atModalIcon = document.getElementById('atModalIcon');
     const atModalTitleKr = document.getElementById('atModalTitleKr');
     const atModalTitleEn = document.getElementById('atModalTitleEn');
+    const atModalTitleZh = document.getElementById('atModalTitleZh');
+    const atModalTitleRu = document.getElementById('atModalTitleRu');
     const atModalExpKr = document.getElementById('atModalExpKr');
     const atModalExpEn = document.getElementById('atModalExpEn');
+    const atModalExpZh = document.getElementById('atModalExpZh');
+    const atModalExpRu = document.getElementById('atModalExpRu');
     const atModalWhyKr = document.getElementById('atModalWhyKr');
     const atModalWhyEn = document.getElementById('atModalWhyEn');
+    const atModalWhyZh = document.getElementById('atModalWhyZh');
+    const atModalWhyRu = document.getElementById('atModalWhyRu');
     const atModalForKr = document.getElementById('atModalForKr');
     const atModalForEn = document.getElementById('atModalForEn');
+    const atModalForZh = document.getElementById('atModalForZh');
+    const atModalForRu = document.getElementById('atModalForRu');
     const atModalReasonKr = document.getElementById('atModalReasonKr');
     const atModalReasonEn = document.getElementById('atModalReasonEn');
+    const atModalReasonZh = document.getElementById('atModalReasonZh');
+    const atModalReasonRu = document.getElementById('atModalReasonRu');
     const atModalPairs = document.getElementById('atModalPairs');
     const atModalSelect = document.getElementById('atModalSelect');
     let atModalCurrentValue = null;
@@ -2600,6 +2769,8 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       atModalIcon.innerHTML = chip.querySelector('.at-icon').innerHTML;
       atModalTitleKr.textContent = chip.querySelector('.at-label.lang-kr').textContent;
       atModalTitleEn.textContent = chip.querySelector('.at-label.lang-en').textContent;
+      if(atModalTitleZh) atModalTitleZh.textContent = chip.querySelector('.at-label.lang-zh').textContent;
+      if(atModalTitleRu) atModalTitleRu.textContent = chip.querySelector('.at-label.lang-ru').textContent;
       const atModalPriceEl = document.getElementById('atModalPrice');
       if(atModalPriceEl){
         const pMin = Number(chip.dataset.priceMin) || 0;
@@ -2612,12 +2783,20 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       }
       atModalExpKr.textContent = data.expKr;
       atModalExpEn.textContent = data.expEn;
+      if(atModalExpZh) atModalExpZh.textContent = data.expZh;
+      if(atModalExpRu) atModalExpRu.textContent = data.expRu;
       atModalWhyKr.textContent = data.whyKr;
       atModalWhyEn.textContent = data.whyEn;
+      if(atModalWhyZh) atModalWhyZh.textContent = data.whyZh;
+      if(atModalWhyRu) atModalWhyRu.textContent = data.whyRu;
       atModalForKr.textContent = data.forKr;
       atModalForEn.textContent = data.forEn;
+      if(atModalForZh) atModalForZh.textContent = data.forZh;
+      if(atModalForRu) atModalForRu.textContent = data.forRu;
       atModalReasonKr.textContent = data.reasonKr;
       atModalReasonEn.textContent = data.reasonEn;
+      if(atModalReasonZh) atModalReasonZh.textContent = data.reasonZh;
+      if(atModalReasonRu) atModalReasonRu.textContent = data.reasonRu;
 
       atModalPairs.innerHTML = '';
       data.pairs.forEach(pv => {
@@ -2628,7 +2807,9 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         tag.className = 'at-modal-pair';
         tag.innerHTML = pChip.querySelector('.at-icon').innerHTML
           + `<span class="lang-kr">${pChip.querySelector('.at-label.lang-kr').textContent}</span>`
-          + `<span class="lang-en">${pChip.querySelector('.at-label.lang-en').textContent}</span>`;
+          + `<span class="lang-en">${pChip.querySelector('.at-label.lang-en').textContent}</span>`
+          + `<span class="lang-zh">${pChip.querySelector('.at-label.lang-zh').textContent}</span>`
+          + `<span class="lang-ru">${pChip.querySelector('.at-label.lang-ru').textContent}</span>`;
         tag.addEventListener('click', () => openAtModal(pv));
         atModalPairs.appendChild(tag);
       });
@@ -2805,7 +2986,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         msgField.value = '';
         return;
       }
-      const isEn = document.documentElement.classList.contains('lang-en');
+      const isEn = document.documentElement.getAttribute('data-lang') === 'en';
       const lang = isEn ? 'en' : 'kr';
       lastAutoMessage = buildInquiryLines(lang).join('\n');
       msgField.value = lastAutoMessage;
@@ -2813,7 +2994,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
     if(costBarCTA){
       costBarCTA.addEventListener('click', () => {
-        const isEn = document.documentElement.classList.contains('lang-en');
+        const isEn = document.documentElement.getAttribute('data-lang') === 'en';
         const lang = isEn ? 'en' : 'kr';
         lastAutoMessage = buildInquiryLines(lang).join('\n');
         inquiryPopulated = true;
@@ -2884,7 +3065,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       if(!mjResult.classList.contains('active')) return;
       document.getElementById('nameOutKr').textContent = mjAnswers.name;
       document.getElementById('nameOutEn').textContent = mjAnswers.name;
-      const isEn = document.documentElement.classList.contains('lang-en');
+      const isEn = document.documentElement.getAttribute('data-lang') === 'en';
       const pick = (step) => {
         const val = mjAnswers[step];
         if(!val || !mjLabels[step] || !mjLabels[step][val]) return '-';
@@ -2901,7 +3082,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     document.getElementById('mjSubmitBtn').addEventListener('click', () => {
       const name = document.getElementById('inputName').value.trim();
       const email = document.getElementById('inputEmail').value.trim();
-      const isEn = document.documentElement.classList.contains('lang-en');
+      const isEn = document.documentElement.getAttribute('data-lang') === 'en';
       mjAnswers.name = name || (isEn ? 'Guest' : '고객');
       mjAnswers.email = email;
 
@@ -2918,15 +3099,17 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   const langOptionEls = document.querySelectorAll('option[data-kr]');
 
   function setLang(lang){
-    const isEn = lang === 'en';
-    document.documentElement.classList.toggle('lang-en', isEn);
-    document.documentElement.setAttribute('lang', isEn ? 'en' : 'ko');
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.classList.toggle('lang-en', lang === 'en');
+    const langMeta = {kr:'ko', en:'en', zh:'zh', ru:'ru'};
+    document.documentElement.setAttribute('lang', langMeta[lang] || 'ko');
     langButtons.forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
     placeholderEls.forEach(el => {
-      el.setAttribute('placeholder', isEn ? el.dataset.phEn : el.dataset.phKr);
+      const key = 'ph' + lang.charAt(0).toUpperCase() + lang.slice(1);
+      el.setAttribute('placeholder', el.dataset[key] || el.dataset.phKr);
     });
     langOptionEls.forEach(el => {
-      el.textContent = isEn ? el.dataset.en : el.dataset.kr;
+      el.textContent = el.dataset[lang] || el.dataset.kr;
     });
     if(window.renderMjSummary) window.renderMjSummary();    if(window.updateVisitDateDisplay) window.updateVisitDateDisplay();
   }

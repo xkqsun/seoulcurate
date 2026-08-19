@@ -1459,7 +1459,7 @@
     margin-top:8px;
   }
 
-  /* ---------- FOOTER ---------- */
+  .date-wrap{position:relative;}  .date-wrap input[type="date"]{color:transparent; position:relative;}  .date-display{    position:absolute;    inset:0;    display:flex;    align-items:center;    padding:10px 2px;    font-family:'Jost', sans-serif;    font-size:14.5px;    pointer-events:none;    color:var(--ivory);  }  .date-display .date-placeholder{color:rgba(244,241,230,0.4);}  .date-display .date-value{display:none;}  .date-display.has-value .date-placeholder{display:none;}  .date-display.has-value .date-value{display:inline;}  /* ---------- FOOTER ---------- */
   footer{
     background:var(--charcoal);
     color:rgba(244,241,230,0.45);
@@ -2203,7 +2203,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       </div>
       <div class="field">
         <label><span class="lang-kr">방문 예정일</span><span class="lang-en">Visit Date</span></label>
-        <input type="date" id="visitDateField">
+        <div class="date-wrap">          <input type="date" id="visitDateField">          <div class="date-display" id="visitDateDisplay">            <span class="date-placeholder"><span class="lang-kr">연도. 월. 일.</span><span class="lang-en">yyyy-mm-dd</span></span>            <span class="date-value" id="visitDateValue"></span>          </div>        </div>
       </div>
       <div class="field">
         <label><span class="lang-kr">인원수</span><span class="lang-en">Group Size</span></label>
@@ -2321,7 +2321,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     this.reset();
   });
 
-  // ---------- after treatment chips ----------
+  /* ---------- visit date locale display ---------- */  (function(){    const visitDateField = document.getElementById('visitDateField');    const visitDateDisplay = document.getElementById('visitDateDisplay');    const visitDateValue = document.getElementById('visitDateValue');    if(visitDateField && visitDateDisplay && visitDateValue){      window.updateVisitDateDisplay = function(){        const isEn = document.documentElement.classList.contains('lang-en');        if(!visitDateField.value){          visitDateDisplay.classList.remove('has-value');          visitDateValue.textContent = '';          return;        }        const d = new Date(visitDateField.value + 'T00:00:00');        const formatted = isEn          ? d.toLocaleDateString('en-US', {year:'numeric', month:'long', day:'numeric'})          : d.toLocaleDateString('ko-KR', {year:'numeric', month:'long', day:'numeric'});        visitDateValue.textContent = formatted;        visitDateDisplay.classList.add('has-value');      };      visitDateField.addEventListener('input', window.updateVisitDateDisplay);      visitDateField.addEventListener('change', window.updateVisitDateDisplay);      window.updateVisitDateDisplay();    }  })();  // ---------- after treatment chips ----------
   const atGrid = document.getElementById('atGrid');
   if(atGrid){
     const atCountKr = document.getElementById('atCountKr');
@@ -2928,7 +2928,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     langOptionEls.forEach(el => {
       el.textContent = isEn ? el.dataset.en : el.dataset.kr;
     });
-    if(window.renderMjSummary) window.renderMjSummary();
+    if(window.renderMjSummary) window.renderMjSummary();    if(window.updateVisitDateDisplay) window.updateVisitDateDisplay();
   }
 
   langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));

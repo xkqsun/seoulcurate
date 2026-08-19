@@ -713,6 +713,80 @@
   }
 
   /* ---------- AT DETAIL MODAL ---------- */
+
+  /* ---------- INTENSITY TIERS ---------- */
+  .intensity-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:22px;
+    margin:32px 0 40px;
+  }
+  .intensity-card{
+    flex:1 1 280px;
+    border:1px solid var(--line-dark);
+    border-radius:18px;
+    padding:26px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .intensity-badge.lang-kr{
+    font-family:'Fraunces', serif;
+    font-size:19px;
+    font-weight:600;
+  }
+  .intensity-badge.lang-en{
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.08em;
+    color:var(--bronze-soft);
+    text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .intensity-examples{
+    font-size:12.5px;
+    color:rgba(63,65,48,0.65);
+  }
+  .intensity-timeline{
+    display:flex;
+    gap:6px;
+    margin:10px 0 4px;
+  }
+  .it-step{
+    flex:1;
+    text-align:center;
+    font-size:10.5px;
+    letter-spacing:0.03em;
+    padding:6px 4px;
+    border-radius:999px;
+    background:rgba(58,61,43,0.06);
+    color:rgba(63,65,48,0.45);
+  }
+  .it-step.active{
+    background:var(--olive-deep);
+    color:var(--ivory);
+  }
+  .intensity-note{
+    font-size:12.5px;
+    line-height:1.6;
+    color:rgba(63,65,48,0.75);
+    flex-grow:1;
+  }
+  .intensity-cta-btn{
+    align-self:flex-start;
+    border:1px solid var(--charcoal);
+    background:transparent;
+    border-radius:999px;
+    padding:10px 18px;
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    cursor:pointer;
+    transition:all 0.3s var(--ease);
+  }
+  .intensity-cta-btn:hover{background:var(--charcoal); color:var(--ivory);}
+  @media (max-width:640px){
+    .intensity-card{padding:22px 18px;}
+  }
   .at-modal-overlay{
     position:fixed; inset:0;
     background:rgba(29,30,21,0.55);
@@ -1112,6 +1186,44 @@
   }
   .testimonial-cta{grid-column:1/-1;text-align:center;}
   .testimonial-cta .btn-ghost{margin:0 auto;}
+
+  .testimonial-filters{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:32px;
+  }
+  .tf-btn{
+    border:1px solid rgba(244,241,230,0.35);
+    background:transparent;
+    color:var(--ivory);
+    border-radius:999px;
+    padding:8px 18px;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    cursor:pointer;
+    transition:all 0.3s var(--ease);
+  }
+  .tf-btn:hover{background:rgba(244,241,230,0.12);}
+  .tf-btn.active{background:var(--bronze-soft); border-color:var(--bronze-soft); color:var(--charcoal);}
+  .testimonial-card.tc-hidden{display:none;}
+  .tc-meta{display:flex; align-items:center; gap:10px; margin-bottom:10px;}
+  .tc-avatar{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--olive-deep);
+    color:var(--ivory);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:14px;
+    flex-shrink:0;
+  }
+  .tc-meta .tc-name{margin-bottom:2px;}
+  .tc-date{
+    font-size:10.5px;
+    color:rgba(63,65,48,0.55);
+  }
 
   /* ---------- GUIDE (lead magnet) ---------- */
   .guide{
@@ -1593,6 +1705,57 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <p class="at-lead reveal lang-kr">회복 여정에 더하고 싶은 순간들을 자유롭게 선택해보세요. 원하는 만큼 고르셔도 좋아요.</p>
     <p class="at-lead reveal lang-en">Choose whatever moments you'd like to add to your recovery journey. Pick as many as you like.</p>
 
+    <div class="intensity-grid reveal" id="intensityGrid">
+      <div class="intensity-card">
+        <div class="intensity-badge lang-kr">가벼운 회복</div>
+        <div class="intensity-badge lang-en">Low Downtime</div>
+        <div class="intensity-examples lang-kr">레이저 토닝 · 보톡스 등</div>
+        <div class="intensity-examples lang-en">Laser Toning · Botox, and similar</div>
+        <div class="intensity-timeline">
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
+          <span class="it-step"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
+          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+        </div>
+        <p class="intensity-note lang-kr">시술 당일부터 가벼운 외출과 일정이 가능해요.</p>
+        <p class="intensity-note lang-en">Light outings and plans are possible from the day of treatment.</p>
+        <button type="button" class="intensity-cta-btn" data-target-package="wellness">
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+        </button>
+      </div>
+      <div class="intensity-card">
+        <div class="intensity-badge lang-kr">균형 잡힌 회복</div>
+        <div class="intensity-badge lang-en">Balanced Recovery</div>
+        <div class="intensity-examples lang-kr">필러 · 중간 강도 리프팅 등</div>
+        <div class="intensity-examples lang-en">Filler · Mid-Intensity Lifting</div>
+        <div class="intensity-timeline">
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
+          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
+          <span class="it-step"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+        </div>
+        <p class="intensity-note lang-kr">2~4일 정도의 회복 기간을 갖는 것이 좋아요.</p>
+        <p class="intensity-note lang-en">A recovery window of about 2–4 days is recommended.</p>
+        <button type="button" class="intensity-cta-btn" data-target-package="recovery3d">
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+        </button>
+      </div>
+      <div class="intensity-card">
+        <div class="intensity-badge lang-kr">완전한 리셋</div>
+        <div class="intensity-badge lang-en">Full Reset</div>
+        <div class="intensity-examples lang-kr">복합 리프팅 · 다운타임이 긴 시술</div>
+        <div class="intensity-examples lang-en">Combined Lifting · Longer-Downtime Procedures</div>
+        <div class="intensity-timeline">
+          <span class="it-step active"><span class="lang-kr">당일</span><span class="lang-en">Same Day</span></span>
+          <span class="it-step active"><span class="lang-kr">1~2일차</span><span class="lang-en">Day 1–2</span></span>
+          <span class="it-step active"><span class="lang-kr">3일차+</span><span class="lang-en">Day 3+</span></span>
+        </div>
+        <p class="intensity-note lang-kr">1주일 이상 충분한 휴식과 케어가 필요해요.</p>
+        <p class="intensity-note lang-en">A full week or more of rest and care is recommended.</p>
+        <button type="button" class="intensity-cta-btn" data-target-package="bespoke">
+          <span class="lang-kr">이 강도에 맞는 패키지 보기</span><span class="lang-en">See Matching Package</span>
+        </button>
+      </div>
+    </div>
+
         <div class="at-groups reveal" id="atGrid">
       <div class="at-group-card at-group-recovery">
         <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span></div>
@@ -1904,31 +2067,63 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <p class="testimonials-lead lang-kr">다녀가신 분들이 솔직하게 남겨주신 여정 이야기입니다.</p>
     <p class="testimonials-lead lang-en">Honest journey stories shared by the guests who have visited us.</p>
 
+    <div class="testimonial-filters reveal" id="testimonialFilters">
+      <button type="button" class="tf-btn active" data-filter="all"><span class="lang-kr">전체</span><span class="lang-en">All</span></button>
+      <button type="button" class="tf-btn" data-filter="wellness"><span class="lang-kr">반나절</span><span class="lang-en">Half-Day</span></button>
+      <button type="button" class="tf-btn" data-filter="recovery3d"><span class="lang-kr">2박 3일</span><span class="lang-en">3-Day</span></button>
+      <button type="button" class="tf-btn" data-filter="bespoke"><span class="lang-kr">완전 맞춤</span><span class="lang-en">Bespoke</span></button>
+    </div>
     <div class="testimonial-grid reveal">
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-package="recovery3d">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"강남에서 리투오 시술을 받고 1박 2일 회복 저니를 함께했어요. 회복 케어는 물론 뷰티, 쇼핑, 클래식 공연까지 알차게 챙길 수 있어서 혼자 왔는데도 전혀 심심하지 않았습니다."</p>
         <p class="tc-quote lang-en">"After my Rituo treatment in Gangnam, I spent a 2-day recovery journey that included beauty care, shopping, and even a classical concert. I came alone but never once felt bored."</p>
-        <div class="tc-name">Cathrin · Canada</div>
+        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Cathrin · Canada</div><div class="tc-date lang-kr">2026년 3월 방문</div><div class="tc-date lang-en">Visited March 2026</div></div></div>
         <div class="tc-tag lang-kr">1박 2일 회복 저니 · 뷰티 · 쇼핑 · 클래식 공연</div>
         <div class="tc-tag lang-en">2-Day Recovery Journey · Beauty · Shopping · Classical Concert</div>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-package="wellness">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"청담에서 스킨보톡스와 리쥬란을 받은 뒤 반나절 회복 저니로 회복식사, 헤드 스파, 산책까지 이어졌어요. 몸도 마음도 같이 회복되는 느낌이라 짧은 일정에도 정말 만족스러웠습니다."</p>
         <p class="tc-quote lang-en">"After skin botox and Rejuran in Cheongdam, my half-day recovery journey flowed from a recovery meal into a head spa and a quiet walk. It felt like my body and mind recovered together, even in just half a day."</p>
-        <div class="tc-name">Chloe · Singapore</div>
+        <div class="tc-meta"><div class="tc-avatar">C</div><div><div class="tc-name">Chloe · Singapore</div><div class="tc-date lang-kr">2026년 4월 방문</div><div class="tc-date lang-en">Visited April 2026</div></div></div>
         <div class="tc-tag lang-kr">반나절 회복 저니 · 회복식사 · 헤드 스파 · 산책</div>
         <div class="tc-tag lang-en">Half-Day Recovery Journey · Recovery Meal · Head Spa · Walk</div>
       </div>
-      <div class="testimonial-card">
+      <div class="testimonial-card" data-package="bespoke">
         <div class="tc-stars">★★★★★</div>
         <p class="tc-quote lang-kr">"부모님과 함께 건강검진을 받은 뒤 풀 비스포크 저니로 티 라운지에서 여유를 즐기고, 유명 셰프의 다이닝과 사우나까지 이어졌어요. 온 가족이 편하게 쉴 수 있었던 시간이었습니다."</p>
         <p class="tc-quote lang-en">"After a health check-up with my parents, our full bespoke journey continued with a calm tea lounge, dinner from a celebrated chef, and a sauna. It gave our whole family a relaxed, worry-free time together."</p>
-        <div class="tc-name">M.B · Germany</div>
+        <div class="tc-meta"><div class="tc-avatar">M</div><div><div class="tc-name">M.B · Germany</div><div class="tc-date lang-kr">2026년 2월 방문</div><div class="tc-date lang-en">Visited February 2026</div></div></div>
         <div class="tc-tag lang-kr">풀 비스포크 저니 · 건강검진 · 티 라운지 · 유명 셰프 다이닝 · 사우나</div>
         <div class="tc-tag lang-en">Full Bespoke Journey · Health Check-up · Tea Lounge · Celebrity Chef Dining · Sauna</div>
       </div>
+
+      <div class="testimonial-card" data-package="wellness">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"청담에서 반나절 회복 저니로 스킨 케어와 조용한 티타임을 즐겼어요. 짧은 일정이었지만 온전히 쉴 수 있어서 좋았습니다."</p>
+        <p class="tc-quote lang-en">"I spent a half-day recovery journey in Cheongdam with gentle skin care and a quiet tea break. It was a short visit, but I felt completely at ease."</p>
+        <div class="tc-meta"><div class="tc-avatar">A</div><div><div class="tc-name">Aiko · Japan</div><div class="tc-date lang-kr">2026년 5월 방문</div><div class="tc-date lang-en">Visited May 2026</div></div></div>
+        <div class="tc-tag lang-kr">반나절 회복 저니 · 스킨 케어 · 티타임</div>
+        <div class="tc-tag lang-en">Half-Day Recovery Journey · Skin Care · Tea Time</div>
+      </div>
+      <div class="testimonial-card" data-package="recovery3d">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"2박 3일 회복 저니 동안 링거 케어와 한강 피크닉까지 챙길 수 있어서 여행처럼 느껴졌어요. 회복도, 힐링도 함께한 시간이었습니다."</p>
+        <p class="tc-quote lang-en">"During my 3-day recovery journey, I had IV care and even a picnic by the Han River — it felt like a trip, not just recovery. I healed and relaxed at the same time."</p>
+        <div class="tc-meta"><div class="tc-avatar">S</div><div><div class="tc-name">Sophie · Australia</div><div class="tc-date lang-kr">2026년 6월 방문</div><div class="tc-date lang-en">Visited June 2026</div></div></div>
+        <div class="tc-tag lang-kr">2박 3일 회복 저니 · 링거 케어 · 한강 피크닉</div>
+        <div class="tc-tag lang-en">3-Day Recovery Journey · IV Care · Han River Picnic</div>
+      </div>
+      <div class="testimonial-card" data-package="bespoke">
+        <div class="tc-stars">★★★★★</div>
+        <p class="tc-quote lang-kr">"출장 겸 방문이라 일정이 빡빡했는데, 풀 비스포크 저니로 통역, 이동, 회복 케어까지 한 번에 정리할 수 있어서 정말 편했습니다."</p>
+        <p class="tc-quote lang-en">"I visited during a busy business trip, and the full bespoke journey handled interpretation, transportation, and recovery care all at once. It made everything so much easier."</p>
+        <div class="tc-meta"><div class="tc-avatar">D</div><div><div class="tc-name">Daniel · USA</div><div class="tc-date lang-kr">2026년 7월 방문</div><div class="tc-date lang-en">Visited July 2026</div></div></div>
+        <div class="tc-tag lang-kr">풀 비스포크 저니 · 통역 지원 · 이동 지원</div>
+        <div class="tc-tag lang-en">Full Bespoke Journey · Interpretation · Transportation Support</div>
+      </div>
+
 
     <div class="testimonial-cta reveal">
       <a href="/write-review.html" class="btn btn-ghost">
@@ -2518,6 +2713,17 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       });
     });
 
+    // ---------- intensity tier CTA ----------
+    document.querySelectorAll('.intensity-cta-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pkg = btn.dataset.targetPackage;
+        selectedPackage = pkg;
+        applyPackageSelection();
+        const optionsSection = document.getElementById('options');
+        if(optionsSection){ optionsSection.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+
     function getPackageLabel(pkg, lang){
       const card = document.querySelector('.option-card[data-package="' + pkg + '"]');
       const el = card.querySelector('.option-title.lang-' + lang);
@@ -2726,6 +2932,19 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   }
 
   langButtons.forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  
+  document.querySelectorAll('.tf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tf-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.testimonial-card').forEach(card => {
+        const show = (filter === 'all') || (card.dataset.package === filter);
+        card.classList.toggle('tc-hidden', !show);
+      });
+    });
+  });
+
   setLang('en');
 </script>
 </body>

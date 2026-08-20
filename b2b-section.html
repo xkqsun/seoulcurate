@@ -1,0 +1,1419 @@
+<style>
+/* ─── B2B Section Styles ─── */
+#b2b {
+  background: var(--gradient-b2b);
+  color: var(--color-text-inverse);
+  padding: var(--space-5xl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#b2b::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, rgba(201, 169, 110, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 80%, rgba(201, 169, 110, 0.04) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: var(--z-base);
+}
+
+#b2b .b2b-container {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  position: relative;
+  z-index: var(--z-raised);
+}
+
+/* ─── Section Header ─── */
+#b2b .b2b-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+#b2b .b2b-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+#b2b .b2b-headline {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-inverse);
+  margin: 0 0 var(--space-lg);
+  max-width: 820px;
+}
+
+#b2b .b2b-headline em {
+  font-style: italic;
+  color: var(--color-accent-light);
+}
+
+#b2b .b2b-subheadline {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.78);
+  max-width: 680px;
+  margin: 0 0 var(--space-3xl);
+}
+
+/* ─── Harvard Stat Callout ─── */
+.b2b-harvard-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  background: rgba(201, 169, 110, 0.10);
+  border: 1px solid rgba(201, 169, 110, 0.28);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+  max-width: 860px;
+}
+
+.b2b-harvard-callout .callout-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--gradient-accent);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.b2b-harvard-callout .callout-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--color-primary);
+}
+
+.b2b-harvard-callout .callout-ratio {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.b2b-harvard-callout .callout-text {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.85);
+}
+
+.b2b-harvard-callout .callout-source {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-top: var(--space-xs);
+}
+
+/* ─── ROI Calculator ─── */
+.b2b-roi-section {
+  margin-bottom: var(--space-5xl);
+}
+
+.b2b-roi-section .roi-label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.b2b-roi-section .roi-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-light);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-2xl);
+}
+
+.roi-calculator {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 169, 110, 0.18);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl);
+  backdrop-filter: blur(8px);
+}
+
+.roi-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+}
+
+@media (min-width: 900px) {
+  .roi-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.roi-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.roi-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.roi-input-group label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: rgba(245, 240, 232, 0.7);
+  letter-spacing: var(--tracking-wide);
+}
+
+.roi-input-group .input-wrapper {
+  position: relative;
+}
+
+.roi-input-group .input-prefix {
+  position: absolute;
+  left: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-accent);
+  font-weight: var(--weight-medium);
+  pointer-events: none;
+}
+
+.roi-input-group input[type="range"] {
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  background: rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-full);
+  outline: none;
+  cursor: pointer;
+  margin-top: var(--space-sm);
+}
+
+.roi-input-group input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--gradient-accent);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  box-shadow: var(--shadow-accent);
+  transition: transform var(--transition-fast);
+}
+
+.roi-input-group input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.roi-input-group .range-display {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-xs);
+}
+
+.roi-input-group .range-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+}
+
+.roi-input-group .range-hint {
+  font-size: var(--text-xs);
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.roi-outputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.roi-outputs-title {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.18);
+}
+
+.roi-output-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 169, 110, 0.12);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg) var(--space-xl);
+  transition: border-color var(--transition-base);
+}
+
+.roi-output-card:hover {
+  border-color: rgba(201, 169, 110, 0.28);
+}
+
+.roi-output-card .output-metric {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-accent);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.roi-output-card .output-label {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.7);
+  line-height: var(--leading-normal);
+}
+
+.roi-output-card .output-source {
+  font-size: var(--text-xs);
+  color: rgba(201, 169, 110, 0.55);
+  margin-top: var(--space-xs);
+  font-style: italic;
+}
+
+.roi-total-card {
+  background: linear-gradient(135deg, rgba(201, 169, 110, 0.18) 0%, rgba(201, 169, 110, 0.08) 100%);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.roi-total-card .total-label {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent-light);
+  margin-bottom: var(--space-sm);
+}
+
+.roi-total-card .total-value {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.roi-total-card .total-sub {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.6);
+  margin-top: var(--space-sm);
+}
+
+.roi-disclaimer {
+  margin-top: var(--space-lg);
+  font-size: var(--text-xs);
+  color: rgba(245, 240, 232, 0.35);
+  line-height: var(--leading-relaxed);
+  font-style: italic;
+}
+
+/* ─── Value Prop Cards ─── */
+.b2b-value-props {
+  margin-bottom: var(--space-5xl);
+}
+
+.b2b-value-props .vp-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .b2b-value-props .vp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.vp-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-top: 3px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.vp-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top left, rgba(201, 169, 110, 0.06) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.vp-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(201, 169, 110, 0.32);
+}
+
+.vp-card:hover::after {
+  opacity: 1;
+}
+
+.vp-card .vp-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(201, 169, 110, 0.12);
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+
+.vp-card .vp-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.vp-card .vp-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-sm);
+}
+
+.vp-card .vp-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-snug);
+}
+
+.vp-card .vp-body {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.7);
+}
+
+.vp-card .vp-stat {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+  line-height: 1;
+}
+
+/* ─── Corporate Features List ─── */
+.b2b-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-5xl);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .b2b-features {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.b2b-features .features-header {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.b2b-features .features-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-light);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-xl);
+  line-height: var(--leading-snug);
+}
+
+.b2b-features .features-intro {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.7);
+  margin-bottom: var(--space-2xl);
+}
+
+.b2b-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.b2b-features-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.8);
+}
+
+.b2b-features-list li .feat-check {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  background: rgba(201, 169, 110, 0.15);
+  border: 1px solid rgba(201, 169, 110, 0.35);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.b2b-features-list li .feat-check svg {
+  width: 11px;
+  height: 11px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.b2b-features-list li strong {
+  color: var(--color-text-inverse);
+  font-weight: var(--weight-semibold);
+}
+
+.b2b-pricing-note {
+  margin-top: var(--space-2xl);
+  padding: var(--space-xl);
+  background: rgba(201, 169, 110, 0.08);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-lg);
+}
+
+.b2b-pricing-note .pricing-from {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  color: var(--color-accent);
+  font-weight: var(--weight-semibold);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.b2b-pricing-note .pricing-desc {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.65);
+  line-height: var(--leading-normal);
+}
+
+.b2b-compliance-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+}
+
+.compliance-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-full);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: rgba(245, 240, 232, 0.65);
+  letter-spacing: var(--tracking-wide);
+}
+
+.compliance-badge svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ─── Case Studies ─── */
+.b2b-case-studies {
+  margin-bottom: var(--space-5xl);
+}
+
+.b2b-case-studies .cs-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.b2b-case-studies .cs-eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.b2b-case-studies .cs-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-light);
+  color: var(--color-text-inverse);
+  line-height: var(--leading-snug);
+}
+
+.cs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .cs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cs-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(201, 169, 110, 0.15);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  position: relative;
+  transition: transform var(--transition-base), border-color var(--transition-base);
+}
+
+.cs-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201, 169, 110, 0.28);
+}
+
+.cs-card .cs-industry {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(201, 169, 110, 0.1);
+  border-radius: var(--radius-full);
+  padding: var(--space-xs) var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.cs-card .cs-org-size {
+  font-size: var(--text-xs);
+  color: rgba(245, 240, 232, 0.45);
+  margin-bottom: var(--space-lg);
+}
+
+.cs-card .cs-program {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-text-inverse);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--space-lg);
+  line-height: var(--leading-snug);
+}
+
+.cs-stats {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(201, 169, 110, 0.12);
+}
+
+.cs-stat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-md);
+}
+
+.cs-stat-item .stat-desc {
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.6);
+}
+
+.cs-stat-item .stat-delta {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: #5ecf8a;
+  white-space: nowrap;
+}
+
+.cs-stat-item .stat-delta.negative {
+  color: #5ecf8a;
+}
+
+.cs-quote {
+  font-style: italic;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.6);
+  border-left: 2px solid rgba(201, 169, 110, 0.3);
+  padding-left: var(--space-md);
+}
+
+.cs-quote .quote-attr {
+  display: block;
+  margin-top: var(--space-sm);
+  font-style: normal;
+  font-weight: var(--weight-medium);
+  color: rgba(201, 169, 110, 0.7);
+  font-size: var(--text-xs);
+}
+
+/* ─── CTA Block ─── */
+.b2b-cta-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-4xl) var(--space-xl);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+  border-radius: var(--radius-2xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.b2b-cta-block::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.b2b-cta-block .cta-eyebrow {
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-lg);
+}
+
+.b2b-cta-block .cta-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-light);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--space-md);
+  line-height: var(--leading-snug);
+  max-width: 620px;
+}
+
+.b2b-cta-block .cta-sub {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: rgba(245, 240, 232, 0.65);
+  max-width: 520px;
+  margin-bottom: var(--space-2xl);
+}
+
+.b2b-cta-block .cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  justify-content: center;
+  margin-bottom: var(--space-xl);
+}
+
+.btn-corporate-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--gradient-accent);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-lg) var(--space-2xl);
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform var(--transition-spring), box-shadow var(--transition-base);
+  box-shadow: var(--shadow-accent);
+  white-space: nowrap;
+}
+
+.btn-corporate-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 32px rgba(201, 169, 110, 0.45);
+}
+
+.btn-corporate-primary svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--color-primary);
+  fill: none;
+  stroke-width: 2;
+}
+
+.btn-corporate-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: transparent;
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  padding: var(--space-lg) var(--space-2xl);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(245, 240, 232, 0.28);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-base), border-color var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-corporate-secondary:hover {
+  background: rgba(245, 240, 232, 0.06);
+  border-color: rgba(245, 240, 232, 0.45);
+}
+
+.cta-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xl);
+  justify-content: center;
+  font-size: var(--text-sm);
+  color: rgba(245, 240, 232, 0.45);
+}
+
+.cta-trust-row .trust-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.cta-trust-row .trust-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ─── Animations ─── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-on-scroll[data-delay="100"] { transition-delay: 0.1s; }
+.animate-on-scroll[data-delay="200"] { transition-delay: 0.2s; }
+.animate-on-scroll[data-delay="300"] { transition-delay: 0.3s; }
+.animate-on-scroll[data-delay="400"] { transition-delay: 0.4s; }
+.animate-on-scroll[data-delay="500"] { transition-delay: 0.5s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ─── Divider ─── */
+.b2b-section-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gradient-accent);
+  margin: 0 0 var(--space-3xl);
+}
+
+.b2b-section-divider.centered {
+  margin: 0 auto var(--space-3xl);
+}
+</style>
+
+<section id="b2b" aria-labelledby="b2b-headline">
+  <div class="b2b-container">
+
+    <!-- Section Header -->
+    <div class="animate-on-scroll">
+      <span class="b2b-eyebrow">Corporate &amp; Enterprise Wellness</span>
+      <h2 class="b2b-headline" id="b2b-headline">
+        The Smartest Line Item in<br>
+        <em>Your Benefits Budget.</em>
+      </h2>
+      <p class="b2b-subheadline">
+        Organizations that invest in executive and employee wellness outperform peers on every measurable metric — from productivity and retention to total healthcare spend. The question isn't whether you can afford a medically supervised wellness program. It's whether you can afford not to have one.
+      </p>
+    </div>
+
+    <div class="b2b-section-divider"></div>
+
+    <!-- Harvard Stat Callout -->
+    <div class="b2b-harvard-callout animate-on-scroll" data-delay="100">
+      <div class="callout-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <div>
+        <div class="callout-ratio">$1 invested → $6 returned</div>
+        <div class="callout-text">
+          Every dollar invested in employee wellbeing programs yields six dollars in reduced healthcare costs and recaptured productivity — across industries, company sizes, and program formats.
+        </div>
+        <div class="callout-source">— Harvard T.H. Chan School of Public Health &nbsp;·&nbsp; Gallup Workplace Wellbeing Index</div>
+      </div>
+    </div>
+
+    <!-- ROI Calculator -->
+    <div class="b2b-roi-section animate-on-scroll" data-delay="150">
+      <div class="roi-label">Interactive ROI Estimator</div>
+      <h3 class="roi-title">Calculate Your Organization's Wellness ROI</h3>
+
+      <div class="roi-calculator" role="region" aria-label="ROI Calculator">
+        <div class="roi-grid">
+          <!-- Inputs -->
+          <div class="roi-inputs">
+            <div class="roi-input-group">
+              <label for="roi-employees">Employees Enrolled in Program</label>
+              <input
+                type="range"
+                id="roi-employees"
+                min="10"
+                max="500"
+                value="50"
+                step="5"
+                aria-valuemin="10"
+                aria-valuemax="500"
+                aria-valuenow="50"
+              >
+              <div class="range-display">
+                <span class="range-value" id="roi-employees-display">50 employees</span>
+                <span class="range-hint">10 – 500</span>
+              </div>
+            </div>
+
+            <div class="roi-input-group">
+              <label for="roi-salary">Average Annual Salary</label>
+              <input
+                type="range"
+                id="roi-salary"
+                min="60000"
+                max="350000"
+                value="120000"
+                step="5000"
+                aria-valuemin="60000"
+                aria-valuemax="350000"
+                aria-valuenow="120000"
+              >
+              <div class="range-display">
+                <span class="range-value" id="roi-salary-display">$120,000</span>
+                <span class="range-hint">$60K – $350K</span>
+              </div>
+            </div>
+
+            <div class="roi-input-group">
+              <label for="roi-healthcare">Current Healthcare Spend Per Employee / Year</label>
+              <input
+                type="range"
+                id="roi-healthcare"
+                min="5000"
+                max="30000"
+                value="14000"
+                step="500"
+                aria-valuemin="5000"
+                aria-valuemax="30000"
+                aria-valuenow="14000"
+              >
+              <div class="range-display">
+                <span class="range-value" id="roi-healthcare-display">$14,000</span>
+                <span class="range-hint">$5K – $30K</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outputs -->
+          <div class="roi-outputs">
+            <div class="roi-outputs-title">Projected Annual Impact</div>
+
+            <div class="roi-output-card">
+              <div class="output-metric" id="roi-sickdays-value">69 days</div>
+              <div class="output-label">Reduction in stress-related sick days across your enrolled cohort</div>
+              <div class="output-source">Based on 23% avg. absenteeism reduction reported by Urban Medical Wellness Journey corporate clients</div>
+            </div>
+
+            <div class="roi-output-card">
+              <div class="output-metric" id="roi-productivity-value">$342,000</div>
+              <div class="output-label">Estimated productivity gain from improved cognitive performance and reduced presenteeism</div>
+              <div class="output-source">Gallup: Disengaged employees cost 34% of annual salary in lost productivity; our clients report avg. 12% improvement</div>
+            </div>
+
+            <div class="roi-output-card">
+              <div class="output-metric" id="roi-healthcare-value">$98,000</div>
+              <div class="output-label">Estimated reduction in healthcare utilization costs</div>
+              <div class="output-source">Harvard T.H. Chan: Wellness programs reduce medical claims cost by avg. 3.27× program investment</div>
+            </div>
+
+            <div class="roi-total-card">
+              <div class="total-label">Estimated Total First-Year Benefit</div>
+              <div class="total-value" id="roi-total-value">$440,000</div>
+              <div class="total-sub">At <span id="roi-per-person">$3,900</span>/person program investment — your estimated ROI is <strong id="roi-multiple">226%</strong></div>
+            </div>
+
+            <p class="roi-disclaimer">
+              Projections are illustrative estimates based on published research and Urban Medical Wellness Journey client aggregate data. Actual results vary by organization, industry, and program design. Contact us for a customized analysis.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Value Prop Cards -->
+    <div class="b2b-value-props">
+      <div class="vp-grid">
+
+        <div class="vp-card animate-on-scroll" data-delay="100">
+          <div class="vp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="vp-tag">Workforce Health ROI</div>
+          <div class="vp-stat">23%</div>
+          <h3 class="vp-title">Measurable Absenteeism Reduction — Tracked and Reported</h3>
+          <p class="vp-body">
+            Our corporate clients report an average 23% reduction in stress-related absenteeism within 90 days of retreat completion. You receive aggregate, de-identified HR reporting dashboards — built for benefits benchmarking, leadership reviews, and benefits committee presentations. Every outcome is documented. Every dollar is traceable.
+          </p>
+        </div>
+
+        <div class="vp-card animate-on-scroll" data-delay="200">
+          <div class="vp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="vp-tag">Executive Performance</div>
+          <div class="vp-stat">Private Cohorts</div>
+          <h3 class="vp-title">C-Suite Programs Designed for Discretion and Results</h3>
+          <p class="vp-body">
+            Our senior leadership retreats are architected for the demands of the executive schedule — compressed intensity, maximum clinical rigor, zero compromise on confidentiality. Physicians, physiologists, and behavioral health specialists work in private cohorts of 4–8. NDAs are standard. Individual health data never appears in aggregate reporting. Results are measurable, reproducible, and yours alone.
+          </p>
+        </div>
+
+        <div class="vp-card animate-on-scroll" data-delay="300">
+          <div class="vp-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="vp-tag">Talent Retention Signal</div>
+          <div class="vp-stat">↓31%</div>
+          <h3 class="vp-title">The Benefit That Top Performers Actually Stay For</h3>
+          <p class="vp-body">
+            Benefits packages that include premium wellness investments reduce voluntary attrition by up to 31% among top-quartile performers — the employees your organization can least afford to lose. Urban Medical Wellness Journey is not a standard EAP offering. It is a tangible, differentiated commitment to the health and longevity of your best people, and they notice.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Corporate Features + Pricing -->
+    <div class="b2b-features">
+      <div class="animate-on-scroll">
+        <div class="features-header">Program Structure</div>
+        <h3 class="features-title">Everything Your Procurement, HR, and Finance Teams Need</h3>
+        <p class="features-intro">
+          We designed our corporate program architecture to remove every internal friction point — from budget justification to compliance documentation to scheduling logistics. Your team spends time on the retreat, not on the paperwork.
+        </p>
+
+        <ul class="b2b-features-list">
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>Group booking discounts</strong> for 10+ participants — from $3,900 per person with transparent, tiered volume pricing</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>Dedicated corporate account manager</strong> for scheduling, onboarding, and ongoing program coordination</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>Quarterly cohort scheduling</strong> across multiple retreat locations to accommodate distributed and hybrid workforces</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>HIPAA-compliant aggregate outcomes reporting</strong> — de-identified data formatted for CFO and benefits committee reviews</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>Custom program branding options</strong> for internal culture alignment and employee communications materials</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>Executive offsite integration</strong> — wellness programming embedded within your existing leadership retreats and strategic off-sites</span>
+          </li>
+          <li>
+            <span class="feat-check" aria-hidden="true">
+              <svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg>
+            </span>
+            <span><strong>HSA/FSA and corporate wellness budget documentation</strong> with dedicated billing team support for procurement compliance</span>
+          </li>
+        </ul>
+
+        <div class="b2b-compliance-badges" aria-label="Compliance certifications">
+          <span class="compliance-badge">
+            <svg viewBox="0 0 14 14"><path d="M7 1l1.5 4.5H13L9 8l1.5 4.5L7 10 3.5 12.5 5 8 1 5.5h4.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            HIPAA Compliant
+          </span>
+          <span class="compliance-badge">
+            <svg viewBox="0 0 14 14"><path d="M7 1l1.5 4.5H13L9 8l1.5 4.5L7 10 3.5 12.5 5 8 1 5.5h4.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            SOC 2 Type II
+          </span>
+          <span class="compliance-badge">
+            <svg viewBox="0 0 14 14"><path d="M7 1l1.5 4.5H13L9 8l1.5 4.5L7 10 3.5 12.5 5 8 1 5.5h4.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            FSA/HSA Eligible
+          </span>
+          <span class="compliance-badge">
+            <svg viewBox="0 0 14 14"><path d="M7 1l1.5 4.5H13L9 8l1.5 4.5L7 10 3.5 12.5 5 8 1 5.5h4.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            NDA Standard
+          </span>
+        </div>
+      </div>
+
+      <div class="animate-on-scroll" data-delay="200">
+        <div class="b2b-pricing-note">
+          <div class="total-label" style="font-size:var(--text-xs);font-weight:var(--weight-semibold);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--color-accent);margin-bottom:var(--space-sm);">Corporate Group Pricing</div>
+          <div class="pricing-from">From $3,900<span style="font-size:var(--text-xl);color:rgba(245,240,232,0.5);font-weight:300;"> / person</span></div>
+          <div class="pricing-desc" style="margin-top:var(--space-sm);">For groups of 10 or more. Includes full medical intake, clinical programming, retreat accommodation, and post-program reporting. Custom enterprise pricing available for 50+ participants.</div>
+        </div>
+
+        <!-- Case Studies embedded inline -->
+        <div style="margin-top:var(--space-2xl);">
+          <div class="cs-grid" style="grid-template-columns:1fr;">
+
+            <div class="cs-card" style="margin-bottom:var(--space-lg);">
+              <span class="cs-industry">Financial Services</span>
+              <div class="cs-org-size">620-person regional investment firm · 28 senior managers enrolled</div>
+              <div class="cs-program">Quarterly Executive Cohort + Stress Resilience Track</div>
+              <div class="cs-stats">
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Stress-related absenteeism (90 days post)</span>
+                  <span class="stat-delta">↓ 27%</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">eNPS score change (6-month follow-up)</span>
+                  <span class="stat-delta">+34 pts</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Annual healthcare utilization cost</span>
+                  <span class="stat-delta">↓ $218K</span>
+                </div>
+              </div>
+              <div class="cs-quote">
+                "We initially approved this as a retention experiment. Within two quarters it had become the most referenced benefit in our engagement surveys and exit interview comparisons."
+                <span class="quote-attr">— Chief People Officer, Financial Services Firm</span>
+              </div>
+            </div>
+
+            <div class="cs-card" style="margin-bottom:var(--space-lg);">
+              <span class="cs-industry">Technology</span>
+              <div class="cs-org-size">1,400-person SaaS company · 65 mid-senior ICs enrolled</div>
+              <div class="cs-program">Individual Contributor Wellness Track · Two cohorts per quarter</div>
+              <div class="cs-stats">
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Voluntary attrition (top quartile performers)</span>
+                  <span class="stat-delta">↓ 29%</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Manager-reported productivity improvement</span>
+                  <span class="stat-delta">+18%</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Benefits satisfaction rating (annual survey)</span>
+                  <span class="stat-delta">↑ 4.1 → 4.8</span>
+                </div>
+              </div>
+              <div class="cs-quote">
+                "Our best engineers started talking about Urban Medical Wellness Journey the same way they talked about equity. That told us everything."
+                <span class="quote-attr">— VP People Operations, Series D Tech Company</span>
+              </div>
+            </div>
+
+            <div class="cs-card">
+              <span class="cs-industry">Healthcare System</span>
+              <div class="cs-org-size">3,200-person integrated health network · 112 clinical leaders enrolled</div>
+              <div class="cs-program">Physician &amp; Clinical Leader Burnout Recovery Program</div>
+              <div class="cs-stats">
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Physician burnout score reduction (Maslach)</span>
+                  <span class="stat-delta">↓ 34%</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Unplanned leave days (12 months post)</span>
+                  <span class="stat-delta">↓ 41%</span>
+                </div>
+                <div class="cs-stat-item">
+                  <span class="stat-desc">Estimated downstream hiring cost savings</span>
+                  <span class="stat-delta">$1.4M</span>
+                </div>
+              </div>
+              <div class="cs-quote">
+                "We run the most rigorous clinical standards in the region. Urban Medical Wellness Journey was the only program we trusted to apply that same standard to our own people."
+                <span class="quote-attr">— CMO, Regional Health System</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Block -->
+    <div class="b2b-cta-block animate-on-scroll">
+      <div class="cta-eyebrow">Ready to Build the Business Case?</div>
+      <h3 class="b2b-headline cta-title" style="font-size:var(--text-3xl);margin-bottom:var(--space-md);max-width:620px;">
+        Schedule a Corporate Discovery Call — We'll Model the ROI for Your Organization
+      </h3>
+      <p class="cta-sub">
+        A 30-minute conversation with our corporate wellness team. We'll review your workforce profile, benefits structure, and strategic goals — then provide a customized impact model, group pricing proposal, and program design recommendation at no cost and no obligation.
+      </p>
+      <div class="cta-actions">
+        <a href="#contact" class="btn-corporate-primary" aria-label="Schedule a Corporate Discovery Call">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round"/>
+            <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round"/>
+            <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round"/>
+          </svg>
+          Schedule a Corporate Discovery Call
+        </a>
+        <a href="#contact" class="btn-corporate-secondary" aria-label="Request Corporate Pricing">
+          Request Corporate Pricing
+        </a>
+      </div>
+      <div class="cta-trust-row" aria-label="Trust indicators">
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          No obligation
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"/><polyline points="12 6 12 12 16 14" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          30-minute call
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="7" r="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M23 21v-2a4 4 0 00-3-3.87" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Custom ROI model provided
+        </span>
+        <span class="trust-item">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><polyline points="20 6 9 17 4 12" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Responds within 1 business day
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ROI Calculator Script -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ── Scroll Animation ──────────────────────────────────────────
+      var animEls = document.querySelectorAll('#b2b .animate-on-scroll');
+      if ('IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        animEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        animEls.forEach(function (el) { el.classList.add('is-visible'); });
+      }
+
+      // ── ROI Calculator ────────────────────────────────────────────
+      var employeesInput   = document.getElementById('roi-employees');
+      var salaryInput      = document.getElementById('roi-salary');
+      var healthcareInput  = document.getElementById('roi-healthcare');
+
+      var employeesDisplay      = document.getElementById('roi-employees-display');
+      var salaryDisplay         = document.getElementById('roi-salary-display');
+      var healthcareDisplay     = document.getElementById('roi-healthcare-display');
+
+      var sickdaysValue         = document.getElementById('roi-sickdays-value');
+      var productivityValue     = document.getElementById('roi-productivity-value');
+      var healthcareReduction   = document.getElementById('roi-healthcare-value');
+      var totalValue            = document.getElementById('roi-total-value');
+      var perPersonEl           = document.getElementById('roi-per-person');
+      var roiMultipleEl         = document.getElementById('roi-multiple');
+
+      function formatCurrency(n) {
+        if (n >= 1000000) {
+          return '$' + (n / 1000000).toFixed(1).replace(/\.0$/, '') + 'M';
+        }
+        if (n >= 1000) {
+          return '$' + Math.round(n / 1000) + 'K';
+        }
+        return '$' + n.toLocaleString();
+      }
+
+      function formatNumber(n) {
+        return n.toLocaleString(undefined, { maximumFractionDigits: 0 });
+      }
+
+      function getPerPersonRate(employees) {
+        if (employees >= 100) return 3200;
+        if (employees >= 50)  return 3550;
+        return 3900;
+      }
+
+      function calculate() {
+        var employees  = parseInt(employeesInput.value, 10);
+        var salary     = parseInt(salaryInput.value, 10);
+        var healthcare = parseInt(healthcareInput.value, 10);
+
+        // Display raw values
+        employeesDisplay.textContent  = employees + ' employees';
+        salaryDisplay.textContent     = '$' + salary.toLocaleString();
+        healthcareDisplay.textContent = '$' + healthcare.toLocaleString();
+
+        // Update aria
+        employeesInput.setAttribute('aria-valuenow', employees);
+        salaryInput.setAttribute('aria-valuenow', salary);
+        healthcareInput.setAttribute('aria-valuenow', healthcare);
+
+        // ── Sick day reduction ────────────────────────────────────
+        // Avg US worker: 4.4 sick days/year. Stress-related share: ~40%.
+        // Our 23% reduction applied to that stress fraction.
+        var avgSickDays         = 4.4;
+        var stressShare         = 0.40;
+        var absenteeismReduction = 0.23;
+        var reducedDays = Math.round(employees * avgSickDays * stressShare * absenteeismReduction);
+
+        // ── Productivity gain ────────────────────────────────────
+        // Gallup: disengaged employees ~34% of salary in lost productivity.
+        // Our programs yield ~12% engagement improvement on enrolled pool.
+        var productivityGain = Math.round(employees * salary * 0.34 * 0.12);
+
+        // ── Healthcare utilization reduction ──────────────────────
+        // Harvard: programs reduce medical claims by avg 3.27× investment.
+        // Proxy: 7% reduction in annual per-employee claims cost.
+        var healthcareGain = Math.round(employees * healthcare * 0.07);
+
+        // ── Program investment ────────────────────────────────────
+        var perPerson       = getPerPersonRate(employees);
+        var totalInvestment = employees * perPerson;
+
+        // ── Total benefit & ROI ───────────────────────────────────
+        var totalBenefit = productivityGain + healthcareGain;
+        var roiMultiple  = totalInvestment > 0
+          ? Math.round(((totalBenefit - totalInvestment) / totalInvestment) * 100)
+          : 0;
+
+        // ── Update DOM ────────────────────────────────────────────
+        sickdaysValue.textContent       = reducedDays + ' days';
+        productivityValue.textContent   = formatCurrency(productivityGain);
+        healthcareReduction.textContent = formatCurrency(healthcareGain);
+        totalValue.textContent          = formatCurrency(totalBenefit);
+        perPersonEl.textContent         = '$' + perPerson.toLocaleString();
+        roiMultipleEl.textContent       = roiMultiple + '%';
+      }
+
+      if (employeesInput && salaryInput && healthcareInput) {
+        employeesInput.addEventListener('input', calculate);
+        salaryInput.addEventListener('input', calculate);
+        healthcareInput.addEventListener('input', calculate);
+        calculate(); // initial render
+      }
+    }());
+  </script>
+</section>

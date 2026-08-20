@@ -1,0 +1,1318 @@
+<style>
+  /* ── Program Section Styles ── */
+
+  #program {
+    background: var(--color-surface-alt);
+    padding: var(--space-5xl) 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #program::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-accent);
+  }
+
+  .program-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+  }
+
+  /* ── Section Header ── */
+  .program-header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+  }
+
+  .program-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .program-eyebrow::before,
+  .program-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.6;
+  }
+
+  .program-headline {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-lg);
+  }
+
+  .program-headline em {
+    font-style: italic;
+    color: var(--color-accent-dark);
+  }
+
+  .program-subtext {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  /* ── Toggle Interface ── */
+  .program-toggle-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .program-toggle {
+    display: inline-flex;
+    background: var(--color-surface);
+    border: var(--border-thin);
+    border-radius: var(--radius-full);
+    padding: 6px;
+    gap: 4px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .toggle-btn {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-full);
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: var(--transition-base);
+    text-align: center;
+    min-width: 160px;
+  }
+
+  .toggle-btn .toggle-duration {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    transition: var(--transition-base);
+  }
+
+  .toggle-btn .toggle-label {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-muted);
+    transition: var(--transition-base);
+    margin-top: 2px;
+  }
+
+  .toggle-btn.active {
+    background: var(--color-primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .toggle-btn.active .toggle-duration {
+    color: var(--color-accent);
+  }
+
+  .toggle-btn.active .toggle-label {
+    color: var(--color-text-inverse);
+  }
+
+  .toggle-btn:not(.active):hover {
+    background: var(--color-secondary);
+  }
+
+  .toggle-btn:not(.active):hover .toggle-label,
+  .toggle-btn:not(.active):hover .toggle-duration {
+    color: var(--color-primary);
+  }
+
+  /* ── Program Panels ── */
+  .program-panels {
+    position: relative;
+  }
+
+  .program-panel {
+    display: none;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+  }
+
+  .program-panel.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── Panel Header ── */
+  .panel-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl) var(--space-2xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .panel-header::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 110, 0.15);
+    pointer-events: none;
+  }
+
+  .panel-header::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid rgba(201, 169, 110, 0.1);
+    pointer-events: none;
+  }
+
+  @media (min-width: 768px) {
+    .panel-header {
+      grid-template-columns: 1fr auto;
+      align-items: center;
+    }
+  }
+
+  .panel-tier-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: rgba(201, 169, 110, 0.12);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-md);
+    width: fit-content;
+  }
+
+  .panel-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-snug);
+    color: var(--color-text-inverse);
+    margin: 0 0 var(--space-md);
+  }
+
+  .panel-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: rgba(245, 240, 232, 0.72);
+    max-width: 520px;
+    margin: 0;
+  }
+
+  .panel-price-block {
+    text-align: left;
+    padding: var(--space-lg) var(--space-xl);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--radius-lg);
+    min-width: 200px;
+    flex-shrink: 0;
+  }
+
+  @media (min-width: 768px) {
+    .panel-price-block {
+      text-align: center;
+    }
+  }
+
+  .panel-price-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: rgba(201, 169, 110, 0.8);
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .panel-price-value {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-regular);
+    color: var(--color-text-inverse);
+    display: block;
+    line-height: 1;
+  }
+
+  .panel-price-note {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: rgba(245, 240, 232, 0.5);
+    display: block;
+    margin-top: var(--space-xs);
+  }
+
+  /* ── Timeline ── */
+  .program-timeline {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+  }
+
+  @media (min-width: 640px) {
+    .program-timeline {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .program-timeline {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    #panel-5day .program-timeline {
+      grid-template-columns: repeat(5, 1fr);
+    }
+  }
+
+  /* 5-day panel uses 2+3 grid on medium, row of 5 on xl */
+  @media (min-width: 640px) and (max-width: 1023px) {
+    #panel-5day .program-timeline {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .day-card {
+    background: var(--color-surface);
+    border: var(--border-thin);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    position: relative;
+    transition: var(--transition-base);
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-xs);
+  }
+
+  .day-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent-light);
+    transform: translateY(-3px);
+  }
+
+  .day-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    opacity: 0;
+    transition: var(--transition-base);
+  }
+
+  .day-card:hover::before {
+    opacity: 1;
+  }
+
+  .day-number-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    background: var(--color-primary);
+    margin-bottom: var(--space-md);
+    flex-shrink: 0;
+  }
+
+  .day-number-badge svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .day-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-xs);
+  }
+
+  .day-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-regular);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-md);
+    line-height: var(--leading-snug);
+  }
+
+  .day-sessions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    flex: 1;
+  }
+
+  .day-session {
+    padding-left: var(--space-md);
+    border-left: 2px solid var(--color-border);
+    transition: var(--transition-base);
+  }
+
+  .day-card:hover .day-session {
+    border-left-color: var(--color-accent-light);
+  }
+
+  .session-time {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    margin-bottom: 4px;
+  }
+
+  .session-desc {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-text-muted);
+  }
+
+  .session-desc strong {
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+  }
+
+  /* ── Included Amenities ── */
+  .program-included {
+    background: var(--color-surface);
+    border: var(--border-thin);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .included-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 640px) {
+    .included-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .included-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  .included-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+    padding: var(--space-lg) var(--space-md);
+    border-radius: var(--radius-md);
+    border: var(--border-thin);
+    transition: var(--transition-base);
+  }
+
+  .included-item:hover {
+    border-color: var(--color-accent-light);
+    background: var(--color-surface-alt);
+  }
+
+  .included-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-secondary);
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+  }
+
+  .included-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent-dark);
+  }
+
+  .included-text {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    line-height: var(--leading-normal);
+  }
+
+  /* ── Amenities Strip ── */
+  .amenities-strip {
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl) var(--space-2xl);
+    margin-bottom: var(--space-3xl);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .amenities-strip::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a96e' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .amenities-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+    position: relative;
+  }
+
+  @media (min-width: 768px) {
+    .amenities-inner {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .amenities-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  .amenities-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm) var(--space-lg);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  @media (min-width: 768px) {
+    .amenities-list {
+      justify-content: flex-start;
+    }
+  }
+
+  .amenities-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: rgba(245, 240, 232, 0.85);
+  }
+
+  .amenities-list li::before {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    flex-shrink: 0;
+  }
+
+  /* ── Program CTAs ── */
+  .program-ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    text-align: center;
+    padding-top: var(--space-xl);
+  }
+
+  @media (min-width: 480px) {
+    .program-ctas {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-2xl);
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-2xl);
+    background: transparent;
+    color: var(--color-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-primary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition-base);
+    white-space: nowrap;
+  }
+
+  .btn-secondary:hover {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .cta-note {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-light);
+    margin-top: var(--space-md);
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ── Animate on scroll ── */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { transition-delay: 0.18s; }
+  .animate-on-scroll.delay-3 { transition-delay: 0.26s; }
+  .animate-on-scroll.delay-4 { transition-delay: 0.34s; }
+  .animate-on-scroll.delay-5 { transition-delay: 0.42s; }
+
+  /* ── 5-day additional cards indicator ── */
+  .day-card.extended {
+    border-color: var(--color-accent-light);
+    background: linear-gradient(180deg, rgba(201, 169, 110, 0.04) 0%, var(--color-surface) 100%);
+  }
+
+  .day-card.extended .day-number-badge {
+    background: var(--gradient-b2c);
+  }
+
+  .extended-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    background: rgba(201, 169, 110, 0.1);
+    border: 1px solid rgba(201, 169, 110, 0.25);
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-xs);
+    width: fit-content;
+  }
+
+  /* Comparison Note */
+  .comparison-callout {
+    text-align: center;
+    padding: var(--space-xl) var(--space-2xl);
+    background: rgba(201, 169, 110, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--radius-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .comparison-callout p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: var(--leading-relaxed);
+  }
+
+  .comparison-callout strong {
+    color: var(--color-primary);
+    font-weight: var(--weight-semibold);
+  }
+</style>
+
+<section id="program" aria-labelledby="program-headline">
+  <div class="program-container">
+
+    <!-- Section Header -->
+    <header class="program-header animate-on-scroll">
+      <div class="program-eyebrow">Signature Programs</div>
+      <h2 class="program-headline" id="program-headline">
+        Two Paths.<br>
+        <em>One Standard of Excellence.</em>
+      </h2>
+      <p class="program-subtext">
+        Whether your schedule allows three focused days or five transformative ones, every protocol is physician-designed, evidence-based, and calibrated to your unique biomarkers — never generic, always measurable.
+      </p>
+    </header>
+
+    <!-- Toggle Interface -->
+    <div class="program-toggle-wrapper animate-on-scroll delay-1">
+      <div class="program-toggle" role="tablist" aria-label="Program duration options">
+        <button
+          class="toggle-btn active"
+          id="tab-3day"
+          role="tab"
+          aria-selected="true"
+          aria-controls="panel-3day"
+          data-panel="panel-3day"
+        >
+          <span class="toggle-duration">3-Day</span>
+          <span class="toggle-label">Intensive Reset</span>
+        </button>
+        <button
+          class="toggle-btn"
+          id="tab-5day"
+          role="tab"
+          aria-selected="false"
+          aria-controls="panel-5day"
+          data-panel="panel-5day"
+        >
+          <span class="toggle-duration">5-Day</span>
+          <span class="toggle-label">Transformation Journey</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Program Panels -->
+    <div class="program-panels">
+
+      <!-- 3-Day Panel -->
+      <div class="program-panel active" id="panel-3day" role="tabpanel" aria-labelledby="tab-3day">
+
+        <!-- Panel Header -->
+        <div class="panel-header animate-on-scroll">
+          <div>
+            <div class="panel-tier-badge">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <circle cx="5" cy="5" r="4" fill="currentColor"/>
+              </svg>
+              Executive Tier
+            </div>
+            <h3 class="panel-title">The Executive Reset:<br>Maximum Impact, Minimum Time Away.</h3>
+            <p class="panel-subtitle">
+              Designed for high-performing professionals who cannot afford weeks away but refuse to accept declining health as the cost of success. Three days. Full clinical depth. Lasting results.
+            </p>
+          </div>
+          <div class="panel-price-block">
+            <span class="panel-price-label">Starting from</span>
+            <span class="panel-price-value">$4,800</span>
+            <span class="panel-price-note">per person · all-inclusive</span>
+          </div>
+        </div>
+
+        <!-- Timeline Cards -->
+        <div class="program-timeline">
+
+          <!-- Day 1 -->
+          <article class="day-card animate-on-scroll delay-1">
+            <div class="day-number-badge" aria-hidden="true">
+              <!-- Biometric icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div class="day-label">Day One</div>
+            <h4 class="day-title">Arrive &amp; Assess</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Afternoon</div>
+                <p class="session-desc">
+                  <strong>Comprehensive biometric intake</strong> — VO2 max, heart rate variability, metabolic panel, and body composition analysis establish your clinical baseline with precision.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Late Afternoon</div>
+                <p class="session-desc">
+                  <strong>Physician-led health consultation</strong> with nutritional assessment and sleep architecture analysis — a 360° portrait of where you are and where you're capable of going.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Evening</div>
+                <p class="session-desc">
+                  <strong>Guided breathwork &amp; circadian reset protocol</strong> — signal your nervous system that recovery has begun. Leave dinner feeling lighter than you've felt in months.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 2 -->
+          <article class="day-card animate-on-scroll delay-2">
+            <div class="day-number-badge" aria-hidden="true">
+              <!-- Restore icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </div>
+            <div class="day-label">Day Two</div>
+            <h4 class="day-title">Intervene &amp; Restore</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc">
+                  <strong>IV micronutrient therapy</strong> formulated from your Day 1 labs, followed by cold-water immersion protocol and a movement medicine session with your physical therapist.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Afternoon</div>
+                <p class="session-desc">
+                  <strong>Personalized functional nutrition workshop</strong> and a stress physiology deep-dive with a behavioral health specialist — evidence-based tools you'll actually use.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Evening</div>
+                <p class="session-desc">
+                  <strong>Private physician debrief</strong>, then sauna and contrast therapy sequence designed to accelerate cellular repair and deliver the deepest sleep of your retreat.
+                </p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 3 -->
+          <article class="day-card animate-on-scroll delay-3">
+            <div class="day-number-badge" aria-hidden="true">
+              <!-- Optimize icon -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+            </div>
+            <div class="day-label">Day Three</div>
+            <h4 class="day-title">Integrate &amp; Optimize</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc">
+                  <strong>Final biometric re-assessment</strong> with your side-by-side comparison dashboard — see quantified improvements across every key marker in 48 hours.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Mid-Morning</div>
+                <p class="session-desc">
+                  <strong>Personal longevity roadmap consultation</strong> — your physician maps the next 90 days of your health trajectory with targets, tools, and accountability touchpoints.
+                </p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Departure</div>
+                <p class="session-desc">
+                  Leave with a <strong>90-day at-home protocol, personalized supplement plan, wearable integration guide</strong>, and your 30-day physician check-in already scheduled.
+                </p>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /timeline 3-day -->
+
+        <!-- Included Block -->
+        <div class="program-included animate-on-scroll">
+          <div class="included-label">Everything Included in Your Retreat</div>
+          <div class="included-grid">
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/>
+                  <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/>
+                  <line x1="10" y1="1" x2="10" y2="4"/>
+                  <line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <span class="included-text">Clinical Nutrition Meals</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <span class="included-text">Private Accommodations</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <span class="included-text">Daily Morning &amp; Evening Rituals</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span class="included-text">Digital Health Dashboard</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6 6l1.92-1.92a2 2 0 0 1 2.11-.45c.92.3 1.86.52 2.82.65A2 2 0 0 1 22 15v1.92z"/>
+                </svg>
+              </div>
+              <span class="included-text">30-Day Physician Check-In</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/>
+                  <line x1="16" y1="17" x2="8" y2="17"/>
+                  <polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <span class="included-text">90-Day Home Protocol</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /panel-3day -->
+
+
+      <!-- 5-Day Panel -->
+      <div class="program-panel" id="panel-5day" role="tabpanel" aria-labelledby="tab-5day">
+
+        <!-- Panel Header -->
+        <div class="panel-header animate-on-scroll">
+          <div>
+            <div class="panel-tier-badge">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+                <polygon points="5,1 6.5,4 10,4.5 7.5,7 8.1,10.5 5,8.8 1.9,10.5 2.5,7 0,4.5 3.5,4" fill="currentColor"/>
+              </svg>
+              Signature Tier
+            </div>
+            <h3 class="panel-title">The Full Reset:<br>Rebuild From the Inside Out.</h3>
+            <p class="panel-subtitle">
+              Five days is the difference between feeling better and becoming better. This is the complete arc — assessment, deep intervention, behavioral integration, and a care plan that extends six months beyond your departure.
+            </p>
+          </div>
+          <div class="panel-price-block">
+            <span class="panel-price-label">Starting from</span>
+            <span class="panel-price-value">$7,400</span>
+            <span class="panel-price-note">per person · all-inclusive</span>
+          </div>
+        </div>
+
+        <!-- Comparison Callout -->
+        <div class="comparison-callout animate-on-scroll">
+          <p><strong>Days 1–3 follow the complete Executive Reset protocol.</strong> Days 4 and 5 extend your transformation with advanced functional medicine, behavioral integration, and a comprehensive six-month care roadmap — for those ready to do the full work.</p>
+        </div>
+
+        <!-- Timeline Cards -->
+        <div class="program-timeline">
+
+          <!-- Day 1 -->
+          <article class="day-card animate-on-scroll delay-1">
+            <div class="day-number-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div class="day-label">Day One</div>
+            <h4 class="day-title">Arrive &amp; Assess</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Afternoon</div>
+                <p class="session-desc"><strong>Comprehensive biometric intake</strong> — VO2 max, HRV, metabolic panel, body composition.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Late Afternoon</div>
+                <p class="session-desc"><strong>Physician-led consultation</strong> with nutritional and sleep architecture analysis.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Evening</div>
+                <p class="session-desc"><strong>Guided breathwork &amp; circadian reset protocol</strong> — decompress and arrive fully present.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 2 -->
+          <article class="day-card animate-on-scroll delay-2">
+            <div class="day-number-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 4 23 10 17 10"/>
+                <polyline points="1 20 1 14 7 14"/>
+                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+              </svg>
+            </div>
+            <div class="day-label">Day Two</div>
+            <h4 class="day-title">Intervene &amp; Restore</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc"><strong>IV micronutrient therapy</strong>, cold-water immersion, and movement medicine session.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Afternoon</div>
+                <p class="session-desc"><strong>Functional nutrition workshop</strong> and stress physiology session with behavioral specialist.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Evening</div>
+                <p class="session-desc"><strong>Private physician debrief</strong> and sauna and contrast therapy sequence.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 3 -->
+          <article class="day-card animate-on-scroll delay-3">
+            <div class="day-number-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+              </svg>
+            </div>
+            <div class="day-label">Day Three</div>
+            <h4 class="day-title">Integrate &amp; Optimize</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc"><strong>Biometric re-assessment</strong> with comparison dashboard showing quantified progress.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Mid-Morning</div>
+                <p class="session-desc"><strong>Longevity roadmap consultation</strong> — 90-day milestones mapped with your physician.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 4 - Extended -->
+          <article class="day-card extended animate-on-scroll delay-4">
+            <div class="day-number-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v11m0 0h10M9 14H5a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4m6-6v6m0 0h4a2 2 0 0 0 2-2v-4m-6 6H9"/>
+              </svg>
+            </div>
+            <div class="extended-tag">5-Day Exclusive</div>
+            <div class="day-label">Day Four</div>
+            <h4 class="day-title">Deepen &amp; Rebuild</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc"><strong>Advanced functional medicine deep-dive</strong> — gut microbiome, hormonal panel review, and inflammation markers analyzed with your physician.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Afternoon</div>
+                <p class="session-desc"><strong>Personalized movement programming</strong> session and one-on-one behavioral health coaching — identify and rewrite the stress patterns driving your burnout.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Evening</div>
+                <p class="session-desc"><strong>Sleep optimization lab night</strong> — monitored HRV and sleep stage tracking with next-morning debrief and protocol adjustment.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Day 5 - Extended -->
+          <article class="day-card extended animate-on-scroll delay-5">
+            <div class="day-number-badge" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="extended-tag">5-Day Exclusive</div>
+            <div class="day-label">Day Five</div>
+            <h4 class="day-title">Launch &amp; Sustain</h4>
+            <div class="day-sessions">
+              <div class="day-session">
+                <div class="session-time">Morning</div>
+                <p class="session-desc"><strong>Advanced metabolic recalibration session</strong> — zone-2 cardio assessment, strength benchmarking, and VO2 trend analysis against your Day 1 baseline.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Mid-Morning</div>
+                <p class="session-desc"><strong>Peer cohort integration workshop</strong> (optional) — share frameworks and accountability strategies with fellow retreat participants.</p>
+              </div>
+              <div class="day-session">
+                <div class="session-time">Departure</div>
+                <p class="session-desc">Depart with your <strong>comprehensive outcome report</strong> and a structured <strong>6-month follow-up care plan</strong> — with scheduled physician check-ins already confirmed.</p>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /timeline 5-day -->
+
+        <!-- Included Block -->
+        <div class="program-included animate-on-scroll">
+          <div class="included-label">Everything Included in Your Retreat</div>
+          <div class="included-grid">
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/>
+                  <line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+                </svg>
+              </div>
+              <span class="included-text">Clinical Nutrition Meals</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+                </svg>
+              </div>
+              <span class="included-text">Private Accommodations</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <span class="included-text">Daily Rituals — AM &amp; PM</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <span class="included-text">Secure Digital Health Portal</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.13.96.35 1.9.65 2.82a2 2 0 0 1-.45 2.11L7.91 8.75a16 16 0 0 0 6 6l1.92-1.92a2 2 0 0 1 2.11-.45c.92.3 1.86.52 2.82.65A2 2 0 0 1 22 15v1.92z"/>
+                </svg>
+              </div>
+              <span class="included-text">6-Month Follow-Up Care</span>
+            </div>
+            <div class="included-item">
+              <div class="included-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>
+                  <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/>
+                </svg>
+              </div>
+              <span class="included-text">Comprehensive Outcome Report</span>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /panel-5day -->
+
+    </div><!-- /program-panels -->
+
+    <!-- Shared Amenities Strip -->
+    <div class="amenities-strip animate-on-scroll">
+      <div class="amenities-inner">
+        <span class="amenities-label">Included in Both Programs</span>
+        <ul class="amenities-list" aria-label="Program amenities">
+          <li>Medical-Grade Protocols</li>
+          <li>Gourmet Functional Nutrition</li>
+          <li>Private Accommodations</li>
+          <li>Digital Health Dashboard</li>
+          <li>Post-Retreat Care Plan</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CTAs -->
+    <div class="program-ctas animate-on-scroll">
+      <a href="#reserve" class="btn-primary" aria-label="Reserve your retreat now">
+        Reserve Your Retreat
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+      <a href="#corporate" class="btn-secondary" aria-label="Request corporate pricing for groups">
+        Request Corporate Pricing
+      </a>
+      <p class="cta-note">All retreat dates are limited to 12 participants per cohort to preserve clinical quality and individual physician access.</p>
+    </div>
+
+  </div><!-- /program-container -->
+</section>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ── Tab / Toggle Logic ── */
+  var tabs = document.querySelectorAll('#program .toggle-btn');
+  var panels = document.querySelectorAll('#program .program-panel');
+
+  function activateTab(targetBtn) {
+    var panelId = targetBtn.getAttribute('data-panel');
+
+    tabs.forEach(function (btn) {
+      var isActive = btn === targetBtn;
+      btn.classList.toggle('active', isActive);
+      btn.setAttribute('aria-selected', String(isActive));
+    });
+
+    panels.forEach(function (panel) {
+      var isTarget = panel.id === panelId;
+      if (isTarget) {
+        panel.classList.add('active');
+        // Force reflow so transition fires
+        void panel.offsetWidth;
+        panel.style.opacity = '1';
+        panel.style.transform = 'translateY(0)';
+        // Re-trigger animate-on-scroll children
+        panel.querySelectorAll('.animate-on-scroll').forEach(function (el) {
+          el.classList.remove('in-view');
+          setTimeout(function () {
+            el.classList.add('in-view');
+          }, 40);
+        });
+      } else {
+        panel.classList.remove('active');
+        panel.style.opacity = '';
+        panel.style.transform = '';
+      }
+    });
+  }
+
+  tabs.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      activateTab(btn);
+    });
+    btn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        activateTab(btn);
+      }
+    });
+  });
+
+  /* ── Animate on Scroll (IntersectionObserver) ── */
+  var animateEls = document.querySelectorAll('#program .animate-on-scroll');
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    animateEls.forEach(function (el) { observer.observe(el); });
+  } else {
+    // Fallback: show everything immediately
+    animateEls.forEach(function (el) { el.classList.add('in-view'); });
+  }
+})();
+</script>

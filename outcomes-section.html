@@ -1,0 +1,1076 @@
+<style>
+  /* ─── Outcomes Section Styles ─── */
+
+  #outcomes {
+    background: var(--color-surface-alt);
+    padding: var(--space-5xl) 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #outcomes::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-accent);
+  }
+
+  .outcomes-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+  }
+
+  /* ─── Section Header ─── */
+  .outcomes-header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+  }
+
+  .outcomes-eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-xs) var(--space-md);
+    border: 1px solid rgba(201, 169, 110, 0.35);
+    border-radius: var(--radius-full);
+    background: rgba(201, 169, 110, 0.06);
+  }
+
+  .outcomes-headline {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    color: var(--color-primary);
+    margin: 0 auto var(--space-lg);
+    max-width: 760px;
+  }
+
+  .outcomes-headline em {
+    font-style: italic;
+    color: var(--color-accent-dark);
+  }
+
+  .outcomes-subhead {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* ─── Stats Block ─── */
+  .outcomes-stats-wrapper {
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl) var(--space-2xl);
+    margin-bottom: var(--space-4xl);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .outcomes-stats-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .outcomes-stats-wrapper::before {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .stats-grid-label {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .stats-grid-label span {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  @media (min-width: 640px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .stats-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: var(--space-xl) var(--space-md);
+    position: relative;
+  }
+
+  @media (min-width: 1024px) {
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 25%;
+      height: 50%;
+      width: 1px;
+      background: rgba(201, 169, 110, 0.2);
+    }
+  }
+
+  .stat-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: 1;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .stat-number sup {
+    font-size: 0.45em;
+    vertical-align: super;
+    font-weight: var(--weight-regular);
+  }
+
+  .stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-snug);
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-instrument {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-regular);
+    color: rgba(245, 240, 232, 0.45);
+    font-style: italic;
+  }
+
+  .stats-citation {
+    text-align: center;
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid rgba(201, 169, 110, 0.15);
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  .stats-citation p {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: rgba(245, 240, 232, 0.4);
+    line-height: var(--leading-relaxed);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  /* ─── Testimonials ─── */
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .testimonials-label {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
+  }
+
+  .testimonials-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+    color: var(--color-primary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  @media (min-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .testimonials-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .testimonial-card {
+    background: var(--color-surface);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl);
+    box-shadow: var(--shadow-md);
+    border: var(--border-thin);
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+
+  .testimonial-card.corporate {
+    background: linear-gradient(145deg, #f8fafd 0%, #edf2f9 100%);
+    border-color: rgba(30, 58, 95, 0.15);
+  }
+
+  .testimonial-card.corporate::before {
+    background: var(--gradient-b2b);
+  }
+
+  .testimonial-program-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    background: rgba(201, 169, 110, 0.1);
+    border: 1px solid rgba(201, 169, 110, 0.25);
+    border-radius: var(--radius-full);
+    padding: var(--space-xs) var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .testimonial-card.corporate .testimonial-program-badge {
+    color: var(--color-b2b);
+    background: rgba(30, 58, 95, 0.08);
+    border-color: rgba(30, 58, 95, 0.2);
+  }
+
+  .testimonial-quote-mark {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-accent-light);
+    margin-bottom: var(--space-sm);
+    display: block;
+    opacity: 0.5;
+  }
+
+  .testimonial-card.corporate .testimonial-quote-mark {
+    color: var(--color-b2b-muted);
+  }
+
+  .testimonial-quote {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text);
+    margin-bottom: var(--space-xl);
+    flex: 1;
+  }
+
+  .testimonial-quote strong {
+    color: var(--color-primary);
+    font-weight: var(--weight-semibold);
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    border-top: var(--border-thin);
+    margin-top: auto;
+  }
+
+  .testimonial-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--gradient-b2c);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--color-accent-light);
+    font-weight: var(--weight-light);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .testimonial-card.corporate .testimonial-avatar {
+    background: var(--gradient-b2b);
+  }
+
+  .testimonial-avatar-initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .testimonial-author-info {
+    flex: 1;
+  }
+
+  .testimonial-author-name {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text);
+    margin-bottom: 2px;
+  }
+
+  .testimonial-author-role {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-snug);
+  }
+
+  .testimonial-outcome-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    color: #2d6a4f;
+    background: rgba(45, 106, 79, 0.08);
+    border: 1px solid rgba(45, 106, 79, 0.2);
+    border-radius: var(--radius-full);
+    padding: var(--space-xs) var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  .testimonial-outcome-pill svg {
+    flex-shrink: 0;
+  }
+
+  /* ─── Lead Magnet / CTA Block ─── */
+  .outcomes-lead-magnet {
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .lead-magnet-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    z-index: var(--z-base);
+  }
+
+  @media (min-width: 768px) {
+    .lead-magnet-inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .lead-magnet-bg-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 50%, rgba(201, 169, 110, 0.07) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(201, 169, 110, 0.05) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .lead-magnet-content {
+    padding: var(--space-3xl) var(--space-2xl);
+  }
+
+  @media (min-width: 768px) {
+    .lead-magnet-content {
+      padding: var(--space-4xl) var(--space-3xl);
+    }
+  }
+
+  .lead-magnet-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .lead-magnet-eyebrow-icon {
+    width: 28px;
+    height: 28px;
+    background: rgba(201, 169, 110, 0.15);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lead-magnet-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-snug);
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-md);
+  }
+
+  .lead-magnet-title em {
+    font-style: italic;
+    color: var(--color-accent-light);
+  }
+
+  .lead-magnet-description {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: rgba(245, 240, 232, 0.7);
+    margin-bottom: var(--space-xl);
+  }
+
+  .lead-magnet-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .lead-magnet-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(245, 240, 232, 0.75);
+    line-height: var(--leading-snug);
+  }
+
+  .lead-magnet-features li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none'%3E%3Ccircle cx='8' cy='8' r='7.5' stroke='%23c9a96e' stroke-opacity='.5'/%3E%3Cpath d='M5 8l2 2 4-4' stroke='%23c9a96e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ─── Email Capture Form ─── */
+  .lead-magnet-form-panel {
+    padding: var(--space-3xl) var(--space-2xl);
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 1px solid rgba(201, 169, 110, 0.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  @media (min-width: 768px) {
+    .lead-magnet-form-panel {
+      padding: var(--space-4xl) var(--space-3xl);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .lead-magnet-form-panel {
+      border-left: none;
+      border-top: 1px solid rgba(201, 169, 110, 0.12);
+      padding-top: var(--space-2xl);
+    }
+  }
+
+  .form-panel-title {
+    font-family: var(--font-body);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-xs);
+  }
+
+  .form-panel-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: rgba(245, 240, 232, 0.5);
+    margin-bottom: var(--space-xl);
+    line-height: var(--leading-snug);
+  }
+
+  .outcomes-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .form-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: rgba(245, 240, 232, 0.6);
+  }
+
+  .form-input {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-inverse);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+    width: 100%;
+    outline: none;
+  }
+
+  .form-input::placeholder {
+    color: rgba(245, 240, 232, 0.3);
+  }
+
+  .form-input:focus {
+    border-color: rgba(201, 169, 110, 0.6);
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .form-select {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-lg);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: rgba(245, 240, 232, 0.6);
+    transition: border-color var(--transition-fast), background var(--transition-fast);
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a96e' stroke-opacity='.5' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--space-lg) center;
+    padding-right: 2.5rem;
+  }
+
+  .form-select:focus {
+    border-color: rgba(201, 169, 110, 0.6);
+  }
+
+  .form-select option {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+
+  .form-submit-btn {
+    background: var(--gradient-accent);
+    color: var(--color-dark);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-md) var(--space-xl);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    cursor: pointer;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    text-align: center;
+    box-shadow: var(--shadow-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    width: 100%;
+    margin-top: var(--space-xs);
+  }
+
+  .form-submit-btn:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 32px rgba(201, 169, 110, 0.4);
+  }
+
+  .form-submit-btn:active {
+    transform: translateY(0);
+  }
+
+  .form-privacy-note {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: rgba(245, 240, 232, 0.35);
+    text-align: center;
+    line-height: var(--leading-relaxed);
+    margin-top: var(--space-sm);
+  }
+
+  .form-privacy-note a {
+    color: rgba(201, 169, 110, 0.6);
+    text-decoration: underline;
+    text-decoration-color: rgba(201, 169, 110, 0.3);
+    text-underline-offset: 2px;
+  }
+
+  /* ─── Scroll Animations ─── */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1), transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+  .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+  .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+  .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+  .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stat counter animation */
+  .stat-number[data-target] {
+    transition: none;
+  }
+
+  /* ─── Divider ─── */
+  .outcomes-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gradient-accent);
+    margin: var(--space-lg) auto;
+  }
+</style>
+
+<section id="outcomes">
+  <div class="outcomes-container">
+
+    <!-- Section Header -->
+    <div class="outcomes-header animate-on-scroll">
+      <span class="outcomes-eyebrow">Evidence-Based Results</span>
+      <h2 class="outcomes-headline">
+        Results You Can <em>Measure.</em><br>Transformations You Can Feel.
+      </h2>
+      <div class="outcomes-divider"></div>
+      <p class="outcomes-subhead">
+        We don't ask you to take our word for it. Every program outcome is tracked, validated, and independently audited — because your health decisions deserve clinical-grade accountability.
+      </p>
+    </div>
+
+    <!-- Outcomes Data Block -->
+    <div class="outcomes-stats-wrapper animate-on-scroll delay-1">
+      <div class="stats-grid-label">
+        <span>Aggregate Clinical Outcomes — 2,400+ Program Completers (2022–2025)</span>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-item animate-on-scroll delay-1">
+          <span class="stat-number" data-target="87" data-suffix="%">0%</span>
+          <div class="stat-label">Reduction in self-reported burnout scores</div>
+          <div class="stat-instrument">Validated MBI Instrument</div>
+        </div>
+        <div class="stat-item animate-on-scroll delay-2">
+          <span class="stat-number" data-target="18" data-suffix="%">0%</span>
+          <div class="stat-label">Avg. improvement in Heart Rate Variability</div>
+          <div class="stat-instrument">30-Day Follow-Up</div>
+        </div>
+        <div class="stat-item animate-on-scroll delay-3">
+          <span class="stat-number" data-target="91" data-suffix="%">0%</span>
+          <div class="stat-label">Report improved sleep quality</div>
+          <div class="stat-instrument">60-Day Follow-Up</div>
+        </div>
+        <div class="stat-item animate-on-scroll delay-4">
+          <span class="stat-number" data-target="11" data-prefix="−" data-suffix=" pts">0</span>
+          <div class="stat-label">Avg. drop in systolic blood pressure</div>
+          <div class="stat-instrument">Hypertensive Participants</div>
+        </div>
+        <div class="stat-item animate-on-scroll delay-5">
+          <span class="stat-number" data-target="76" data-suffix="%">0%</span>
+          <div class="stat-label">Sustained cognitive performance gains</div>
+          <div class="stat-instrument">90-Day Check-In</div>
+        </div>
+      </div>
+      <div class="stats-citation">
+        <p>Based on aggregate outcomes data from 2,400+ program completers, 2022–2025. Outcomes tracked via validated clinical instruments including the Maslach Burnout Inventory (MBI), 24-hour HRV monitoring, Pittsburgh Sleep Quality Index (PSQI), and CNS Vital Signs cognitive assessment battery. Individual results may vary. Full methodology available in our Clinical Outcomes White Paper.</p>
+      </div>
+    </div>
+
+    <!-- Testimonials -->
+    <div class="testimonials-header animate-on-scroll">
+      <span class="testimonials-label">From Our Participants</span>
+      <h3 class="testimonials-title">The Stories Behind the Numbers</h3>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <!-- Testimonial 1: Individual B2C -->
+      <div class="testimonial-card animate-on-scroll delay-1">
+        <span class="testimonial-program-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="4.5" stroke="currentColor" stroke-opacity=".5"/>
+            <circle cx="5" cy="5" r="2" fill="currentColor" fill-opacity=".7"/>
+          </svg>
+          Executive Renewal Intensive — 7 Days
+        </span>
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="testimonial-quote">
+          I was functioning at what I thought was full capacity. <strong>The biometric assessment on Day 1 showed my body disagreed entirely.</strong> My cortisol pattern was inverted, my HRV had dropped 34% from my baseline two years prior, and I hadn't noticed. By Day 4, something shifted — not just rest, but a rewiring I can only describe as clarity. Six months later, I'm making better decisions faster, sleeping seven uninterrupted hours, and my cardiologist genuinely asked what I'd changed.
+        </blockquote>
+        <div>
+          <span class="testimonial-outcome-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            HRV up 31% at 90-day check-in
+          </span>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-label="Marcus T. headshot">
+            <span class="testimonial-avatar-initials">MT</span>
+          </div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Marcus T.</div>
+            <div class="testimonial-author-role">Managing Director, Private Equity<br>New York, NY</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2: Individual B2C -->
+      <div class="testimonial-card animate-on-scroll delay-2">
+        <span class="testimonial-program-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <circle cx="5" cy="5" r="4.5" stroke="currentColor" stroke-opacity=".5"/>
+            <circle cx="5" cy="5" r="2" fill="currentColor" fill-opacity=".7"/>
+          </svg>
+          Physician Resilience Program — 5 Days
+        </span>
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="testimonial-quote">
+          As a physician, I spent twenty years telling patients to slow down while personally running on five hours of sleep and emergency coffee. <strong>What surprised me wasn't the science — it was the rigor.</strong> The team here applies clinical methodology I would hold my own practice to. The sleep titration protocol alone was something I'd never encountered outside a research setting. I returned to my hospital feeling like a different version of myself. My colleagues noticed before I'd said a word.
+        </blockquote>
+        <div>
+          <span class="testimonial-outcome-pill">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Sleep quality score improved by 58%
+          </span>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-label="Dr. Priya N. headshot">
+            <span class="testimonial-avatar-initials">PN</span>
+          </div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Dr. Priya N., MD</div>
+            <div class="testimonial-author-role">Chief of Internal Medicine<br>Chicago, IL</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 3: Corporate B2B -->
+      <div class="testimonial-card corporate animate-on-scroll delay-3">
+        <span class="testimonial-program-badge">
+          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
+            <rect x="1.5" y="1.5" width="7" height="7" rx="1" stroke="currentColor" stroke-opacity=".5"/>
+            <rect x="3.5" y="3.5" width="3" height="3" fill="currentColor" fill-opacity=".6"/>
+          </svg>
+          Corporate Leadership Retreat — 32 Participants
+        </span>
+        <span class="testimonial-quote-mark" aria-hidden="true">&ldquo;</span>
+        <blockquote class="testimonial-quote">
+          I've managed corporate wellness budgets for eleven years and have seen every flavor of team offsite. <strong>What sets Urban Medical apart is that they treat outcomes like deliverables.</strong> Pre-program biometrics, a structured protocol for our specific executive cohort, and a 90-day follow-up report with individual and aggregate data I could actually present to our board. Voluntary participation was 97%. Our Q3 engagement scores hit a four-year high three months later. The booking coordinator handled everything — two calls and a shared calendar link.
+        </blockquote>
+        <div>
+          <span class="testimonial-outcome-pill" style="color: var(--color-b2b); background: rgba(30,58,95,0.08); border-color: rgba(30,58,95,0.2);">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <path d="M2 6l3 3 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            97% voluntary participation · Q3 engagement +22%
+          </span>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-label="Sandra K. headshot">
+            <span class="testimonial-avatar-initials">SK</span>
+          </div>
+          <div class="testimonial-author-info">
+            <div class="testimonial-author-name">Sandra K.</div>
+            <div class="testimonial-author-role">VP of People & Culture<br>Series-C Tech Company, Austin, TX</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Lead Magnet / Email Capture -->
+    <div class="outcomes-lead-magnet animate-on-scroll">
+      <div class="lead-magnet-bg-pattern" aria-hidden="true"></div>
+      <div class="lead-magnet-inner">
+
+        <!-- Content Side -->
+        <div class="lead-magnet-content">
+          <div class="lead-magnet-eyebrow">
+            <div class="lead-magnet-eyebrow-icon" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M2 3h10v8a1 1 0 01-1 1H3a1 1 0 01-1-1V3z" stroke="#c9a96e" stroke-width="1.2" stroke-linejoin="round"/>
+                <path d="M2 3l5 4 5-4" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M0 3h14" stroke="#c9a96e" stroke-width="1.2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            Free Clinical White Paper
+          </div>
+          <h3 class="lead-magnet-title">
+            Download Our <em>2025 Clinical<br>Outcomes White Paper</em>
+          </h3>
+          <p class="lead-magnet-description">
+            Peer-reviewed methodology, full data breakdown, and anonymized case studies from our 2,400+ program completers. Built for both HR decision-makers and health-conscious individuals who want the evidence before they commit.
+          </p>
+          <ul class="lead-magnet-features">
+            <li>Full statistical methodology and instrument validation details</li>
+            <li>Segment-level breakdowns: executives, physicians, corporate cohorts</li>
+            <li>Before-and-after biomarker profiles across 14 clinical indicators</li>
+            <li>Independent audit summary and peer-review citations</li>
+            <li>Corporate ROI calculator and workforce wellness benchmarks</li>
+          </ul>
+        </div>
+
+        <!-- Form Side -->
+        <div class="lead-magnet-form-panel">
+          <div class="form-panel-title">Get Instant Access</div>
+          <div class="form-panel-subtitle">Download delivered to your inbox within 60 seconds. No spam, ever.</div>
+
+          <form class="outcomes-form" id="outcomes-lead-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="lead-name">Full Name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="lead-name"
+                name="name"
+                placeholder="Dr. Sarah Chen"
+                autocomplete="name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lead-email">Work Email</label>
+              <input
+                class="form-input"
+                type="email"
+                id="lead-email"
+                name="email"
+                placeholder="sarah@company.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lead-role">I am interested as a</label>
+              <select class="form-select" id="lead-role" name="role">
+                <option value="" disabled selected>Select your context…</option>
+                <option value="individual">Individual — for personal wellness</option>
+                <option value="executive">Executive — personal + team considerations</option>
+                <option value="hr">HR / People Leader — corporate programs</option>
+                <option value="physician">Physician / Clinician — clinical review</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Download the White Paper
+            </button>
+
+            <p class="form-privacy-note">
+              Your information is used solely to deliver your requested content and relevant program updates. We do not sell or share personal data. Read our <a href="#privacy">Privacy Policy</a>.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    (function () {
+      // ─── Intersection Observer for scroll animations ───
+      const animatedEls = document.querySelectorAll('#outcomes .animate-on-scroll');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        animatedEls.forEach(function (el) { observer.observe(el); });
+      } else {
+        animatedEls.forEach(function (el) { el.classList.add('in-view'); });
+      }
+
+      // ─── Animated stat counters ───
+      function animateCounter(el) {
+        var target = parseInt(el.getAttribute('data-target'), 10);
+        var prefix = el.getAttribute('data-prefix') || '';
+        var suffix = el.getAttribute('data-suffix') || '';
+        var duration = 1600;
+        var startTime = null;
+        function easeOutExpo(t) {
+          return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+        }
+        function step(timestamp) {
+          if (!startTime) startTime = timestamp;
+          var progress = Math.min((timestamp - startTime) / duration, 1);
+          var value = Math.round(easeOutExpo(progress) * target);
+          el.textContent = prefix + value + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+          else el.textContent = prefix + target + suffix;
+        }
+        requestAnimationFrame(step);
+      }
+
+      var statEls = document.querySelectorAll('#outcomes .stat-number[data-target]');
+      if ('IntersectionObserver' in window) {
+        var counterObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              animateCounter(entry.target);
+              counterObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        statEls.forEach(function (el) { counterObserver.observe(el); });
+      } else {
+        statEls.forEach(function (el) {
+          var t = el.getAttribute('data-target');
+          var p = el.getAttribute('data-prefix') || '';
+          var s = el.getAttribute('data-suffix') || '';
+          el.textContent = p + t + s;
+        });
+      }
+
+      // ─── Lead Magnet Form Submission ───
+      var form = document.getElementById('outcomes-lead-form');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var btn = form.querySelector('.form-submit-btn');
+          var name = form.querySelector('#lead-name').value.trim();
+          var email = form.querySelector('#lead-email').value.trim();
+          var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (!name || !email || !emailPattern.test(email)) {
+            if (!name) form.querySelector('#lead-name').focus();
+            else if (!emailPattern.test(email)) form.querySelector('#lead-email').focus();
+            return;
+          }
+
+          var originalText = btn.innerHTML;
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> Sending to your inbox…';
+          btn.style.opacity = '0.8';
+          btn.disabled = true;
+
+          // Simulated async — replace with actual endpoint integration
+          setTimeout(function () {
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8l4 4 8-8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg> White Paper on its way — check your inbox';
+            btn.style.opacity = '1';
+          }, 1200);
+        });
+      }
+    })();
+  </script>
+</section>

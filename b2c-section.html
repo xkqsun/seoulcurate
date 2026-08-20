@@ -1,0 +1,1062 @@
+<style>
+  /* ─── B2C Section Styles ─── */
+
+  #b2c {
+    background: var(--color-surface-alt);
+    padding: var(--space-5xl) 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  #b2c::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: var(--gradient-accent);
+  }
+
+  .b2c-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--container-pad);
+  }
+
+  /* ─── Section Header ─── */
+  .b2c-header {
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto var(--space-4xl);
+  }
+
+  .b2c-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+  }
+
+  .b2c-eyebrow::before,
+  .b2c-eyebrow::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--color-accent);
+    opacity: 0.6;
+  }
+
+  .b2c-headline {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-xl);
+  }
+
+  .b2c-headline em {
+    font-style: italic;
+    color: var(--color-accent-dark);
+  }
+
+  .b2c-subheadline {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  /* ─── Empathy Narrative ─── */
+  .b2c-narrative {
+    background: var(--color-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl) var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .b2c-narrative::before {
+    content: '\201C';
+    position: absolute;
+    top: -20px;
+    left: var(--space-2xl);
+    font-family: var(--font-heading);
+    font-size: 12rem;
+    color: var(--color-accent);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .b2c-narrative-inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  @media (min-width: 900px) {
+    .b2c-narrative-inner {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4xl);
+    }
+  }
+
+  .b2c-narrative-text p {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-inverse);
+    opacity: 0.88;
+    margin: 0 0 var(--space-lg);
+  }
+
+  .b2c-narrative-text p:last-child {
+    margin-bottom: 0;
+  }
+
+  .b2c-narrative-text p strong {
+    color: var(--color-accent-light);
+    font-weight: var(--weight-semibold);
+  }
+
+  .b2c-narrative-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+  }
+
+  .b2c-stat-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 169, 110, 0.2);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-lg);
+    text-align: center;
+    transition: background var(--transition-base);
+  }
+
+  .b2c-stat-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .b2c-stat-number {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: var(--space-xs);
+    display: block;
+  }
+
+  .b2c-stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-text-inverse);
+    opacity: 0.6;
+    line-height: var(--leading-snug);
+  }
+
+  /* ─── Photo Grid ─── */
+  .b2c-photo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: var(--space-md);
+    margin-bottom: var(--space-4xl);
+  }
+
+  @media (min-width: 768px) {
+    .b2c-photo-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+    }
+  }
+
+  .b2c-photo-item {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    background: var(--color-primary);
+    min-height: 200px;
+  }
+
+  @media (min-width: 768px) {
+    .b2c-photo-item:first-child {
+      grid-row: 1 / 3;
+    }
+  }
+
+  .b2c-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    position: absolute;
+    inset: 0;
+  }
+
+  .b2c-photo-item:nth-child(1) .b2c-photo-placeholder {
+    background: linear-gradient(145deg, #1a3a2a 0%, #2d4a3e 60%, #3d6454 100%);
+  }
+
+  .b2c-photo-item:nth-child(2) .b2c-photo-placeholder {
+    background: linear-gradient(145deg, #0d1f16 0%, #1a3a2a 100%);
+  }
+
+  .b2c-photo-item:nth-child(3) .b2c-photo-placeholder {
+    background: linear-gradient(145deg, #2a3a20 0%, #1a2a15 100%);
+  }
+
+  .b2c-photo-item:nth-child(4) .b2c-photo-placeholder {
+    background: linear-gradient(145deg, #1e3028 0%, #2d4a3e 100%);
+  }
+
+  .b2c-photo-icon {
+    width: 48px;
+    height: 48px;
+    opacity: 0.35;
+  }
+
+  .b2c-photo-caption {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+    opacity: 0.75;
+    text-align: center;
+    padding: 0 var(--space-lg);
+  }
+
+  .b2c-photo-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-lg);
+    background: var(--gradient-overlay);
+  }
+
+  .b2c-photo-label {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: var(--color-accent-light);
+  }
+
+  /* ─── Pillars Section ─── */
+  .b2c-pillars-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .b2c-pillars-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    letter-spacing: var(--tracking-tight);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-md);
+  }
+
+  .b2c-pillars-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .b2c-pillars-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-4xl);
+  }
+
+  @media (min-width: 640px) {
+    .b2c-pillars-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .b2c-pillars-grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-lg);
+    }
+  }
+
+  .b2c-pillar-card {
+    background: var(--color-surface);
+    border: var(--border-thin);
+    border-radius: var(--radius-xl);
+    padding: var(--space-2xl) var(--space-xl);
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  }
+
+  .b2c-pillar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .b2c-pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-accent);
+  }
+
+  .b2c-pillar-card:hover::before {
+    opacity: 1;
+  }
+
+  .b2c-pillar-number {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: var(--weight-light);
+    color: var(--color-accent);
+    opacity: 0.12;
+    line-height: 1;
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-lg);
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .b2c-pillar-icon {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(201, 169, 110, 0.12) 0%, rgba(201, 169, 110, 0.06) 100%);
+    border: 1px solid rgba(201, 169, 110, 0.25);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .b2c-pillar-icon svg {
+    width: 24px;
+    height: 24px;
+    color: var(--color-accent);
+    stroke: var(--color-accent);
+    fill: none;
+  }
+
+  .b2c-pillar-tag {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-bold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-sm);
+    display: block;
+  }
+
+  .b2c-pillar-name {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-regular);
+    color: var(--color-primary);
+    line-height: var(--leading-snug);
+    margin: 0 0 var(--space-md);
+  }
+
+  .b2c-pillar-body {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* ─── Value Props ─── */
+  .b2c-value-section {
+    background: var(--color-primary);
+    border-radius: var(--radius-2xl);
+    padding: var(--space-4xl) var(--space-3xl);
+    margin-bottom: var(--space-4xl);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .b2c-value-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(201, 169, 110, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .b2c-value-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .b2c-value-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: var(--weight-light);
+    color: var(--color-text-inverse);
+    letter-spacing: var(--tracking-tight);
+    margin: 0 0 var(--space-md);
+  }
+
+  .b2c-value-subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-inverse);
+    opacity: 0.62;
+    line-height: var(--leading-relaxed);
+  }
+
+  .b2c-value-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  @media (min-width: 640px) {
+    .b2c-value-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .b2c-value-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl);
+    }
+  }
+
+  .b2c-value-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .b2c-value-check {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: rgba(201, 169, 110, 0.15);
+    border: 1px solid rgba(201, 169, 110, 0.35);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+
+  .b2c-value-check svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--color-accent);
+    fill: none;
+  }
+
+  .b2c-value-text {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-inverse);
+    opacity: 0.82;
+  }
+
+  .b2c-value-text strong {
+    color: var(--color-accent-light);
+    font-weight: var(--weight-semibold);
+    opacity: 1;
+  }
+
+  /* ─── Micro CTAs ─── */
+  .b2c-cta-strip {
+    background: var(--color-surface);
+    border: var(--border-thin);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl);
+    text-align: center;
+  }
+
+  .b2c-cta-strip-eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-lg);
+    display: block;
+  }
+
+  .b2c-cta-strip-heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-light);
+    color: var(--color-primary);
+    margin: 0 0 var(--space-sm);
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .b2c-cta-strip-body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    line-height: var(--leading-relaxed);
+    margin: 0 0 var(--space-2xl);
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .b2c-program-btns {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (min-width: 480px) {
+    .b2c-program-btns {
+      flex-direction: row;
+    }
+  }
+
+  .b2c-btn-program {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-wide);
+    border-radius: var(--radius-full);
+    padding: var(--space-md) var(--space-2xl);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .b2c-btn-program--primary {
+    background: var(--color-primary);
+    color: var(--color-text-inverse);
+    border-color: var(--color-primary);
+  }
+
+  .b2c-btn-program--primary:hover {
+    background: var(--color-dark);
+    border-color: var(--color-dark);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .b2c-btn-program--secondary {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-border-dark);
+  }
+
+  .b2c-btn-program--secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent-dark);
+    box-shadow: var(--shadow-accent);
+    transform: translateY(-2px);
+  }
+
+  .b2c-btn-arrow {
+    display: inline-block;
+    transition: transform var(--transition-fast);
+  }
+
+  .b2c-btn-program:hover .b2c-btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .b2c-hsa-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-xl);
+    background: rgba(201, 169, 110, 0.1);
+    border: 1px solid rgba(201, 169, 110, 0.3);
+    border-radius: var(--radius-full);
+    padding: var(--space-xs) var(--space-lg) var(--space-xs) var(--space-md);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    color: var(--color-accent-dark);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  .b2c-hsa-badge svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--color-accent);
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  /* ─── Scroll Animation ─── */
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .animate-on-scroll[data-delay="1"] { transition-delay: 0.1s; }
+  .animate-on-scroll[data-delay="2"] { transition-delay: 0.2s; }
+  .animate-on-scroll[data-delay="3"] { transition-delay: 0.3s; }
+  .animate-on-scroll[data-delay="4"] { transition-delay: 0.4s; }
+  .animate-on-scroll[data-delay="5"] { transition-delay: 0.5s; }
+  .animate-on-scroll[data-delay="6"] { transition-delay: 0.6s; }
+  .animate-on-scroll[data-delay="7"] { transition-delay: 0.7s; }
+  .animate-on-scroll[data-delay="8"] { transition-delay: 0.8s; }
+
+  /* ─── Responsive Narrative Padding ─── */
+  @media (max-width: 639px) {
+    .b2c-narrative {
+      padding: var(--space-2xl) var(--space-xl);
+    }
+
+    .b2c-value-section {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+
+    .b2c-cta-strip {
+      padding: var(--space-2xl) var(--space-xl);
+    }
+  }
+</style>
+
+<section id="b2c" aria-labelledby="b2c-headline">
+
+  <div class="b2c-container">
+
+    <!-- ─── Section Header ─── -->
+    <header class="b2c-header animate-on-scroll">
+      <span class="b2c-eyebrow">Personal Transformation</span>
+      <h2 class="b2c-headline" id="b2c-headline">
+        You Have Optimized Everything<br>
+        Except <em>the Foundation.</em>
+      </h2>
+      <p class="b2c-subheadline">
+        The tracking apps, the supplements, the 5am workouts — but chronic stress, fragmented sleep,
+        and metabolic drift are still quietly eroding your edge. It is time for a clinical reset.
+      </p>
+    </header>
+
+    <!-- ─── Empathy Narrative ─── -->
+    <div class="b2c-narrative animate-on-scroll" data-delay="1">
+      <div class="b2c-narrative-inner">
+        <div class="b2c-narrative-text">
+          <p>
+            You know the feeling. It is 3pm and the mental clarity you need to make your most
+            consequential decisions has been replaced by a low-grade fog you can't quite shake —
+            despite the third coffee, despite the morning run, despite doing everything right.
+            <strong>Something is not adding up.</strong>
+          </p>
+          <p>
+            You wake after seven hours and still feel like you are running on borrowed energy.
+            Your calendar is full, your discipline is intact, and yet your body operates like
+            a high-performance engine running on the wrong fuel. The gap between who you are
+            and who you know you could be has become impossible to ignore.
+          </p>
+          <p>
+            This is not a willpower problem. This is a physiology problem — and it has a
+            measurable, treatable root cause. Our physician team has seen it in hundreds of
+            driven professionals: <strong>cortisol dysregulation, sleep architecture fragmentation,
+            metabolic drift,</strong> and a nervous system that has forgotten what genuine
+            restoration feels like. These are not abstract concepts. They are biomarkers
+            we measure, target, and reset.
+          </p>
+          <p>
+            Urban Medical Wellness Journey exists for the moment you decide that thriving —
+            not merely managing — is the standard you will hold yourself to.
+            <strong>The retreat is your inflection point.</strong>
+          </p>
+        </div>
+
+        <div class="b2c-narrative-stats">
+          <div class="b2c-stat-card animate-on-scroll" data-delay="2">
+            <span class="b2c-stat-number">76%</span>
+            <span class="b2c-stat-label">Report sustained focus improvements at 90-day follow-up</span>
+          </div>
+          <div class="b2c-stat-card animate-on-scroll" data-delay="3">
+            <span class="b2c-stat-number">18%</span>
+            <span class="b2c-stat-label">Average HRV improvement at 30-day post-retreat</span>
+          </div>
+          <div class="b2c-stat-card animate-on-scroll" data-delay="4">
+            <span class="b2c-stat-number">Day 1</span>
+            <span class="b2c-stat-label">Comprehensive biometric baseline: VO₂ max, HRV, metabolic panel</span>
+          </div>
+          <div class="b2c-stat-card animate-on-scroll" data-delay="5">
+            <span class="b2c-stat-number">90-Day</span>
+            <span class="b2c-stat-label">Post-retreat care continuum with physician check-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Aspirational Photo Grid ─── -->
+    <div class="b2c-photo-grid animate-on-scroll" data-delay="1">
+
+      <div class="b2c-photo-item">
+        <div class="b2c-photo-placeholder">
+          <svg class="b2c-photo-icon" viewBox="0 0 48 48" fill="none" stroke="#e2c99a" stroke-width="1.5" aria-hidden="true">
+            <circle cx="24" cy="16" r="6"/>
+            <path d="M12 36c0-6.627 5.373-12 12-12s12 5.373 12 12"/>
+            <path d="M24 2v4M24 42v4M2 24h4M42 24h4" stroke-linecap="round"/>
+          </svg>
+          <span class="b2c-photo-caption">Morning meditation, light-filled balcony at dawn</span>
+        </div>
+        <div class="b2c-photo-overlay">
+          <span class="b2c-photo-label">Dawn Practice</span>
+        </div>
+      </div>
+
+      <div class="b2c-photo-item">
+        <div class="b2c-photo-placeholder">
+          <svg class="b2c-photo-icon" viewBox="0 0 48 48" fill="none" stroke="#e2c99a" stroke-width="1.5" aria-hidden="true">
+            <rect x="6" y="10" width="36" height="26" rx="3"/>
+            <path d="M16 36v4M32 36v4M12 40h24" stroke-linecap="round"/>
+            <path d="M14 20h8M14 26h12M32 20l-6 6 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="b2c-photo-caption">Physician-client health dashboard review</span>
+        </div>
+        <div class="b2c-photo-overlay">
+          <span class="b2c-photo-label">Clinical Insight</span>
+        </div>
+      </div>
+
+      <div class="b2c-photo-item">
+        <div class="b2c-photo-placeholder">
+          <svg class="b2c-photo-icon" viewBox="0 0 48 48" fill="none" stroke="#e2c99a" stroke-width="1.5" aria-hidden="true">
+            <path d="M8 32c4-8 12-14 16-14s12 6 16 14" stroke-linecap="round"/>
+            <circle cx="16" cy="22" r="3"/>
+            <circle cx="24" cy="18" r="3"/>
+            <circle cx="32" cy="22" r="3"/>
+            <rect x="10" y="34" width="28" height="8" rx="2"/>
+          </svg>
+          <span class="b2c-photo-caption">Shared wellness meal, thoughtfully plated</span>
+        </div>
+        <div class="b2c-photo-overlay">
+          <span class="b2c-photo-label">Nutritional Medicine</span>
+        </div>
+      </div>
+
+      <div class="b2c-photo-item">
+        <div class="b2c-photo-placeholder">
+          <svg class="b2c-photo-icon" viewBox="0 0 48 48" fill="none" stroke="#e2c99a" stroke-width="1.5" aria-hidden="true">
+            <path d="M6 38c5-10 10-18 18-18s10 6 18 18" stroke-linecap="round"/>
+            <path d="M24 20V8M20 12l4-4 4 4" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M10 30c4-4 8-6 14-6" stroke-linecap="round" stroke-dasharray="2 3"/>
+          </svg>
+          <span class="b2c-photo-caption">Solo run on forested trail at retreat grounds</span>
+        </div>
+        <div class="b2c-photo-overlay">
+          <span class="b2c-photo-label">Active Recovery</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ─── Four Transformation Pillars ─── -->
+    <div class="b2c-pillars-header animate-on-scroll">
+      <h3 class="b2c-pillars-title">Four Pillars of Clinical Transformation</h3>
+      <p class="b2c-pillars-subtitle">
+        Each pillar is a medically supervised protocol — not a wellness trend —
+        grounded in peer-reviewed evidence and personalized to your biomarker profile.
+      </p>
+    </div>
+
+    <div class="b2c-pillars-grid">
+
+      <div class="b2c-pillar-card animate-on-scroll" data-delay="1">
+        <span class="b2c-pillar-number" aria-hidden="true">01</span>
+        <div class="b2c-pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9.5 2a.5.5 0 0 1 .5.5V4h4V2.5a.5.5 0 0 1 1 0V4h1a2 2 0 0 1 2 2v1H6V6a2 2 0 0 1 2-2h1V2.5a.5.5 0 0 1 .5-.5Z"/>
+            <path d="M6 9v9a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9H6Z"/>
+            <path d="M10 13l2 2 4-4"/>
+          </svg>
+        </div>
+        <span class="b2c-pillar-tag">Pillar I</span>
+        <h4 class="b2c-pillar-name">Cognitive Performance</h4>
+        <p class="b2c-pillar-body">
+          Reverse the neurological toll of chronic stress. Our protocols include HRV-guided nervous system
+          recalibration, advanced sleep architecture optimization, and functional neurology assessments —
+          resulting in measurable improvements in focus, working memory, and decision-making speed.
+        </p>
+      </div>
+
+      <div class="b2c-pillar-card animate-on-scroll" data-delay="2">
+        <span class="b2c-pillar-number" aria-hidden="true">02</span>
+        <div class="b2c-pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Z"/>
+            <path d="M8 12h8M12 8v8"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </div>
+        <span class="b2c-pillar-tag">Pillar II</span>
+        <h4 class="b2c-pillar-name">Metabolic Renewal</h4>
+        <p class="b2c-pillar-body">
+          Precision diagnostics reveal the invisible drivers of fatigue, weight resistance, and energy
+          volatility. Personalized nutritional medicine and metabolic recalibration protocols create
+          lasting biochemical change — not temporary fixes.
+        </p>
+      </div>
+
+      <div class="b2c-pillar-card animate-on-scroll" data-delay="3">
+        <span class="b2c-pillar-number" aria-hidden="true">03</span>
+        <div class="b2c-pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 12.5c0-3.59 2.91-6.5 6.5-6.5a6.5 6.5 0 0 1 6.5 6.5c0 3.59-2.91 6.5-6.5 6.5"/>
+            <path d="M11 12.5c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2Z"/>
+            <path d="M7 3.5c-1.5 1.5-2.5 3.5-2.5 6"/>
+            <path d="M17 3.5c1.5 1.5 2.5 3.5 2.5 6"/>
+          </svg>
+        </div>
+        <span class="b2c-pillar-tag">Pillar III</span>
+        <h4 class="b2c-pillar-name">Stress Physiology Reset</h4>
+        <p class="b2c-pillar-body">
+          Chronic cortisol dysregulation is the silent saboteur of high performers. Our behavioral medicine
+          team uses evidence-based somatic, cognitive, and physiological interventions to reset your stress
+          response system at the neurological level.
+        </p>
+      </div>
+
+      <div class="b2c-pillar-card animate-on-scroll" data-delay="4">
+        <span class="b2c-pillar-number" aria-hidden="true">04</span>
+        <div class="b2c-pillar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2L2 7l10 5 10-5-10-5Z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <span class="b2c-pillar-tag">Pillar IV</span>
+        <h4 class="b2c-pillar-name">Longevity Architecture</h4>
+        <p class="b2c-pillar-body">
+          Leave with a personalized longevity blueprint — biomarker baselines, biological age assessment,
+          and a 12-month optimization roadmap built by your physician team. Invest now in the decades ahead.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- ─── Clinical Differentiators / Value Props ─── -->
+    <div class="b2c-value-section animate-on-scroll">
+      <div class="b2c-value-header">
+        <h3 class="b2c-value-title">Why This Is Different From Everything Else You Have Tried</h3>
+        <p class="b2c-value-subtitle">Eight clinical advantages that separate evidence-based transformation from wellness theater.</p>
+      </div>
+
+      <div class="b2c-value-grid">
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="1">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Comprehensive biometric intake on Day 1</strong> (VO₂ max, HRV, metabolic panel, body composition)
+            creates a precise clinical baseline that generic wellness programs cannot match.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="2">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Physician-supervised protocols</strong> target the root causes of executive burnout:
+            cortisol dysregulation, metabolic drift, sleep architecture fragmentation, and chronic neurological stress load.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="3">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Measurable cognitive performance gains:</strong> validated outcomes data shows 76% of participants
+            report sustained focus and decision-making improvements at 90-day follow-up.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="4">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Personalized longevity blueprint and biological age assessment</strong> delivered at program close —
+            a 12-month optimization roadmap built by your physician team.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="5">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Urban-accessible locations</strong> eliminate the friction of remote destination travel
+            while preserving genuine immersive retreat conditions.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="6">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Post-retreat 90-day care continuum:</strong> 30-day physician check-in, digital health dashboard,
+            at-home protocol guide, and optional continuation coaching.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="7">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>Average 18% improvement in heart rate variability (HRV)</strong> at 30-day follow-up
+            demonstrates lasting nervous system recalibration, not temporary relaxation.
+          </p>
+        </div>
+
+        <div class="b2c-value-item animate-on-scroll" data-delay="8">
+          <div class="b2c-value-check" aria-hidden="true">
+            <svg viewBox="0 0 14 14" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 7l4 4 6-6"/>
+            </svg>
+          </div>
+          <p class="b2c-value-text">
+            <strong>HSA/FSA eligible expenses with full documentation support</strong> — the most
+            tax-efficient investment in personal performance available.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── Micro CTAs ─── -->
+    <div class="b2c-cta-strip animate-on-scroll" data-delay="1">
+      <span class="b2c-cta-strip-eyebrow">Choose Your Program</span>
+      <h3 class="b2c-cta-strip-heading">Your Transformation Starts With a Single Decision</h3>
+      <p class="b2c-cta-strip-body">
+        Both programs deliver the full clinical intake, physician-supervised protocols, and personalized
+        longevity blueprint. The journey length is yours to choose.
+      </p>
+
+      <div class="b2c-program-btns">
+        <a href="#programs" class="b2c-btn-program b2c-btn-program--primary" aria-label="Explore the 3-Day Intensive retreat program">
+          Explore the 3-Day Intensive
+          <span class="b2c-btn-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+        <a href="#programs" class="b2c-btn-program b2c-btn-program--secondary" aria-label="Explore the 5-Day Journey retreat program">
+          Explore the 5-Day Journey
+          <span class="b2c-btn-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+      </div>
+
+      <div class="b2c-hsa-badge" aria-label="HSA and FSA eligible">
+        <svg viewBox="0 0 16 16" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"/>
+          <path d="M5.5 8l2 2 3-3"/>
+        </svg>
+        HSA &amp; FSA Eligible &bull; Full Documentation Provided
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<script>
+  (function () {
+    var elements = document.querySelectorAll('#b2c .animate-on-scroll');
+    if (!elements.length) return;
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+
+    elements.forEach(function (el) {
+      observer.observe(el);
+    });
+  })();
+</script>

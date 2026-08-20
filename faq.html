@@ -1,1005 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="lang-en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ — Urban Medical Wellness Journey</title>
-  <meta name="description" content="Frequently asked questions about Urban Medical Wellness Journey retreat programs, pricing, medical protocols, and corporate wellness packages." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--color-text); background: var(--color-surface); -webkit-font-smoothing: antialiased; }
-
-    :root {
-      --color-primary: #1a3a2a;
-      --color-secondary: #f5f0e8;
-      --color-accent: #c9a96e;
-      --color-accent-light: #e2c99a;
-      --color-accent-dark: #a8834a;
-      --color-dark: #0d1f16;
-      --color-surface: #ffffff;
-      --color-surface-alt: #faf8f4;
-      --color-text: #1a1a1a;
-      --color-text-muted: #666666;
-      --color-text-inverse: #f5f0e8;
-      --color-border: #e0d9ce;
-      --color-border-dark: #c5bdb0;
-      --font-heading: 'Cormorant Garamond', Georgia, serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-accent: 'Playfair Display', Georgia, serif;
-      --text-xs: 0.75rem;
-      --text-sm: 0.875rem;
-      --text-base: 1rem;
-      --text-md: 1.125rem;
-      --text-lg: 1.25rem;
-      --text-xl: 1.5rem;
-      --text-2xl: clamp(1.75rem, 3vw, 2rem);
-      --text-3xl: clamp(2rem, 4vw, 2.75rem);
-      --text-4xl: clamp(2.5rem, 5vw, 3.5rem);
-      --weight-light: 300;
-      --weight-regular: 400;
-      --weight-medium: 500;
-      --weight-semibold: 600;
-      --weight-bold: 700;
-      --leading-tight: 1.15;
-      --leading-snug: 1.3;
-      --leading-normal: 1.6;
-      --leading-relaxed: 1.75;
-      --tracking-tight: -0.01em;
-      --tracking-wide: 0.05em;
-      --tracking-wider: 0.1em;
-      --tracking-widest: 0.18em;
-      --space-xs: 0.25rem;
-      --space-sm: 0.5rem;
-      --space-md: 1rem;
-      --space-lg: 1.5rem;
-      --space-xl: 2rem;
-      --space-2xl: 3rem;
-      --space-3xl: 4.5rem;
-      --space-4xl: 6rem;
-      --radius-sm: 4px;
-      --radius-md: 8px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --radius-full: 9999px;
-      --shadow-sm: 0 2px 8px rgba(13,31,22,0.08);
-      --shadow-md: 0 4px 20px rgba(13,31,22,0.10);
-      --shadow-lg: 0 8px 40px rgba(13,31,22,0.14);
-      --shadow-accent: 0 4px 24px rgba(201,169,110,0.28);
-      --transition-base: 280ms cubic-bezier(0.4,0,0.2,1);
-      --transition-spring: 400ms cubic-bezier(0.34,1.56,0.64,1);
-      --z-sticky: 100;
-      --container-xl: 1280px;
-      --container-pad: clamp(1rem, 5vw, 2.5rem);
-      --gradient-hero: linear-gradient(160deg, #0d1f16 0%, #1a3a2a 55%, #2d4a3e 100%);
-      --gradient-accent: linear-gradient(135deg, #c9a96e 0%, #e2c99a 50%, #a8834a 100%);
-    }
-
-    /* ── NAV ── */
-    #main-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: var(--z-sticky);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 var(--container-pad);
-      height: 72px;
-      background: rgba(13,31,22,0.96);
-      backdrop-filter: blur(16px);
-      box-shadow: 0 2px 24px rgba(13,31,22,0.3);
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 1.25rem;
-      font-weight: var(--weight-light);
-      color: var(--color-text-inverse);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      white-space: nowrap;
-    }
-    .nav-logo span { color: var(--color-accent); }
-    .nav-links {
-      display: none;
-      list-style: none;
-      gap: var(--space-xl);
-      align-items: center;
-    }
-    @media (min-width: 900px) { .nav-links { display: flex; } }
-    .nav-links a {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-medium);
-      letter-spacing: var(--tracking-wide);
-      color: rgba(245,240,232,0.75);
-      text-decoration: none;
-      transition: color var(--transition-base);
-    }
-    .nav-links a:hover, .nav-links a.active { color: var(--color-accent-light); }
-    .nav-cta {
-      display: none;
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-semibold);
-      letter-spacing: var(--tracking-wide);
-      color: var(--color-dark);
-      background: var(--gradient-accent);
-      border: none;
-      border-radius: var(--radius-md);
-      padding: 10px 20px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: opacity var(--transition-base), transform var(--transition-base);
-    }
-    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
-    @media (min-width: 640px) { .nav-cta { display: inline-block; } }
-    .nav-back {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-medium);
-      color: rgba(245,240,232,0.6);
-      text-decoration: none;
-      transition: color var(--transition-base);
-    }
-    .nav-back:hover { color: var(--color-accent-light); }
-    .nav-back svg { flex-shrink: 0; }
-
-    /* ── PAGE HERO ── */
-    .faq-hero {
-      background: var(--gradient-hero);
-      padding: 140px var(--container-pad) 80px;
-      text-align: center;
-    }
-    .faq-hero-eyebrow {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: var(--weight-semibold);
-      letter-spacing: var(--tracking-widest);
-      text-transform: uppercase;
-      color: var(--color-accent-light);
-      margin-bottom: var(--space-lg);
-    }
-    .faq-hero h1 {
-      font-family: var(--font-heading);
-      font-size: var(--text-4xl);
-      font-weight: var(--weight-light);
-      line-height: var(--leading-tight);
-      color: var(--color-text-inverse);
-      margin-bottom: var(--space-lg);
-    }
-    .faq-hero h1 em { font-style: italic; color: var(--color-accent-light); }
-    .faq-hero p {
-      font-family: var(--font-body);
-      font-size: var(--text-md);
-      color: rgba(245,240,232,0.7);
-      max-width: 520px;
-      margin: 0 auto var(--space-2xl);
-      line-height: var(--leading-relaxed);
-    }
-    .faq-search-wrap {
-      max-width: 480px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .faq-search {
-      width: 100%;
-      padding: 14px 20px 14px 48px;
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      color: var(--color-text);
-      background: rgba(255,255,255,0.95);
-      border: none;
-      border-radius: var(--radius-full);
-      outline: none;
-      box-shadow: var(--shadow-lg);
-    }
-    .faq-search::placeholder { color: var(--color-text-muted); }
-    .faq-search-icon {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--color-text-muted);
-      pointer-events: none;
-    }
-
-    /* ── CATEGORY TABS ── */
-    .faq-tabs-wrap {
-      background: var(--color-surface-alt);
-      border-bottom: 1px solid var(--color-border);
-      position: sticky;
-      top: 72px;
-      z-index: 50;
-    }
-    .faq-tabs {
-      max-width: var(--container-xl);
-      margin: 0 auto;
-      padding: 0 var(--container-pad);
-      display: flex;
-      gap: 0;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-    .faq-tabs::-webkit-scrollbar { display: none; }
-    .faq-tab {
-      flex-shrink: 0;
-      padding: 16px 24px;
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-medium);
-      color: var(--color-text-muted);
-      background: none;
-      border: none;
-      border-bottom: 2px solid transparent;
-      cursor: pointer;
-      transition: color var(--transition-base), border-color var(--transition-base);
-      white-space: nowrap;
-    }
-    .faq-tab:hover { color: var(--color-primary); }
-    .faq-tab.active {
-      color: var(--color-primary);
-      border-bottom-color: var(--color-accent);
-      font-weight: var(--weight-semibold);
-    }
-
-    /* ── MAIN LAYOUT ── */
-    .faq-main {
-      max-width: var(--container-xl);
-      margin: 0 auto;
-      padding: var(--space-4xl) var(--container-pad);
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-3xl);
-    }
-    @media (min-width: 1024px) {
-      .faq-main { grid-template-columns: 240px 1fr; gap: var(--space-4xl); }
-    }
-
-    /* ── SIDEBAR ── */
-    .faq-sidebar {
-      display: none;
-    }
-    @media (min-width: 1024px) {
-      .faq-sidebar {
-        display: block;
-        position: sticky;
-        top: 140px;
-        align-self: start;
-      }
-    }
-    .faq-sidebar-title {
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: var(--weight-semibold);
-      letter-spacing: var(--tracking-widest);
-      text-transform: uppercase;
-      color: var(--color-accent-dark);
-      margin-bottom: var(--space-lg);
-    }
-    .faq-sidebar-links { list-style: none; display: flex; flex-direction: column; gap: var(--space-sm); }
-    .faq-sidebar-links a {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      text-decoration: none;
-      padding: var(--space-sm) var(--space-md);
-      border-radius: var(--radius-sm);
-      display: block;
-      transition: background var(--transition-base), color var(--transition-base);
-      border-left: 2px solid transparent;
-    }
-    .faq-sidebar-links a:hover {
-      background: var(--color-surface-alt);
-      color: var(--color-primary);
-    }
-    .faq-sidebar-links a.active {
-      background: rgba(201,169,110,0.08);
-      color: var(--color-accent-dark);
-      border-left-color: var(--color-accent);
-      font-weight: var(--weight-semibold);
-    }
-    .faq-sidebar-cta {
-      margin-top: var(--space-3xl);
-      padding: var(--space-xl);
-      background: var(--gradient-hero);
-      border-radius: var(--radius-lg);
-      text-align: center;
-    }
-    .faq-sidebar-cta p {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: rgba(245,240,232,0.75);
-      line-height: var(--leading-relaxed);
-      margin-bottom: var(--space-lg);
-    }
-    .faq-sidebar-cta a {
-      display: block;
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-semibold);
-      color: var(--color-dark);
-      background: var(--gradient-accent);
-      border-radius: var(--radius-md);
-      padding: 12px;
-      text-decoration: none;
-      transition: opacity var(--transition-base);
-    }
-    .faq-sidebar-cta a:hover { opacity: 0.88; }
-
-    /* ── FAQ CONTENT ── */
-    .faq-content { min-width: 0; }
-    .faq-category {
-      margin-bottom: var(--space-4xl);
-      display: block;
-    }
-    .faq-category.hidden { display: none; }
-    .faq-category-header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      margin-bottom: var(--space-2xl);
-      padding-bottom: var(--space-lg);
-      border-bottom: 1px solid var(--color-border);
-    }
-    .faq-category-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-md);
-      background: rgba(201,169,110,0.1);
-      border: 1px solid rgba(201,169,110,0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--color-accent-dark);
-    }
-    .faq-category-title {
-      font-family: var(--font-heading);
-      font-size: var(--text-3xl);
-      font-weight: var(--weight-light);
-      color: var(--color-primary);
-      line-height: var(--leading-snug);
-    }
-
-    /* ── ACCORDION ── */
-    .faq-item {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      margin-bottom: var(--space-md);
-      overflow: hidden;
-      transition: box-shadow var(--transition-base), border-color var(--transition-base);
-    }
-    .faq-item:hover { border-color: var(--color-border-dark); box-shadow: var(--shadow-sm); }
-    .faq-item.open { border-color: rgba(201,169,110,0.4); box-shadow: var(--shadow-md); }
-    .faq-question {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-lg);
-      padding: var(--space-xl);
-      background: var(--color-surface);
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      transition: background var(--transition-base);
-    }
-    .faq-question:hover { background: var(--color-surface-alt); }
-    .faq-item.open .faq-question { background: rgba(201,169,110,0.04); }
-    .faq-question-text {
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      font-weight: var(--weight-semibold);
-      color: var(--color-text);
-      line-height: var(--leading-snug);
-    }
-    .faq-item.open .faq-question-text { color: var(--color-primary); }
-    .faq-chevron {
-      width: 32px;
-      height: 32px;
-      border-radius: var(--radius-full);
-      background: var(--color-surface-alt);
-      border: 1px solid var(--color-border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: var(--color-text-muted);
-      transition: background var(--transition-base), color var(--transition-base), transform var(--transition-base);
-    }
-    .faq-item.open .faq-chevron {
-      background: var(--color-accent);
-      border-color: var(--color-accent);
-      color: white;
-      transform: rotate(180deg);
-    }
-    .faq-answer {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 400ms cubic-bezier(0.4,0,0.2,1);
-    }
-    .faq-item.open .faq-answer { max-height: 800px; }
-    .faq-answer-inner {
-      padding: 0 var(--space-xl) var(--space-xl);
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      color: var(--color-text-muted);
-      line-height: var(--leading-relaxed);
-      border-top: 1px solid var(--color-border);
-    }
-    .faq-answer-inner p { margin-bottom: var(--space-md); }
-    .faq-answer-inner p:last-child { margin-bottom: 0; }
-    .faq-answer-inner ul {
-      margin: var(--space-md) 0 var(--space-md) var(--space-xl);
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-    .faq-answer-inner strong { color: var(--color-text); font-weight: var(--weight-semibold); }
-    .faq-answer-inner a { color: var(--color-accent-dark); text-decoration: underline; }
-    .faq-highlight {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      background: rgba(201,169,110,0.08);
-      border: 1px solid rgba(201,169,110,0.2);
-      border-radius: var(--radius-md);
-      padding: var(--space-md) var(--space-lg);
-      margin-top: var(--space-md);
-      font-size: var(--text-sm);
-      color: var(--color-accent-dark);
-      font-weight: var(--weight-medium);
-    }
-
-    /* ── NO RESULTS ── */
-    .faq-no-results {
-      text-align: center;
-      padding: var(--space-4xl) var(--space-xl);
-      display: none;
-    }
-    .faq-no-results.visible { display: block; }
-    .faq-no-results h3 {
-      font-family: var(--font-heading);
-      font-size: var(--text-2xl);
-      color: var(--color-primary);
-      margin-bottom: var(--space-md);
-    }
-    .faq-no-results p { color: var(--color-text-muted); margin-bottom: var(--space-xl); }
-    .faq-no-results a {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: var(--weight-semibold);
-      color: var(--color-dark);
-      background: var(--gradient-accent);
-      border-radius: var(--radius-md);
-      padding: 12px 24px;
-      text-decoration: none;
-    }
-
-    /* ── CTA BANNER ── */
-    .faq-cta-banner {
-      background: var(--gradient-hero);
-      margin-top: var(--space-4xl);
-      border-radius: var(--radius-xl);
-      padding: var(--space-3xl);
-      text-align: center;
-    }
-    .faq-cta-banner h2 {
-      font-family: var(--font-heading);
-      font-size: var(--text-3xl);
-      font-weight: var(--weight-light);
-      color: var(--color-text-inverse);
-      margin-bottom: var(--space-md);
-      line-height: var(--leading-snug);
-    }
-    .faq-cta-banner h2 em { font-style: italic; color: var(--color-accent-light); }
-    .faq-cta-banner p {
-      color: rgba(245,240,232,0.7);
-      font-size: var(--text-md);
-      margin-bottom: var(--space-2xl);
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: var(--leading-relaxed);
-    }
-    .faq-cta-buttons { display: flex; flex-wrap: wrap; gap: var(--space-md); justify-content: center; }
-    .btn-gold {
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      font-weight: var(--weight-semibold);
-      color: var(--color-dark);
-      background: var(--gradient-accent);
-      border: none;
-      border-radius: var(--radius-md);
-      padding: 16px 32px;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: var(--shadow-accent);
-      transition: opacity var(--transition-base), transform var(--transition-base);
-    }
-    .btn-gold:hover { opacity: 0.88; transform: translateY(-2px); }
-    .btn-outline-light {
-      font-family: var(--font-body);
-      font-size: var(--text-base);
-      font-weight: var(--weight-medium);
-      color: var(--color-text-inverse);
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(245,240,232,0.3);
-      border-radius: var(--radius-md);
-      padding: 16px 32px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background var(--transition-base), border-color var(--transition-base);
-    }
-    .btn-outline-light:hover { background: rgba(255,255,255,0.15); border-color: rgba(245,240,232,0.5); }
-
-    /* ── LANGUAGE TOGGLE ── */
-    .nav-lang-slot { display: flex; align-items: center; }
-    .lang-toggle-btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(245,240,232,0.2);
-      border-radius: var(--radius-full);
-      padding: 5px 12px;
-      cursor: pointer;
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: var(--weight-semibold);
-      letter-spacing: var(--tracking-wider);
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      transition: background var(--transition-base), border-color var(--transition-base);
-    }
-    .lang-toggle-btn:hover { background: rgba(255,255,255,0.14); border-color: rgba(245,240,232,0.35); }
-    .lang-en, .lang-ko { transition: color var(--transition-base); color: rgba(245,240,232,0.55); }
-    .lang-divider { color: rgba(245,240,232,0.25); }
-
-    /* ── FOOTER ── */
-    .faq-footer {
-      background: var(--color-surface-alt);
-      border-top: 1px solid var(--color-border);
-      padding: var(--space-xl) var(--container-pad);
-      text-align: center;
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-    }
-    .faq-footer a { color: var(--color-accent-dark); text-decoration: none; }
-    .faq-footer a:hover { text-decoration: underline; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ · Seoul Curate</title>
+<meta name="description" content="Answers to common questions about Seoul Curate's recovery concierge service — booking scope, payment, cancellation policy, language support, and more.">
+<link rel="canonical" href="https://seoulcurate.com/faq.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Seoul Curate">
+<meta property="og:title" content="FAQ · Seoul Curate">
+<meta property="og:description" content="Answers to common questions about Seoul Curate's recovery concierge service — booking scope, payment, cancellation policy, language support, and more.">
+<meta property="og:url" content="https://seoulcurate.com/faq.html">
+<meta property="og:image" content="https://seoulcurate.com/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="FAQ · Seoul Curate">
+<meta name="twitter:description" content="Answers to common questions about Seoul Curate's recovery concierge service — booking scope, payment, cancellation policy, language support, and more.">
+<meta name="twitter:image" content="https://seoulcurate.com/og-image.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --olive-deep:#3a3d2b;
+    --olive-mid:#565a3f;
+    --sage:#7b8264;
+    --ivory:#f4f1e6;
+    --ivory-soft:#ece7d6;
+    --bronze:#b28a56;
+    --bronze-soft:#c9a877;
+    --charcoal:#1d1e15;
+    --line-dark: rgba(29,30,21,0.12);
+    --ease: cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html.lang-en .lang-kr{display:none !important;}
+  html:not(.lang-en) .lang-en{display:none !important;}
+  body{
+    font-family:'Jost', sans-serif;
+    font-weight:300;
+    background:var(--ivory);
+    color:var(--charcoal);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2{font-family:'Fraunces', serif; font-weight:400;}
+  a{color:inherit;}
+  .container{max-width:760px; margin:0 auto; padding:0 24px;}
+  header{padding:22px 0; border-bottom:1px solid var(--line-dark);}
+  .header-inner{max-width:760px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between;}
+  .logo{font-family:'Fraunces', serif; font-size:19px; text-decoration:none;}
+  .lang-switch{display:flex; align-items:center; gap:8px; font-size:11px; letter-spacing:0.1em;}
+  .lang-switch button{background:none; border:none; cursor:pointer; color:var(--sage); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:0.1em; padding:4px;}
+  .lang-switch button.active{color:var(--charcoal); font-weight:500;}
+  .lang-switch .divider{color:var(--line-dark);}
+  main{padding:56px 0 90px;}
+  .back-link{display:inline-block; font-size:12.5px; color:var(--sage); text-decoration:none; margin-bottom:28px;}
+  .eyebrow{font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--bronze); margin-bottom:14px; display:flex; align-items:center; gap:12px;}
+  .eyebrow::before{content:""; width:24px; height:1px; background:currentColor; opacity:0.6;}
+  h1{font-size:32px; line-height:1.25; margin-bottom:16px;}
+  .lead{font-size:15px; color:#4a4d38; margin-bottom:44px; max-width:560px;}
+  .faq-list{display:flex; flex-direction:column;}
+  .faq-item{border-bottom:1px solid rgba(60,58,50,0.12);}
+  .faq-q-btn{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    width:100%;
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:20px 0;
+    text-align:left;
+    font-family:inherit;
+    color:inherit;
+  }
+  .faq-q{font-family:'Fraunces', serif; font-size:17px; font-weight:500; color:var(--charcoal);}
+  .faq-icon{
+    flex-shrink:0;
+    width:22px;
+    height:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:300;
+    color:var(--bronze);
+    transition:transform 0.35s var(--ease);
+  }
+  .faq-item.open .faq-icon{transform:rotate(45deg);}
+  .faq-a-wrap{max-height:0; overflow:hidden; transition:max-height 0.4s var(--ease);}
+  .faq-item.open .faq-a-wrap{max-height:400px;}
+  .faq-a{font-size:14.5px; line-height:1.6; color:#4c4e3a; padding-bottom:22px; max-width:660px;}
+  .faq-cta{margin-top:52px; padding-top:40px; border-top:1px solid var(--line-dark); text-align:center;}
+  .faq-cta p{font-size:14px; color:#4a4d38; margin-bottom:18px;}
+  .btn-primary{font-size:12px; letter-spacing:0.16em; text-transform:uppercase; padding:15px 30px; border-radius:999px; display:inline-block; background:var(--bronze); color:var(--ivory); text-decoration:none; transition:background 0.3s var(--ease);}
+  .btn-primary:hover{background:var(--bronze-soft);}
+  @media(max-width:520px){
+    h1{font-size:26px;}
+    .faq-q{font-size:15.5px;}
+  }
+</style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
-<nav id="main-nav">
-  <a href="index.html" class="nav-logo">Urban <span>Medical</span> Wellness</a>
-  <ul class="nav-links">
-    <li><a href="index.html#program">Programs</a></li>
-    <li><a href="index.html#b2c">Personal</a></li>
-    <li><a href="index.html#outcomes">Outcomes</a></li>
-    <li><a href="faq.html" class="active">FAQ</a></li>
-  </ul>
-  <div class="nav-lang-slot"></div>
-  <a href="index.html#reserve" class="nav-cta" data-i18n="nav.cta">Book a Retreat</a>
-</nav>
-
-<!-- PAGE HERO -->
-<section class="faq-hero">
-  <div class="faq-hero-eyebrow" data-i18n="faq.page.eyebrow">Frequently Asked Questions</div>
-  <h1 data-i18n-html="faq.page.headline">Everything You Need<br>to Know, <em>Answered.</em></h1>
-  <p data-i18n="faq.page.sub">Can't find what you're looking for? Our concierge team is available to assist you directly.</p>
-  <div class="faq-search-wrap">
-    <svg class="faq-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    <input type="search" class="faq-search" id="faqSearch" placeholder="Search questions…" aria-label="Search FAQ" data-i18n-placeholder="faq.search.placeholder" />
+<header>
+  <div class="header-inner">
+    <a href="/" class="logo">Seoul Curate</a>
+    <div class="lang-switch">
+      <button type="button" data-lang="kr" id="btnKr">KOR</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="en" id="btnEn" class="active">ENG</button>
+    </div>
   </div>
-</section>
+</header>
 
-<!-- CATEGORY TABS -->
-<div class="faq-tabs-wrap">
-  <div class="faq-tabs" role="tablist">
-    <button class="faq-tab active" data-category="all" role="tab" aria-selected="true" data-i18n="faq.tab.all">All Questions</button>
-    <button class="faq-tab" data-category="programs" role="tab" aria-selected="false" data-i18n="faq.tab.programs">Programs</button>
-    <button class="faq-tab" data-category="medical" role="tab" aria-selected="false" data-i18n="faq.tab.medical">Medical & Safety</button>
-    <button class="faq-tab" data-category="pricing" role="tab" aria-selected="false" data-i18n="faq.tab.pricing">Pricing & Booking</button>
-    <button class="faq-tab" data-category="corporate" role="tab" aria-selected="false" data-i18n="faq.tab.corporate">Corporate</button>
-    <button class="faq-tab" data-category="logistics" role="tab" aria-selected="false" data-i18n="faq.tab.logistics">Logistics</button>
+<main>
+  <div class="container">
+    <a href="/" class="back-link">
+      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span>
+    </a>
+
+    <div class="eyebrow"><span class="lang-kr">자주 묻는 질문</span><span class="lang-en">FAQ</span></div>
+    <h1 class="lang-kr">궁금한 점,<br>미리 확인하세요</h1>
+    <h1 class="lang-en">Answers Before<br>You Ask</h1>
+    <p class="lead lang-kr">Seoul Curate 서비스에 대해 가장 많이 물으신 질문들을 모았습니다. 질문을 눌러 답변을 확인하세요.</p>
+    <p class="lead lang-en">The questions we hear most often from guests before starting their journey with Seoul Curate. Tap a question to see the answer.</p>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">클리닉이나 시술 예약도 도와주시나요?</span>
+          <span class="faq-q lang-en">Do you also help book the clinic or procedure itself?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">아니요, 저희는 시술 이후의 회복과 웰니스 여정만 큐레이션합니다. 클리닉과 시술 예약은 직접 진행해주세요.</div>
+          <div class="faq-a lang-en">No, we curate your recovery and wellness journey after your treatment. Clinic or procedure bookings should be arranged directly.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">결제는 언제, 어떻게 하나요?</span>
+          <span class="faq-q lang-en">When and how do I pay?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">문의 후 맞춤 견적을 확인하시면, 결제 방법을 안내드립니다.</div>
+          <div class="faq-a lang-en">After we confirm your tailored quote, we'll guide you through the payment process.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">일정 변경이나 취소가 가능한가요?</span>
+          <span class="faq-q lang-en">Can I reschedule or cancel?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">이용일 기준 3일 전까지는 일정 변경이 무료입니다. 취소는 7일 이전 전액 환불, 3~6일 전 50% 환불(이미 확정된 호텔·다이닝 예약 제외), 3일 이내는 환불이 어렵습니다.</div>
+          <div class="faq-a lang-en">Rescheduling is free up to 3 days before your visit. Cancellations made 7+ days before receive a full refund, 3–6 days before receive a 50% refund (excluding already-confirmed hotel or dining reservations), and cancellations within 3 days are non-refundable.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">한국어를 못해도 괜찮은가요?</span>
+          <span class="faq-q lang-en">Do I need to speak Korean?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">아니요, 전 과정 영어로 편안하게 안내드립니다.</div>
+          <div class="faq-a lang-en">Not at all -- the entire journey is guided comfortably in English.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">혼자 방문해도 괜찮은가요?</span>
+          <span class="faq-q lang-en">Can I visit alone?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">네, 혼자 방문하시는 분들도 많습니다. 편안한 1인 여정으로 설계해드립니다.</div>
+          <div class="faq-a lang-en">Yes, many guests visit solo, and we're happy to design a comfortable journey just for one.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q-btn" aria-expanded="false">
+          <span class="faq-q lang-kr">맞춤 제안은 얼마나 걸리나요?</span>
+          <span class="faq-q lang-en">How long until I get a proposal?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a-wrap">
+          <div class="faq-a lang-kr">문의 접수 후 48시간 내에 맞춤 제안을 보내드립니다.</div>
+          <div class="faq-a lang-en">We'll send your tailored proposal within 48 hours of your inquiry.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="faq-cta">
+      <p class="lang-kr">다른 궁금한 점이 있으신가요? 직접 문의해주세요.</p>
+      <p class="lang-en">Have a different question? Reach out directly — we're happy to help.</p>
+      <a href="/#contact" class="btn-primary"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span></a>
+    </div>
   </div>
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="faq-main">
-
-  <!-- SIDEBAR -->
-  <aside class="faq-sidebar">
-    <div class="faq-sidebar-title">Categories</div>
-    <ul class="faq-sidebar-links">
-      <li><a href="#programs" class="active">Programs</a></li>
-      <li><a href="#medical">Medical & Safety</a></li>
-      <li><a href="#pricing">Pricing & Booking</a></li>
-      <li><a href="#corporate">Corporate</a></li>
-      <li><a href="#logistics">Logistics</a></li>
-    </ul>
-    <div class="faq-sidebar-cta">
-      <p>Still have questions? Our concierge team responds within 2 business hours.</p>
-      <a href="index.html#reserve">Contact Concierge</a>
-    </div>
-  </aside>
-
-  <!-- FAQ CONTENT -->
-  <div class="faq-content">
-
-    <!-- PROGRAMS -->
-    <div class="faq-category" id="programs" data-category="programs">
-      <div class="faq-category-header">
-        <div class="faq-category-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h2 class="faq-category-title" data-i18n="faq.cat.programs">Programs</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q1">What is the difference between the 3-Day Intensive Reset and the 5-Day Transformation Journey?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>The <strong>3-Day Intensive Reset</strong> is designed for executives and professionals who cannot step away for extended periods. It focuses on rapid biomarker assessment, targeted interventions for sleep, stress, and metabolic function, and a compressed but clinically rigorous protocol. You leave with a 90-day health blueprint.</p>
-          <p>The <strong>5-Day Transformation Journey</strong> goes deeper — it includes advanced genomic and microbiome analysis, daily physician-guided sessions, personalized nutrition protocols, and extended recovery and integration time. Clinical outcomes are measurably stronger at the 90-day follow-up. We recommend the 5-Day program for participants seeking lasting physiological change.</p>
-          <div class="faq-highlight">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            94% of 5-Day participants report measurable improvement at 90-day follow-up
-          </div>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q2">What does a typical day look like during a retreat?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Each day is individually structured based on your baseline assessments, but a typical day includes:</p>
-          <ul>
-            <li><strong>6:30 AM</strong> — Morning biomarker check-in (HRV, cortisol, glucose)</li>
-            <li><strong>7:00 AM</strong> — Physician-guided movement session (breathwork, mobility, low-intensity cardio)</li>
-            <li><strong>8:00 AM</strong> — Precision nutrition breakfast with clinical dietitian</li>
-            <li><strong>9:30 AM</strong> — One-on-one physician consultation and protocol review</li>
-            <li><strong>11:00 AM–1:00 PM</strong> — Therapeutic interventions (IV nutrition, photobiomodulation, cold therapy, etc.) based on your protocol</li>
-            <li><strong>2:00 PM</strong> — Guided rest, meditation, or nature immersion</li>
-            <li><strong>4:00 PM</strong> — Group learning session or biofeedback training</li>
-            <li><strong>6:30 PM</strong> — Therapeutic dinner with clinical nutrition guidance</li>
-            <li><strong>8:00 PM</strong> — Evening wind-down protocol, sleep optimization preparation</li>
-          </ul>
-          <p>Schedules are adjusted daily based on your body's response to interventions.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q3">Can I stay connected to work during the retreat?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>We strongly recommend digital minimalism during the retreat — not as a restriction, but because cortisol regulation (a core therapeutic goal) is directly impaired by reactive communication patterns. Our clinical data shows participants who disconnect fully achieve 40% better outcomes on stress biomarkers.</p>
-          <p>That said, we understand the reality of executive life. We offer a <strong>structured connectivity window</strong> from 12:30–1:30 PM daily, with a dedicated business center for urgent matters. Our concierge team can also manage communications on your behalf. Many of our clients find this the first genuine disconnect from reactive work they have experienced in years.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q4">What happens after the retreat? Is there follow-up support?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Post-retreat support is integral to our protocol, not an add-on. Every participant receives:</p>
-          <ul>
-            <li>A personalized <strong>90-Day Health Blueprint</strong> with daily protocols, nutrition guidance, and supplement recommendations</li>
-            <li><strong>Physician check-in calls</strong> at 2 weeks, 6 weeks, and 90 days post-retreat</li>
-            <li>Access to your clinical data and biomarker trends via our secure patient portal</li>
-            <li>Priority scheduling for a follow-up retreat at a discounted rate</li>
-            <li>Access to our monthly virtual alumni sessions (Q&A with clinical team)</li>
-          </ul>
-          <p>The retreat is the reset. The 90-day protocol is the transformation.</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- MEDICAL & SAFETY -->
-    <div class="faq-category" id="medical" data-category="medical">
-      <div class="faq-category-header">
-        <div class="faq-category-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        </div>
-        <h2 class="faq-category-title" data-i18n="faq.cat.medical">Medical & Safety</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q5">Who are the medical professionals on your team?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Our clinical team includes board-certified physicians across internal medicine, functional and integrative medicine, occupational medicine, lifestyle medicine, cardiology, and behavioral health. All physicians are active practitioners with affiliations at leading academic medical centers including Johns Hopkins, UCSF, NYU Langone, and Harvard.</p>
-          <p>Every retreat is staffed with a minimum of one attending physician per eight participants, a registered dietitian, a licensed behavioral health clinician, and certified wellness practitioners. We maintain the same staffing ratios as accredited outpatient clinical programs.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q6">Is the program safe if I have existing health conditions?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Yes — in fact, many participants come to us specifically because they have chronic conditions (metabolic syndrome, cardiovascular risk, autoimmune conditions, burnout-related dysregulation) that haven't responded adequately to standard care.</p>
-          <p>Prior to your retreat, our medical team conducts a <strong>comprehensive pre-retreat health assessment</strong>, including a review of your medical history, current medications, recent labs, and health goals. Your program is then individually designed around your clinical profile. No intervention is administered without physician review and your informed consent.</p>
-          <p>We do maintain a small number of absolute contraindications (active malignancy, certain cardiac arrhythmias, etc.). These are reviewed during your pre-retreat assessment. If we cannot safely accommodate you, we will refer you to appropriate care.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q7">Is my health data private and secure?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Absolutely. We are fully <strong>HIPAA-compliant</strong>, with annual third-party audits verifying our data practices. Your health information is never shared with your employer, insurer, or any third party without your explicit written consent — even in the context of corporate group programs.</p>
-          <p>Corporate clients receive only aggregate, de-identified outcomes data (e.g., "the cohort showed an average 28% improvement in cortisol regulation") — never individual participant data. Our patient portal uses end-to-end encryption and meets the security standards of hospital-grade electronic health records.</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- PRICING & BOOKING -->
-    <div class="faq-category" id="pricing" data-category="pricing">
-      <div class="faq-category-header">
-        <div class="faq-category-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        </div>
-        <h2 class="faq-category-title" data-i18n="faq.cat.pricing">Pricing & Booking</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q8">What is included in the program price?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>All programs are fully all-inclusive. The price covers:</p>
-          <ul>
-            <li>All medical consultations, assessments, and clinical interventions</li>
-            <li>Comprehensive lab work (biomarker panel, hormones, inflammation markers, metabolic panel)</li>
-            <li>Private accommodation at our retreat facility</li>
-            <li>All meals, designed and supervised by our clinical dietitian</li>
-            <li>Therapeutic sessions (IV nutrition, cold/heat therapy, photobiomodulation, biofeedback, etc.)</li>
-            <li>Post-retreat 90-Day Health Blueprint and follow-up physician calls</li>
-            <li>Access to alumni portal and monthly clinical Q&A sessions</li>
-          </ul>
-          <p>The only items not included are travel to and from the retreat location and any additional advanced genomic testing you opt into (add-on, clearly priced).</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q9">Can I use HSA/FSA funds or submit for insurance reimbursement?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p><strong>HSA/FSA:</strong> Many of our medical services qualify as eligible HSA/FSA expenses. We provide itemized receipts that separate medical services from accommodation costs to facilitate HSA/FSA claims. We recommend confirming eligibility with your benefits administrator, as rules vary by plan.</p>
-          <p><strong>Insurance reimbursement:</strong> We are not in-network with insurance providers, but we provide detailed superbills (itemized clinical documentation) that some participants successfully submit for out-of-network reimbursement for specific medical services. Our team can advise on the documentation process.</p>
-          <p><strong>Corporate billing:</strong> For corporate programs, we can structure invoicing as an employee wellness benefit, training and development expense, or executive health program — depending on how your organization categorizes wellness spending.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q10">What is the cancellation and rescheduling policy?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>We understand that executive schedules change. Our policy:</p>
-          <ul>
-            <li><strong>60+ days before retreat:</strong> Full refund or credit (no fee)</li>
-            <li><strong>30–59 days before retreat:</strong> 50% refund or full credit toward a future retreat</li>
-            <li><strong>14–29 days before retreat:</strong> Credit only (no refund), valid for 18 months</li>
-            <li><strong>Under 14 days:</strong> Non-refundable, but we will do our best to accommodate rescheduling based on availability</li>
-          </ul>
-          <p>All cancellations and reschedules are processed without penalty up to 72 hours after booking (cooling-off period). For medical emergencies or force majeure, we handle situations individually with full discretion.</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- CORPORATE -->
-    <div class="faq-category" id="corporate" data-category="corporate">
-      <div class="faq-category-header">
-        <div class="faq-category-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-        </div>
-        <h2 class="faq-category-title" data-i18n="faq.cat.corporate">Corporate Programs</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q11">What is the minimum group size for a corporate retreat?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Our standard corporate cohort programs begin at <strong>8 participants</strong>. This minimum ensures your team benefits from both the individual clinical experience and the group dynamic that reinforces behavioral change post-retreat.</p>
-          <p>For organizations wishing to send 2–7 participants, we can integrate them into our standard cohort schedule alongside other participants (typically executives from non-competing industries). For 20+ participants, we offer fully private retreat buyouts at our facilities.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q12">How do you measure and report ROI to our organization?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>We provide your HR and benefits team with a <strong>Corporate Outcomes Report</strong> at 30, 60, and 90 days post-retreat. This report includes aggregate, fully de-identified data on:</p>
-          <ul>
-            <li>Cohort-level biomarker improvements (stress hormones, inflammatory markers, sleep quality)</li>
-            <li>Self-reported productivity scores (standardized validated scale)</li>
-            <li>Absence and sick-day utilization (if you share HR data)</li>
-            <li>Re-enrollment intent and Net Promoter Score</li>
-          </ul>
-          <p>Our clients have reported measurable outcomes including reduced sick days, lower healthcare claims, and improved performance reviews — but we present what the data shows for your specific cohort, not industry averages.</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- LOGISTICS -->
-    <div class="faq-category" id="logistics" data-category="logistics">
-      <div class="faq-category-header">
-        <div class="faq-category-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h2 class="faq-category-title" data-i18n="faq.cat.logistics">Logistics</h2>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q13">Where are your retreat locations?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Our name reflects our ethos: we are deliberately accessible from major urban centers. All 8 locations are within 90 minutes of a major international airport, so you spend minimal time traveling and maximum time recovering. Current locations span the US, UK, Singapore, and UAE, with European locations opening in 2026.</p>
-          <p>Each facility is purpose-built or extensively renovated to meet clinical standards while maintaining the aesthetic and comfort of a premium private hotel. Specific location details are provided upon booking confirmation.</p>
-        </div></div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span class="faq-question-text" data-i18n="faq.q14">What should I bring and how should I prepare?</span>
-          <span class="faq-chevron" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          <p>Three weeks before your retreat, you'll receive a comprehensive Pre-Retreat Preparation Guide and complete your medical intake. In terms of packing:</p>
-          <ul>
-            <li>Comfortable, breathable clothing for movement sessions (athletic wear)</li>
-            <li>Any prescription medications in original packaging (our pharmacist will review)</li>
-            <li>A journal — many participants find this retreat catalyzes clarity worth capturing</li>
-            <li>Formal or smart-casual attire is entirely optional; our facilities are informal</li>
-          </ul>
-          <p>Everything else — toiletries, supplements, clinical supplies, nutrition — is provided. We also recommend reducing caffeine intake gradually in the two weeks before arrival to minimize withdrawal effects during your cortisol reset protocol.</p>
-        </div></div>
-      </div>
-    </div>
-
-    <!-- NO RESULTS -->
-    <div class="faq-no-results" id="noResults">
-      <h3>No questions found</h3>
-      <p>Try different search terms, or contact our concierge team directly.</p>
-      <a href="index.html#reserve">Contact Concierge</a>
-    </div>
-
-    <!-- CTA BANNER -->
-    <div class="faq-cta-banner">
-      <h2>Still Have Questions?<br><em>We'd Love to Talk.</em></h2>
-      <p>Our clinical concierge team is available to walk you through any aspect of our programs — no sales pressure, just answers.</p>
-      <div class="faq-cta-buttons">
-        <a href="index.html#reserve" class="btn-gold">Book a Discovery Call</a>
-        <a href="index.html#reserve" class="btn-outline-light">Reserve a Retreat</a>
-      </div>
-    </div>
-
-  </div><!-- /faq-content -->
-</div><!-- /faq-main -->
-
-<footer class="faq-footer">
-  <p>&copy; 2025 Urban Medical Wellness Journey. All rights reserved. &nbsp;·&nbsp;
-    <a href="#">Privacy Policy</a> &nbsp;·&nbsp;
-    <a href="#">Terms of Service</a> &nbsp;·&nbsp;
-    <a href="index.html">Back to Home</a>
-  </p>
-</footer>
+</main>
 
 <script>
-(function() {
-  // Accordion
-  document.querySelectorAll('.faq-question').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      var item = this.closest('.faq-item');
+  function setLang(lang){
+    var isEn = lang === 'en';
+    document.documentElement.classList.toggle('lang-en', isEn);
+    document.getElementById('btnKr').classList.toggle('active', !isEn);
+    document.getElementById('btnEn').classList.toggle('active', isEn);
+    try{ localStorage.setItem('sc_lang', lang); }catch(e){}
+  }
+  document.getElementById('btnKr').addEventListener('click', function(){ setLang('kr'); });
+  document.getElementById('btnEn').addEventListener('click', function(){ setLang('en'); });
+  try{
+    var saved = localStorage.getItem('sc_lang');
+    if(saved === 'kr' || saved === 'en'){ setLang(saved); }
+  }catch(e){}
+
+  document.querySelectorAll('.faq-q-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
       var isOpen = item.classList.contains('open');
-      // Close all
-      document.querySelectorAll('.faq-item.open').forEach(function(el) {
-        el.classList.remove('open');
-        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      });
-      // Open clicked (if wasn't open)
-      if (!isOpen) {
-        item.classList.add('open');
-        this.setAttribute('aria-expanded', 'true');
-      }
+      item.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
     });
   });
-
-  // Category tabs
-  var tabs = document.querySelectorAll('.faq-tab');
-  var categories = document.querySelectorAll('.faq-category');
-  tabs.forEach(function(tab) {
-    tab.addEventListener('click', function() {
-      var cat = this.dataset.category;
-      tabs.forEach(function(t) { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
-      this.classList.add('active');
-      this.setAttribute('aria-selected','true');
-      categories.forEach(function(c) {
-        c.classList.toggle('hidden', cat !== 'all' && c.dataset.category !== cat);
-      });
-      document.getElementById('noResults').classList.remove('visible');
-    });
-  });
-
-  // Search
-  var searchInput = document.getElementById('faqSearch');
-  searchInput.addEventListener('input', function() {
-    var q = this.value.trim().toLowerCase();
-    if (!q) {
-      categories.forEach(function(c) { c.classList.remove('hidden'); });
-      document.querySelectorAll('.faq-item').forEach(function(item) { item.style.display = ''; });
-      document.getElementById('noResults').classList.remove('visible');
-      return;
-    }
-    // Reset tab state
-    tabs.forEach(function(t) { t.classList.remove('active'); });
-    tabs[0].classList.add('active');
-    categories.forEach(function(c) { c.classList.remove('hidden'); });
-
-    var anyVisible = false;
-    categories.forEach(function(cat) {
-      var catHasMatch = false;
-      cat.querySelectorAll('.faq-item').forEach(function(item) {
-        var text = item.textContent.toLowerCase();
-        var match = text.includes(q);
-        item.style.display = match ? '' : 'none';
-        if (match) { catHasMatch = true; anyVisible = true; }
-      });
-      cat.classList.toggle('hidden', !catHasMatch);
-    });
-    document.getElementById('noResults').classList.toggle('visible', !anyVisible);
-  });
-
-  // Sidebar active on scroll
-  var sidebarLinks = document.querySelectorAll('.faq-sidebar-links a');
-  var sectionIds = ['programs','medical','pricing','corporate','logistics'];
-  window.addEventListener('scroll', function() {
-    var scrollY = window.scrollY + 200;
-    var active = sectionIds[0];
-    sectionIds.forEach(function(id) {
-      var el = document.getElementById(id);
-      if (el && el.offsetTop <= scrollY) active = id;
-    });
-    sidebarLinks.forEach(function(a) {
-      a.classList.toggle('active', a.getAttribute('href') === '#' + active);
-    });
-  }, { passive: true });
-})();
 </script>
-<script src="i18n.js"></script>
+
 </body>
 </html>

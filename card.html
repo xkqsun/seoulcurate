@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>윤선형 · Seoul Curate</title>
+<meta name="description" content="Seoul Curate — Founder & Curator 윤선형 (Sun Yoon)의 디지털 명함">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="/favicon-180.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --olive-deep:#3a3d2b;
+    --olive-mid:#565a3f;
+    --sage:#7b8264;
+    --ivory:#f4f1e6;
+    --ivory-soft:#ece7d6;
+    --bronze:#b28a56;
+    --bronze-soft:#c9a877;
+    --charcoal:#1d1e15;
+    --line: rgba(244,241,230,0.16);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    background:var(--olive-deep);
+    color:var(--ivory);
+    font-family:'Jost', sans-serif;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:32px 20px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .card{
+    width:100%;
+    max-width:400px;
+    text-align:center;
+  }
+
+  .mark{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:13px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--bronze-soft);
+    margin-bottom:36px;
+  }
+
+  .avatar{
+    width:84px;
+    height:84px;
+    border-radius:50%;
+    margin:0 auto 24px;
+    background:var(--olive-mid);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:28px;
+    color:var(--bronze-soft);
+  }
+
+  .name{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    font-size:30px;
+    letter-spacing:0.01em;
+    margin-bottom:4px;
+  }
+  .name-en{
+    font-size:13px;
+    letter-spacing:0.08em;
+    color:rgba(244,241,230,0.55);
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+
+  .role{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--bronze-soft);
+    border:1px solid rgba(201,168,119,0.35);
+    border-radius:999px;
+    padding:6px 16px;
+    margin-bottom:26px;
+  }
+
+  .quote{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    font-weight:300;
+    font-size:16px;
+    line-height:1.6;
+    color:var(--ivory-soft);
+    max-width:320px;
+    margin:0 auto 34px;
+  }
+
+  .actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-bottom:30px;
+  }
+
+  .btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:14px 18px;
+    border-radius:10px;
+    font-family:'Jost', sans-serif;
+    font-size:14.5px;
+    font-weight:500;
+    letter-spacing:0.02em;
+    text-decoration:none;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:active{ transform:scale(0.98); }
+
+  .btn-primary{
+    background:var(--bronze);
+    color:var(--charcoal);
+  }
+  .btn-secondary{
+    background:rgba(244,241,230,0.06);
+    border:1px solid var(--line);
+    color:var(--ivory);
+  }
+
+  .socials{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:34px;
+  }
+  .social-btn{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--ivory-soft);
+    text-decoration:none;
+    transition:border-color 0.15s ease, color 0.15s ease;
+  }
+  .social-btn:active{ border-color:var(--bronze-soft); color:var(--bronze-soft); }
+
+  .divider{
+    height:1px;
+    background:var(--line);
+    margin:0 0 24px;
+  }
+
+  .site-link{
+    display:inline-block;
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    color:rgba(244,241,230,0.5);
+    text-decoration:none;
+    border-bottom:1px solid rgba(244,241,230,0.25);
+    padding-bottom:2px;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="mark">Seoul Curate</div>
+
+    <div class="avatar">S</div>
+
+    <div class="name">윤선형</div>
+    <div class="name-en">Sun Yoon</div>
+    <div class="role">Founder &amp; Curator</div>
+
+    <p class="quote">"제가 직접 걸어본 길만, 제가 신뢰할 수 있는 곳만."</p>
+
+    <div class="actions">
+      <a class="btn btn-primary" href="tel:+821085990463">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        010-8599-0463
+      </a>
+      <a class="btn btn-secondary" href="mailto:seoulcurate@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        seoulcurate@gmail.com
+      </a>
+      <a class="btn btn-secondary" href="https://seoulcurate.com/#contact">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        여정 문의하기 · Get in Touch
+      </a>
+    </div>
+
+    <div class="socials">
+      <a class="social-btn" href="https://www.instagram.com/seoulcurate/" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="social-btn" href="https://www.facebook.com/seoulcurate" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+      <a class="social-btn" href="https://x.com/seoulcurate" aria-label="X">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.4 22h-7.1l-5.5-7.2L4.5 22H1.4l8.2-9.3L1 2h7.3l5 6.6L18.9 2Zm-1.2 18h1.9L7.4 4H5.4l12.3 16Z"/></svg>
+      </a>
+    </div>
+
+    <div class="divider"></div>
+
+    <a class="site-link" href="https://seoulcurate.com/">seoulcurate.com</a>
+  </div>
+
+</body>
+</html>

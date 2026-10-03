@@ -1364,7 +1364,7 @@
     margin-bottom:40px;
     max-width:360px;
   }
-  .contact-links{
+    .contact-links{
     display:flex;
     flex-direction:column;
     gap:14px;
@@ -1375,9 +1375,13 @@
     border-bottom:1px solid rgba(178,138,86,0.4);
     padding-bottom:2px;
     width:fit-content;
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
     transition:border-color 0.3s var(--ease);
   }
   .contact-links a:hover{border-color:var(--bronze-soft);}
+  .contact-links a svg{width:15px; height:15px; flex-shrink:0;}
   .privacy-note{
     font-size:12px;
     color:rgba(244,241,230,0.45);
@@ -1385,6 +1389,32 @@
     margin-top:18px;
     max-width:340px;
   }
+  .privacy-box{
+    margin-top:22px;
+    padding:18px 20px;
+    background:rgba(244,241,230,0.05);
+    border:1px solid rgba(244,241,230,0.14);
+    border-radius:12px;
+    max-width:360px;
+  }
+  .privacy-box-label{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Jost', sans-serif;
+    font-size:10.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--bronze-soft);
+    margin-bottom:10px;
+  }
+  .privacy-box-label svg{width:14px; height:14px; flex-shrink:0;}
+  .privacy-box .privacy-note{
+    margin-top:0;
+    max-width:none;
+    color:rgba(244,241,230,0.62);
+  }
+
 
   /* ---------- FAQ ---------- */
   .faq-list{

@@ -2421,8 +2421,9 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
       msgEl.querySelector('.lang-kr').textContent = '문의가 접수되었습니다. 48시간 내로 답변드릴게요.';
       msgEl.querySelector('.lang-en').textContent = "Your enquiry has been received. I'll reply within 48 hours.";
       if(msgEl.querySelector('.lang-zh')) msgEl.querySelector('.lang-zh').textContent = '您的咨询已收到，我们将在48小时内回复。';
-      if(msgEl.querySelector('.lang-ru')) msgEl.querySelector('.lang-ru').textContent = 'Ваш запрос получен. Я отвечу в течение 48 часов.';
+            if(msgEl.querySelector('.lang-ru')) msgEl.querySelector('.lang-ru').textContent = 'Ваш запрос получен. Я отвечу в течение 48 часов.';
       msgEl.classList.add('show');
+      if (typeof gtag === 'function') { gtag('event', 'generate_lead', { form_name: 'contact_inquiry' }); }
       form.reset();
       if(window.updateVisitDateDisplay) window.updateVisitDateDisplay();
     } catch (err) {

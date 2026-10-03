@@ -249,69 +249,38 @@
       <div id="sc-chat-header-title">Seoul Curate</div>
       <div id="sc-chat-header-sub">Usually reply within a day</div>
     </div>
-    <div id="sc-chat-body">
-      <p id="sc-chat-intro">Seoul trips, recovery schedules, curation questions: message us on whichever channel works for you.</p>
 
-      <form id="sc-chat-form">
-        <input type="text" id="sc-field-name" name="name" placeholder="Your name" autocomplete="name" required>
-        <input type="email" id="sc-field-email" name="email" placeholder="Your email" autocomplete="email" required>
-        <textarea id="sc-field-message" name="message" placeholder="Type your message..." rows="3" required></textarea>
-        <input type="checkbox" name="botcheck" id="sc-botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <button type="submit" id="sc-form-submit">Send Message</button>
-      </form>
-      <p id="sc-form-status" aria-live="polite"></p>
+    <div id="sc-chat-messages"></div>
 
-      <div id="sc-chat-divider"><span>or reach us directly</span></div>
+    <form id="sc-chat-form">
+      <input type="text" id="sc-chat-input" placeholder="Type a message..." autocomplete="off" required>
+      <button type="submit" id="sc-chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 20L20 12L4 4V10L15 12L4 14V20Z" fill="white"/>
+        </svg>
+      </button>
+    </form>
 
-      <a class="sc-chat-option" id="sc-opt-instagram" target="_blank" rel="noopener">
-        <span class="sc-chat-option-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
-          </svg>
-        </span>
-        <span class="sc-chat-option-text">
-          <span class="sc-chat-option-title">Instagram DM</span>
-          <span class="sc-chat-option-sub">@seoulcurate</span>
-        </span>
+    <div id="sc-chat-footer">
+      <a class="sc-chat-option" id="sc-opt-instagram" target="_blank" rel="noopener" title="Instagram DM">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+          <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/>
+        </svg>
       </a>
-
-      <a class="sc-chat-option" id="sc-opt-email" rel="noopener">
-        <span class="sc-chat-option-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
-            <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        <span class="sc-chat-option-text">
-          <span class="sc-chat-option-title">Email</span>
-          <span class="sc-chat-option-sub" id="sc-email-display"></span>
-        </span>
+      <a class="sc-chat-option" id="sc-opt-email" rel="noopener" title="Email">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M4 7L12 13L20 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
       </a>
-
-      <!--
-        To add WhatsApp, uncomment the block below and fill in WHATSAPP_NUMBER
-        (include country code, no + sign or spaces. e.g. Korea 010-1234-5678 → 821012345678)
-
-      <a class="sc-chat-option" id="sc-opt-whatsapp" target="_blank" rel="noopener">
-        <span class="sc-chat-option-icon">
-          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3C7 3 3 7 3 12C3 13.7 3.5 15.3 4.3 16.7L3 21L7.5 19.7C8.9 20.5 10.4 21 12 21C17 21 21 17 21 12C21 7 17 3 12 3Z" stroke="currentColor" stroke-width="1.6"/>
-          </svg>
-        </span>
-        <span class="sc-chat-option-text">
-          <span class="sc-chat-option-title">WhatsApp</span>
-          <span class="sc-chat-option-sub">Start chatting now</span>
-        </span>
-      </a>
-      -->
     </div>
   </div>
 </div>
 
 <style>
-  /* ====== Settings — only edit this section ====== */
+  /* ====== Settings — only edit colors here ====== */
   :root {
     --sc-paper: #F1EEE6;
     --sc-ink: #2A2A28;
@@ -348,7 +317,7 @@
     position: absolute;
     bottom: 68px;
     right: 0;
-    width: 300px;
+    width: 320px;
     max-width: calc(100vw - 40px);
     background: var(--sc-paper);
     border-radius: 16px;
@@ -360,7 +329,8 @@
     transition: opacity 0.18s ease, transform 0.18s ease;
   }
   #sc-chat-panel.sc-open {
-    display: block;
+    display: flex;
+    flex-direction: column;
     opacity: 1;
     transform: translateY(0);
   }
@@ -368,7 +338,8 @@
   #sc-chat-header {
     background: var(--sc-celadon-dark);
     color: white;
-    padding: 18px 18px 16px;
+    padding: 16px 18px 14px;
+    flex-shrink: 0;
   }
   #sc-chat-header-title {
     font-size: 16px;
@@ -381,128 +352,106 @@
     margin-top: 3px;
   }
 
-  #sc-chat-body {
-    padding: 16px;
-    max-height: 70vh;
+  #sc-chat-messages {
+    padding: 14px;
     overflow-y: auto;
+    flex: 1;
+    min-height: 220px;
+    max-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
-  #sc-chat-intro {
-    font-size: 13px;
+  #sc-chat-hint {
+    font-size: 12.5px;
     color: var(--sc-muted);
+    text-align: center;
+    padding: 20px 10px;
     line-height: 1.5;
-    margin: 0 0 14px;
+  }
+
+  .sc-msg { display: flex; }
+  .sc-msg-visitor { justify-content: flex-end; }
+  .sc-msg-admin { justify-content: flex-start; }
+  .sc-msg-bubble {
+    max-width: 82%;
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 8px 12px;
+    border-radius: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .sc-msg-visitor .sc-msg-bubble {
+    background: var(--sc-celadon-dark);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  .sc-msg-admin .sc-msg-bubble {
+    background: white;
+    color: var(--sc-ink);
+    border: 1px solid rgba(0,0,0,0.08);
+    border-bottom-left-radius: 4px;
   }
 
   #sc-chat-form {
     display: flex;
-    flex-direction: column;
     gap: 8px;
-    margin-bottom: 4px;
+    padding: 12px 14px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    flex-shrink: 0;
   }
-  #sc-chat-form input[type="text"],
-  #sc-chat-form input[type="email"],
-  #sc-chat-form textarea {
+  #sc-chat-input {
+    flex: 1;
     font: inherit;
     font-size: 13px;
-    padding: 10px 11px;
+    padding: 10px 12px;
     border-radius: 9px;
     border: 1px solid rgba(0,0,0,0.12);
     background: white;
     color: var(--sc-ink);
-    resize: vertical;
-    width: 100%;
-    box-sizing: border-box;
+    min-width: 0;
   }
-  #sc-chat-form input::placeholder,
-  #sc-chat-form textarea::placeholder { color: #9a9892; }
-  #sc-chat-form input:focus,
-  #sc-chat-form textarea:focus {
-    outline: none;
-    border-color: var(--sc-celadon);
-  }
-  #sc-form-submit {
-    font: inherit;
-    font-size: 13.5px;
-    font-weight: 600;
-    color: white;
-    background: var(--sc-celadon-dark);
-    border: none;
+  #sc-chat-input::placeholder { color: #9a9892; }
+  #sc-chat-input:focus { outline: none; border-color: var(--sc-celadon); }
+
+  #sc-chat-send {
+    width: 38px;
+    height: 38px;
     border-radius: 9px;
-    padding: 10px 12px;
+    border: none;
+    background: var(--sc-celadon-dark);
     cursor: pointer;
-    transition: opacity 0.12s ease;
-  }
-  #sc-form-submit:hover { opacity: 0.9; }
-  #sc-form-submit:disabled { opacity: 0.6; cursor: default; }
-
-  #sc-form-status {
-    font-size: 12px;
-    line-height: 1.5;
-    margin: 6px 0 0;
-    min-height: 0;
-  }
-  #sc-form-status.sc-status-ok { color: var(--sc-celadon-dark); }
-  #sc-form-status.sc-status-error { color: #8a4a3a; }
-
-  #sc-chat-divider {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: var(--sc-muted);
-    font-size: 11px;
-    margin: 14px 0 10px;
-  }
-  #sc-chat-divider::before,
-  #sc-chat-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: rgba(0,0,0,0.1);
-  }
-  #sc-chat-divider span { padding: 0 8px; }
-
-  .sc-chat-option {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11px 12px;
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--sc-ink);
-    background: white;
-    margin-bottom: 8px;
-    transition: background 0.12s ease;
-    border: 1px solid rgba(0,0,0,0.06);
-  }
-  .sc-chat-option:last-child { margin-bottom: 0; }
-  .sc-chat-option:hover { background: #fafafa; }
-
-  .sc-chat-option-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: var(--sc-celadon);
-    color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
   }
-  .sc-chat-option-icon svg { width: 17px; height: 17px; }
+  #sc-chat-send svg { width: 17px; height: 17px; }
+  #sc-chat-send:hover { opacity: 0.9; }
+  #sc-chat-send:disabled { opacity: 0.6; cursor: default; }
 
-  .sc-chat-option-text {
+  #sc-chat-footer {
     display: flex;
-    flex-direction: column;
-    line-height: 1.3;
+    gap: 8px;
+    padding: 10px 14px 14px;
+    flex-shrink: 0;
   }
-  .sc-chat-option-title {
-    font-size: 13.5px;
-    font-weight: 600;
-  }
-  .sc-chat-option-sub {
-    font-size: 11.5px;
+  .sc-chat-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border-radius: 9px;
+    text-decoration: none;
     color: var(--sc-muted);
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
   }
+  .sc-chat-option:hover { background: #fafafa; color: var(--sc-ink); }
+  .sc-chat-option svg { width: 16px; height: 16px; }
 
   @media (max-width: 420px) {
     #sc-chat-widget { bottom: 14px; right: 14px; }
@@ -510,110 +459,141 @@
   }
 </style>
 
-<script>
-(function () {
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  import {
+    getFirestore, doc, collection, addDoc, setDoc,
+    onSnapshot, query, orderBy, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
   // ====== Settings — only edit this section ======
-  var INSTAGRAM_USERNAME = "seoulcurate";     // username only, no @
-  var CONTACT_EMAIL = "seoulcurate@gmail.com"; // replace with your real public contact email
-  var WEB3FORMS_ACCESS_KEY = "54994446-1fc3-4403-ad7c-dc496a1660b1"; // get a free key at https://web3forms.com (see top comment)
-  // var WHATSAPP_NUMBER = "8210XXXXXXXX";     // if using WhatsApp, include country code, no +
+  var INSTAGRAM_USERNAME = "seoulcurate";      // username only, no @
+  var CONTACT_EMAIL = "seoulcurate@gmail.com"; // your public contact email
+  var firebaseConfig = {
+    apiKey: "AIzaSyAftXQ02C9UOTgT0e0RzpPwFIHn-KKTkQY",
+    authDomain: "seoulcurate-a4c36.firebaseapp.com",
+    projectId: "seoulcurate-a4c36",
+    storageBucket: "seoulcurate-a4c36.firebasestorage.app",
+    messagingSenderId: "1046930042449",
+    appId: "1:1046930042449:web:a1c8248063764e18149270"
+  };
+  // ====== End of Settings ======
+
+  var app = initializeApp(firebaseConfig);
+  var db = getFirestore(app);
+
+  var igLink = document.getElementById("sc-opt-instagram");
+  igLink.href = "https://ig.me/m/" + INSTAGRAM_USERNAME;
+  var emailLink = document.getElementById("sc-opt-email");
+  emailLink.href = "mailto:" + CONTACT_EMAIL;
+
+  // ---- Per-visitor chat id, persisted so their conversation survives reloads ----
+  function makeId() {
+    return "c-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+  }
+  function getChatId() {
+    try {
+      var id = localStorage.getItem("sc_chat_id");
+      if (!id) {
+        id = makeId();
+        localStorage.setItem("sc_chat_id", id);
+      }
+      return id;
+    } catch (e) {
+      if (!window.__scChatId) window.__scChatId = makeId();
+      return window.__scChatId;
+    }
+  }
+
+  var chatId = getChatId();
+  var chatDocRef = doc(db, "chats", chatId);
+  var messagesRef = collection(db, "chats", chatId, "messages");
 
   var toggle = document.getElementById("sc-chat-toggle");
   var panel = document.getElementById("sc-chat-panel");
   var iconChat = document.getElementById("sc-icon-chat");
   var iconClose = document.getElementById("sc-icon-close");
-
-  var igLink = document.getElementById("sc-opt-instagram");
-  igLink.href = "https://ig.me/m/" + INSTAGRAM_USERNAME;
-
-  var emailLink = document.getElementById("sc-opt-email");
-  emailLink.href = "mailto:" + CONTACT_EMAIL;
-  document.getElementById("sc-email-display").textContent = CONTACT_EMAIL;
-
-  // Uncomment below when enabling WhatsApp
-  // var waLink = document.getElementById("sc-opt-whatsapp");
-  // if (waLink && typeof WHATSAPP_NUMBER !== "undefined") {
-  //   waLink.href = "https://wa.me/" + WHATSAPP_NUMBER;
-  // }
-
-  // ---- Instant-message form (delivers straight to CONTACT_EMAIL via Web3Forms) ----
+  var messagesEl = document.getElementById("sc-chat-messages");
   var form = document.getElementById("sc-chat-form");
-  var submitBtn = document.getElementById("sc-form-submit");
-  var statusEl = document.getElementById("sc-form-status");
+  var input = document.getElementById("sc-chat-input");
+  var sendBtn = document.getElementById("sc-chat-send");
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "YOUR_ACCESS_KEY_HERE") {
-      statusEl.textContent = "Instant messaging isn't connected yet — please use Instagram DM or Email below for now.";
-      statusEl.className = "sc-status-error";
-      return;
-    }
-
-    // Honeypot: real visitors never fill this hidden field
-    if (document.getElementById("sc-botcheck").checked) return;
-
-    var nameVal = document.getElementById("sc-field-name").value;
-    var emailVal = document.getElementById("sc-field-email").value;
-    var messageVal = document.getElementById("sc-field-message").value;
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Sending...";
-    statusEl.textContent = "";
-    statusEl.className = "";
-
-    fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "Accept": "application/json" },
-      body: JSON.stringify({
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: "New message from the Seoul Curate website chat",
-        from_name: "Seoul Curate Website Chat",
-        name: nameVal,
-        email: emailVal,
-        message: messageVal
-      })
-    })
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        if (data && data.success) {
-          statusEl.textContent = "Message sent — I'll reply within a day.";
-          statusEl.className = "sc-status-ok";
-          form.reset();
-          form.style.display = "none";
-        } else {
-          statusEl.textContent = "Something went wrong — please try Instagram DM or Email below.";
-          statusEl.className = "sc-status-error";
-        }
-      })
-      .catch(function () {
-        statusEl.textContent = "Something went wrong — please try Instagram DM or Email below.";
-        statusEl.className = "sc-status-error";
-      })
-      .finally(function () {
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Send Message";
+  var listening = false;
+  function startListening() {
+    if (listening) return;
+    listening = true;
+    var q = query(messagesRef, orderBy("createdAt", "asc"));
+    onSnapshot(q, function (snap) {
+      messagesEl.innerHTML = "";
+      if (snap.empty) {
+        var hint = document.createElement("div");
+        hint.id = "sc-chat-hint";
+        hint.textContent = "Say hello — a real person reads every message.";
+        messagesEl.appendChild(hint);
+        return;
+      }
+      snap.forEach(function (d) {
+        var msg = d.data();
+        var row = document.createElement("div");
+        row.className = "sc-msg " + (msg.sender === "admin" ? "sc-msg-admin" : "sc-msg-visitor");
+        var bubble = document.createElement("div");
+        bubble.className = "sc-msg-bubble";
+        bubble.textContent = msg.text || "";
+        row.appendChild(bubble);
+        messagesEl.appendChild(row);
       });
-  });
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }, function (err) {
+      console.error("Seoul Curate chat: could not load messages", err);
+    });
+  }
 
   var open = false;
-  toggle.addEventListener("click", function () {
-    open = !open;
+  function setOpen(v) {
+    open = v;
     panel.classList.toggle("sc-open", open);
     iconChat.style.display = open ? "none" : "block";
     iconClose.style.display = open ? "block" : "none";
     toggle.setAttribute("aria-label", open ? "Close" : "Send a message");
-  });
+    if (open) {
+      startListening();
+      input.focus();
+    }
+  }
+
+  toggle.addEventListener("click", function () { setOpen(!open); });
 
   document.addEventListener("click", function (e) {
     if (open && !document.getElementById("sc-chat-widget").contains(e.target)) {
-      open = false;
-      panel.classList.remove("sc-open");
-      iconChat.style.display = "block";
-      iconClose.style.display = "none";
+      setOpen(false);
     }
   });
-})();
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var text = input.value.trim();
+    if (!text) return;
+    input.value = "";
+    sendBtn.disabled = true;
+
+    setDoc(chatDocRef, {
+      lastMessage: text,
+      lastMessageAt: serverTimestamp(),
+      lastSender: "visitor"
+    }, { merge: true }).catch(function (err) {
+      console.error("Seoul Curate chat: could not update chat summary", err);
+    });
+
+    addDoc(messagesRef, {
+      sender: "visitor",
+      text: text,
+      createdAt: serverTimestamp()
+    }).catch(function (err) {
+      console.error("Seoul Curate chat: could not send message", err);
+    }).finally(function () {
+      sendBtn.disabled = false;
+    });
+  });
 </script>
 
 </body>

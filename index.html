@@ -2205,6 +2205,8 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         <a href="mailto:seoulcurate@gmail.com">seoulcurate@gmail.com</a>
         <a href="https://instagram.com/seoulcurate" target="_blank" rel="noopener">@seoulcurate</a>
       </div>
+      <p class="privacy-note lang-kr" style="margin-top:14px;">보통 하루 이내에 답변드려요. 궁금한 점이 있다면 <a href="/faq.html" style="color:inherit; text-decoration:underline;">자주 묻는 질문</a>도 확인해보세요.</p>
+      <p class="privacy-note lang-en" style="margin-top:14px;">I usually reply within a day. Have a quick question? Check the <a href="/faq.html" style="color:inherit; text-decoration:underline;">FAQ</a>.</p><p  class="privacy-note lang-zh" style="margin-top:14px;">我们通常在一天内回复。如有疑问，欢迎查看<a href="/faq.html" style="color:inherit; text-decoration:underline;">常见问题</a>。</p><p  class="privacy-note lang-ru" style="margin-top:14px;">Обычно отвечаю в течение дня. Есть вопрос? Загляните в <a href="/faq.html" style="color:inherit; text-decoration:underline;">FAQ</a>.</p>
       <p class="privacy-note lang-kr">모든 상담과 회복 여정 정보는 철저히 비공개로 관리됩니다. 예약자의 시술 내용과 개인정보는 어떤 경우에도 제3자와 공유되지 않습니다.</p>
       <p class="privacy-note lang-en">Every consultation and recovery journey is treated with complete discretion. Your treatment details and personal information are never shared with any third party.</p><p  class="privacy-note lang-zh">每一次咨询与恢复旅程都将被严格保密。您的疗程信息与个人隐私绝不会与任何第三方共享。</p><p  class="privacy-note lang-ru">Каждая консультация и путешествие восстановления обрабатываются с полной конфиденциальностью. Данные о вашем лечении и личная информация никогда не передаются третьим лицам.</p>
     </div>
@@ -2212,15 +2214,23 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
     <form class="contact-form reveal" id="contactForm">
       <div class="field">
         <label><span class="lang-kr">이름</span><span class="lang-en">Name</span><span class="lang-zh">姓名</span><span class="lang-ru">Имя</span></label>
-        <input type="text" required>
+        <input type="text" id="contactName" required>
       </div>
       <div class="field">
         <label><span class="lang-kr">이메일</span><span class="lang-en">Email</span><span class="lang-zh">邮箱</span><span class="lang-ru">Эл. почта</span></label>
-        <input type="email" required>
+        <input type="email" id="contactEmail" required>
+      </div>
+      <div class="field">
+        <label><span class="lang-kr">국적</span><span class="lang-en">Nationality</span><span class="lang-zh">国籍</span><span class="lang-ru">Гражданство</span></label>
+        <input type="text" id="contactNationality" placeholder="예: 대한민국, 싱가포르" data-ph-kr="예: 대한민국, 싱가포르" data-ph-en="e.g. USA, Singapore" data-ph-zh="例如：美国、新加坡" data-ph-ru="напр. США, Сингапур">
       </div>
       <div class="field">
         <label><span class="lang-kr">방문 예정일</span><span class="lang-en">Visit Date</span><span class="lang-zh">到访日期</span><span class="lang-ru">Дата визита</span></label>
         <div class="date-wrap">          <input type="date" id="visitDateField">          <div class="date-display" id="visitDateDisplay">            <span class="date-placeholder"><span class="lang-kr">연도. 월. 일.</span><span class="lang-en">yyyy-mm-dd</span><span class="lang-zh">年-月-日</span><span class="lang-ru">гггг-мм-дд</span></span>            <span class="date-value" id="visitDateValue"></span>          </div>        </div>
+      </div>
+      <div class="field">
+        <label><span class="lang-kr">희망 기간 (선택)</span><span class="lang-en">Preferred Duration (optional)</span><span class="lang-zh">希望天数（可选）</span><span class="lang-ru">Желаемая продолжительность (необязательно)</span></label>
+        <input type="text" id="contactPeriod" placeholder="예: 3박4일, 미정" data-ph-kr="예: 3박4일, 미정" data-ph-en="e.g. 4 days 3 nights, Not sure yet" data-ph-zh="例如：3晚4天、待定" data-ph-ru="напр. 4 дня, пока не определено">
       </div>
       <div class="field">
         <label><span class="lang-kr">인원수</span><span class="lang-en">Group Size</span><span class="lang-zh">人数</span><span class="lang-ru">Количество человек</span></label>
@@ -2235,10 +2245,18 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         </select>
       </div>
       <div class="field full">
+        <label><span class="lang-kr">원하시는 컨셉</span><span class="lang-en">Concept / Style</span><span class="lang-zh">风格偏好</span><span class="lang-ru">Концепция / Стиль</span></label>
+        <input type="text" id="contactConcept" placeholder="예: 조용한 회복 중심, 쇼핑+관광 병행" data-ph-kr="예: 조용한 회복 중심, 쇼핑+관광 병행" data-ph-en="e.g. Quiet recovery-focused, Shopping + sightseeing mix" data-ph-zh="例如：安静的恢复为主、购物与观光结合" data-ph-ru="напр. Спокойное восстановление, шоппинг и экскурсии">
+      </div>
+      <div class="field full">
         <label><span class="lang-kr">문의 내용</span><span class="lang-en">Message</span><span class="lang-zh">留言内容</span><span class="lang-ru">Сообщение</span></label>
         <textarea id="contactMessage"></textarea>
       </div>
       <button type="submit" class="btn btn-primary"><span class="lang-kr">문의 보내기</span><span class="lang-en">Send Enquiry</span><span class="lang-zh">发送咨询</span><span class="lang-ru">Отправить запрос</span></button>
+      <div class="form-msg" id="contactMsg">
+        <span class="lang-kr">문의가 접수되었습니다. 48시간 내로 답변드릴게요.</span>
+        <span class="lang-en">Your enquiry has been received. I'll reply within 48 hours.</span><span class="lang-zh">您的咨询已收到，我们将在48小时内回复。</span><span class="lang-ru">Ваш запрос получен. Я отвечу в течение 48 часов.</span>
+      </div>
     </form>
   </div>
 </section>

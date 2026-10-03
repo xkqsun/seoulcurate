@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Seoul Curate — Messages</title>
+<style>
+  :root {
+    --sc-paper: #F1EEE6;
+    --sc-ink: #2A2A28;
+    --sc-muted: #6B6B66;
+    --sc-celadon: #4F7462;
+    --sc-celadon-dark: #3B5749;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    background: var(--sc-paper);
+    color: var(--sc-ink);
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ---- Login screen ---- */
+  #login-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  #login-box {
+    background: white;
+    border-radius: 16px;
+    padding: 32px 28px;
+    width: 100%;
+    max-width: 320px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  }
+  #login-box h1 {
+    font-size: 18px;
+    margin: 0 0 4px;
+  }
+  #login-box p.sub {
+    font-size: 13px;
+    color: var(--sc-muted);
+    margin: 0 0 20px;
+  }
+  #login-box input {
+    width: 100%;
+    font: inherit;
+    font-size: 13px;
+    padding: 10px 11px;
+    border-radius: 9px;
+    border: 1px solid rgba(0,0,0,0.15);
+    margin-bottom: 10px;
+  }
+  #login-box button {
+    width: 100%;
+    font: inherit;
+    font-size: 13.5px;
+    font-weight: 600;
+    color: white;
+    background: var(--sc-celadon-dark);
+    border: none;
+    border-radius: 9px;
+    padding: 11px;
+    cursor: pointer;
+  }
+  #login-box button:disabled { opacity: 0.6; cursor: default; }
+  #login-error {
+    font-size: 12.5px;
+    color: #8a4a3a;
+    margin-top: 10px;
+    min-height: 0;
+  }
+
+  /* ---- App screen ---- */
+  #app-screen {
+    display: none;
+    height: 100vh;
+  }
+  #app-screen.sc-visible { display: flex; }
+
+  #sidebar {
+    width: 300px;
+    min-width: 300px;
+    background: white;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+  }
+  #sidebar-header {
+    padding: 16px 16px 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+  }
+  #sidebar-header h2 { font-size: 15px; margin: 0; }
+  #logout-btn {
+    font-size: 12px;
+    color: var(--sc-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  #chat-list {
+    overflow-y: auto;
+    flex: 1;
+  }
+  .chat-row {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    cursor: pointer;
+  }
+  .chat-row:hover { background: #fafafa; }
+  .chat-row.sc-active { background: var(--sc-paper); }
+  .chat-row .chat-row-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+    color: var(--sc-muted);
+    margin-bottom: 3px;
+  }
+  .chat-row .chat-row-preview {
+    font-size: 13px;
+    color: var(--sc-ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .chat-row .chat-row-preview.sc-from-admin { color: var(--sc-muted); }
+  #chat-list-empty {
+    padding: 24px 16px;
+    font-size: 13px;
+    color: var(--sc-muted);
+    text-align: center;
+  }
+
+  #thread {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+  #thread-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sc-muted);
+    font-size: 13.5px;
+  }
+  #thread-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    font-size: 13px;
+    color: var(--sc-muted);
+    flex-shrink: 0;
+  }
+  #thread-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sc-msg { display: flex; }
+  .sc-msg-visitor { justify-content: flex-start; }
+  .sc-msg-admin { justify-content: flex-end; }
+  .sc-msg-bubble {
+    max-width: 60%;
+    font-size: 13.5px;
+    line-height: 1.45;
+    padding: 9px 13px;
+    border-radius: 14px;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .sc-msg-visitor .sc-msg-bubble {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-bottom-left-radius: 4px;
+  }
+  .sc-msg-admin .sc-msg-bubble {
+    background: var(--sc-celadon-dark);
+    color: white;
+    border-bottom-right-radius: 4px;
+  }
+  #thread-form {
+    display: flex;
+    gap: 10px;
+    padding: 14px 20px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    flex-shrink: 0;
+  }
+  #thread-input {
+    flex: 1;
+    font: inherit;
+    font-size: 13.5px;
+    padding: 10px 13px;
+    border-radius: 9px;
+    border: 1px solid rgba(0,0,0,0.15);
+  }
+  #thread-send {
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    background: var(--sc-celadon-dark);
+    border: none;
+    border-radius: 9px;
+    padding: 0 18px;
+    cursor: pointer;
+  }
+  #thread-send:disabled { opacity: 0.6; cursor: default; }
+
+  @media (max-width: 720px) {
+    #sidebar { width: 100%; min-width: 0; }
+    #app-screen.sc-thread-open #sidebar { display: none; }
+    #app-screen:not(.sc-thread-open) #thread { display: none; }
+    #back-btn { display: inline-block !important; }
+  }
+  #back-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 13px;
+    color: var(--sc-muted);
+    cursor: pointer;
+    margin-right: 10px;
+  }
+</style>
+</head>
+<body>
+
+<div id="login-screen">
+  <div id="login-box">
+    <h1>Seoul Curate</h1>
+    <p class="sub">Sign in to read and reply to messages.</p>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Email" autocomplete="username" required>
+      <input type="password" id="login-password" placeholder="Password" autocomplete="current-password" required>
+      <button type="submit" id="login-submit">Sign in</button>
+    </form>
+    <div id="login-error"></div>
+  </div>
+</div>
+
+<div id="app-screen">
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <h2>Messages</h2>
+      <button id="logout-btn">Sign out</button>
+    </div>
+    <div id="chat-list"></div>
+  </div>
+  <div id="thread">
+    <div id="thread-placeholder">Select a conversation</div>
+  </div>
+</div>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+  import {
+    getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut
+  } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
+  import {
+    getFirestore, doc, collection, addDoc, setDoc,
+    onSnapshot, query, orderBy, serverTimestamp
+  } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyAftXQ02C9UOTgT0e0RzpPwFIHn-KKTkQY",
+    authDomain: "seoulcurate-a4c36.firebaseapp.com",
+    projectId: "seoulcurate-a4c36",
+    storageBucket: "seoulcurate-a4c36.firebasestorage.app",
+    messagingSenderId: "1046930042449",
+    appId: "1:1046930042449:web:a1c8248063764e18149270"
+  };
+
+  var app = initializeApp(firebaseConfig);
+  var auth = getAuth(app);
+  var db = getFirestore(app);
+
+  var loginScreen = document.getElementById("login-screen");
+  var appScreen = document.getElementById("app-screen");
+  var loginForm = document.getElementById("login-form");
+  var loginError = document.getElementById("login-error");
+  var loginSubmit = document.getElementById("login-submit");
+  var logoutBtn = document.getElementById("logout-btn");
+
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    loginError.textContent = "";
+    loginSubmit.disabled = true;
+    var email = document.getElementById("login-email").value;
+    var password = document.getElementById("login-password").value;
+    signInWithEmailAndPassword(auth, email, password)
+      .catch(function (err) {
+        loginError.textContent = "Couldn't sign in — check the email and password.";
+        console.error(err);
+      })
+      .finally(function () {
+        loginSubmit.disabled = false;
+      });
+  });
+
+  logoutBtn.addEventListener("click", function () {
+    signOut(auth);
+  });
+
+  onAuthStateChanged(auth, function (user) {
+    if (user) {
+      loginScreen.style.display = "none";
+      appScreen.classList.add("sc-visible");
+      startChatList();
+    } else {
+      loginScreen.style.display = "flex";
+      appScreen.classList.remove("sc-visible");
+    }
+  });
+
+  // ---- Conversation list ----
+  var chatListEl = document.getElementById("chat-list");
+  var chatListStarted = false;
+  var activeChatId = null;
+  var unsubscribeThread = null;
+
+  function formatTime(ts) {
+    if (!ts || !ts.toDate) return "";
+    var d = ts.toDate();
+    return d.toLocaleDateString(undefined, { month: "short", day: "numeric" }) + " " +
+           d.toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" });
+  }
+
+  function startChatList() {
+    if (chatListStarted) return;
+    chatListStarted = true;
+    var q = query(collection(db, "chats"), orderBy("lastMessageAt", "desc"));
+    onSnapshot(q, function (snap) {
+      chatListEl.innerHTML = "";
+      if (snap.empty) {
+        var empty = document.createElement("div");
+        empty.id = "chat-list-empty";
+        empty.textContent = "No messages yet.";
+        chatListEl.appendChild(empty);
+        return;
+      }
+      snap.forEach(function (d) {
+        var chat = d.data();
+        var row = document.createElement("div");
+        row.className = "chat-row" + (d.id === activeChatId ? " sc-active" : "");
+        row.innerHTML =
+          '<div class="chat-row-top"><span>Visitor</span><span>' + formatTime(chat.lastMessageAt) + '</span></div>' +
+          '<div class="chat-row-preview' + (chat.lastSender === "admin" ? " sc-from-admin" : "") + '">' +
+          (chat.lastSender === "admin" ? "You: " : "") +
+          escapeHtml(chat.lastMessage || "") + '</div>';
+        row.addEventListener("click", function () { openThread(d.id); });
+        chatListEl.appendChild(row);
+      });
+    }, function (err) {
+      console.error("Could not load conversations", err);
+    });
+  }
+
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  // ---- Thread view ----
+  var threadEl = document.getElementById("thread");
+  var threadMessagesEl, threadInputEl, threadSendBtn;
+
+  function openThread(chatId) {
+    activeChatId = chatId;
+    document.getElementById("app-screen").classList.add("sc-thread-open");
+
+    Array.prototype.forEach.call(chatListEl.children, function (row) {
+      row.classList.remove("sc-active");
+    });
+
+    threadEl.innerHTML =
+      '<div id="thread-header"><button id="back-btn">&larr; Back</button>Conversation</div>' +
+      '<div id="thread-messages"></div>' +
+      '<form id="thread-form">' +
+      '<input type="text" id="thread-input" placeholder="Type a reply..." autocomplete="off" required>' +
+      '<button type="submit" id="thread-send">Send</button>' +
+      '</form>';
+
+    threadMessagesEl = document.getElementById("thread-messages");
+    threadInputEl = document.getElementById("thread-input");
+    threadSendBtn = document.getElementById("thread-send");
+
+    document.getElementById("back-btn").addEventListener("click", function () {
+      document.getElementById("app-screen").classList.remove("sc-thread-open");
+    });
+
+    if (unsubscribeThread) unsubscribeThread();
+    var messagesRef = collection(db, "chats", chatId, "messages");
+    var q = query(messagesRef, orderBy("createdAt", "asc"));
+    unsubscribeThread = onSnapshot(q, function (snap) {
+      threadMessagesEl.innerHTML = "";
+      snap.forEach(function (d) {
+        var msg = d.data();
+        var row = document.createElement("div");
+        row.className = "sc-msg " + (msg.sender === "admin" ? "sc-msg-admin" : "sc-msg-visitor");
+        var bubble = document.createElement("div");
+        bubble.className = "sc-msg-bubble";
+        bubble.textContent = msg.text || "";
+        row.appendChild(bubble);
+        threadMessagesEl.appendChild(row);
+      });
+      threadMessagesEl.scrollTop = threadMessagesEl.scrollHeight;
+    });
+
+    document.getElementById("thread-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var text = threadInputEl.value.trim();
+      if (!text) return;
+      threadInputEl.value = "";
+      threadSendBtn.disabled = true;
+
+      setDoc(doc(db, "chats", chatId), {
+        lastMessage: text,
+        lastMessageAt: serverTimestamp(),
+        lastSender: "admin"
+      }, { merge: true }).catch(function (err) { console.error(err); });
+
+      addDoc(messagesRef, {
+        sender: "admin",
+        text: text,
+        createdAt: serverTimestamp()
+      }).catch(function (err) {
+        console.error("Could not send reply", err);
+      }).finally(function () {
+        threadSendBtn.disabled = false;
+        threadInputEl.focus();
+      });
+    });
+  }
+</script>
+</body>
+</html>

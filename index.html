@@ -2370,9 +2370,10 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
       msgEl.querySelector('.lang-kr').textContent = '감사합니다. 가이드를 이메일로 보내드릴게요.';
       msgEl.querySelector('.lang-en').textContent = 'Thank you. Check your inbox shortly.';
-      if(msgEl.querySelector('.lang-zh')) msgEl.querySelector('.lang-zh').textContent = '谢谢您。请稍后查收邮箱。';
+            if(msgEl.querySelector('.lang-zh')) msgEl.querySelector('.lang-zh').textContent = '谢谢您。请稍后查收邮箱。';
       if(msgEl.querySelector('.lang-ru')) msgEl.querySelector('.lang-ru').textContent = 'Спасибо. Проверьте почту в ближайшее время.';
       msgEl.classList.add('show');
+      if (typeof gtag === 'function') { gtag('event', 'guide_download', { form_name: 'guide_request' }); }
       form.reset();
     } catch (err) {
       msgEl.querySelector('.lang-kr').textContent = '전송에 실패했어요. 잠시 후 다시 시도해주세요.';

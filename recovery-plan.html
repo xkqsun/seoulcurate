@@ -92,6 +92,14 @@
     .rp-step-when{flex:0 0 78px;}
   }
 </style>
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GT1447XP9G"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GT1447XP9G');
+</script>
 </head>
 <body>
 
@@ -242,6 +250,7 @@
       msgEl.querySelector('.lang-kr').textContent = '감사합니다. 가이드를 이메일로 보내드릴게요.';
       msgEl.querySelector('.lang-en').textContent = 'Thank you. Check your inbox shortly.';
       msgEl.classList.add('show');
+      if (typeof gtag === 'function') { gtag('event', 'guide_download', { form_name: 'guide_request' }); }
       form.reset();
     } catch(err){
       msgEl.querySelector('.lang-kr').textContent = '전송에 실패했어요. 잠시 후 다시 시도해주세요.';

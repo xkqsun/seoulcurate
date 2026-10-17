@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="lang-en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,11 @@
     --ease: cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html.lang-en .lang-kr{display:none !important;}
-  html:not(.lang-en) .lang-en{display:none !important;}
+  html:not([data-lang="kr"]) .lang-kr{display:none !important;}
+  html:not([data-lang="en"]) .lang-en{display:none !important;}
+  html:not([data-lang="zh"]) .lang-zh{display:none !important;}
+  html:not([data-lang="ru"]) .lang-ru{display:none !important;}
+  html[data-lang="ru"] h1, html[data-lang="ru"] .faq-q{font-family:Georgia,'Times New Roman',serif !important;}
   body{
     font-family:'Jost', sans-serif;
     font-weight:300;
@@ -113,9 +116,13 @@
   <div class="header-inner">
     <a href="/" class="logo">Seoul Curate</a>
     <div class="lang-switch">
-      <button type="button" data-lang="kr" id="btnKr">KOR</button>
+      <button type="button" data-lang="kr">KOR</button>
       <span class="divider">/</span>
-      <button type="button" data-lang="en" id="btnEn" class="active">ENG</button>
+      <button type="button" data-lang="en" class="active">ENG</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="zh">中文</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="ru">RU</button>
     </div>
   </div>
 </header>
@@ -123,106 +130,108 @@
 <main>
   <div class="container">
     <a href="/" class="back-link">
-      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span>
+      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span><span class="lang-zh">← 返回首页</span><span class="lang-ru">← На главную</span>
     </a>
 
-    <div class="eyebrow"><span class="lang-kr">자주 묻는 질문</span><span class="lang-en">FAQ</span></div>
+    <div class="eyebrow"><span class="lang-kr">자주 묻는 질문</span><span class="lang-en">FAQ</span><span class="lang-zh">常见问题</span><span class="lang-ru">Вопросы и ответы</span></div>
     <h1 class="lang-kr">궁금한 점,<br>미리 확인하세요</h1>
-    <h1 class="lang-en">Answers Before<br>You Ask</h1>
+    <h1 class="lang-en">Answers Before<br>You Ask</h1><h1 class="lang-zh">在您提问之前<br>先为您解答</h1><h1 class="lang-ru">Ответы<br>заранее</h1>
     <p class="lead lang-kr">Seoul Curate 서비스에 대해 가장 많이 물으신 질문들을 모았습니다. 질문을 눌러 답변을 확인하세요.</p>
-    <p class="lead lang-en">The questions we hear most often from guests before starting their journey with Seoul Curate. Tap a question to see the answer.</p>
+    <p class="lead lang-en">The questions we hear most often from guests before starting their journey with Seoul Curate. Tap a question to see the answer.</p><p class="lead lang-zh">这些是客人在开启 Seoul Curate 旅程前最常问的问题。点击问题即可查看答案。</p><p class="lead lang-ru">Вопросы, которые гости чаще всего задают перед началом путешествия с Seoul Curate. Нажмите на вопрос, чтобы увидеть ответ.</p>
 
     <div class="faq-list">
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">클리닉이나 시술 예약도 도와주시나요?</span>
-          <span class="faq-q lang-en">Do you also help book the clinic or procedure itself?</span>
+          <span class="faq-q lang-en">Do you also help book the clinic or procedure itself?</span><span class="faq-q lang-zh">你们也帮忙预约诊所或疗程吗？</span><span class="faq-q lang-ru">Вы помогаете записаться в клинику или на процедуру?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">아니요, 저희는 시술 이후의 회복과 웰니스 여정만 큐레이션합니다. 클리닉과 시술 예약은 직접 진행해주세요.</div>
-          <div class="faq-a lang-en">No, we curate your recovery and wellness journey after your treatment. Clinic or procedure bookings should be arranged directly.</div>
+          <div class="faq-a lang-en">No, we curate your recovery and wellness journey after your treatment. Clinic or procedure bookings should be arranged directly.</div><div class="faq-a lang-zh">不，我们只策划疗程之后的恢复与健康行程。诊所或疗程预约请您直接安排。</div><div class="faq-a lang-ru">Нет, мы планируем только восстановление и велнес после процедуры. Запись в клинику или на процедуру вы оформляете напрямую.</div>
         </div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">결제는 언제, 어떻게 하나요?</span>
-          <span class="faq-q lang-en">When and how do I pay?</span>
+          <span class="faq-q lang-en">When and how do I pay?</span><span class="faq-q lang-zh">何时以及如何付款？</span><span class="faq-q lang-ru">Когда и как оплачивать?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">문의 후 맞춤 견적을 확인하시면, 결제 방법을 안내드립니다.</div>
-          <div class="faq-a lang-en">After we confirm your tailored quote, we'll guide you through the payment process.</div>
+          <div class="faq-a lang-en">After we confirm your tailored quote, we'll guide you through the payment process.</div><div class="faq-a lang-zh">确认您的专属报价后，我们会为您说明付款方式。</div><div class="faq-a lang-ru">После подтверждения индивидуального предложения мы расскажем, как произвести оплату.</div>
         </div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">일정 변경이나 취소가 가능한가요?</span>
-          <span class="faq-q lang-en">Can I reschedule or cancel?</span>
+          <span class="faq-q lang-en">Can I reschedule or cancel?</span><span class="faq-q lang-zh">可以改期或取消吗？</span><span class="faq-q lang-ru">Можно ли перенести или отменить?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">이용일 기준 3일 전까지는 일정 변경이 무료입니다. 취소는 7일 이전 전액 환불, 3~6일 전 50% 환불(이미 확정된 다이닝 예약 제외), 3일 이내는 환불이 어렵습니다.</div>
-          <div class="faq-a lang-en">Rescheduling is free up to 3 days before your visit. Cancellations made 7+ days before receive a full refund, 3–6 days before receive a 50% refund (excluding already-confirmed dining reservations), and cancellations within 3 days are non-refundable.</div>
+          <div class="faq-a lang-en">Rescheduling is free up to 3 days before your visit. Cancellations made 7+ days before receive a full refund, 3–6 days before receive a 50% refund (excluding already-confirmed dining reservations), and cancellations within 3 days are non-refundable.</div><div class="faq-a lang-zh">到访前3天之前可免费改期。提前7天以上取消可全额退款；提前3–6天取消退款50%（已确认的餐厅预订除外）；3天内取消不予退款。</div><div class="faq-a lang-ru">Перенос бесплатен не позднее чем за 3 дня до визита. При отмене за 7 и более дней — полный возврат, за 3–6 дней — возврат 50% (кроме уже подтверждённых бронирований ресторанов), при отмене менее чем за 3 дня возврат не производится.</div>
         </div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">한국어를 못해도 괜찮은가요?</span>
-          <span class="faq-q lang-en">Do I need to speak Korean?</span>
+          <span class="faq-q lang-en">Do I need to speak Korean?</span><span class="faq-q lang-zh">需要会说韩语吗？</span><span class="faq-q lang-ru">Нужно ли знать корейский?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">아니요, 전 과정 영어로 편안하게 안내드립니다.</div>
-          <div class="faq-a lang-en">Not at all -- the entire journey is guided comfortably in English.</div>
+          <div class="faq-a lang-en">Not at all -- the entire journey is guided comfortably in English.</div><div class="faq-a lang-zh">完全不需要——整个行程都以英语为您贴心引导。</div><div class="faq-a lang-ru">Совсем нет — всё путешествие сопровождается на английском языке.</div>
         </div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">혼자 방문해도 괜찮은가요?</span>
-          <span class="faq-q lang-en">Can I visit alone?</span>
+          <span class="faq-q lang-en">Can I visit alone?</span><span class="faq-q lang-zh">一个人来可以吗？</span><span class="faq-q lang-ru">Можно ли приехать в одиночку?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">네, 혼자 방문하시는 분들도 많습니다. 편안한 1인 여정으로 설계해드립니다.</div>
-          <div class="faq-a lang-en">Yes, many guests visit solo, and we're happy to design a comfortable journey just for one.</div>
+          <div class="faq-a lang-en">Yes, many guests visit solo, and we're happy to design a comfortable journey just for one.</div><div class="faq-a lang-zh">当然可以，很多客人都是独自前来，我们很乐意为您设计舒适的一人行程。</div><div class="faq-a lang-ru">Да, многие гости приезжают одни, и мы с радостью составим комфортный маршрут для одного человека.</div>
         </div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">맞춤 제안은 얼마나 걸리나요?</span>
-          <span class="faq-q lang-en">How long until I get a proposal?</span>
+          <span class="faq-q lang-en">How long until I get a proposal?</span><span class="faq-q lang-zh">多久能收到方案？</span><span class="faq-q lang-ru">Когда я получу предложение?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
           <div class="faq-a lang-kr">문의 접수 후 48시간 내에 맞춤 제안을 보내드립니다.</div>
-          <div class="faq-a lang-en">We'll send your tailored proposal within 48 hours of your inquiry.</div>
+          <div class="faq-a lang-en">We'll send your tailored proposal within 48 hours of your inquiry.</div><div class="faq-a lang-zh">我们会在收到您的咨询后48小时内发送专属方案。</div><div class="faq-a lang-ru">Мы отправим индивидуальное предложение в течение 48 часов после вашего запроса.</div>
         </div>
       </div>
     </div>
 
     <div class="faq-cta">
       <p class="lang-kr">다른 궁금한 점이 있으신가요? 직접 문의해주세요.</p>
-      <p class="lang-en">Have a different question? Reach out directly — we're happy to help.</p>
-      <a href="/#contact" class="btn-primary"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span></a>
+      <p class="lang-en">Have a different question? Reach out directly — we're happy to help.</p><p class="lang-zh">还有其他问题吗？欢迎直接联系我们。</p><p class="lang-ru">Остались вопросы? Напишите нам напрямую — мы с радостью поможем.</p>
+      <a href="/#contact" class="btn-primary"><span class="lang-kr">여정 문의하기</span><span class="lang-en">Get in Touch</span><span class="lang-zh">联系我们</span><span class="lang-ru">Связаться</span></a>
     </div>
   </div>
 </main>
 
 <script>
+  var LANGS=['kr','en','zh','ru'];
   function setLang(lang){
-    var isEn = lang === 'en';
-    document.documentElement.classList.toggle('lang-en', isEn);
-    document.getElementById('btnKr').classList.toggle('active', !isEn);
-    document.getElementById('btnEn').classList.toggle('active', isEn);
+    if(LANGS.indexOf(lang)<0) lang='en';
+    var html=document.documentElement;
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', {kr:'ko',en:'en',zh:'zh',ru:'ru'}[lang]);
+    document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang')===lang); });
     try{ localStorage.setItem('sc_lang', lang); }catch(e){}
   }
-  document.getElementById('btnKr').addEventListener('click', function(){ setLang('kr'); });
-  document.getElementById('btnEn').addEventListener('click', function(){ setLang('en'); });
-  try{
-    var saved = localStorage.getItem('sc_lang');
-    if(saved === 'kr' || saved === 'en'){ setLang(saved); }
-  }catch(e){}
+  document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); }); });
+  (function(){
+    var q=null; try{ q=new URLSearchParams(location.search).get('lang'); }catch(e){}
+    var saved=null; try{ saved=localStorage.getItem('sc_lang'); }catch(e){}
+    setLang(q||saved||'en');
+  })();
 
   document.querySelectorAll('.faq-q-btn').forEach(function(btn){
     btn.addEventListener('click', function(){

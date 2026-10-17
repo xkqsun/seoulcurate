@@ -3198,6 +3198,7 @@ expZh:'在汉江边度过一段悠闲时光，无论是漫步还是静坐，节�
 
   function setLang(lang){
     document.documentElement.setAttribute('data-lang', lang);
+    try{ localStorage.setItem('sc_lang', lang); }catch(e){}
     document.documentElement.classList.toggle('lang-en', lang === 'en');
     const langMeta = {kr:'ko', en:'en', zh:'zh', ru:'ru'};
     document.documentElement.setAttribute('lang', langMeta[lang] || 'ko');

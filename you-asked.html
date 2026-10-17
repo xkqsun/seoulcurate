@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="lang-en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,8 +38,11 @@
     --ease: cubic-bezier(.22,.61,.36,1);
   }
   *{box-sizing:border-box; margin:0; padding:0;}
-  html.lang-en .lang-kr{display:none !important;}
-  html:not(.lang-en) .lang-en{display:none !important;}
+  html:not([data-lang="kr"]) .lang-kr{display:none !important;}
+  html:not([data-lang="en"]) .lang-en{display:none !important;}
+  html:not([data-lang="zh"]) .lang-zh{display:none !important;}
+  html:not([data-lang="ru"]) .lang-ru{display:none !important;}
+  html[data-lang="ru"] h1, html[data-lang="ru"] .faq-q{font-family:Georgia,'Times New Roman',serif !important;}
   body{
     font-family:'Jost', sans-serif;
     font-weight:300;
@@ -95,7 +98,9 @@
   }
   .faq-item.open .faq-icon{transform:rotate(45deg);}
   .faq-a-wrap{max-height:0; overflow:hidden; transition:max-height 0.4s var(--ease);}
-  .faq-item.open .faq-a-wrap{max-height:400px;}
+  .faq-item.open .faq-a-wrap{max-height:1200px;}
+  .faq-a ul{margin:10px 0 12px; padding-left:18px;}
+  .faq-a li{margin:4px 0;}
   .faq-a{font-size:14.5px; line-height:1.6; color:#4c4e3a; padding-bottom:22px; max-width:660px;}
   .faq-cta{margin-top:52px; padding-top:40px; border-top:1px solid var(--line-dark); text-align:center;}
   .faq-cta p{font-size:14px; color:#4a4d38; margin-bottom:18px;}
@@ -123,9 +128,13 @@
   <div class="header-inner">
     <a href="/" class="logo">Seoul Curate</a>
     <div class="lang-switch">
-      <button type="button" data-lang="kr" id="btnKr">KOR</button>
+      <button type="button" data-lang="kr">KOR</button>
       <span class="divider">/</span>
-      <button type="button" data-lang="en" id="btnEn" class="active">ENG</button>
+      <button type="button" data-lang="en" class="active">ENG</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="zh">中文</button>
+      <span class="divider">/</span>
+      <button type="button" data-lang="ru">RU</button>
     </div>
   </div>
 </header>
@@ -133,88 +142,88 @@
 <main>
   <div class="container">
     <a href="/" class="back-link">
-      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span>
+      <span class="lang-kr">← 홈으로 돌아가기</span><span class="lang-en">← Back to Home</span><span class="lang-zh">← 返回首页</span><span class="lang-ru">← На главную</span>
     </a>
 
-    <div class="eyebrow"><span class="lang-kr">You Asked · 시술 후 회복 질문</span><span class="lang-en">You Asked · After-treatment questions</span></div>
+    <div class="eyebrow"><span class="lang-kr">You Asked · 시술 후 회복 질문</span><span class="lang-en">You Asked · After-treatment questions</span><span class="lang-zh">You Asked · 术后恢复问答</span><span class="lang-ru">You Asked · Вопросы после процедур</span></div>
     <h1 class="lang-kr">시술 후,<br>다들 이게 궁금했어요</h1>
-    <h1 class="lang-en">The questions<br>after your treatment</h1>
+    <h1 class="lang-en">The questions<br>after your treatment</h1><h1 class="lang-zh">疗程之后，<br>大家都在问</h1><h1 class="lang-ru">Вопросы<br>после процедуры</h1>
     <p class="lead lang-kr">시술을 받아 본 사람이 쓰는 회복 가이드예요. 사람들이 실제로 검색하는 질문에, 일반적으로 안내받는 내용과 그 기간을 서울에서 어떻게 보내는지를 함께 답합니다.</p>
-    <p class="lead lang-en">A recovery guide from someone who's had it done. Real questions people search for, answered with what clinics commonly advise and how I'd spend those days in Seoul.</p>
+    <p class="lead lang-en">A recovery guide from someone who's had it done. Real questions people search for, answered with what clinics commonly advise and how I'd spend those days in Seoul.</p><p class="lead lang-zh">这是一份由亲身经历过的人写的恢复指南。针对大家真实搜索的问题，结合诊所通常给出的建议，以及我会如何在首尔度过那几天来回答。</p><p class="lead lang-ru">Гид по восстановлению от человека, который сам прошёл через это. Реальные вопросы, которые ищут люди, — с тем, что обычно советуют клиники, и с тем, как я провела бы эти дни в Сеуле.</p>
     <p class="ya-note lang-kr">일반적인 정보이며 의료 조언이 아닙니다. 항상 시술받은 병원의 안내를 먼저 따라 주세요. Seoul Curate는 의료기관이 아닙니다.</p>
-    <p class="ya-note lang-en">General information, not medical advice. Your clinic's aftercare instructions always come first. Seoul Curate is not a medical provider.</p>
+    <p class="ya-note lang-en">General information, not medical advice. Your clinic's aftercare instructions always come first. Seoul Curate is not a medical provider.</p><p class="ya-note lang-zh">以下为一般信息，并非医疗建议。请始终优先遵循您就诊诊所的术后护理指导。Seoul Curate 不是医疗机构。</p><p class="ya-note lang-ru">Это общая информация, а не медицинская консультация. Рекомендации вашей клиники всегда в приоритете. Seoul Curate не является медицинским учреждением.</p>
 
     <div class="faq-list">
 
       <div class="faq-item" id="outside-after-laser">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">레이저 시술 후에 밖에 나가도 되나요?</span>
-          <span class="faq-q lang-en">Can I go outside after laser treatment?</span>
+          <span class="faq-q lang-en">Can I go outside after laser treatment?</span><span class="faq-q lang-zh">激光治疗后可以出门吗？</span><span class="faq-q lang-ru">Можно ли выходить на улицу после лазерной процедуры?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">네, 시간만 바꾸면 돼요. 시술 후 며칠은 직사광선을 피하고, 창가 실내에서도 선크림을 바르라고 안내받는 경우가 많아요. 그래서 낮에는 창 안쪽에 있는 곳으로 일정을 짜요. 서점, 오래 머무는 카페, 조용한 갤러리 한 층처럼요. 해가 지면 서울은 다시 열려요. 저녁 산책, 강변 풍경, 편안한 저녁 식사요.</div>
-          <div class="faq-a lang-en">Yes. Just change the hours. Clinics commonly ask you to avoid direct sun for the first days, and to wear sunscreen even indoors by a window. So by day, I plan places on the inside of the window: a bookstore, a long coffee, a quiet gallery floor. After sunset, Seoul opens up again: an evening walk, a river view, a calm dinner.</div>
+          <div class="faq-a lang-kr">네, 나가도 돼요. 시간과 준비만 바꾸면 돼요. 레이저 후 피부는 자외선에 예민해져 색소침착이 생기기 쉬워서, 병원에서는 흔히 이렇게 안내해요.<ul><li>외출할 땐 선크림을 꼼꼼히, 자주 덧바르기 (창가 실내에서도)</li><li>모자나 양산 같이 쓰기</li><li>한낮 햇빛 아래 오래 머무는 일정은 피하기</li></ul>그래서 낮에는 창 안쪽에 있는 곳으로 일정을 짜요. 서점, 오래 머무는 카페, 조용한 갤러리 한 층처럼요. 해가 지면 서울은 다시 열려요. 저녁 산책, 강변 풍경, 편안한 저녁 식사요.</div>
+          <div class="faq-a lang-en">Yes. Just change the hours and the prep. After laser, skin is more sensitive to UV and pigmentation can appear more easily, so clinics commonly advise:<ul><li>Sunscreen before going out, reapplied often (even indoors by a window)</li><li>A hat or a parasol on top of it</li><li>No long stretches in midday sun</li></ul>So by day, I plan places on the inside of the window: a bookstore, a long coffee, a quiet gallery floor. After sunset, Seoul opens up again: an evening walk, a river view, a calm dinner.</div><div class="faq-a lang-zh">可以，只要调整时间和准备。激光后皮肤对紫外线更敏感，更容易出现色素沉着，所以诊所通常会建议：<ul><li>出门前仔细涂防晒，并经常补涂（室内靠窗也要）</li><li>再加上帽子或遮阳伞</li><li>避免长时间待在正午的阳光下</li></ul>所以白天我会把行程安排在窗户里面的地方：书店、可以久坐的咖啡馆、安静的美术馆一层。日落之后，首尔又重新敞开：傍晚散步、江边风景、一顿安稳的晚餐。</div><div class="faq-a lang-ru">Да. Нужно лишь сменить время и подготовиться. После лазера кожа чувствительнее к ультрафиолету и легче появляется пигментация, поэтому клиники обычно советуют:<ul><li>Наносить солнцезащитный крем перед выходом и часто обновлять (даже в помещении у окна)</li><li>Дополнительно носить шляпу или зонт от солнца</li><li>Не проводить много времени под полуденным солнцем</li></ul>Поэтому днём я планирую места по эту сторону окна: книжный магазин, долгий кофе, тихий этаж галереи. После заката Сеул снова открывается: вечерняя прогулка, вид на реку, спокойный ужин.</div>
         </div>
       </div>
 
       <div class="faq-item" id="avoid-after-laser">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">레이저 시술 후 얼굴에 피해야 할 건 뭔가요?</span>
-          <span class="faq-q lang-en">What should I avoid after laser treatment on my face?</span>
+          <span class="faq-q lang-en">What should I avoid after laser treatment on my face?</span><span class="faq-q lang-zh">面部激光治疗后应该避免什么？</span><span class="faq-q lang-ru">Чего следует избегать после лазерной процедуры на лице?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">처음 며칠 동안 흔히 피하라고 안내받는 건 직사광선, 열(사우나, 뜨거운 목욕), 땀을 많이 흘리는 운동, 음주, 각질 제거나 자극적인 화장품이에요. 서울에서는 찜질방과 스파 사우나를 며칠 미뤄야 한다는 뜻이라, 그 자리에 편안한 라운지나 천천히 먹는 식사를 넣어요.</div>
-          <div class="faq-a lang-en">In the first days, clinics commonly ask you to avoid direct sun, heat (saunas, hot baths), heavy sweating, alcohol, and scrubs or harsh actives. In Seoul, that means saving the jjimjilbang and spa saunas for later. I swap them for a comfortable lounge or a slow meal.</div>
+          <div class="faq-a lang-kr">시술 후 일주일 정도는 피부가 회복 중이라, 흔히 이런 걸 피하라고 안내받아요.<ul><li>열: 사우나, 찜질방, 뜨거운 목욕, 땀이 많이 나는 운동</li><li>자극: 레티놀, 비타민C, AHA·BHA 같은 기능성 성분, 스크럽과 각질 제거</li><li>마찰: 세안할 땐 문지르지 말고 거품으로 가볍게. 딱지는 억지로 떼지 않기</li><li>음주와 흡연</li></ul>서울에서는 찜질방과 스파 사우나를 다음으로 미뤄야 한다는 뜻이라, 그 자리에 편안한 라운지나 천천히 먹는 식사를 넣어요.</div>
+          <div class="faq-a lang-en">For about the first week your skin is still healing, so clinics commonly ask you to avoid:<ul><li>Heat: saunas, hot baths, workouts that make you sweat</li><li>Actives: retinol, vitamin C, AHA/BHA, scrubs and exfoliants</li><li>Friction: wash gently with foam, no rubbing, and never pick at scabs</li><li>Alcohol and smoking</li></ul>In Seoul, that means saving the jjimjilbang and spa saunas for later. I swap them for a comfortable lounge or a slow meal.</div><div class="faq-a lang-zh">术后大约一周内皮肤仍在恢复，诊所通常会建议避免：<ul><li>热：桑拿、汗蒸房、热水泡澡、大量出汗的运动</li><li>刺激：视黄醇、维生素C、AHA/BHA等功效成分，磨砂和去角质</li><li>摩擦：洗脸时用泡沫轻柔清洗，不要揉搓，结痂不要强行撕掉</li><li>饮酒和吸烟</li></ul>在首尔，这意味着汗蒸房和水疗桑拿要留到以后。我会换成舒适的休息空间，或一顿慢慢吃的饭。</div><div class="faq-a lang-ru">Примерно первую неделю кожа ещё восстанавливается, поэтому клиники обычно просят избегать:<ul><li>Тепла: сауны, горячих ванн, тренировок до пота</li><li>Активов: ретинола, витамина C, AHA/BHA, скрабов и пилингов</li><li>Трения: умываться мягко пеной, не тереть и не срывать корочки</li><li>Алкоголя и курения</li></ul>В Сеуле это значит отложить чимчильбан и спа-сауны на потом. Вместо них я планирую комфортный лаунж или неспешную еду.</div>
         </div>
       </div>
 
       <div class="faq-item" id="makeup-after-laser">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">레이저 시술 후 화장해도 되나요?</span>
-          <span class="faq-q lang-en">Can I wear makeup after laser treatment?</span>
+          <span class="faq-q lang-en">Can I wear makeup after laser treatment?</span><span class="faq-q lang-zh">激光治疗后可以化妆吗？</span><span class="faq-q lang-ru">Можно ли краситься после лазерной процедуры?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">시술마다 달라요. 다음 날부터 괜찮다는 곳도 있고, 피부가 가라앉을 때까지 기다리라는 곳도 있어요. 정확한 시점은 병원에 꼭 물어보세요. 그동안은 맨얼굴이어도 시선이 신경 쓰이지 않는 곳으로 골라요. 개별 공간, 조용한 카페, 조명이 부드러운 곳이요.</div>
-          <div class="faq-a lang-en">It depends on the treatment. Some clinics say the next day is fine; others ask you to wait until your skin settles. Ask your clinic for your exact timing. Until then, I choose places where you won't feel watched without makeup: private rooms, quiet cafés, soft lighting.</div>
+          <div class="faq-a lang-kr">시술 종류에 따라 달라요. 일반적으로는 이렇게 안내받는 경우가 많아요.<ul><li>토닝처럼 겉에 상처가 없는 시술: 당일이나 다음 날부터 가벼운 화장이 가능한 경우가 많아요. 붉고 화끈거리면 하루는 쉬기</li><li>프락셀처럼 딱지가 생기는 시술: 최소 1~2일은 화장을 쉬고, 이후에도 순한 제품으로 가볍게</li><li>지울 때도 문지르지 말고 순하게</li></ul>정확한 시점은 병원에 꼭 물어보세요. 그동안은 맨얼굴이어도 시선이 신경 쓰이지 않는 곳으로 골라요. 개별 공간, 조용한 카페, 조명이 부드러운 곳이요.</div>
+          <div class="faq-a lang-en">It depends on the treatment. Common guidance looks like this:<ul><li>Treatments with no visible wound (like toning): light makeup is often fine the same or next day. If skin is red or hot, give it a day</li><li>Treatments that leave scabs (like fractional laser): skip makeup for at least 1–2 days, then keep it light and gentle</li><li>Take it off gently too, no rubbing</li></ul>Ask your clinic for your exact timing. Until then, I choose places where you won't feel watched without makeup: private rooms, quiet cafés, soft lighting.</div><div class="faq-a lang-zh">取决于治疗项目。常见的建议是：<ul><li>表面没有伤口的治疗（如激光嫩肤）：通常当天或第二天可以化淡妆。如果泛红发烫，就休息一天</li><li>会结痂的治疗（如点阵激光）：至少1～2天不化妆，之后也只用温和产品轻轻上妆</li><li>卸妆时也要温和，不要揉搓</li></ul>具体时间请务必询问诊所。在那之前，我会选择素颜也不用在意别人目光的地方：独立空间、安静的咖啡馆、灯光柔和的地方。</div><div class="faq-a lang-ru">Зависит от процедуры. Обычно советуют так:<ul><li>Процедуры без видимых повреждений (например, тонинг): лёгкий макияж часто можно в тот же или на следующий день. Если кожа красная и горячая, подождите день</li><li>Процедуры с корочками (например, фракционный лазер): без макияжа минимум 1–2 дня, затем легко и только мягкими средствами</li><li>Снимать макияж тоже бережно, не растирая</li></ul>Точные сроки уточните в клинике. А пока я выбираю места, где без макияжа не чувствуешь чужих взглядов: отдельные комнаты, тихие кафе, мягкий свет.</div>
         </div>
       </div>
 
       <div class="faq-item" id="after-filler-botox">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">필러나 보톡스 후에 하면 안 되는 건 뭔가요?</span>
-          <span class="faq-q lang-en">What shouldn't I do after fillers or Botox?</span>
+          <span class="faq-q lang-en">What shouldn't I do after fillers or Botox?</span><span class="faq-q lang-zh">填充或肉毒素之后不能做什么？</span><span class="faq-q lang-ru">Чего нельзя делать после филлеров или ботокса?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">흔히 시술 부위를 누르거나 마사지하지 말고, 보톡스 후 몇 시간은 눕지 말고, 하루이틀은 열·음주·격한 운동을 피하라고 안내받아요. 그래서 첫날은 일부러 천천히 짜요. 앉아서 먹는 점심, 짧은 산책, 일찍 쉬는 저녁이요. 정확한 기준은 병원 안내를 따라 주세요.</div>
-          <div class="faq-a lang-en">Commonly: don't press or massage the area, don't lie flat for a few hours after Botox, and skip heat, alcohol and hard workouts for a day or two. So the first day is slow on purpose: a seated lunch, a short walk, an early night. Your clinic sets the exact rules.</div>
+          <div class="faq-a lang-kr">흔히 이렇게 안내받아요.<ul><li>시술 부위를 누르거나 문지르지 않기. 마사지와 경락은 2주 정도 미루기</li><li>보톡스 후 몇 시간은 눕지 않기</li><li>며칠에서 일주일 정도는 사우나, 찜질방, 음주, 격한 운동 피하기. 붓기와 멍이 심해질 수 있어요</li><li>시술 후 바로 비행기를 타야 한다면, 탑승 시점을 병원과 먼저 상의하기</li></ul>그래서 첫날은 일부러 천천히 짜요. 앉아서 먹는 점심, 짧은 산책, 일찍 쉬는 저녁이요. 정확한 기준은 병원 안내를 따라 주세요.</div>
+          <div class="faq-a lang-en">Common guidance:<ul><li>Don't press or rub the area. Save massages and facials for about two weeks</li><li>Don't lie flat for a few hours after Botox</li><li>Skip saunas, alcohol and hard workouts for several days to a week, as they can make swelling and bruising worse</li><li>If you're flying soon after, check the timing with your clinic first</li></ul>So the first day is slow on purpose: a seated lunch, a short walk, an early night. Your clinic sets the exact rules.</div><div class="faq-a lang-zh">常见的建议是：<ul><li>不要按压或揉搓治疗部位。按摩和面部护理推迟约两周</li><li>肉毒素注射后几个小时内不要平躺</li><li>几天到一周内避免桑拿、饮酒和剧烈运动，否则可能加重肿胀和淤青</li><li>如果术后很快要坐飞机，请先和诊所确认时间</li></ul>所以第一天我会特意安排得慢一些：坐下来吃的午餐、短暂的散步、早点休息的晚上。具体标准请以诊所的说明为准。</div><div class="faq-a lang-ru">Обычные рекомендации:<ul><li>Не нажимать и не тереть зону. Массаж и уходовые процедуры отложить примерно на две недели</li><li>Несколько часов после ботокса не ложиться</li><li>От нескольких дней до недели избегать сауны, алкоголя и интенсивных тренировок: они могут усилить отёк и синяки</li><li>Если вскоре после процедуры перелёт, заранее согласуйте время с клиникой</li></ul>Поэтому первый день я специально делаю медленным: обед сидя, короткая прогулка, ранний вечер. Точные правила устанавливает ваша клиника.</div>
         </div>
       </div>
 
       <div class="faq-item" id="how-long-recovery">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">회복은 며칠이나 걸리나요?</span>
-          <span class="faq-q lang-en">How long does recovery take?</span>
+          <span class="faq-q lang-en">How long does recovery take?</span><span class="faq-q lang-zh">恢复需要多久？</span><span class="faq-q lang-ru">Сколько длится восстановление?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">시술마다 달라서, 저는 시술 이름이 아니라 다운타임으로 일정을 짜요. 당일~1일, 2~4일, 1주일 이상, 이렇게 세 단계예요. 내 시술이 어디에 해당하는지는 병원에서 알려줘요. 단계별 구성은 <a href="/#options">여기</a>에서 볼 수 있어요.</div>
-          <div class="faq-a lang-en">It depends on the treatment, so I plan by downtime, not by treatment name: same day to 1 day, 2–4 days, or a week or more. Your clinic will tell you which one you're in. See how each is planned <a href="/#options">here</a>.</div>
+          <div class="faq-a lang-kr">시술마다 달라서, 저는 시술 이름이 아니라 다운타임으로 일정을 짜요. 당일~1일, 2~4일, 1주일 이상, 이렇게 세 단계예요. 내 시술이 어디에 해당하는지는 병원에서 알려줘요. 회복은 보통 이렇게 흘러가요.<ul><li>처음 1~2일: 붉은기, 화끈거림, 붓기가 가장 큰 시기. 보습과 자외선 차단에 집중</li><li>3~7일: 각질이나 작은 딱지가 생겼다 떨어지는 시기. 가려워도 떼지 말고 보습</li><li>1~2주: 겉은 다 나은 것 같아도 안쪽은 아직 회복 중. 기능성 화장품은 병원 안내에 맞춰 천천히</li></ul>단계별 구성은 <a href="/#options">여기</a>에서 볼 수 있어요.</div>
+          <div class="faq-a lang-en">It depends on the treatment, so I plan by downtime, not by treatment name: same day to 1 day, 2–4 days, or a week or more. Your clinic will tell you which one you're in. Recovery usually moves like this:<ul><li>Days 1–2: redness, heat and swelling peak. Focus on moisture and sun protection</li><li>Days 3–7: flaking or small scabs form and fall off. Itchy, but don't pick. Keep moisturizing</li><li>Weeks 1–2: it looks healed, but skin is still recovering underneath. Bring actives back slowly, as your clinic advises</li></ul>See how each is planned <a href="/#options">here</a>.</div><div class="faq-a lang-zh">因治疗项目而异，所以我不是按治疗名称，而是按恢复期来安排：当天至1天、2～4天、一周以上，共三个阶段。你属于哪一个，诊所会告诉你。恢复通常是这样的：<ul><li>第1～2天：泛红、发热、肿胀最明显的时期。专注保湿和防晒</li><li>第3～7天：出现脱皮或小结痂并脱落的时期。即使发痒也不要抠，继续保湿</li><li>第1～2周：表面看起来已经好了，但内部仍在恢复。功效型护肤品请按诊所建议慢慢恢复使用</li></ul>每个阶段的安排可以在<a href="/#options">这里</a>查看。</div><div class="faq-a lang-ru">Зависит от процедуры, поэтому я планирую по периоду восстановления, а не по названию процедуры: от того же дня до 1 дня, 2–4 дня или неделя и больше. Какой у вас вариант, скажет клиника. Обычно восстановление идёт так:<ul><li>Дни 1–2: пик покраснения, жжения и отёка. Главное: увлажнение и защита от солнца</li><li>Дни 3–7: шелушение или мелкие корочки появляются и отходят. Даже если чешется, не трогайте, продолжайте увлажнять</li><li>Недели 1–2: снаружи всё зажило, но кожа ещё восстанавливается внутри. Активы возвращайте постепенно, по совету клиники</li></ul>Как планируется каждый вариант, можно посмотреть <a href="/#options">здесь</a>.</div>
         </div>
       </div>
 
       <div class="faq-item" id="what-to-eat">
         <button type="button" class="faq-q-btn" aria-expanded="false">
           <span class="faq-q lang-kr">피부가 회복 중일 때는 뭘 먹는 게 좋아요?</span>
-          <span class="faq-q lang-en">What should I eat while my skin is healing?</span>
+          <span class="faq-q lang-en">What should I eat while my skin is healing?</span><span class="faq-q lang-zh">皮肤恢复期间吃什么比较好？</span><span class="faq-q lang-ru">Что лучше есть, пока кожа восстанавливается?</span>
           <span class="faq-icon">+</span>
         </button>
         <div class="faq-a-wrap">
-          <div class="faq-a lang-kr">술, 너무 짜거나 매운 음식은 붓기를 키울 수 있어서 줄이라는 안내를 많이 받아요. 서울은 부드러운 음식이 정말 많아요. 죽, 맑은 국, 생선구이, 사찰 음식 같은 것들이요. 회복 기간의 식사는 이런 곳 위주로 골라요.</div>
-          <div class="faq-a lang-en">Many people are told to go easy on alcohol and very salty or spicy food, which can make swelling worse. Seoul is very good at gentle food: rice porridge (juk), clear soups, grilled fish, temple-style vegetables. That's how I plan meals during recovery.</div>
+          <div class="faq-a lang-kr">술, 너무 짜거나 매운 음식은 붓기를 키울 수 있어서 줄이라는 안내를 많이 받아요. 대신 피부 회복에 도움이 되는 걸로 채워요.<ul><li>단백질: 달걀, 두부, 닭고기, 생선</li><li>비타민C가 많은 과일과 채소: 딸기, 키위, 브로콜리</li><li>오메가3: 연어, 고등어, 호두</li><li>물은 자주</li></ul>서울은 이런 음식을 부드럽게 먹기 좋은 도시예요. 죽, 맑은 국, 생선구이, 두부 요리, 사찰 음식. 회복 기간의 식사는 이런 곳 위주로 골라요.</div>
+          <div class="faq-a lang-en">Many people are told to go easy on alcohol and very salty or spicy food, which can make swelling worse. Instead, fill up on what helps skin repair:<ul><li>Protein: eggs, tofu, chicken, fish</li><li>Vitamin C–rich fruit and vegetables: strawberries, kiwi, broccoli</li><li>Omega-3: salmon, mackerel, walnuts</li><li>Plenty of water</li></ul>Seoul is very good at gentle food like this: rice porridge (juk), clear soups, grilled fish, tofu dishes, temple-style vegetables. That's how I plan meals during recovery.</div><div class="faq-a lang-zh">很多人会被建议少喝酒，少吃太咸或太辣的食物，因为可能加重肿胀。取而代之，多吃有助于皮肤修复的食物：<ul><li>蛋白质：鸡蛋、豆腐、鸡肉、鱼</li><li>富含维生素C的水果和蔬菜：草莓、猕猴桃、西兰花</li><li>Omega-3：三文鱼、青花鱼、核桃</li><li>多喝水</li></ul>首尔很擅长这类温和的食物：粥、清汤、烤鱼、豆腐料理、寺庙素食。恢复期的饮食，我主要按这些来安排。</div><div class="faq-a lang-ru">Многим советуют ограничить алкоголь и слишком солёную или острую еду: она может усилить отёк. Вместо этого лучше то, что помогает коже восстанавливаться:<ul><li>Белок: яйца, тофу, курица, рыба</li><li>Фрукты и овощи с витамином C: клубника, киви, брокколи</li><li>Омега-3: лосось, скумбрия, грецкие орехи</li><li>Больше воды</li></ul>Сеул прекрасно умеет такую мягкую еду: рисовая каша (чук), прозрачные супы, рыба на гриле, блюда из тофу, храмовая овощная кухня. Так я и планирую питание в период восстановления.</div>
         </div>
       </div>
 
@@ -222,28 +231,30 @@
 
     <div class="faq-cta">
       <p class="lang-kr">회복 일정이 궁금하신가요? 서울 일정을 알려주시면 나머지는 제가 짤게요.</p>
-      <p class="lang-en">Planning your recovery days in Seoul? Share your dates. I'll plan the rest.</p>
-      <a href="/#contact" class="btn-primary"><span class="lang-kr">서울 일정 알려주기</span><span class="lang-en">Share Your Seoul Dates</span></a>
+      <p class="lang-en">Planning your recovery days in Seoul? Share your dates. I'll plan the rest.</p><p class="lang-zh">正在计划在首尔的恢复期吗？告诉我您的日期，其余的交给我。</p><p class="lang-ru">Планируете дни восстановления в Сеуле? Сообщите даты — остальное я спланирую сама.</p>
+      <a href="/#contact" class="btn-primary"><span class="lang-kr">서울 일정 알려주기</span><span class="lang-en">Share Your Seoul Dates</span><span class="lang-zh">告诉我您的首尔日期</span><span class="lang-ru">Поделитесь датами в Сеуле</span></a>
       <p class="ya-more lang-kr">예약·결제·취소 같은 서비스 질문은 <a href="/faq.html">FAQ</a>에 있어요.</p>
-      <p class="ya-more lang-en">Questions about booking, payment or cancellation? See the <a href="/faq.html">FAQ</a>.</p>
+      <p class="ya-more lang-en">Questions about booking, payment or cancellation? See the <a href="/faq.html">FAQ</a>.</p><p class="ya-more lang-zh">关于预约、付款或取消的问题，请查看<a href="/faq.html">常见问题</a>。</p><p class="ya-more lang-ru">Вопросы о бронировании, оплате или отмене? Смотрите <a href="/faq.html">FAQ</a>.</p>
     </div>
   </div>
 </main>
 
 <script>
+  var LANGS=['kr','en','zh','ru'];
   function setLang(lang){
-    var isEn = lang === 'en';
-    document.documentElement.classList.toggle('lang-en', isEn);
-    document.getElementById('btnKr').classList.toggle('active', !isEn);
-    document.getElementById('btnEn').classList.toggle('active', isEn);
+    if(LANGS.indexOf(lang)<0) lang='en';
+    var html=document.documentElement;
+    html.setAttribute('data-lang', lang);
+    html.setAttribute('lang', {kr:'ko',en:'en',zh:'zh',ru:'ru'}[lang]);
+    document.querySelectorAll('.lang-switch button').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-lang')===lang); });
     try{ localStorage.setItem('sc_lang', lang); }catch(e){}
   }
-  document.getElementById('btnKr').addEventListener('click', function(){ setLang('kr'); });
-  document.getElementById('btnEn').addEventListener('click', function(){ setLang('en'); });
-  try{
-    var saved = localStorage.getItem('sc_lang');
-    if(saved === 'kr' || saved === 'en'){ setLang(saved); }
-  }catch(e){}
+  document.querySelectorAll('.lang-switch button').forEach(function(b){ b.addEventListener('click', function(){ setLang(b.getAttribute('data-lang')); }); });
+  (function(){
+    var q=null; try{ q=new URLSearchParams(location.search).get('lang'); }catch(e){}
+    var saved=null; try{ saved=localStorage.getItem('sc_lang'); }catch(e){}
+    setLang(q||saved||'en');
+  })();
 
   document.querySelectorAll('.faq-q-btn').forEach(function(btn){
     btn.addEventListener('click', function(){

@@ -702,6 +702,9 @@
   .at-group-card .at-grid{margin-bottom:26px;}
   .at-group-recovery{background:rgba(58,61,43,0.05);}
   .at-group-culture{background:rgba(178,138,86,0.07);}
+  .at-group-after{background:rgba(58,61,43,0.09);}
+  .at-group-note{font-size:13px; line-height:1.55; color:#6a6c56; margin:-6px 0 16px;}
+  .at-chip-tag{display:inline-block; font-size:10.5px; letter-spacing:0.02em; color:#9a7444; border:1px solid rgba(178,138,86,0.45); border-radius:999px; padding:1px 8px; margin:2px 0;}
   .at-group-title{
     font-size:12.5px;
     letter-spacing:0.08em;
@@ -1735,11 +1738,11 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
   <div class="container">
     <div class="section-header reveal" style="margin-bottom:0;">
       <div class="eyebrow" style="color:var(--bronze)"><span class="lang-kr">애프터 트리트먼트</span><span class="lang-en">AFTER TREATMENT</span><span class="lang-zh">术后护理</span><span class="lang-ru">ПОСЛЕ ПРОЦЕДУРЫ</span></div>
-      <h2 class="lang-kr">시술 후, 회복의 시간을<br>당신만의 웰니스 여정으로 채워보세요</h2>
-      <h2 class="lang-en">Fill Your Recovery Time<br>With Your Own Wellness Journey</h2><h2  class="lang-zh">用专属健康之旅<br>填满您的恢复时光</h2><h2  class="lang-ru">Наполните время восстановления<br>своим велнес-путешествием</h2>
+      <h2 class="lang-kr">회복 중인 피부에 맞춘<br>서울에서의 하루</h2>
+      <h2 class="lang-en">Your Seoul Days,<br>Built Around Healing Skin</h2><h2  class="lang-zh">围绕恢复中的肌肤<br>安排的首尔时光</h2><h2  class="lang-ru">Дни в Сеуле,<br>выстроенные вокруг заживающей кожи</h2>
     </div>
-    <p class="at-lead reveal lang-kr">회복 여정에 더하고 싶은 순간들을 자유롭게 선택해보세요. 원하는 만큼 고르셔도 좋아요.</p>
-    <p class="at-lead reveal lang-en">Choose whatever moments you'd like to add to your recovery journey. Pick as many as you like.</p><p  class="at-lead reveal lang-zh">请自由选择您想加入恢复旅程的项目，数量不限。</p><p  class="at-lead reveal lang-ru">Свободно выбирайте моменты, которые хотите добавить в своё путешествие восстановления. Можно выбрать сколько угодно.</p>
+    <p class="at-lead reveal lang-kr">편안한 공간, 자극 없는 식사, 움직이기 좋은 시간, 그리고 스킨케어와 홈케어. 지금 회복 단계에 맞는 것만 골라 담으세요.</p>
+    <p class="at-lead reveal lang-en">Comfortable places, gentle food, the right hours, and skincare and homecare. Pick only what fits where your skin is right now.</p><p  class="at-lead reveal lang-zh">舒适的空间、温和的饮食、合适的出行时间，以及护肤与居家护理。只挑选适合您当前恢复阶段的项目。</p><p  class="at-lead reveal lang-ru">Комфортные места, мягкая еда, правильное время, уход за кожей и домашний уход. Выбирайте только то, что подходит вашей коже сейчас.</p>
 
     <div class="intensity-grid reveal" id="intensityGrid">
       <div class="intensity-card">
@@ -1794,7 +1797,32 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 
         <div class="at-groups reveal" id="atGrid">
       <div class="at-group-card at-group-recovery">
-        <div class="at-group-title"><span class="lang-kr">시술후 회복 옵션</span><span class="lang-en">Recovery Options</span><span class="lang-zh">术后恢复选项</span><span class="lang-ru">Варианты восстановления</span></div>
+        <div class="at-group-title"><span class="lang-kr">편안한 공간</span><span class="lang-en">Comfortable Places</span><span class="lang-zh">舒适的空间</span><span class="lang-ru">Комфортные места</span></div>
+        <div class="at-grid">
+<div class="at-chip" data-value="tealounge" data-price-min="20000" data-price-max="35000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span><span class="at-label lang-zh">茶室</span><span class="at-label lang-ru">Чайная гостиная</span>
+        <span class="at-chip-price">+₩20,000~35,000 (~$15-25)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="cafe" data-price-min="20000" data-price-max="40000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span><span class="at-label lang-zh">咖啡厅</span><span class="at-label lang-ru">Кафе</span> <span class="at-chip-price">+₩20,000~40,000 (~$15-30)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="artexhibition" data-price-min="15000" data-price-max="30000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span><span class="at-label lang-zh">艺术展览</span><span class="at-label lang-ru">Художественная выставка</span>
+        <span class="at-chip-price">+₩15,000~30,000 (~$10-20)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+        </div>
+      </div>
+      <div class="at-group-card at-group-culture">
+        <div class="at-group-title"><span class="lang-kr">자극 없는 식사</span><span class="lang-en">Gentle Food</span><span class="lang-zh">温和的饮食</span><span class="lang-ru">Мягкая еда</span></div>
         <div class="at-grid">
 <div class="at-chip" data-value="meal" data-price-min="30000" data-price-max="50000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 11.5h16a8 8 0 0 1-16 0z" stroke-linejoin="round"/><path d="M12 11.5V5.8"/><path d="M9.3 4c0 1 1 1 1 2s-1 1-1 2M15 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
@@ -1803,10 +1831,47 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="sauna" data-price-min="40000" data-price-max="200000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span><span class="at-label lang-zh">桑拿</span><span class="at-label lang-ru">Сауна</span>
-        <span class="at-chip-price">+₩40,000~200,000 (~$30-145)</span>
+<div class="at-chip" data-value="chefdining" data-price-min="200000" data-price-max="400000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
+        <span class="at-label lang-kr">저자극 파인다이닝</span><span class="at-label lang-en">Gentle Fine Dining</span><span class="at-label lang-zh">温和精致餐饮</span><span class="at-label lang-ru">Мягкий файн-дайнинг</span> <span class="at-chip-price">+₩200,000~400,000 (~$145-285)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+        </div>
+      </div>
+      <div class="at-group-card at-group-culture">
+        <div class="at-group-title"><span class="lang-kr">움직이기 좋은 시간</span><span class="lang-en">The Right Hours</span><span class="lang-zh">合适的出行时间</span><span class="lang-ru">Правильное время</span></div>
+        <div class="at-grid">
+<div class="at-chip" data-value="walk" data-price-min="10000" data-price-max="20000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span><span class="at-label lang-zh">散步</span><span class="at-label lang-ru">Прогулка</span>
+        <span class="at-chip-price">+₩10,000~20,000 (~$5-15)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="hanriver" data-price-min="0" data-price-max="20000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span><span class="at-label lang-zh">汉江</span><span class="at-label lang-ru">Река Хан</span>
+        <span class="at-chip-price">+₩0~20,000 (~$0-15)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+        </div>
+      </div>
+      <div class="at-group-card at-group-recovery">
+        <div class="at-group-title"><span class="lang-kr">스킨케어와 홈케어</span><span class="lang-en">Skincare & Homecare</span><span class="lang-zh">护肤与居家护理</span><span class="lang-ru">Уход за кожей и домашний уход</span></div>
+        <div class="at-grid">
+<div class="at-chip" data-value="shopping" data-price-min="50000" data-price-max="150000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">진정 스킨케어 쇼핑</span><span class="at-label lang-en">Calming Skincare Shopping</span><span class="at-label lang-zh">舒缓护肤品选购</span><span class="at-label lang-ru">Покупка успокаивающего ухода</span>
+        <span class="at-chip-price">+₩50,000~150,000 (~$35-105)</span>
+        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
+        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
+      </div>
+<div class="at-chip" data-value="coldpack" data-price-min="30000" data-price-max="60000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">냉찜질</span><span class="at-label lang-en">Cold Compress</span><span class="at-label lang-zh">冷敷</span><span class="at-label lang-ru">Холодный компресс</span>
+        <span class="at-chip-price">+₩30,000~60,000 (~$20-45)</span>
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
@@ -1826,91 +1891,38 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
 <div class="at-chip" data-value="lymphatic" data-price-min="80000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3c4 5 6 8 6 11a6 6 0 11-12 0c0-3 2-6 6-11z"/></svg></span>
         <span class="at-label lang-kr">림프 마사지</span><span class="at-label lang-en">Lymphatic Massage</span><span class="at-label lang-zh">淋巴按摩</span><span class="at-label lang-ru">Лимфодренажный массаж</span>
-        <span class="at-chip-price">+₩80,000~150,000 (~$55-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="coldpack" data-price-min="30000" data-price-max="60000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3v18M4.5 7.5l15 9M19.5 7.5l-15 9" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">냉찜질</span><span class="at-label lang-en">Cold Compress</span><span class="at-label lang-zh">冷敷</span><span class="at-label lang-ru">Холодный компресс</span>
-        <span class="at-chip-price">+₩30,000~60,000 (~$20-45)</span>
+        <span class="at-chip-tag"><span class="lang-kr">병원 확인 후</span><span class="lang-en">Clinic OK first</span><span class="lang-zh">需诊所确认</span><span class="lang-ru">После одобрения клиники</span></span> <span class="at-chip-price">+₩80,000~150,000 (~$55-105)</span>
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
 <div class="at-chip" data-value="compression" data-price-min="50000" data-price-max="100000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="5" y="9" width="14" height="6" rx="3"/><path d="M8 9v6M12 9v6M16 9v6" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">압박 케어</span><span class="at-label lang-en">Compression Care</span><span class="at-label lang-zh">压力护理</span><span class="at-label lang-ru">Компрессионный уход</span>
-        <span class="at-chip-price">+₩50,000~100,000 (~$35-70)</span>
+        <span class="at-chip-tag"><span class="lang-kr">병원 확인 후</span><span class="lang-en">Clinic OK first</span><span class="lang-zh">需诊所确认</span><span class="lang-ru">После одобрения клиники</span></span> <span class="at-chip-price">+₩50,000~100,000 (~$35-70)</span>
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
         </div>
       </div>
-      <div class="at-group-card at-group-culture">
-        <div class="at-group-title"><span class="lang-kr">서울 문화체험 옵션</span><span class="lang-en">Seoul Culture Experience</span><span class="lang-zh">首尔文化体验</span><span class="lang-ru">Культурный опыт Сеула</span></div>
+      <div class="at-group-card at-group-after">
+        <div class="at-group-title"><span class="lang-kr">피부가 회복된 뒤</span><span class="lang-en">Once Your Skin Has Healed</span><span class="lang-zh">肌肤恢复之后</span><span class="lang-ru">Когда кожа восстановится</span></div>
+        <p class="at-group-note"><span class="lang-kr">열과 메이크업은 병원에서 괜찮다고 할 때부터. 회복을 마무리하는 웰니스 시간이에요.</span><span class="lang-en">Heat and makeup start once your clinic says so. A wellness finish to your recovery.</span><span class="lang-zh">热疗与化妆请在诊所确认可以之后再进行。这是为恢复收尾的放松时光。</span><span class="lang-ru">Тепло и макияж — только когда клиника разрешит. Велнес-финал вашего восстановления.</span></p>
         <div class="at-grid">
-<div class="at-chip" data-value="cafe" data-price-min="20000" data-price-max="40000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h10l-0.9 10.2a2 2 0 0 1-2 1.8H9.4a2 2 0 0 1-2-1.8L6.5 8z" stroke-linejoin="round"/><path d="M5.3 8h13.4"/><path d="M9.5 5c0-1 1-1 1-2M14 5c0-1-1-1-1-2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">카페</span><span class="at-label lang-en">Café</span><span class="at-label lang-zh">咖啡厅</span><span class="at-label lang-ru">Кафе</span> <span class="at-chip-price">+₩20,000~40,000 (~$15-30)</span>
+<div class="at-chip" data-value="sauna" data-price-min="40000" data-price-max="200000">
+        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 19.5h16" stroke-linecap="round"/><path d="M8 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M12.5 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/><path d="M17 15c0-2-2-2-2-4s2-2 2-4" stroke-linecap="round"/></svg></span>
+        <span class="at-label lang-kr">사우나</span><span class="at-label lang-en">Sauna</span><span class="at-label lang-zh">桑拿</span><span class="at-label lang-ru">Сауна</span>
+        <span class="at-chip-price">+₩40,000~200,000 (~$30-145)</span>
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-<div class="at-chip" data-value="walk" data-price-min="10000" data-price-max="20000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 20c3-1.8 3-4.8 6-5.8s3 3 6 2 2-4.8 4-5.8" stroke-linecap="round"/><circle cx="4" cy="20" r="1.1" fill="currentColor" stroke="none"/><circle cx="20" cy="10.4" r="1.1" fill="currentColor" stroke="none"/></svg></span>
-        <span class="at-label lang-kr">산책</span><span class="at-label lang-en">Walk</span><span class="at-label lang-zh">散步</span><span class="at-label lang-ru">Прогулка</span>
-        <span class="at-chip-price">+₩10,000~20,000 (~$5-15)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="chefdining" data-price-min="200000" data-price-max="400000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.2a4 4 0 0 1 4 4c1.7 0 3 1.3 3 3 0 1.5-1 2.7-2.3 3H7.3C6 13 5 11.7 5 10.2c0-1.7 1.3-3 3-3a4 4 0 0 1 4-4z" stroke-linejoin="round"/><path d="M7 16.2h10v2.8a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-2.8z" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">유명 셰프 다이닝</span><span class="at-label lang-en">Celebrity Chef Dining</span><span class="at-label lang-zh">名厨餐饮</span><span class="at-label lang-ru">Ужин от именитого шеф-повара</span> <span class="at-chip-price">+₩200,000~400,000 (~$145-285)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="artexhibition" data-price-min="15000" data-price-max="30000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><rect x="4" y="5" width="16" height="14" rx="1"/><circle cx="9" cy="10" r="1.6"/><path d="M4.8 16.5l4.7-4 3 2.8 3.7-4.3 4 5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">아트 전시</span><span class="at-label lang-en">Art Exhibition</span><span class="at-label lang-zh">艺术展览</span><span class="at-label lang-ru">Художественная выставка</span>
-        <span class="at-chip-price">+₩15,000~30,000 (~$10-20)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="museum" data-price-min="5000" data-price-max="15000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3.5 9.5L12 4l8.5 5.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 9.8v9M8 9.8v9M12 9.8v9M16 9.8v9M19.5 9.8v9" stroke-linecap="round"/><path d="M3.5 18.8h17" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">박물관</span><span class="at-label lang-en">Museum</span><span class="at-label lang-zh">博物馆</span><span class="at-label lang-ru">Музей</span>
-        <span class="at-chip-price">+₩5,000~15,000 (~$5-10)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="tealounge" data-price-min="20000" data-price-max="35000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M4 9.5h12.5V14a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9.5z" stroke-linejoin="round"/><path d="M16.5 10.5H18a2 2 0 1 1 0 4h-1" /><path d="M8.2 4c0 1-1 1-1 2s1 1 1 2M12.5 4c0 1-1 1-1 2s1 1 1 2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">티 라운지</span><span class="at-label lang-en">Tea Lounge</span><span class="at-label lang-zh">茶室</span><span class="at-label lang-ru">Чайная гостиная</span>
-        <span class="at-chip-price">+₩20,000~35,000 (~$15-25)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="shopping" data-price-min="50000" data-price-max="150000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M6.5 8h11l-1 11.2a1.5 1.5 0 0 1-1.5 1.3H9a1.5 1.5 0 0 1-1.5-1.3L6.5 8z" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" stroke-linecap="round"/></svg></span>
-        <span class="at-label lang-kr">뷰티 쇼핑</span><span class="at-label lang-en">Beauty Shopping</span><span class="at-label lang-zh">美妆购物</span><span class="at-label lang-ru">Шопинг красоты</span>
-        <span class="at-chip-price">+₩50,000~150,000 (~$35-105)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-<div class="at-chip" data-value="hanriver" data-price-min="0" data-price-max="20000">
-        <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M3 8.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 13.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 18.5c2-1.4 4-1.4 6 0s4 1.4 6 0 4-1.4 6 0" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <span class="at-label lang-kr">한강</span><span class="at-label lang-en">Han River</span><span class="at-label lang-zh">汉江</span><span class="at-label lang-ru">Река Хан</span>
-        <span class="at-chip-price">+₩0~20,000 (~$0-15)</span>
-        <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
-        <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
-      </div>
-        <div class="at-chip" data-value="beauty" data-price-min="70000" data-price-max="150000">
+<div class="at-chip" data-value="beauty" data-price-min="70000" data-price-max="150000">
         <span class="at-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.3"><path d="M12 3.5c1.8 2 3.2 4.4 3.2 7 0 2.3-1.4 4-3.2 4s-3.2-1.7-3.2-4c0-2.6 1.4-5 3.2-7z" stroke-linejoin="round"/><path d="M12 14.5v6M9 20.5h6" stroke-linecap="round"/></svg></span>
         <span class="at-label lang-kr">메이크업</span><span class="at-label lang-en">Makeup</span><span class="at-label lang-zh">化妆</span><span class="at-label lang-ru">Макияж</span>
         <span class="at-chip-price">+₩70,000~150,000 (~$50-105)</span>
         <span class="at-included-badge"><span class="lang-kr">포함됨</span><span class="lang-en">Included</span><span class="lang-zh">已包含</span><span class="lang-ru">Включено</span></span>
         <button type="button" class="at-info-btn" title="자세히 보기 · View details" aria-label="자세히 보기 · View details">i</button>
       </div>
-</div>
+        </div>
       </div>
     </div>
 
@@ -2028,7 +2040,7 @@ src="https://www.facebook.com/tr?id=106560364588802&ev=PageView&noscript=1"
         <button type="button" class="option-select-btn"><span class="lang-kr">이 패키지로 계산하기</span><span class="lang-en">Use This Package</span><span class="lang-zh">选择该方案计算</span><span class="lang-ru">Использовать этот пакет</span></button>
       </div>
 
-      <div class="option-card featured" data-fit-min="4" data-fit-max="7" data-package="recovery3d" data-base-price="1200000" data-included="sauna,therapy">
+      <div class="option-card featured" data-fit-min="4" data-fit-max="7" data-package="recovery3d" data-base-price="1200000" data-included="headspa,therapy">
         <div class="option-recommended"><span class="lang-kr">선택하신 구성에 딱이에요</span><span class="lang-en">Fits Your Picks</span><span class="lang-zh">匹配您的选择</span><span class="lang-ru">Подходит под ваш выбор</span></div>
         <div class="option-tag"><span class="lang-kr">2박 3일</span><span class="lang-en">3 DAYS · 2 NIGHTS</span><span class="lang-zh">2晚3天</span><span class="lang-ru">3 ДНЯ · 2 НОЧИ</span></div><div class="option-intensity"><span class="option-intensity-name lang-kr">균형 잡힌 회복</span><span class="option-intensity-name lang-en">Balanced Recovery</span><span class="option-intensity-name lang-zh">均衡恢复</span><span class="option-intensity-name lang-ru">Сбалансированное восстановление</span><span class="option-intensity-examples lang-kr">다운타임 2~4일</span><span class="option-intensity-examples lang-en">Downtime: 2–4 days</span><span class="option-intensity-examples lang-zh">恢复期：2–4天</span><span class="option-intensity-examples lang-ru">Восстановление: 2–4 дня</span></div>
         <h3 class="option-title lang-kr">회복 저니</h3>
@@ -2628,7 +2640,7 @@ expZh:'在预约之间从容参观展览，沿着不会让您感到疲惫的路�
         forRu:'Для тех, кто хочет немного побыть в тишине, не теряя ощущения настоящего путешествия.',
         reasonZh:'我亲自去看过——确认过步行路线、座位与灯光，确保在恢复期也能舒适参观。',
         reasonRu:'Я сама там была — проверила маршрут, места для отдыха и освещение, чтобы удостовериться в комфорте во время восстановления.',
-                pairs:['museum','tealounge','cafe']
+                pairs:['hanriver','tealounge','meal']
       },
       museum:{
         expKr:'서울의 역사와 문화를 천천히 둘러보는 박물관 투어입니다. 앉아서 쉴 수 있는 공간이 있는 곳으로만 골랐습니다.',
@@ -2666,7 +2678,7 @@ expZh:'一处宁静的茶室，伴着一壶茶慢下来——舒适的座位、�
         forRu:'Для тех, кто хочет тихий момент, возможно, разговор, без шума и спешки.',
         reasonZh:'我亲自在那里喝过茶——确认过座位、灯光与噪音水平后才推荐。',
         reasonRu:'Я сама пила там чай — проверила места, освещение и уровень шума перед тем, как рекомендовать.',
-                pairs:['cafe','artexhibition','museum']
+                pairs:['cafe','artexhibition','hanriver']
       },
       headspa:{
         expKr:'두피와 목, 어깨까지 이어지는 집중 케어입니다. 시술 부위를 피해서 안전하게 진행됩니다.',
@@ -2688,23 +2700,23 @@ expZh:'专注于头皮、颈部与肩部的护理疗程——始终小心避开�
                 pairs:['therapy','sauna','tealounge']
       },
       shopping:{
-        expKr:'K-뷰티 제품과 화장품을 둘러보는 쇼핑 시간입니다. 원하는 매장 위주로 동선을 짜서 효율적으로 다녀올 수 있습니다.',
-        expEn:'A shopping trip focused on K-beauty and cosmetics, with a route planned around the stores you actually want.',
-        whyKr:'서울에 왔다면 K-뷰티 제품은 꼭 챙기고 싶은 분들이 많습니다. 원하는 브랜드와 매장을 미리 파악해 헤매지 않도록 안내합니다.',
-        whyEn:'K-beauty is often top of the list in Seoul. We map out the brands and stores you want so you’re not wasting time.',
-        forKr:'K-뷰티 제품과 화장품 쇼핑을 알차게 하고 싶은 분.',
-        forEn:'Anyone who wants to make the most of their K-beauty and cosmetics shopping.',
+        expKr:'회복 중인 피부에 맞는 진정·보습 위주의 스킨케어를 함께 고르는 시간입니다. 자극 성분은 피하고, 지금 단계에 필요한 것만 담아요.',
+        expEn:'Time to pick skincare that suits healing skin, focused on calming and moisture. We skip harsh ingredients and choose only what this stage needs.',
+        whyKr:'시술 후에는 평소 쓰던 제품도 자극이 될 수 있어요. 지금 단계에 맞는 제품을 알고 가면, 돌아가서의 홈케어까지 이어집니다.',
+        whyEn:'After treatment, even your usual products can sting. Knowing what fits your stage carries straight into your homecare once you fly back.',
+        forKr:'K-뷰티 제품은 사고 싶지만, 지금 피부에 뭐가 맞을지 고민되는 분.',
+        forEn:'Anyone who wants K-beauty products but isn’t sure what suits their skin right now.',
         reasonKr:'직접 매장을 다녀보고, 제품 구성과 응대가 좋은 곳만 안내합니다.',
         reasonEn:'I’ve visited the stores myself and only recommend ones with good product range and service.',
-expZh:'专注于K-beauty与美妆产品的购物之旅，路线围绕您真正想去的店铺规划。',
-        expRu:'Шопинг-тур с акцентом на K-beauty и косметику, маршрут построен вокруг магазинов, которые вам действительно интересны.',
-        whyZh:'K-beauty往往是来首尔的必去清单之首。我们会规划好您想去的品牌与店铺，避免浪费时间。',
-        whyRu:'K-beauty часто стоит на первом месте в списке желаний в Сеуле. Мы составляем маршрут по нужным брендам и магазинам, чтобы вы не теряли время.',
-        forZh:'适合希望充分体验K-beauty与美妆购物的人。',
-        forRu:'Для тех, кто хочет максимально использовать время для шопинга K-beauty и косметики.',
+expZh:'一起挑选适合恢复中肌肤的护肤品，以舒缓和保湿为主。避开刺激成分，只选择当前阶段真正需要的。',
+        expRu:'Подбираем уход для заживающей кожи — с акцентом на успокоение и увлажнение. Без агрессивных компонентов, только то, что нужно на этом этапе.',
+        whyZh:'术后即使是平时用惯的产品也可能带来刺激。了解适合当前阶段的产品，回国后的居家护理也能顺利衔接。',
+        whyRu:'После процедуры даже привычные средства могут раздражать. Зная, что подходит вашему этапу, вы продолжите правильный домашний уход и после возвращения.',
+        forZh:'适合想购买K-beauty产品，却不确定现在的肌肤适合什么的人。',
+        forRu:'Для тех, кто хочет купить K-beauty, но не уверен, что подойдёт коже сейчас.',
         reasonZh:'我亲自去过这些店铺——只推荐产品种类齐全、服务良好的店家。',
         reasonRu:'Я сама посещала эти магазины — рекомендую только те, где хороший ассортимент и сервис.',
-                pairs:['chefdining','cafe','beauty']
+                pairs:['coldpack','headspa','tealounge']
       },
       beauty:{
         expKr:'서울 스타일 메이크업을 받아보는 시간입니다. 전문 아티스트가 얼굴 상태에 맞춰 자연스럽게 완성합니다.',
@@ -3056,7 +3068,7 @@ expZh:'在汉江边度过一段悠闲时光，无论是漫步还是静坐，节�
         lines.push((isEn ? 'Included: ' : '포함 항목: ') + includedChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent).join(', '));
       }
       if(extraChips.length){
-        lines.push((isEn ? 'Added options: ' : '추가 옵션: ') + extraChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent + ' (' + fmtRange(Number(c.dataset.priceMin) || 0, Number(c.dataset.priceMax) || 0) + ')').join(', '));
+        lines.push((isEn ? 'Added options: ' : '추가 옵션: ') + extraChips.map(c => c.querySelector('.at-label.lang-' + lang).textContent + ((c.dataset.priceMin || c.dataset.priceMax) ? ' (' + fmtRange(Number(c.dataset.priceMin) || 0, Number(c.dataset.priceMax) || 0) + ')' : '')).join(', '));
       }
       if(selectedPackage === 'bespoke'){
         lines.push((isEn ? 'Estimated total: Custom quote' : '예상 총액: 맞춤 견적'));
